@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="384dp"
+        android:layout_height="63dp"
+        android:background="@android:color/holo_blue_bright"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/toolbar2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="384dp"
+        android:layout_height="63dp"
+        android:background="@android:color/holo_blue_bright"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <SearchView
+        android:layout_width="50dp"
+        android:layout_height="67dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="334dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="11dp" />
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_below="@+id/toolbar2"
+        android:layout_alignParentStart="true"
+        android:id="@+id/toolbar3" />
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/toolbar3"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar2"
+        app:tabIndicatorColor="@color/colorPrimaryDark">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabItem7"
+            android:text="Tab6" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabItem5"
+            android:text="Tab4" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabItem6"
+            android:text="Tab5" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Center" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:id="@+id/txtfiltro" />
+    </android.support.design.widget.TabLayout>
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="384dp"
+        android:layout_height="67dp"
+        tools:layout_editor_absoluteY="500dp"
+        tools:layout_editor_absoluteX="0dp"
+        app:tabIndicatorColor="@android:color/holo_blue_light"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etxtcarrinho"
+            android:text="Carrinho" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etxtpedidos"
+            android:text="Pedidos" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etxtconta"
+            android:text="EU" />
+
+    </android.support.design.widget.TabLayout>
+
+    <TextView
+        android:text="LISTAPRODUTOS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtlistaprod"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/toolbar3"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
