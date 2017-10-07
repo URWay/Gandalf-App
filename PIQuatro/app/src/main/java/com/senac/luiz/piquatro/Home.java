@@ -64,7 +64,7 @@ private TextView txtfiltro;
 
             }
         });
-
+/*
       // FIM INTENTS
         txtfiltro = (TextView) findViewById(R.id.txtfiltro);
         txtfiltro.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +84,7 @@ private TextView txtfiltro;
                 dialog.show();
             }
         });
-
+*/
 
 
     }

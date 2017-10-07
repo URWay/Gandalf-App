@@ -7,15 +7,6 @@
     tools:context="com.senac.luiz.piquatro.Login">
 
 
-    <TextView
-        android:text="imglogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:layout_alignBottom="@+id/txtlogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="85dp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -76,5 +67,33 @@
         android:layout_marginBottom="65dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logogandalf"
+        android:layout_above="@+id/txtlogin"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/user2"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignBottom="@+id/txtlogin"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_toStartOf="@+id/txtlogin" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtlogin"
+        app:srcCompat="@drawable/password"
+        android:layout_alignBottom="@+id/txtsenha"
+        android:layout_alignStart="@+id/imageView4"
+        android:layout_toStartOf="@+id/txtsenha" />
 
 </RelativeLayout>

@@ -28,7 +28,8 @@
         tools:layout_editor_absoluteX="0dp"
         android:id="@+id/toolbar"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <SearchView
         android:layout_width="50dp"
@@ -36,8 +37,9 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="334dp"
         android:layout_alignParentTop="true"
+        android:id="@+id/searchView"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="11dp" />
+        android:layout_toEndOf="@+id/imageView17" />
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -81,54 +83,65 @@
             android:text="Center" />
 
         <android.support.design.widget.TabItem
+            android:id="@+id/txtfiltro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:icon="@android:drawable/ic_menu_manage"
-            android:id="@+id/txtfiltro" />
+            android:text="Tab5" />
+
     </android.support.design.widget.TabLayout>
 
     <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="384dp"
         android:layout_height="67dp"
-        tools:layout_editor_absoluteY="500dp"
+        app:tabIndicatorColor="@android:color/holo_blue_dark"
+        app:tabSelectedTextColor="@android:color/holo_blue_dark"
         tools:layout_editor_absoluteX="0dp"
-        app:tabIndicatorColor="@android:color/holo_blue_light"
+        tools:layout_editor_absoluteY="500dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
 
         <android.support.design.widget.TabItem
+            android:id="@+id/tabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home" />
+            android:icon="@drawable/search"
+            android:text="Buscar" />
 
         <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/etxtcarrinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/carrinho"
             android:text="Carrinho" />
 
         <android.support.design.widget.TabItem
+            android:id="@+id/etxtpedidos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/etxtpedidos"
+            android:icon="@drawable/lista"
             android:text="Pedidos" />
 
         <android.support.design.widget.TabItem
+            android:id="@+id/etxtconta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/etxtconta"
+            android:icon="@drawable/user"
             android:text="EU" />
-
     </android.support.design.widget.TabLayout>
 
-    <TextView
-        android:text="LISTAPRODUTOS"
+    <ImageView
+        android:id="@+id/imageView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtlistaprod"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/toolbar3"
-        android:layout_alignParentBottom="true" />
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/logogandalf"
+        android:layout_above="@+id/toolbar3"
+        android:layout_alignParentTop="true" />
+
+
+
+
 
 </RelativeLayout>

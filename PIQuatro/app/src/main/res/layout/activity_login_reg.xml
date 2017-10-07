@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_login_reg"
     android:layout_width="match_parent"
@@ -22,15 +23,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:text="imgLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/txtlogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
-        android:id="@+id/textView2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,10 +54,10 @@
         android:ems="10"
         android:id="@+id/txtsenha"
         android:hint="Senha"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/txtemail"
+        android:layout_marginBottom="13dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,5 +70,22 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="83dp"
         android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        app:srcCompat="@drawable/logogandalf" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logogandalf"
+        android:layout_above="@+id/txtlogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp" />
 
 </RelativeLayout>
