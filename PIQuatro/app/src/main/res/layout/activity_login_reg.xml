@@ -32,7 +32,7 @@
         android:id="@+id/txtemail"
         android:hint="email@example.com"
         android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/txttelefone"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
     <EditText
@@ -40,10 +40,10 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:layout_marginTop="27dp"
         android:id="@+id/txttelefone"
         android:hint="(11)1234-5678"
-        android:layout_below="@+id/txtemail"
+        android:layout_marginBottom="27dp"
+        android:layout_above="@+id/btnok"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
 
@@ -54,38 +54,18 @@
         android:ems="10"
         android:id="@+id/txtsenha"
         android:hint="Senha"
-        android:layout_above="@+id/txtemail"
-        android:layout_marginBottom="13dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtlogin"
-        android:hint="Login"
-        android:layout_above="@+id/txtemail"
+        android:layout_alignBottom="@+id/txttelefone"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="83dp"
+        android:layout_marginBottom="59dp"
         android:layout_alignParentEnd="true" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        app:srcCompat="@drawable/logogandalf" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/logogandalf"
-        android:layout_above="@+id/txtlogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp" />
+        android:layout_above="@+id/txtemail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

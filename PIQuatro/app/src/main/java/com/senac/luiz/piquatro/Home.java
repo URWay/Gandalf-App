@@ -1,92 +1,92 @@
 package com.senac.luiz.piquatro;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
-import android.view.WindowManager.LayoutParams;
-import android.widget.EditText;
-import android.widget.TextView;
 
-
-public class Home extends AppCompatActivity {
-private EditText etxtcarrinho;
-private EditText etxtpedidos;
-private EditText etxtconta;
-private TextView txtfiltro;
+public class Home extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(LayoutParams.FLAG_FULLSCREEN, LayoutParams.FLAG_FULLSCREEN);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(  this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        // INTENTS
-
-        // Home/Carrinho
-        etxtcarrinho = (EditText) findViewById(R.id.etxtcarrinho);
-        etxtcarrinho.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(Home.this, Carrinho.class);
-                startActivity(intent);
-
-            }
-        });
-
-        //Home/Pedidos
-        etxtpedidos = (EditText) findViewById(R.id.etxtpedidos);
-        etxtpedidos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            /*
-                Intent intent = new Intent(Home.this, Pedidos.class);
-                startActivity(intent);
-            */
-
-         etxtconta = (EditText) findViewById(R.id.etxtconta);
-         etxtconta.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                   /*
-                Intent intent = new Intent(Home.this, Conta.class);
-                startActivity(intent);
-            */
-             }
-         });
-
-
-            }
-        });
-/*
-      // FIM INTENTS
-        txtfiltro = (TextView) findViewById(R.id.txtfiltro);
-        txtfiltro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
-                alerta.setTitle("Erro!");
-                alerta.setMessage("");
-
-                alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int id) {
-                      
-                    }
-                });
-                AlertDialog dialog = alerta.create();
-                dialog.show();
-            }
-        });
-*/
-
-
+        setTitle(null);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 }

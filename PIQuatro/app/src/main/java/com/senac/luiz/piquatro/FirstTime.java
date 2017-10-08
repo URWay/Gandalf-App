@@ -1,6 +1,7 @@
 package com.senac.luiz.piquatro;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ private Button btnok;
             @Override
             public void onClick(View view) {
                 if(checktermo.isChecked()){
+
+                    Intent intent = new Intent(FirstTime.this, Home.class);
+                    startActivity(intent);
+                    finish();
 
                 }else{
                     AlertDialog.Builder alerta = new AlertDialog.Builder(FirstTime.this);

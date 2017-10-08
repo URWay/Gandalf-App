@@ -67,7 +67,7 @@ private EditText txtfiltro;
 
             }
         });
-
+/*
         txtfiltro = (EditText) findViewById(R.id.txtfiltro);
         txtfiltro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +75,7 @@ private EditText txtfiltro;
 
             }
         });
-
+*/
 
     }
 }

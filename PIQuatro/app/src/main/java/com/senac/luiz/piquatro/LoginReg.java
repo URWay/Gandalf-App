@@ -44,6 +44,18 @@ private Button btnok;
                     AlertDialog dialog = alerta.create();
                     dialog.show();
 
+                }else{
+                    AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
+
+                    alerta.setMessage("Cliente cadastrado com sucesso! (:");
+                    alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+
+                        }
+                    });
+                    AlertDialog dialog = alerta.create();
+                    dialog.show();
                 }
             }
         });

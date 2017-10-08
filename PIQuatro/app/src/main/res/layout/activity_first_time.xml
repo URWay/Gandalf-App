@@ -34,18 +34,19 @@
         android:checked="false"
         android:text="Eu li e aceito os termos e condições de uso."
         android:textColorLink="@android:color/holo_blue_dark"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:buttonTint="@android:color/holo_blue_bright" />
 
     <TextView
+        android:id="@+id/txtermo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/txtermo"
+        android:layout_above="@+id/checktermo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/checktermo"
-        android:background="?attr/colorButtonNormal"
-        android:textSize="24sp"
-        android:layout_below="@+id/textView11" />
+        android:layout_below="@+id/textView11"
+        android:background="@android:color/white"
+        android:textSize="24sp" />
 
     <TextView
         android:text="Termo de condições de uso"
