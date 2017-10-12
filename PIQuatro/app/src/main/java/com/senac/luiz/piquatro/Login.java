@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import static android.support.v7.appcompat.R.styleable.AlertDialog;
+
 public class Login extends AppCompatActivity {
 private EditText txtlogin;
 private EditText txtsenha;

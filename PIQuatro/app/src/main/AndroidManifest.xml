@@ -13,9 +13,6 @@
         android:label="Gandalf Store"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,24 +20,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".FirstTime" />
+        <activity android:name=".Login" />
+        <activity android:name=".CadastroCliente">
 
-        <activity android:name=".FirstTime">
+            <!-- testar sacoisa aqui dps, dude3
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
         </activity>
-
-        <activity android:name=".Login">
-
-        </activity>
-        <activity android:name=".LoginReg">
-
-        </activity>
+        <activity android:name=".LoginReg" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme">
-
-        </activity>
-
+            android:theme="@style/AppTheme" />
+        <activity android:name=".CadastroEndereco"></activity>
     </application>
 
 </manifest>
