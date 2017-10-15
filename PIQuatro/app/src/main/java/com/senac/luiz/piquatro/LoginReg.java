@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginReg extends AppCompatActivity {
-private EditText txtlogin;
+private EditText txttelefone;
 private EditText txtsenha;
 private EditText txtemail;
 private Button btnok;
@@ -19,23 +19,25 @@ private Button btnok;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_reg);
 
-            txtlogin = (EditText)findViewById(R.id.txtlogin);
+            txttelefone = (EditText)findViewById(R.id.txttelefone);
             txtsenha = (EditText)findViewById(R.id.txtsenha);
             txtemail = (EditText)findViewById(R.id.txtemail);
             btnok = (Button)findViewById(R.id.btnok);
 
 
+        txttelefone.addTextChangedListener(Mask.insert("(##) # ####-####", txttelefone));
+
         btnok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtlogin.equals("") || txtsenha.equals("") || txtemail.equals("") ){
+                if (txttelefone.equals("") || txtsenha.equals("") || txtemail.equals("") ){
                     AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
                     alerta.setTitle("Erro!");
                     alerta.setMessage("Preencha os campos corretamente!");
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            txtlogin.setText(null);
+                            txttelefone.setText(null);
                             txtsenha.setText(null);
                             txtemail.setText(null);
 
