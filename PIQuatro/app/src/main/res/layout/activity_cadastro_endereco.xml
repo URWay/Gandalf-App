@@ -31,18 +31,6 @@
         android:layout_alignEnd="@+id/txtnome" />
 
     <EditText
-        android:id="@+id/txtnum"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtendereco"
-        android:layout_alignBottom="@+id/txtendereco"
-        android:layout_marginStart="15dp"
-        android:layout_toEndOf="@+id/txtendereco"
-        android:ems="10"
-        android:hint="N°"
-        android:inputType="number" />
-
-    <EditText
         android:id="@+id/txtcep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,39 +45,12 @@
         android:id="@+id/txtcomplemento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/txtcep"
-        android:layout_below="@+id/txtcep"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Complemento"
-        android:inputType="textPersonName" />
-
-    <Spinner
-        android:id="@+id/spinnercidade"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/txtcomplemento"
-        android:layout_alignStart="@+id/txtcomplemento"
-        android:layout_alignEnd="@+id/button" />
-
-    <Spinner
-        android:id="@+id/spinneruf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/spinnercidade"
-        android:layout_below="@+id/spinnercidade"
-        android:layout_marginTop="17dp"
-        android:layout_alignEnd="@+id/spinnercidade" />
-
-    <Spinner
-        android:id="@+id/spinnerpais"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/spinneruf"
-        android:layout_alignStart="@+id/spinneruf"
-        android:layout_below="@+id/spinneruf"
-        android:layout_marginTop="16dp" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/txtcep"
+        android:layout_alignStart="@+id/txtcep" />
 
     <Button
         android:id="@+id/button"
@@ -112,5 +73,50 @@
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtcidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtcomplemento"
+        android:layout_below="@+id/txtcomplemento"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Cidade"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtuf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtcidade"
+        android:layout_alignBottom="@+id/txtcidade"
+        android:layout_alignEnd="@+id/txtnum"
+        android:layout_toEndOf="@+id/button"
+        android:ems="10"
+        android:hint="UF"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtpais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtcidade"
+        android:layout_below="@+id/txtcidade"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="País"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtendereco"
+        android:ems="10"
+        android:hint="N°"
+        android:inputType="number"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_toEndOf="@+id/txtnome" />
 
 </RelativeLayout>

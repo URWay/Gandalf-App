@@ -1,6 +1,7 @@
 package com.senac.luiz.piquatro;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Network;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
@@ -25,6 +26,7 @@ import java.net.URL;
 public class CadastroEnderecoCEP extends AppCompatActivity {
     private EditText txtcep;
     private TextView txtteste;
+    private TextView txtcadcep;
     private Button btnok;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,23 @@ public class CadastroEnderecoCEP extends AppCompatActivity {
         txtcep = (EditText) findViewById(R.id.txtcep);
         btnok = (Button) findViewById(R.id.btnok);
         txtteste = (TextView) findViewById(R.id.txtteste);
-
+        txtcadcep = (TextView) findViewById(R.id.txtcadcep);
 
        txtcep.addTextChangedListener(Mask.insert("#####-###", txtcep));
+
+        txtcadcep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(CadastroEnderecoCEP.this, CadastroEndereco.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
 
 
        btnok.setOnClickListener(new View.OnClickListener() {
@@ -43,9 +59,10 @@ public class CadastroEnderecoCEP extends AppCompatActivity {
 
            @Override
            public void onClick(View view) {
-               Integer vcep = null;
+            String vcep = null;
                try{
-                   vcep = Integer.parseInt(txtcep.getText().toString());
+
+                vcep = txtcep.getText().toString();
                }catch(Exception e){
 
                }
