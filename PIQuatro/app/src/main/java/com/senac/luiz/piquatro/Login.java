@@ -36,8 +36,8 @@ private EditText txtfiltro;
         btnok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtlogin.getText().toString().isEmpty() ||
-                    txtsenha.getText().toString().isEmpty() ){
+                if (txtlogin.getText().length() ==0|| txtlogin.equals("")||
+                    txtsenha.getText().length() ==0 || txtsenha.equals("")){
                     AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
                     alerta.setTitle("Erro!");
                     alerta.setMessage("Preencha os campos corretamente!");

@@ -13,9 +13,9 @@ private EditText txtendereco;
 private EditText txtnum;
 private EditText txtcep;
 private EditText txtcomplemento;
-private Spinner spinnercidade;
-private Spinner spinneruf;
-private Spinner spinnerpais;
+private EditText txtcidade;
+private EditText txtuf;
+private EditText txtpais;
 
 
     @Override
@@ -28,9 +28,9 @@ private Spinner spinnerpais;
         txtnum = (EditText) findViewById(R.id.txtnum);
         txtcep = (EditText) findViewById(R.id.txtcep);
         txtcomplemento = (EditText) findViewById(R.id.txtcomplemento);
-        spinnercidade = (Spinner) findViewById(R.id.spinnercidade);
-        spinneruf = (Spinner) findViewById(R.id.spinneruf);
-        spinnerpais = (Spinner) findViewById(R.id.spinnerpais);
+        txtcidade = (EditText) findViewById(R.id.txtcidade);
+        txtuf = (EditText) findViewById(R.id.txtuf);
+        txtpais = (EditText) findViewById(R.id.txtpais);
 
 
         txtnum.addTextChangedListener(Mask.insert("######", txtnum));
@@ -39,10 +39,7 @@ private Spinner spinnerpais;
 
 
 
-
-
-
-        if(txtnome.equals("") || txtendereco.equals("") || txtnum.equals("") || txtcep.equals("") || spinnercidade.equals("Selecione") || spinneruf.equals("Selecione") || spinnerpais.equals("Selecione") ){
+        if(txtnome.equals("") || txtendereco.equals("") || txtnum.equals("") || txtcep.equals("") || txtcidade.equals("Selecione") || txtuf.equals("Selecione") || txtpais.equals("Selecione") ){
             AlertDialog.Builder alerta = new AlertDialog.Builder(CadastroEndereco.this);
             alerta.setTitle("Erro!");
             alerta.setMessage("Preencha os campos corretamente!");

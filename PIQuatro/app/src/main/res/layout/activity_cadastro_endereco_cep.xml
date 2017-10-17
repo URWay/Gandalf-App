@@ -8,13 +8,13 @@
 
     <EditText
         android:id="@+id/txtcep"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_below="@+id/textView6"
-        android:layout_marginTop="54dp"
+        android:layout_below="@+id/txtteste"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="Digite o CEP"
         android:inputType="number"
         android:textColorLink="@android:color/holo_blue_bright" />
 
@@ -52,7 +52,7 @@
         android:layout_marginTop="68dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/txtcadcep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView7"

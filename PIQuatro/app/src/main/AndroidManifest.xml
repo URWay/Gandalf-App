@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logogandalf"
-        android:label="Gandalf Store"
+        android:label="Gandalf Geek Store"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">
@@ -20,22 +20,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FirstTime" />
-        <activity android:name=".Login" />
-        <activity android:name=".LoginReg" />
-        <activity
-            android:name=".Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".CadastroEndereco" />
-        <activity android:name=".CadastroEnderecoCEP">
+        <activity android:name=".CadastroCliente">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Mask"></activity>
+        <activity android:name=".FirstTime" />
+        <activity android:name=".Login" />
+        <activity android:name=".LoginReg">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".CadastroEndereco" />
+        <activity android:name=".CadastroEnderecoCEP"></activity>
+        <activity android:name=".Mask" />
+        <activity android:name=".Notificacao"></activity>
+        <activity android:name=".RodarNotificacao" />
     </application>
 
 </manifest>

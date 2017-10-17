@@ -1,65 +1,85 @@
 package com.senac.luiz.piquatro;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.Address;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.Manifest;
+import android.widget.Toast;
 
 public class LoginReg extends AppCompatActivity {
-private EditText txttelefone;
-private EditText txtsenha;
-private EditText txtemail;
-private Button btnok;
+    private EditText txtfone;
+    private EditText txtsenha;
+    private EditText txtemail;
+    private Button btnok;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_reg);
 
-            txttelefone = (EditText)findViewById(R.id.txttelefone);
-            txtsenha = (EditText)findViewById(R.id.txtsenha);
-            txtemail = (EditText)findViewById(R.id.txtemail);
-            btnok = (Button)findViewById(R.id.btnok);
+        txtfone = (EditText) findViewById(R.id.txtfone);
+        txtsenha = (EditText) findViewById(R.id.txtsenha);
+        txtemail = (EditText) findViewById(R.id.txtemail);
+        btnok = (Button) findViewById(R.id.btnok);
 
 
-        txttelefone.addTextChangedListener(Mask.insert("(##) # ####-####", txttelefone));
+        txtfone.addTextChangedListener(Mask.insert("(##)#####-####", txtfone));
 
         btnok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txttelefone.equals("") || txtsenha.equals("") || txtemail.equals("") ){
+                if (txtemail.getText().length() == 0 ||txtemail.getText().equals("")||
+                    txtsenha.getText().length() == 0 || txtsenha.getText().equals("") ||
+                    txtfone.getText().length() == 0 || txtfone.getText().equals("")) {
+
                     AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
-                    alerta.setTitle("Erro!");
-                    alerta.setMessage("Preencha os campos corretamente!");
+                    alerta.setTitle("You shall not pass!");
+                    chamaoGandalf();
+                    alerta.setMessage("Preencha as inforamções corretamente!");
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            txttelefone.setText(null);
-                            txtsenha.setText(null);
-                            txtemail.setText(null);
 
                         }
                     });
                     AlertDialog dialog = alerta.create();
                     dialog.show();
+                } else {
 
-                }else{
                     AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
-
-                    alerta.setMessage("Cliente cadastrado com sucesso! (:");
+                    alerta.setTitle("OK!");
+                    alerta.setMessage("Cliente cadastrado com sucesso!");
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-
-                        }
+                                                   }
                     });
                     AlertDialog dialog = alerta.create();
                     dialog.show();
                 }
             }
         });
+
+
+    }
+
+    private void chamaoGandalf() {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.errogandalf);
+
+        mediaPlayer.start();
     }
 }
+
+
+
