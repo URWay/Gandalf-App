@@ -106,6 +106,8 @@ public class Login extends AppCompatActivity {
 
                 int responseCode = conn.getResponseCode();
 
+                JSONObject json = new JSONObject();
+
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
 
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -129,9 +131,9 @@ public class Login extends AppCompatActivity {
                     bufferedReader.close();
                     Log.d ("tag",sb.toString());
 
-                    return new String("true : " + responseCode);
+                    return new String ("true : " + responseCode);
                 } else {
-                    return new String("false : " + responseCode);
+                    return new String ("false : " + responseCode);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -147,8 +149,8 @@ public class Login extends AppCompatActivity {
             Functions f = new Functions();
 
             try {
-                JSONObject json = new JSONObject(result);
-                if(json.getString("true").equals("200")){
+
+                if(result.equals("true : 200")){
                     Intent intent = new Intent(Login.this, Home.class);
                     startActivity(intent);
                 } else {

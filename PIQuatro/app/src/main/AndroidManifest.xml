@@ -21,7 +21,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".FirstTime" />
-        <activity android:name=".Login" />
+        <activity android:name=".Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".CadastroCliente">
 
             <!-- testar sacoisa aqui dps, dude3
@@ -38,5 +44,5 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".CadastroEndereco"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
