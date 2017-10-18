@@ -37,10 +37,15 @@ public class CadastroCliente extends AppCompatActivity {
 
         txtnome = (EditText) findViewById(R.id.txtnome);
         txtemail = (EditText) findViewById(R.id.txtemail);
+<<<<<<< HEAD
 
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         txtcpf = (EditText) findViewById(R.id.txtcpf);
         txttelefone = (EditText) findViewById(R.id.txttelefone);
+=======
+        txtsenha = (EditText) findViewById(R.id.txtsenha);
+        txtcpf = (EditText) findViewById(R.id.txtcpf);
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
         txtcelular = (EditText) findViewById(R.id.txtcelular);
         txtcomercial = (EditText) findViewById(R.id.txtcomercial);
         txtresidencial = (EditText) findViewById(R.id.txtres);
@@ -48,6 +53,7 @@ public class CadastroCliente extends AppCompatActivity {
         checknews = (CheckBox) findViewById(R.id.checknews);
         btnok = (Button) findViewById(R.id.btnok);
 
+<<<<<<< HEAD
 
         class MaskWatcher implements TextWatcher {
             private boolean isRunning = false;
@@ -94,12 +100,23 @@ public class CadastroCliente extends AppCompatActivity {
         txtcomercial.addTextChangedListener(new MaskWatcher("####-####"));
         txtresidencial.addTextChangedListener(new MaskWatcher("####-####"));
         txtcelular.addTextChangedListener(new MaskWatcher("(##) # ####-####"));
+=======
+        txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
+        txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));
+        txtresidencial.addTextChangedListener(Mask.insert("(##)####-####", txtresidencial));
+        txtnasc.addTextChangedListener(Mask.insert("(##)####-####", txtnasc));
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
 
         btnok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 if (txtnome.equals("") || txtemail.equals("") || txtsenha.equals("") || txtcpf.equals("") || txttelefone.equals("")) {
+=======
+
+                if (txtnome.getText().length() == 0 || txtemail.getText().length() == 0 || txtsenha.getText().length() == 0 || txtcpf.getText().length() == 0 || txttelefone.getText().length() == 0) {
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
                     AlertDialog.Builder alerta = new AlertDialog.Builder(CadastroCliente.this);
                     alerta.setTitle("Erro!");
                     alerta.setMessage("Os campos com * são obrigatórios!");
@@ -107,22 +124,51 @@ public class CadastroCliente extends AppCompatActivity {
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
+<<<<<<< HEAD
                             txtnome.setText(null);
                             txtemail.setText(null);
                             txtsenha.setText(null);
                             txtcpf.setText(null);
                             txttelefone.setText(null);
+=======
+
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
                         }
                     });
                     AlertDialog dialog = alerta.create();
                     dialog.show();
 
+<<<<<<< HEAD
+=======
+                }else{
+                    AlertDialog.Builder alerta = new AlertDialog.Builder(CadastroCliente.this);
+                    alerta.setTitle("OK!");
+                    alerta.setMessage("Cliente cadastrado com sucesso!");
+
+                    alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            if(checknews.isChecked()){
+                                // chamar método JAVA para disparar email
+                            }
+
+                        }
+                    });
+                    AlertDialog dialog = alerta.create();
+                    dialog.show();
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
                 }
             }
 
         });
 
 
+<<<<<<< HEAD
     }
 }
+=======
+
+    }
+}
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de

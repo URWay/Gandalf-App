@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.senac.luiz.piquatro.Notificacao"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/txtnotific"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Você ainda não viu as canecas mais tops da loja?"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtnotific2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Como assim você não viu as camisetas?"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+
+
+    <TextView
+        android:id="@+id/txtnotific3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Só aqui você encontra os pôsteres mais nerds do mundo!"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</LinearLayout>

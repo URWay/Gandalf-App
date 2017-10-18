@@ -25,6 +25,7 @@
         android:textColor="@android:color/holo_blue_bright" />
 
     <EditText
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -97,6 +98,93 @@
         android:hint="Nome Completo"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/checknews" />
+=======
+        android:id="@+id/txtsenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/txtemail"
+        android:layout_below="@+id/txtemail"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/txtnome"
+        android:layout_below="@+id/txtnome"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="email@exemplo.com"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtcelular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Celular"
+        android:inputType="phone"
+        android:textColorLink="@android:color/holo_blue_bright"
+        android:layout_above="@+id/txtcomercial"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView19" />
+
+    <EditText
+        android:id="@+id/txtcomercial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtres"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/txtcelular"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:hint="Tel. Comercial"
+        android:inputType="phone"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtnasc"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/txtcomercial"
+        android:ems="10"
+        android:hint="Tel. Residencial"
+        android:inputType="phone"
+        android:textColorHint="@color/black_overlay"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <CheckBox
+        android:id="@+id/checknews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnok"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:text="Receber promoções e novidades via e-mail? "
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtnome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="Nome Completo"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView16" />
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
     <Button
         android:text="Enviar Dados"
@@ -110,6 +198,7 @@
         android:layout_alignParentEnd="true" />
 
     <EditText
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -118,6 +207,18 @@
         android:id="@+id/txtcpf"
         android:layout_below="@+id/txtsenha"
         android:layout_alignStart="@+id/txtsenha" />
+=======
+        android:id="@+id/txtcpf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/txtsenha"
+        android:layout_below="@+id/txtsenha"
+        android:ems="10"
+        android:hint="CPF"
+        android:inputType="number"
+        android:textColorLink="@android:color/holo_blue_bright" />
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
     <TextView
         android:text="*"
@@ -130,7 +231,11 @@
         android:layout_alignBaseline="@+id/txtemail"
         android:layout_alignBottom="@+id/txtemail"
         android:layout_alignParentStart="true"
+<<<<<<< HEAD
         android:layout_toStartOf="@+id/txtemail" />
+=======
+        android:layout_toStartOf="@+id/txtnome" />
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
     <TextView
         android:text="*"
@@ -142,8 +247,12 @@
         android:textColor="@android:color/holo_blue_bright"
         android:layout_alignBaseline="@+id/txtsenha"
         android:layout_alignBottom="@+id/txtsenha"
+<<<<<<< HEAD
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/txtsenha" />
+=======
+        android:layout_alignParentStart="true" />
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
     <TextView
         android:text="*"
@@ -156,7 +265,12 @@
         android:layout_alignBaseline="@+id/txtcpf"
         android:layout_alignBottom="@+id/txtcpf"
         android:layout_alignParentStart="true"
+<<<<<<< HEAD
         android:layout_toStartOf="@+id/txtcpf" />
+=======
+        android:layout_toStartOf="@+id/txtcpf"
+        android:layout_alignEnd="@+id/textView16" />
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
     <TextView
         android:text="*"
@@ -168,8 +282,12 @@
         android:textColor="@android:color/holo_blue_bright"
         android:layout_alignBaseline="@+id/txtcelular"
         android:layout_alignBottom="@+id/txtcelular"
+<<<<<<< HEAD
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/txtcelular" />
+=======
+        android:layout_alignParentStart="true" />
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
     <TextView
         android:text="*"
@@ -185,6 +303,7 @@
         android:layout_toStartOf="@+id/txtnasc" />
 
     <EditText
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
@@ -194,6 +313,30 @@
         android:layout_below="@+id/txtres"
         android:layout_centerHorizontal="true"
         />
+=======
+        android:id="@+id/txtnasc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checknews"
+        android:layout_alignEnd="@+id/textView9"
+        android:ems="10"
+        android:hint="Data de Nascimento"
+        android:inputType="date"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastro de Clientes"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 
 
 </RelativeLayout>

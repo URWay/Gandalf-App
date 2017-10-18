@@ -3,19 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/op_promocoes"
             android:icon="@drawable/cifrao"
             android:title="Promoções" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/op_camisetas"
             android:icon="@drawable/bbbbbbb"
             android:title="Camisetas" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/op_canecas"
             android:icon="@drawable/coffee"
             android:title="Canecas" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/op_posteres"
             android:icon="@drawable/aaaaaaa"
             android:title="Pôsteres" />
     </group>
@@ -57,17 +57,20 @@
         android:title="Filtros">
         <menu>
             <item
-                android:id="@+id/nav_share41"
+                android:id="@+id/op_filtromaior"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Preço Maior > Preço Menor" />
             <item
-                android:id="@+id/nav_share3"
+                android:id="@+id/op_filtromenor"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Preço Menor > Preço Maior" />
         </menu>
     </item>
 
-
+    <item
+        android:id="@+id/op_sobre"
+        android:icon="@drawable/logogandalf"
+        android:title="Sobre nós" />
 </menu>
 
 

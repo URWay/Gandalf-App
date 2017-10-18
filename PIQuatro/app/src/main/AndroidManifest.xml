@@ -17,10 +17,11 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".FirstTime" />
+<<<<<<< HEAD
         <activity android:name=".Login" />
         <activity android:name=".CadastroCliente">
 
@@ -30,13 +31,33 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter> -->
+=======
+        <activity android:name=".Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
         </activity>
         <activity android:name=".LoginReg" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
+<<<<<<< HEAD
         <activity android:name=".CadastroEndereco"></activity>
-    </application>
+=======
+        <activity android:name=".CadastroEndereco" />
+        <activity android:name=".CadastroEnderecoCEP">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Mask"></activity>
+>>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>
