@@ -1,8 +1,10 @@
 package com.senac.luiz.piquatro;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,8 +30,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
-
-import static android.support.v7.appcompat.R.styleable.AlertDialog;
 
 public class Login extends AppCompatActivity {
     private EditText txtlogin;
@@ -67,12 +67,10 @@ public class Login extends AppCompatActivity {
                     String json = g.toJson(login, usuarioType);
 
                     // Temporário
-                    String url = "http://192.168.0.115:8080/wb/login";
+                    String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/login";
 
                     NetworkCall myCall = new NetworkCall();
-                    //myCall.execute("http://gandalf-ws.azurewebsites.net/PI4/wb/login");
                     myCall.execute(url, json);
-                    //f.showDialog("teste","",Login.this);
                 }
             }
         };
@@ -99,8 +97,7 @@ public class Login extends AppCompatActivity {
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
 
-                writer.write("{\"emailCliente\" : \"jose@gmail.com\",	\"senhaCliente\" : \"1311313\"}");
-
+                writer.write(params[1]);
                 writer.flush();
                 writer.close();
                 os.close();
@@ -109,9 +106,11 @@ public class Login extends AppCompatActivity {
 
                 int responseCode = conn.getResponseCode();
 
+                JSONObject json = new JSONObject();
+
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
 
-                    BufferedReader bufferedReader =new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 
                     StringBuffer sb = new StringBuffer("");
                     String line="";
@@ -130,10 +129,11 @@ public class Login extends AppCompatActivity {
                     }
 
                     bufferedReader.close();
-                    return sb.toString();
+                    Log.d ("tag",sb.toString());
 
+                    return new String ("true : " + responseCode);
                 } else {
-                    return new String("false : "+responseCode);
+                    return new String ("false : " + responseCode);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -149,9 +149,13 @@ public class Login extends AppCompatActivity {
             Functions f = new Functions();
 
             try {
-                JSONObject json = new JSONObject(result);
 
-                f.showDialog("Teste", result, Login.this);
+                if(result.equals("true : 200")){
+                    Intent intent = new Intent(Login.this, Home.class);
+                    startActivity(intent);
+                } else {
+                    f.showDialog("Erro","Login ou senha inválidos", Login.this);
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -159,23 +163,4 @@ public class Login extends AppCompatActivity {
             }
         }
     }
-
-    private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {
-        StringBuilder result = new StringBuilder();
-        boolean first = true;
-        for(Map.Entry<String, String> entry : params.entrySet()){
-            if (first)
-                first = false;
-            else
-                result.append("&");
-
-            result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-            result.append("=");
-            result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-        }
-
-        return result.toString();
-    }
-
-
 }

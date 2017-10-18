@@ -28,7 +28,7 @@ public class LoginReg extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_reg);
 
-        txtfone = (EditText) findViewById(R.id.txtfone);
+        txtfone = (EditText) findViewById(R.id.txttelefone);
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         txtemail = (EditText) findViewById(R.id.txtemail);
         btnok = (Button) findViewById(R.id.btnok);
@@ -45,7 +45,7 @@ public class LoginReg extends AppCompatActivity {
 
                     AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
                     alerta.setTitle("You shall not pass!");
-                    chamaoGandalf();
+                    //chamaoGandalf();
                     alerta.setMessage("Preencha as inforamções corretamente!");
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
@@ -74,11 +74,12 @@ public class LoginReg extends AppCompatActivity {
 
     }
 
-    private void chamaoGandalf() {
+    /*private void chamaoGandalf() {
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.errogandalf);
 
         mediaPlayer.start();
     }
+    */
 }
 
 

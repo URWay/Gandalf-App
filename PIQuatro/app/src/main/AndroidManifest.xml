@@ -22,7 +22,17 @@
         </activity>
         <activity android:name=".FirstTime" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <activity android:name=".Login" />
+=======
+        <activity android:name=".Login" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+>>>>>>> 8e57bf3f1a47c69ecea81f6ebff52d660eebdf4d
         <activity android:name=".CadastroCliente">
 
             <!-- testar sacoisa aqui dps, dude3
@@ -47,6 +57,7 @@
             android:theme="@style/AppTheme" />
 <<<<<<< HEAD
         <activity android:name=".CadastroEndereco"></activity>
+<<<<<<< HEAD
 =======
         <activity android:name=".CadastroEndereco" />
         <activity android:name=".CadastroEnderecoCEP">
@@ -60,4 +71,8 @@
 >>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+=======
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+>>>>>>> 8e57bf3f1a47c69ecea81f6ebff52d660eebdf4d
 </manifest>
