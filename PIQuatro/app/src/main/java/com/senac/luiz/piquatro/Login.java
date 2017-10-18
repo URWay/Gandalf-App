@@ -94,18 +94,12 @@ public class Login extends AppCompatActivity {
                 conn.setRequestMethod("POST");
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
+                conn.setRequestProperty ("Content-Type", "application/json");
 
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
 
-                StringBuilder result = new StringBuilder();
-                result.append("&");
-
-                result.append(URLEncoder.encode(params[1], "UTF-8"));
-
-                String postDataParams = result.toString();
-
-                writer.write(postDataParams);
+                writer.write("{\"emailCliente\" : \"jose@gmail.com\",	\"senhaCliente\" : \"1311313\"}");
 
                 writer.flush();
                 writer.close();
