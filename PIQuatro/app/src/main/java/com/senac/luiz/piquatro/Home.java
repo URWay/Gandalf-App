@@ -3,6 +3,7 @@ package com.senac.luiz.piquatro;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabItem;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.View;
@@ -16,8 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 
-public class Home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+
+
+public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class Home extends AppCompatActivity
 
         setTitle(null);
     }
+
 
 
     @Override
@@ -75,13 +79,29 @@ public class Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.op_promocoes) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.op_camisetas) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.op_canecas) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        } else if (id == R.id.op_posteres) {
+
+        }else if (id == R.id.op_sobre){
 
         }
 

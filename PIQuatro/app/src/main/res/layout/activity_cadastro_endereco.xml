@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.senac.luiz.piquatro.CadastroEndereco">
+
+    <EditText
+        android:id="@+id/txtnome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:ems="10"
+        android:hint="Nome do Endereço"
+        android:inputType="textPersonName"
+        android:layout_marginEnd="29dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/button" />
+
+    <EditText
+        android:id="@+id/txtendereco"
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/txtnome"
+        android:layout_alignStart="@+id/txtnome"
+        android:layout_alignEnd="@+id/txtnome" />
+
+    <EditText
+        android:id="@+id/txtcep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtendereco"
+        android:layout_below="@+id/txtendereco"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="CEP"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/txtcomplemento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Complemento"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/txtcep"
+        android:layout_alignStart="@+id/txtcep" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Cadastrar Endereço" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:text="Preencha os campos abaixo:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtcidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtcomplemento"
+        android:layout_below="@+id/txtcomplemento"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Cidade"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtuf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtcidade"
+        android:layout_alignBottom="@+id/txtcidade"
+        android:layout_alignEnd="@+id/txtnum"
+        android:layout_toEndOf="@+id/button"
+        android:ems="10"
+        android:hint="UF"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtpais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtcidade"
+        android:layout_below="@+id/txtcidade"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="País"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtendereco"
+        android:ems="10"
+        android:hint="N°"
+        android:inputType="number"
+        android:layout_alignEnd="@+id/textView5"
+        android:layout_toEndOf="@+id/txtnome" />
+
+</RelativeLayout>
