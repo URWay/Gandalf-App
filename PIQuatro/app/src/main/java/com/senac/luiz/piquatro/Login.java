@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.senac.luiz.piquatro.models.LoginModel;
 
 import org.json.JSONObject;
@@ -21,13 +20,8 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -63,8 +57,7 @@ public class Login extends AppCompatActivity {
                     LoginModel login = new LoginModel(email, senha);
                     Gson g = new Gson();
 
-                    Type usuarioType = new TypeToken<LoginModel>() {}.getType();
-                    String json = g.toJson(login, usuarioType);
+                    String json = g.toJson(login);
 
                     // Temporário
                     String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/login";
@@ -131,6 +124,9 @@ public class Login extends AppCompatActivity {
                     bufferedReader.close();
                     Log.d ("tag",sb.toString());
 
+                    Intent intent = new Intent(Login.this, Home.class);
+                    startActivity(intent);
+
                     return new String ("true : " + responseCode);
                 } else {
                     return new String ("false : " + responseCode);
@@ -149,14 +145,9 @@ public class Login extends AppCompatActivity {
             Functions f = new Functions();
 
             try {
-
-                if(result.equals("true : 200")){
-                    Intent intent = new Intent(Login.this, Home.class);
-                    startActivity(intent);
-                } else {
+                if(!result.equals("true : 200")){
                     f.showDialog("Erro","Login ou senha inválidos", Login.this);
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
                 f.showDialog("Erro","Erro ao obter o resultado", Login.this);
