@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.senac.luiz.piquatro.testeScroll">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:text="Entrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnok"
+            android:textColorLink="@android:color/holo_green_dark"
+            android:background="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            android:layout_below="@+id/txtsenha"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:text="Entrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnok2"
+            android:textColorLink="@android:color/holo_green_dark"
+            android:background="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            android:layout_below="@+id/btnok4"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="125dp" />
+
+
+
+        <Button
+            android:text="Entrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnok3"
+            android:textColorLink="@android:color/holo_green_dark"
+            android:background="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/btnok"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:text="Entrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnok4"
+            android:textColorLink="@android:color/holo_green_dark"
+            android:background="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            android:layout_below="@+id/btnok3"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:text="Entrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btnok5"
+            android:textColorLink="@android:color/holo_green_dark"
+            android:background="@android:color/holo_blue_bright"
+            android:textSize="18sp"
+            android:layout_below="@+id/btnok"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="500dp"/>
+
+
+
+
+    </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
