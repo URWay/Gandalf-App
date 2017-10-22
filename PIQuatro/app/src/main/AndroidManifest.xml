@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FirstTime" />
-        <activity android:name=".Login">
+        <activity android:name=".Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,21 +31,20 @@
         </activity>
         <activity android:name=".CadastroCliente">
 
-            <!--
-            testar sacoisa aqui dps, dude3
+            <!-- testar sacoisa aqui dps, dude3
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
+            </intent-filter> -->
         </activity>
         <activity android:name=".LoginReg" />
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
-        <activity android:name=".CadastroEndereco" />
+        <activity android:name=".CadastroEndereco"></activity>
+
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,16 +52,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Mask" />
-        <activity android:name=".testeScroll">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<<<<<<< HEAD
         <activity android:name=".models.Produtos" />
         <activity android:name=".descProduto"></activity>
+=======
+        <activity android:name=".Mask"></activity>
+>>>>>>> ac4feafaa51b8965b9a479990925e5a8b52a458b
     </application>
-
 </manifest>
