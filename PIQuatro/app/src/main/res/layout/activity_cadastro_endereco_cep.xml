@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.senac.luiz.piquatro.CadastroEnderecoCEP">
+    tools:context="com.app.gandalf.piquatro.CadastroEnderecoCEP">
 
     <EditText
         android:id="@+id/txtcep"
@@ -66,10 +66,7 @@
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-<<<<<<< HEAD
         app:srcCompat="@drawable/local"
-=======
->>>>>>> 8e57bf3f1a47c69ecea81f6ebff52d660eebdf4d
         android:layout_alignParentTop="true"
         android:layout_alignEnd="@+id/textView6"
         android:layout_marginTop="26dp"

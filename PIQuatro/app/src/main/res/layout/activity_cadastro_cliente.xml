@@ -8,335 +8,203 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.senac.luiz.piquatro.CadastroCliente">
+    tools:context="com.app.gandalf.piquatro.CadastroCliente">
 
-
-    <TextView
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView18"
-        android:layout_alignBaseline="@+id/txtnome"
-        android:layout_alignBottom="@+id/txtnome"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/txtnome"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright" />
 
     <EditText
-<<<<<<< HEAD
+        android:id="@+id/txtnomeapelido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/txtsenha"
-        android:hint="Senha"
-        android:layout_below="@+id/txtemail"
-        android:layout_alignStart="@+id/txtemail"
-        android:layout_marginTop="12dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:hint="Nome Completo"
         android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginTop="10dp"
-        android:id="@+id/txtemail"
-        android:hint="email@exemplo.com"
-        android:layout_below="@+id/txtnome"
-        android:layout_alignStart="@+id/txtnome" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/txtcelular"
-        android:layout_below="@+id/txtcpf"
-        android:layout_alignStart="@+id/txtcpf"
-        android:text="Celular" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/txtcomercial"
-        android:layout_below="@+id/txtcelular"
-        android:layout_alignStart="@+id/txtcelular"
-        android:hint="Tel. Comercial" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:layout_below="@+id/txtcomercial"
-        android:layout_alignStart="@+id/txtcomercial"
         android:layout_marginTop="11dp"
-        android:id="@+id/txtres"
-        android:hint="Tel. Residencial" />
-
-    <CheckBox
-        android:text="Receber promoções e novidades via e-mail? "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtnasc"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/checknews"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtnome"
-        android:hint="Nome Completo"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/checknews" />
-=======
-        android:id="@+id/txtsenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView16"
         android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/txtemail"
-        android:layout_below="@+id/txtemail"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:textColorLink="@android:color/holo_blue_bright" />
+        android:layout_toEndOf="@+id/textView9" />
 
     <EditText
         android:id="@+id/txtemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/txtnome"
-        android:layout_below="@+id/txtnome"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="11dp"
         android:ems="10"
-        android:hint="email@exemplo.com"
+        android:hint="E-Mail"
         android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright" />
-
-    <EditText
-        android:id="@+id/txtcelular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Celular"
-        android:inputType="phone"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_above="@+id/txtcomercial"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView19" />
-
-    <EditText
-        android:id="@+id/txtcomercial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtres"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/txtcelular"
-        android:layout_marginBottom="11dp"
-        android:ems="10"
-        android:hint="Tel. Comercial"
-        android:inputType="phone"
-        android:textColorLink="@android:color/holo_blue_bright" />
-
-    <EditText
-        android:id="@+id/txtres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtnasc"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/txtcomercial"
-        android:ems="10"
-        android:hint="Tel. Residencial"
-        android:inputType="phone"
-        android:textColorHint="@color/black_overlay"
-        android:textColorLink="@android:color/holo_blue_bright" />
-
-    <CheckBox
-        android:id="@+id/checknews"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnok"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:text="Receber promoções e novidades via e-mail? "
-        android:textColorLink="@android:color/holo_blue_bright" />
-
-    <EditText
-        android:id="@+id/txtnome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:hint="Nome Completo"
-        android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView16" />
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
-    <Button
-        android:text="Enviar Dados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnok"
-        android:background="@android:color/holo_blue_bright"
-        android:textSize="14sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/checknews"
+        android:layout_below="@+id/txtnomeapelido"
+        android:layout_alignStart="@+id/txtnomeapelido"
         android:layout_alignParentEnd="true" />
 
     <EditText
-<<<<<<< HEAD
+        android:id="@+id/txtsenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="CPF"
+        android:layout_marginTop="11dp"
         android:ems="10"
-        android:id="@+id/txtcpf"
-        android:layout_below="@+id/txtsenha"
-        android:layout_alignStart="@+id/txtsenha" />
-=======
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:layout_below="@+id/txtemail"
+        android:layout_alignStart="@+id/txtemail"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
         android:id="@+id/txtcpf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignStart="@+id/txtsenha"
-        android:layout_below="@+id/txtsenha"
+        android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="CPF"
         android:inputType="number"
-        android:textColorLink="@android:color/holo_blue_bright" />
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
-    <TextView
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView14"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright"
-        android:layout_alignBaseline="@+id/txtemail"
-        android:layout_alignBottom="@+id/txtemail"
-        android:layout_alignParentStart="true"
-<<<<<<< HEAD
-        android:layout_toStartOf="@+id/txtemail" />
-=======
-        android:layout_toStartOf="@+id/txtnome" />
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
-    <TextView
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView16"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright"
-        android:layout_alignBaseline="@+id/txtsenha"
-        android:layout_alignBottom="@+id/txtsenha"
-<<<<<<< HEAD
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/txtsenha" />
-=======
-        android:layout_alignParentStart="true" />
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
-    <TextView
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView17"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright"
-        android:layout_alignBaseline="@+id/txtcpf"
-        android:layout_alignBottom="@+id/txtcpf"
-        android:layout_alignParentStart="true"
-<<<<<<< HEAD
-        android:layout_toStartOf="@+id/txtcpf" />
-=======
-        android:layout_toStartOf="@+id/txtcpf"
-        android:layout_alignEnd="@+id/textView16" />
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
-    <TextView
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView19"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright"
-        android:layout_alignBaseline="@+id/txtcelular"
-        android:layout_alignBottom="@+id/txtcelular"
-<<<<<<< HEAD
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/txtcelular" />
-=======
-        android:layout_alignParentStart="true" />
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
-    <TextView
-        android:text="*"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView15"
-        android:textAlignment="center"
-        android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright"
-        android:layout_alignBaseline="@+id/txtnasc"
-        android:layout_alignBottom="@+id/txtnasc"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/txtnasc" />
+        android:layout_below="@+id/txtsenha"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView14" />
 
     <EditText
-<<<<<<< HEAD
-        android:layout_width="wrap_content"
+        android:id="@+id/txtcelular"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/txtcpf"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/textView12"
         android:ems="10"
+        android:hint="Celular"
+        android:inputType="number" />
+
+    <EditText
         android:id="@+id/txtnasc"
-        android:hint="Data Nascimento"
-        android:layout_below="@+id/txtres"
-        android:layout_centerHorizontal="true"
-        />
-=======
-        android:id="@+id/txtnasc"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/checknews"
-        android:layout_alignEnd="@+id/textView9"
+        android:layout_alignBaseline="@+id/txtres"
+        android:layout_alignBottom="@+id/txtres"
+        android:layout_alignParentEnd="true"
         android:ems="10"
         android:hint="Data de Nascimento"
-        android:inputType="date"
-        android:textColorLink="@android:color/holo_blue_bright" />
+        android:inputType="date" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        android:text="Cadastro de Clientes"
-        android:textColor="@android:color/background_dark"
+        android:layout_alignBaseline="@+id/txtnomeapelido"
+        android:layout_alignBottom="@+id/txtnomeapelido"
+        android:layout_alignParentStart="true"
+        android:text="*"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:layout_alignBaseline="@+id/txtcelular"
+        android:layout_alignBottom="@+id/txtcelular"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtcpf"
+        android:layout_alignBottom="@+id/txtcpf"
+        android:layout_alignParentStart="true"
+        android:text="*"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/txtsenha"
+        android:layout_alignBottom="@+id/txtsenha"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/txtemail"
+        android:text="*"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/checknews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gostaria de receber promoções via E-mail!?"
+        android:textStyle="bold"
+        android:layout_above="@+id/btnok"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="11dp"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="ENVIAR DADOS"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/txtres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Telefone Residencial"
+        android:inputType="textPersonName"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/txtcelular"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/txtcomercial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtres"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Telefone Comercial"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp" />
-
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-
+        android:text="Preencha os campos abaixo:"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

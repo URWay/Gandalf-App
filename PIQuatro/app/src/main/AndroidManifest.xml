@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.senac.luiz.piquatro">
+    package="com.app.gandalf.piquatro">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -52,11 +52,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".models.Produtos" />
-        <activity android:name=".descProduto"></activity>
-=======
         <activity android:name=".Mask"></activity>
->>>>>>> ac4feafaa51b8965b9a479990925e5a8b52a458b
     </application>
 </manifest>

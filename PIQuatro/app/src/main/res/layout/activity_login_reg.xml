@@ -10,45 +10,54 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#ffffff"
-    tools:context="com.senac.luiz.piquatro.LoginReg">
+    tools:context="com.app.gandalf.piquatro.LoginReg">
 
     <Button
         android:text="Cadastrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnok"
+        android:layout_marginBottom="60dp"
         android:textColorLink="@android:color/holo_green_dark"
         android:background="@android:color/holo_blue_bright"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="23dp"
         android:layout_alignParentEnd="true" />
 
     <EditText
-        android:id="@+id/txtemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/txtemail"
+        android:hint="email@example.com"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/txttelefone"
+        android:id="@+id/txtcelular"
         android:hint="(11)1234-5678"
         android:layout_marginBottom="27dp"
         android:layout_above="@+id/btnok"
-<<<<<<< HEAD
-=======
-        android:layout_marginBottom="17dp"
-        android:ems="10"
-        android:hint="email@exemplo.com"
-        android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_above="@+id/txtsenha"
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
-=======
-        android:layout_alignParentStart="true" />
->>>>>>> 8e57bf3f1a47c69ecea81f6ebff52d660eebdf4d
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtsenha"
+        android:hint="Senha"
+        android:layout_alignBottom="@+id/txtcelular"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="59dp"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -59,66 +68,4 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:id="@+id/txtfone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/txtemail"
-        android:hint="email@example.com"
-        android:layout_above="@+id/txtsenha"
-=======
-        android:layout_marginBottom="18dp"
-        android:ems="10"
-        android:hint="N° do Celular"
-        android:inputType="number"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_above="@+id/btnok"
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:id="@+id/txtsenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:ems="10"
-        android:hint="Senha"
-<<<<<<< HEAD
-        android:layout_above="@+id/txttelefone"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-=======
-        android:inputType="textPassword"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_above="@+id/txtfone"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtemail"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"
-        android:text="Preencha os campos abaixo:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="21dp"
-        app:srcCompat="@drawable/logogandalf"
-        android:layout_above="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
->>>>>>> 7b8775513acac7fabc96dafb7b10b7a86bae09de
 </RelativeLayout>

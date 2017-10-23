@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.senac.luiz.piquatro.Home">
+    tools:context="com.app.gandalf.piquatro.Home">
 
     <include
         layout="@layout/content_home"
