@@ -75,7 +75,6 @@ private EditText txtpais;
 
                 CadastroEndereco.NetworkCall myCall = new CadastroEndereco.NetworkCall();
                 myCall.execute(url, json);
-
             }
         };
 
