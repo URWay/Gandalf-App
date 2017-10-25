@@ -52,6 +52,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".CadastroEndereco" />
+
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,6 +67,7 @@
 
         <activity android:name=".descProduto" />
 
+
         <activity android:name=".DetalheProduto" />
         <activity android:name=".produtos">
             <intent-filter>
@@ -72,6 +76,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="com.senac.luiz.piquatro.Produtos"></activity>
+
     </application>
 
 </manifest>
