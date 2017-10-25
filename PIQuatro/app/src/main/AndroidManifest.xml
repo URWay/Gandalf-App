@@ -46,12 +46,11 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
         <activity android:name=".CadastroEndereco">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
@@ -61,12 +60,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".Mask" />
-        <activity android:name=".models.Produtos" />
-        +
+
+
         <activity android:name=".descProduto" />
-        <activity android:name="com.senac.luiz.piquatro.Produtos" />
-        <activity android:name="com.senac.luiz.piquatro.ConsultaProduto" />
-        <activity android:name=".DetalheProduto"></activity>
+
+        <activity android:name=".DetalheProduto" />
+        <activity android:name=".produtos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
