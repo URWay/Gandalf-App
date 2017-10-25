@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
 
-
+       <!--- <activity android:name=".CadastroEndereco" /> -->
 
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
