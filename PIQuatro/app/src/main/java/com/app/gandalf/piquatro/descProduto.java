@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-class descProduto extends AppCompatActivity {
+public class descProduto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
