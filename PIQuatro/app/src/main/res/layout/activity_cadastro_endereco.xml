@@ -17,50 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/button"
+        android:id="@+id/btnEnviarEndereco"
         android:layout_alignParentEnd="true"
         android:background="@android:color/holo_blue_bright" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtcomplemento"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="18dp"
-        android:id="@+id/spinnercidade"
-        android:background="@android:color/holo_blue_bright"
-        android:popupBackground="@android:color/darker_gray"
-        android:spinnerMode="dropdown">
-
-
-    </Spinner>
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:id="@+id/spinnerpais"
-        android:layout_below="@+id/spinnercidade"
-        android:layout_alignParentStart="true"
-        android:background="@android:color/holo_blue_bright"
-        android:popupBackground="@android:color/darker_gray"
-         android:spinnerMode="dropdown">
-
-    </Spinner>
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerpais"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="28dp"
-        android:id="@+id/spinneruf"
-        android:background="@android:color/holo_blue_bright"
-        android:popupBackground="@android:color/darker_gray"
-        android:spinnerMode="dropdown" />
-
-
     <EditText
-        android:id="@+id/txtnomeapelido"
+        android:id="@+id/txtnomeendereco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
@@ -78,9 +40,9 @@
         android:ems="10"
         android:hint="Endereço"
         android:inputType="textPersonName"
-        android:layout_below="@+id/txtnomeapelido"
-        android:layout_alignStart="@+id/txtnomeapelido"
-        android:layout_alignEnd="@+id/txtnomeapelido" />
+        android:layout_below="@+id/txtnomeendereco"
+        android:layout_alignStart="@+id/txtnomeendereco"
+        android:layout_alignEnd="@+id/txtnomeendereco" />
 
     <EditText
         android:id="@+id/txtcep"
@@ -161,6 +123,6 @@
         android:hint="N°"
         android:inputType="number"
         android:layout_alignEnd="@+id/textView5"
-        android:layout_toEndOf="@+id/txtnomeapelido" />
+        android:layout_toEndOf="@+id/txtnomeendereco" />
 
 </RelativeLayout>
