@@ -58,6 +58,14 @@
         +
         <activity android:name=".descProduto" />
         <activity android:name="com.senac.luiz.piquatro.Produtos"></activity>
+
+        <activity android:name="com.senac.luiz.piquatro.Produtos" >
+            <intent-filter>
+                <action android:name="com.senac.luiz.piquatro.Produtos" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
