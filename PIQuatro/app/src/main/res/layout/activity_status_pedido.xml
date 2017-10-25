@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.gandalf.piquatro.StatusPedido">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="105dp"
+        android:text="Pedido:"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imgstatus1" />
+
+    <TextView
+        android:id="@+id/txtidpedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/textView"
+        android:text="IdPedido"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imgstatus3"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/ic_menu_camera"
+        android:layout_alignTop="@+id/imgstatus1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="34dp" />
+
+    <ImageView
+        android:id="@+id/imgstatus1"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="41dp"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
+    <ImageView
+        android:id="@+id/imgstatus2"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/imgstatus1"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
+    <TextView
+        android:id="@+id/txtstatus3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtstatus2"
+        android:layout_alignStart="@+id/txtstatus2"
+        android:layout_below="@+id/txtstatus2"
+        android:layout_marginTop="21dp"
+        android:text="Status pedido 3"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtstatus2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/txtstatus1"
+        android:layout_alignStart="@+id/txtstatus1"
+        android:layout_below="@+id/txtstatus1"
+        android:layout_marginTop="28dp"
+        android:text="Status pedido 2"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtstatus1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:text="Status pedido 1"
+        android:textSize="18sp"
+        android:layout_below="@+id/imgstatus3"
+        android:layout_alignStart="@+id/imgstatus1"
+        android:layout_alignEnd="@+id/imgstatus3" />
+
+    <Button
+        android:id="@+id/btnvoltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Voltar"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/txtstatus3"
+        android:layout_alignEnd="@+id/txtstatus3" />
+
+</RelativeLayout>
