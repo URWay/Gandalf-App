@@ -45,7 +45,18 @@
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
+<<<<<<< HEAD
         <activity android:name=".CadastroEndereco" />
+=======
+        <activity android:name=".CadastroEndereco">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+       <!--- <activity android:name=".CadastroEndereco" /> -->
+>>>>>>> 181be11f7bf7d1dded0ee4b7d83d533b2c8518c6
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +70,22 @@
         <activity android:name=".descProduto" />
         <activity android:name="com.senac.luiz.piquatro.Produtos"></activity>
 
+<<<<<<< HEAD
         <activity android:name="com.senac.luiz.piquatro.Produtos" >
+=======
+        <activity android:name=".DetalheProduto" />
+        <activity android:name=".StatusPedido" />
+        <activity android:name=".Checkout">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+
+        </activity>
+        <activity android:name=".produtos">
+>>>>>>> 181be11f7bf7d1dded0ee4b7d83d533b2c8518c6
             <intent-filter>
                 <action android:name="com.senac.luiz.piquatro.Produtos" />
                 <category android:name="android.intent.category.DEFAULT" />

@@ -39,9 +39,6 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         setTitle(null);
 
 
-
-
-
         Intent intent = new Intent(this, CadastroCliente.class);
         startActivity(intent);
     }
@@ -61,16 +58,13 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.home, menu);
         return false;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -116,5 +110,48 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    Intent intent = new Intent(MainActivity.this,
+            MinhaAtividade.class);
+
+    Intent intent = new
+            Intent("com.senac.luiz.piquatro.Produtos");
+
+    Intent intent = new Intent(MainActivity.this, MinhaAtividade.class);
+    startActivity(intent);
+
+    Intent i = new Intent(Intent.ACTION_VIEW,
+            Uri.parse("http://www.google.com")); //trocar o endereço
+
+    Intent i = new Intent();
+        i.putExtra("nome", objetoComODado);
+        i.putExtra("id", 5);
+    startActivity(intent);
+
+    Intent intent = getIntent();
+    int id = intent.getIntExtra("id", 0);
+    String name = intent.getStringExtra("name");
+
+    startActivityForResult(intent, 1);
+
+
+    Intent returnIntent = new Intent();
+    returnIntent.putExtra("retorno", "valor de
+    retorno");
+    setResult(RESULT_OK, returnIntent);
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        // Verifica de quem veio a resposta
+        if (requestCode == 1) {
+            // Se foi resposta de sucesso
+            if (resultCode == RESULT_OK) {
+                // Faz alguma coisa
+            }
+        }
     }
 }
