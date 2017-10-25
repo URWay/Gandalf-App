@@ -52,6 +52,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+       <!--- <activity android:name=".CadastroEndereco" /> -->
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,8 +61,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Mask" />
-        <activity android:name=".models.Produtos" />
-        +
+
+
         <activity android:name=".descProduto" />
 
         <activity android:name=".DetalheProduto" />
@@ -75,6 +76,15 @@
 
 
         </activity>
+        <activity android:name=".produtos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

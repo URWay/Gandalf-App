@@ -1,12 +1,11 @@
-package com.app.gandalf.piquatro;
+package com.app.gandalf.piquatro.models;
 
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.support.v7.widget.CardView;
+
+import com.app.gandalf.piquatro.R;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -15,28 +14,23 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class produtos extends AppCompatActivity {
-    private ViewGroup container;
+class descProduto extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_produtos);
+        setContentView(R.layout.activity_desc_produto);
 
-        container = (ViewGroup) findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
         // Temporário
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
         // Executa a thread, passando null como parâmetro
 
-        // Luiz, o valor de ap tem que ser o ID inicial dos produtos (Ex: 2 retorna os 15 primeiros produtos acima do ID 2, será utilziado para paginação)
-        //desc diz qual a ordem é decrescente ou n
-        //O primeiro parametro no path é o id da categoria (vamos ter q pegar ele do menu)
-        //O segundo é a ordem (usado para filtros)
-        //Para pesquisa será utilizado o parametro via get = pesq
-        myCall.execute(url+"/1/idProduto?ap=0&desc=1");
+        // Luiz, o desc é algo fixo para acessar 1 produto especifico, o numero "1" é o ID do produto, deve ser passado
+        // pelo botão
+        myCall.execute(url + "/desc/1");
     }
 
-    // Implementa o AsynkTask para criar uma thread
     public class NetworkCall extends AsyncTask<String, Void, String> {
 
         // Esse é o método que executa a tarefa em segundo plano
@@ -85,40 +79,24 @@ public class produtos extends AppCompatActivity {
                 JSONObject json = new JSONObject(result);
 
                 //Objeto do layout
-                container = (ViewGroup) findViewById(R.id.container);
                 int idProduto;
                 String nomeProduto, descProduto, imagem;
                 double precProduto, descontoPromocao;
 
-                for (int i = 0; i <= 14; i++) {
-                    idProduto = json.getInt("idProduto");
-                    nomeProduto = json.getString("nomeProduto");
-                    descProduto = json.getString("descProduto");
-                    precProduto = json.getDouble("precProduto");
-                    descontoPromocao = json.getDouble("descontoPromocao");
-                    imagem = json.getString("imagem");
 
+                idProduto = json.getInt("idProduto");
+                nomeProduto = json.getString("nomeProduto");
+                descProduto = json.getString("descProduto");
+                precProduto = json.getDouble("precProduto");
+                descontoPromocao = json.getDouble("descontoPromocao");
+                imagem = json.getString("imagem");
 
-                }
+                //AQUI ATRIBUIR OS VALORES DO PRODUTO
 
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-    }
-
-    private void addItem(int idProduto, String nomeProd, String descProd, double precProd, double descPromocao, String img) {
-        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.produto_container, container, false);
-
-        TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
-        TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
-        TextView promo = (TextView) cardView.findViewById(R.id.precProduto);
-
-        nome.setText(nomeProd);
-        prec.setText(String.valueOf(precProd));
-        promo.setText(String.valueOf(descPromocao));
-
-        container.addView(cardView);
     }
 }
