@@ -56,8 +56,16 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
+<<<<<<< HEAD
             android:theme="@style/AppTheme">
 
+=======
+            android:theme="@style/AppTheme" />
+<<<<<<< HEAD
+        <activity android:name=".CadastroEndereco" />
+=======
+        <activity android:name=".CadastroEndereco">
+>>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,21 +77,45 @@
         <activity android:name=".CadastroEndereco">
 
         </activity>
+<<<<<<< HEAD
 
 
+=======
+       <!--- <activity android:name=".CadastroEndereco" /> -->
+>>>>>>> 181be11f7bf7d1dded0ee4b7d83d533b2c8518c6
+>>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+<<<<<<< HEAD
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
 
        </activity>
 
+=======
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Mask" />
+        <activity android:name=".models.Produtos" />
+        +
+>>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
         <activity android:name=".descProduto" />
+        <activity android:name="com.senac.luiz.piquatro.Produtos"></activity>
 
+<<<<<<< HEAD
 
         <activity android:name=".StatusPedido">
+=======
+<<<<<<< HEAD
+        <activity android:name="com.senac.luiz.piquatro.Produtos" >
+=======
+        <activity android:name=".DetalheProduto" />
+        <activity android:name=".StatusPedido" />
+        <activity android:name=".Checkout">
+>>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -91,8 +123,17 @@
             </intent-filter>
 
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Checkout">
 
+=======
+        <activity android:name=".produtos">
+>>>>>>> 181be11f7bf7d1dded0ee4b7d83d533b2c8518c6
+            <intent-filter>
+                <action android:name="com.senac.luiz.piquatro.Produtos" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+>>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
         </activity>
 
     </application>

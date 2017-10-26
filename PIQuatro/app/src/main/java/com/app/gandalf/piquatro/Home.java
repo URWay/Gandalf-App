@@ -161,3 +161,48 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     }
 
 
+<<<<<<< HEAD
+=======
+    Intent intent = new Intent(MainActivity.this,
+            MinhaAtividade.class);
+
+    Intent intent = new
+            Intent("com.senac.luiz.piquatro.Produtos");
+
+    Intent intent = new Intent(MainActivity.this, MinhaAtividade.class);
+    startActivity(intent);
+
+    Intent i = new Intent(Intent.ACTION_VIEW,
+            Uri.parse("http://www.google.com")); //trocar o endereço
+
+    Intent i = new Intent();
+        i.putExtra("nome", objetoComODado);
+        i.putExtra("id", 5);
+    startActivity(intent);
+
+    Intent intent = getIntent();
+    int id = intent.getIntExtra("id", 0);
+    String name = intent.getStringExtra("name");
+
+    startActivityForResult(intent, 1);
+
+
+    Intent returnIntent = new Intent();
+    returnIntent.putExtra("retorno", "valor de
+    retorno");
+    setResult(RESULT_OK, returnIntent);
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        // Verifica de quem veio a resposta
+        if (requestCode == 1) {
+            // Se foi resposta de sucesso
+            if (resultCode == RESULT_OK) {
+                // Faz alguma coisa
+            }
+        }
+    }
+}
+>>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
