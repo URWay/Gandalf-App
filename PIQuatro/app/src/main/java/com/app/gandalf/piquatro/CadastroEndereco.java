@@ -66,14 +66,14 @@ private EditText txtpais;
                 String uf = txtuf.getText().toString().trim();
                 String pais = txtpais.getText().toString().trim();
 
-                Endereco end = new Endereco(5, endereco, lograudouro, num, cep, complemento, cidade, uf, pais);
+                Endereco end = new Endereco(5, endereco, lograudouro, num, cep, complemento, cidade, pais, uf);
                 Gson g = new Gson();
 
                 String json = g.toJson(end);
 
                 String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/endereco";
 
-                CadastroEndereco.NetworkCall myCall = new CadastroEndereco.NetworkCall();
+                NetworkCall myCall = new NetworkCall();
                 myCall.execute(url, json);
             }
         };

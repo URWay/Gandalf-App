@@ -9,7 +9,7 @@ public class Endereco {
     private String CEPEndereco;
     private String complementoEndereco;
     private String cidadeEndereco;
-    private String paisEndereo;
+    private String paisEndereco;
     private String UFEndereco;
 
     public Endereco(int idCliente, String nomeEndereco, String logradouroEndereco, int numeroEndereco, String CEPEndereco, String complementoEndereco, String cidadeEndereco, String paisEndereo, String UFEndereco) {
@@ -20,7 +20,7 @@ public class Endereco {
         this.CEPEndereco = CEPEndereco;
         this.complementoEndereco = complementoEndereco;
         this.cidadeEndereco = cidadeEndereco;
-        this.paisEndereo = paisEndereo;
+        this.paisEndereco = paisEndereo;
         this.UFEndereco = UFEndereco;
     }
 
@@ -89,11 +89,11 @@ public class Endereco {
     }
 
     public String getPaisEndereo() {
-        return paisEndereo;
+        return paisEndereco;
     }
 
     public void setPaisEndereo(String paisEndereo) {
-        this.paisEndereo = paisEndereo;
+        this.paisEndereco = paisEndereo;
     }
 
     public String getUFEndereco() {
