@@ -27,6 +27,7 @@
         app:tabSelectedTextColor="@android:color/holo_blue_bright">
 
         <android.support.design.widget.TabItem
+            android:id="@+id/tabhome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/search"
@@ -40,12 +41,14 @@
             android:text="Carrinho" />
 
         <android.support.design.widget.TabItem
+            android:id="@+id/tabpedidos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/lista"
             android:text="Pedidos" />
 
         <android.support.design.widget.TabItem
+            android:id="@+id/tablogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/user"

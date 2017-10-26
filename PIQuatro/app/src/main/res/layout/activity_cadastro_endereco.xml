@@ -52,8 +52,10 @@
         android:ems="10"
         android:hint="CEP"
         android:inputType="number"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/txtendereco"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/txtnum" />
 
     <EditText
         android:id="@+id/txtcomplemento"
@@ -64,7 +66,8 @@
         android:inputType="textPersonName"
         android:layout_above="@+id/button"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="48dp"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textView5"
@@ -86,7 +89,9 @@
         android:hint="Cidade"
         android:inputType="textPersonName"
         android:layout_above="@+id/txtpais"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="18dp"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/txtuf"
@@ -108,7 +113,9 @@
         android:hint="País"
         android:inputType="textPersonName"
         android:layout_above="@+id/txtcomplemento"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="12dp"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/txtnum"

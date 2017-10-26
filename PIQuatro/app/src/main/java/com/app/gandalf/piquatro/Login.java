@@ -42,6 +42,18 @@ public class Login extends AppCompatActivity {
         txtlogin = (EditText) findViewById(R.id.txtlogin);
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         btnok = (Button) findViewById(R.id.btnok);
+        txtreg = (TextView) findViewById(R.id.txtreg);
+
+
+
+        txtreg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Login.this, LoginReg.class);
+                startActivity(i);
+            }
+        });
+
 
         // Login e senha em branco
         View.OnClickListener listener = new View.OnClickListener(){

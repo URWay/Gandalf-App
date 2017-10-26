@@ -9,9 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
-        android:icon="@drawable/logogandalf"
-        android:label="Gandalf Store"
+        android:allowBackup="true"  android:icon="@drawable/logogandalf"     android:label="Gandalf Store"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">
@@ -21,69 +19,81 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".FirstTime" />
+        <activity android:name=".FirstTime" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroCliente">
 
-            <!--
-            testar sacoisa aqui dps, dude3
+        <activity android:name=".CadastroCliente">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            -->
+
+
         </activity>
-        <activity android:name=".LoginReg" />
-        <activity
-            android:name=".Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".CadastroEndereco">
+        <activity android:name=".LoginReg" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-       <!--- <activity android:name=".CadastroEndereco" /> -->
+
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".CadastroEndereco">
+
+        </activity>
+
+
         <activity android:name=".CadastroEnderecoCEP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Mask" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
 
+       </activity>
 
         <activity android:name=".descProduto" />
 
-        <activity android:name=".DetalheProduto" />
-        <activity android:name=".StatusPedido" />
-        <activity android:name=".Checkout">
+
+        <activity android:name=".StatusPedido">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
+        </activity>
+        <activity android:name=".Checkout">
 
         </activity>
-        <activity android:name=".produtos">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
 
     </application>
 

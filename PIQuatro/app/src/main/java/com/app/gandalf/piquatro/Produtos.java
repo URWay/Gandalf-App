@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class produtos extends AppCompatActivity {
+class produtos extends AppCompatActivity {
     private ViewGroup container;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
