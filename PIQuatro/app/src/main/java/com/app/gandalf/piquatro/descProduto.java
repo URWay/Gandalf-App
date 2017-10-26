@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.app.gandalf.piquatro.R;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -12,13 +14,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-<<<<<<< HEAD
-class produtos extends AppCompatActivity {
-    private ViewGroup container;
-=======
-class descProduto extends AppCompatActivity {
+public class descProduto extends AppCompatActivity {
 
->>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,5 +99,4 @@ class descProduto extends AppCompatActivity {
             }
         }
     }
-
 }

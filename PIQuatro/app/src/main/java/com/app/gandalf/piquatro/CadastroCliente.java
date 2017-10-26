@@ -44,6 +44,7 @@ public class CadastroCliente extends AppCompatActivity {
         checknews = (CheckBox) findViewById(R.id.checknews);
         btnok = (Button) findViewById(R.id.btnok);
 
+/*
         class MaskWatcher implements TextWatcher {
             private boolean isRunning = false;
             private boolean isDeleting = false;
@@ -94,7 +95,7 @@ public class CadastroCliente extends AppCompatActivity {
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));
         txtresidencial.addTextChangedListener(Mask.insert("(##)####-####", txtresidencial));
         txtnasc.addTextChangedListener(Mask.insert("(##)####-####", txtnasc));
-
+*/
 
         btnok.setOnClickListener(new View.OnClickListener() {
             @Override

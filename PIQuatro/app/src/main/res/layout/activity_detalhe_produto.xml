@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.gandalf.piquatro.DetalheProduto">
+
+    <TextView
+        android:id="@+id/txtnomeprod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="189dp"
+        android:text="Nome Produto"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="190dp" />
+
+    <ImageView
+        android:id="@+id/imgproduto"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:srcCompat="@drawable/logogandalf"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/txtdescricao" />
+
+    <TextView
+        android:id="@+id/txtdescricao"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:text="Descrição Produto"
+        android:layout_above="@+id/btnconfirma"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp" />
+
+    <Button
+        android:id="@+id/btnconfirma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_bright"
+        android:text="Adicionar ao carrinho"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/txtdescricao"
+        android:layout_marginBottom="28dp"
+        android:layout_alignEnd="@+id/txtdescricao" />
+
+    <TextView
+        android:id="@+id/txtnomeprod"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignEnd="@+id/imgproduto"
+        android:layout_alignStart="@+id/imgproduto"
+        android:layout_below="@+id/imgproduto"
+        android:layout_marginTop="15dp"
+        android:text="Nome do Pruduto" />
+
+    <TextView
+        android:id="@+id/txtprecodesc"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:text="Preço Produto"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/txtnomeprod"
+        android:layout_alignEnd="@+id/txtdescricao" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="De:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/txtprecodesc"
+        android:layout_alignStart="@+id/txtnomeprod"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Por:"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignBaseline="@+id/textView32"
+        android:layout_alignBottom="@+id/textView32"
+        android:layout_toStartOf="@+id/txtprecodesc" />
+
+    <TextView
+        android:id="@+id/txtpreco"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_alignTop="@+id/textView32"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/textView32"
+        android:text="Preço sem desconto" />
+</RelativeLayout>

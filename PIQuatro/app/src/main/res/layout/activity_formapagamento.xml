@@ -26,15 +26,6 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true">
 
-            <TextView
-                android:id="@+id/textLogo"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:text="Logo"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="10dp" />
-
             <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -45,10 +36,12 @@
             <TextView
                 android:layout_width="376dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="28dp"
                 android:background="#000000"
                 android:text="______________________________________________"
-                android:id="@+id/textView3" />
+                android:id="@+id/textView3"
+                android:layout_below="@+id/searchView"
+                android:layout_alignEnd="@+id/textView26" />
 
             <Button
                 android:id="@+id/comprar"
@@ -217,15 +210,15 @@ São Paulo/SP"
             <Button
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
 
+                android:layout_above="@+id/textView25"
+                android:layout_marginBottom="28dp"
+                android:layout_toStartOf="@+id/imageButton"
                 android:text="Alterar end. de Entrega"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="12sp"
-                android:layout_above="@+id/textView25"
-                android:layout_toStartOf="@+id/imageButton"
-                android:layout_marginBottom="28dp" />
+                android:textSize="12sp" />
 
 
             <TextView
@@ -307,10 +300,10 @@ São Paulo/SP"
             <Spinner
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:layout_alignBottom="@+id/textView26"
-                android:layout_alignEnd="@+id/textView25"
                 android:layout_marginBottom="11dp"
-                android:id="@+id/spinner2">
+                android:id="@+id/spinner2"
+                android:layout_alignBottom="@+id/textView26"
+                android:layout_alignEnd="@+id/textView25">
 
             </Spinner>
 
