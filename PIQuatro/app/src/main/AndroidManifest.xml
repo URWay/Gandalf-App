@@ -53,11 +53,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Mask" />
-        <activity android:name=".models.Produtos" />
-        +
+
+        <activity android:name="com.app.gandalf.piquatro.produtos">
+            <intent-filter>
+        <activity android:name="com.app.gandalf.piquatro.produtos" />
         <activity android:name=".descProduto" />
-        <activity android:name="com.senac.luiz.piquatro.Produtos"></activity>
+        <activity android:name="com.app.gandalf.piquatro.produtos"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

@@ -160,38 +160,50 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         }
     }
 
+//Lincoln
 
-<<<<<<< HEAD
-=======
-    Intent intent = new Intent(MainActivity.this,
-            MinhaAtividade.class);
-
-    Intent intent = new
-            Intent("com.senac.luiz.piquatro.Produtos");
-
-    Intent intent = new Intent(MainActivity.this, MinhaAtividade.class);
-    startActivity(intent);
-
-    Intent i = new Intent(Intent.ACTION_VIEW,
-            Uri.parse("http://www.google.com")); //trocar o endereço
-
-    Intent i = new Intent();
-        i.putExtra("nome", objetoComODado);
-        i.putExtra("id", 5);
-    startActivity(intent);
-
-    Intent intent = getIntent();
-    int id = intent.getIntExtra("id", 0);
-    String name = intent.getStringExtra("name");
-
-    startActivityForResult(intent, 1);
+    public void produtos(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 
 
-    Intent returnIntent = new Intent();
-    returnIntent.putExtra("retorno", "valor de
-    retorno");
-    setResult(RESULT_OK, returnIntent);
+    public void promocoes(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
 
+    public void camisetas(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void canecas(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void posteres(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void categorias(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+
+    public void filtros(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+
+    public void sobrenos(View v) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+    }
+//Lincoln termina aqui
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
@@ -205,4 +217,4 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         }
     }
 }
->>>>>>> cd97459657b3bdd77ad04d71f7d0281981f86116
+

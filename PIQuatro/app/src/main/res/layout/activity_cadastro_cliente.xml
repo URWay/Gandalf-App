@@ -161,15 +161,15 @@
         android:id="@+id/btnok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:background="@android:color/holo_blue_bright"
         android:text="ENVIAR DADOS"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/txtres"
