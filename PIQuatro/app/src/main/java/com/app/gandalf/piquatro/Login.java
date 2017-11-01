@@ -1,6 +1,7 @@
 package com.app.gandalf.piquatro;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -44,17 +46,6 @@ public class Login extends AppCompatActivity {
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
 
-
-
-        txtreg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Login.this, LoginReg.class);
-                startActivity(i);
-            }
-        });
-
-
         // Login e senha em branco
         View.OnClickListener listener = new View.OnClickListener(){
             @Override
@@ -62,7 +53,8 @@ public class Login extends AppCompatActivity {
                 Functions f = new Functions();
 
                 if (txtlogin.getText().toString().isEmpty() || txtsenha.getText().toString().isEmpty()) {
-                    f.showDialog("Erro", "Preencha os campos corretamente!", Login.this);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Preencha os campos corretamentes", Toast.LENGTH_SHORT);
+                    toast.show();
                 } else {
 
                     // Comunicação com WS e validação de Login
@@ -114,7 +106,7 @@ public class Login extends AppCompatActivity {
 
                 int responseCode = conn.getResponseCode();
 
-                JSONObject json = new JSONObject();
+                JSONObject json = new JSONObject(params[1]);
 
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
 
@@ -139,6 +131,16 @@ public class Login extends AppCompatActivity {
                     bufferedReader.close();
                     Log.d ("tag",sb.toString());
 
+                    // Armazena a sessão
+                    String login = json.getString("emailCliente");
+                    String password = json.getString("senhaCliente");
+
+                    SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putString("emailCliente", login);
+                    editor.putString("senhaCliente", password);
+                    editor.apply();
+
                     Intent intent = new Intent(Login.this, Home.class);
                     startActivity(intent);
 
@@ -161,7 +163,7 @@ public class Login extends AppCompatActivity {
 
             try {
                 if(!result.equals("true : 200")){
-                    f.showDialog("Erro","Login ou senha inválidos", Login.this);
+                    f.showDialog("Erro","Usuário ou senha inválidos", Login.this);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
