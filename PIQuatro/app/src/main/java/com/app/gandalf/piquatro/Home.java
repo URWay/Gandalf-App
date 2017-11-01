@@ -160,7 +160,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         }
     }
 
-
+/*
 //Lincoln
 
     public void produtos(View v) {
@@ -219,3 +219,4 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     }
 }
 
+*/

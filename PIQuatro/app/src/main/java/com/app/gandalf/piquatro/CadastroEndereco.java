@@ -42,7 +42,7 @@ private EditText txtpais;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_endereco);
 
-        txtnomeendereco = (EditText) findViewById(R.id.txtnomeendereco);
+        //txtnomeendereco = (EditText) findViewById(R.id.txtnomeendereco);
         txtendereco = (EditText) findViewById(R.id.txtendereco);
         txtnum = (EditText) findViewById(R.id.txtnum);
         txtcep = (EditText) findViewById(R.id.txtcep);
@@ -50,7 +50,7 @@ private EditText txtpais;
         txtcidade = (EditText) findViewById(R.id.txtcidade);
         txtuf = (EditText) findViewById(R.id.txtuf);
         txtpais = (EditText) findViewById(R.id.txtpais);
-        btnEnviarEndereco = (Button) findViewById(R.id.btnEnviarEndereco);
+       //btnEnviarEndereco = (Button) findViewById(R.id.btnEnviarEndereco);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
