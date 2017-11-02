@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "com.senac.luiz.piquatro"
+        applicationId "com.app.gandalf.piquatro"
         minSdkVersion 22
         targetSdkVersion 26
         versionCode 1
