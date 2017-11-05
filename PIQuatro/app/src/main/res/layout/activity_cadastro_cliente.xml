@@ -79,7 +79,7 @@
         android:layout_alignBottom="@+id/txtres"
         android:layout_alignParentEnd="true"
         android:ems="10"
-        android:hint="Data de Nascimento"
+        android:hint="Dt. Nascimento"
         android:inputType="date" />
 
     <TextView
@@ -206,5 +206,15 @@
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/loadingLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView14"
+        android:layout_marginEnd="7dp"
+        android:layout_toStartOf="@+id/txtnasc"
+        android:indeterminate="true"
+        android:visibility="invisible" />
 
 </RelativeLayout>

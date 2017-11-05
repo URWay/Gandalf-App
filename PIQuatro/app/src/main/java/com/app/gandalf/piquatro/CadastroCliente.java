@@ -1,15 +1,33 @@
 package com.app.gandalf.piquatro;
 
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.app.gandalf.piquatro.models.ClienteModel;
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 
 public class CadastroCliente extends AppCompatActivity {
@@ -44,7 +62,6 @@ public class CadastroCliente extends AppCompatActivity {
         checknews = (CheckBox) findViewById(R.id.checknews);
         btnok = (Button) findViewById(R.id.btnok);
 
-/*
         class MaskWatcher implements TextWatcher {
             private boolean isRunning = false;
             private boolean isDeleting = false;
@@ -83,73 +100,177 @@ public class CadastroCliente extends AppCompatActivity {
             }
         }
 
-
-
-        txtcpf.addTextChangedListener(new MaskWatcher("###.###.###-##"));
-        txttelefone.addTextChangedListener(new MaskWatcher("####-####"));
-        txtcomercial.addTextChangedListener(new MaskWatcher("####-####"));
-        txtresidencial.addTextChangedListener(new MaskWatcher("####-####"));
-        txtcelular.addTextChangedListener(new MaskWatcher("(##) # ####-####"));
-
+        // Mascára
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));
         txtresidencial.addTextChangedListener(Mask.insert("(##)####-####", txtresidencial));
         txtnasc.addTextChangedListener(Mask.insert("(##)####-####", txtnasc));
-*/
 
-        btnok.setOnClickListener(new View.OnClickListener() {
+        /*txtcpf.addTextChangedListener(new MaskWatcher("###.###.###-##"));
+        txttelefone.addTextChangedListener(new MaskWatcher("####-####"));
+        txtcomercial.addTextChangedListener(new MaskWatcher("####-####"));
+        txtresidencial.addTextChangedListener(new MaskWatcher("####-####"));
+        txtcelular.addTextChangedListener(new MaskWatcher("(##) # ####-####"));/*
+
+        // Verificar quando for inclusão / alteração / Exclusão
+        /*
+        // Alteração verifica a sessão e carega os valores nos campos
+        SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        String email = prefs.getString("email", null);;
+        Cadastro(cliente, "atualizar");
+        */
+
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (txtnome.equals("") || txtemail.equals("") || txtsenha.equals("") || txtcpf.equals("") || txttelefone.equals("")) {
+                // Validações
+                Functions f = new Functions();
 
-                    if (txtnome.getText().length() == 0 || txtemail.getText().length() == 0 || txtsenha.getText().length() == 0 || txtcpf.getText().length() == 0 || txttelefone.getText().length() == 0) {
+                String nome = txtnome.getText().toString().trim();
+                String email = txtemail.getText().toString();
+                String senha = txtsenha.getText().toString();
+                String cpf = txtcpf.getText().toString();
+                String celular = txtcelular.getText().toString();
+                String comercial = txtcomercial.getText().toString();
+                String residencial = txtresidencial.getText().toString();
+                String nasc = txtnasc.getText().toString();
 
-                        AlertDialog.Builder alerta = new AlertDialog.Builder(CadastroCliente.this);
-                        alerta.setTitle("Erro!");
-                        alerta.setMessage("Os campos com * são obrigatórios!");
+                int knews = 0;
+                if(checknews.isEnabled()) {
+                    knews = 1;
+                } else {
+                    knews = 0;
+                }
 
-                        alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
+                boolean isOk = false;
 
-                                txtnome.setText(null);
-                                txtemail.setText(null);
-                                txtsenha.setText(null);
-                                txtcpf.setText(null);
-                                txttelefone.setText(null);
-
-
-                            }
-                        });
-                        AlertDialog dialog = alerta.create();
-                        dialog.show();
-
-
-                    } else {
-                        AlertDialog.Builder alerta = new AlertDialog.Builder(CadastroCliente.this);
-                        alerta.setTitle("OK!");
-                        alerta.setMessage("Cliente cadastrado com sucesso!");
-
-                        alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                                if (checknews.isChecked()) {
-                                    // chamar método JAVA para disparar email
-                                }
-
-                            }
-                        });
-                        AlertDialog dialog = alerta.create();
-                        dialog.show();
-
+                if (nome.equals("") || email.equals("") || senha.equals("") || cpf.equals("") || celular.equals("")) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Os campos com * são obrigatórios!", Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    if(f.isValidEmail(email) == false){
+                        Toast toast = Toast.makeText(getApplicationContext(), "E-mail inválido", Toast.LENGTH_SHORT);
+                        toast.show();
+                        isOk = true;
                     }
-                }   }
 
-        });
+                    if(f.isCPF(cpf) == false){
+                        Toast toast = Toast.makeText(getApplicationContext(), "CPF inválido", Toast.LENGTH_SHORT);
+                        toast.show();
+                        isOk = true;
+                    }
 
+                    // Cadastro de Cliente
+                    if(!isOk){
+                        findViewById(R.id.loadingLogin).setVisibility(View.VISIBLE);
+                        RelativeLayout relative = (RelativeLayout) findViewById(R.id.activity_cadastro_cliente);
+                        relative.setBackgroundResource(0);
 
+                        ClienteModel cliente = new ClienteModel(0, nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
+                        Cadastro(cliente, "inserir");
+                    }
+                }
+
+            }
+        };
+
+        btnok.setOnClickListener(listener);
     }
+
+    public void Cadastro(ClienteModel cliente, String acao){
+
+        Gson g = new Gson();
+
+        String json = g.toJson(cliente);
+        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + acao;
+
+        NetworkCall myCall = new NetworkCall();
+        myCall.execute(url, json);
+    }
+
+    public class NetworkCall extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+
+                URL url = new URL(params[0]);
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(15000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                conn.setRequestProperty ("Content-Type", "application/json");
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+
+                writer.write(params[1]);
+                writer.flush();
+                writer.close();
+                os.close();
+
+                conn.connect();
+
+                int responseCode = conn.getResponseCode();
+
+                JSONObject json = new JSONObject(params[1]);
+
+                if (responseCode == HttpsURLConnection.HTTP_OK) {
+
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+                    StringBuffer sb = new StringBuffer("");
+                    String line="";
+
+                    while((line = bufferedReader.readLine()) != null) {
+                        sb.append(line);
+                        line = bufferedReader.readLine();
+                    }
+
+                    StringBuilder resultado = new StringBuilder();
+                    String linha = bufferedReader.readLine();
+
+                    while (linha != null) {
+                        resultado.append(linha);
+                        linha = bufferedReader.readLine();
+                    }
+
+                    bufferedReader.close();
+                    Log.d ("tag",sb.toString());
+
+                    Intent intent = new Intent(CadastroCliente.this, Login.class);
+                    intent.putExtra("Email", json.getString("emailCliente"));
+                    intent.putExtra("Senha", json.getString("senhaCliente"));
+                    startActivity(intent);
+
+                    return new String ("true : " + responseCode);
+                } else {
+                    return new String ("false : " + responseCode);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            try {
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
 
 

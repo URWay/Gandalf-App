@@ -12,9 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.gandalf.piquatro.models.LoginModel;
 import com.google.gson.Gson;
-
-
 
 import org.json.JSONObject;
 
@@ -27,7 +26,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
-import com.app.gandalf.piquatro.models.LoginModel;
 
 
 public class Login extends AppCompatActivity {
@@ -46,6 +44,22 @@ public class Login extends AppCompatActivity {
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
 
+        // Quando incluí o cliente, realiza o login
+        // Incluir a senha com codificação
+        Intent intent = getIntent();
+        if(intent != null){
+            try{
+                String email = intent.getStringExtra("Email");
+                String senha = intent.getStringExtra("Senha");
+                txtlogin.setText(email);
+                txtsenha.setText(senha);
+
+                LoginCliente(email, senha);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
         // Login e senha em branco
         View.OnClickListener listener = new View.OnClickListener(){
             @Override
@@ -61,21 +75,24 @@ public class Login extends AppCompatActivity {
                     String email = txtlogin.getText().toString().trim();
                     String senha = txtsenha.getText().toString().trim();
 
-                    LoginModel login = new LoginModel(email, senha);
-                    Gson g = new Gson();
-
-                    String json = g.toJson(login);
-
-                    // Temporário
-                    String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/login";
-
-                    NetworkCall myCall = new NetworkCall();
-                    myCall.execute(url, json);
+                    // Login
+                    LoginCliente(email, senha);
                 }
             }
         };
 
         btnok.setOnClickListener(listener);
+    }
+
+    public void LoginCliente(String email, String senha){
+        LoginModel login = new LoginModel(email, senha);
+        Gson g = new Gson();
+
+        String json = g.toJson(login);
+        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/login";
+
+        NetworkCall myCall = new NetworkCall();
+        myCall.execute(url, json);
     }
 
     public class NetworkCall extends AsyncTask<String, Void, String> {
@@ -137,8 +154,8 @@ public class Login extends AppCompatActivity {
 
                     SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("emailCliente", login);
-                    editor.putString("senhaCliente", password);
+                    editor.putString("email", login);
+                    editor.putString("senha", password);
                     editor.apply();
 
                     Intent intent = new Intent(Login.this, Home.class);

@@ -1,11 +1,7 @@
 package com.app.gandalf.piquatro;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import android.support.design.widget.TabItem;
-
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
+import android.widget.Toast;
 
 
 public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +37,14 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         navigationView.setNavigationItemSelectedListener(this);
 
         setTitle(null);
+
+        SharedPreferences prefs = getSharedPreferences("DadosSuperApp", MODE_PRIVATE);
+        String email = prefs.getString("email", null);
+
+        if(email != null){
+            Toast toast = Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
 
 /*
        op_sobre = (MenuItem) findViewById(R.id.op_sobre);
