@@ -1,14 +1,15 @@
 package com.app.gandalf.piquatro;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.app.gandalf.piquatro.models.Endereco;
 import com.google.gson.Gson;
@@ -17,11 +18,13 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -32,25 +35,38 @@ private EditText txtendereco;
 private EditText txtnum;
 private EditText txtcep;
 private EditText txtcomplemento;
-private Button btnEnviarEndereco;
+private Button btnEnviarDados;
+private Button btnbuscar;
 private EditText txtcidade;
 private EditText txtuf;
 private EditText txtpais;
+private Spinner spinnerUF;
+private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO", "ZZ" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_endereco);
 
-        //txtnomeendereco = (EditText) findViewById(R.id.txtnomeendereco);
+        txtnomeendereco = (EditText) findViewById(R.id.txtnomeendereco);
         txtendereco = (EditText) findViewById(R.id.txtendereco);
-        txtnum = (EditText) findViewById(R.id.txtnum);
+        txtnum = (EditText) findViewById(R.id.txtnumero);
         txtcep = (EditText) findViewById(R.id.txtcep);
         txtcomplemento = (EditText) findViewById(R.id.txtcomplemento);
-        txtcidade = (EditText) findViewById(R.id.txtcidade);
+        txtcidade = (EditText) findViewById(R.id.txtCidade);
         txtuf = (EditText) findViewById(R.id.txtuf);
         txtpais = (EditText) findViewById(R.id.txtpais);
-       //btnEnviarEndereco = (Button) findViewById(R.id.btnEnviarEndereco);
+        btnEnviarDados = (Button) findViewById(R.id.btnEnviarDados);
+        btnbuscar = (Button) findViewById(R.id.btnbuscar);
+
+        txtcep.addTextChangedListener(Mask.insert("#####-###", txtcep));
+
+        // Spinner de UF
+        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayCep);
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerUF);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerArrayAdapter);
+
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -70,7 +86,6 @@ private EditText txtpais;
                 Gson g = new Gson();
 
                 String json = g.toJson(end);
-
                 String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/endereco";
 
                 NetworkCall myCall = new NetworkCall();
@@ -78,7 +93,23 @@ private EditText txtpais;
             }
         };
 
-        btnEnviarEndereco.setOnClickListener(listener);
+        View.OnClickListener listenerBuscar = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String vcep = txtcep.getText().toString();
+
+                if(vcep.isEmpty() || vcep.equals("")){
+                    Toast toast = Toast.makeText(getApplicationContext(), "CEP inválido", Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    EnderecoNetworkCall myCallEndereco = new EnderecoNetworkCall();
+                    myCallEndereco.execute("https://viacep.com.br/ws/"+vcep+"/json/");
+                }
+            }
+        };
+
+        btnbuscar.setOnClickListener(listenerBuscar);
+        btnEnviarDados.setOnClickListener(listener);
     }
 
     public class NetworkCall extends AsyncTask<String, Void, String> {
@@ -164,5 +195,72 @@ private EditText txtpais;
         }
     }
 
+    public class EnderecoNetworkCall extends AsyncTask<String, Void, String>{
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                HttpURLConnection urlConnection = (HttpURLConnection) new URL(params[0]).openConnection();
+                InputStream in = urlConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+
+                StringBuilder resultado = new StringBuilder();
+                String linha = bufferedReader.readLine();
+
+                while (linha != null) {
+                    resultado.append(linha);
+                    linha = bufferedReader.readLine();
+                }
+
+                String respostaCompleta = resultado.toString();
+                return respostaCompleta;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            try {
+                JSONObject json = new JSONObject(result);
+                String cep = json.getString("cep");
+                String logradouro = json.getString("logradouro");
+                String complemento = json.getString("complemento");
+                String cidade = json.getString("localidade");
+                String uf = json.getString("uf");
+
+                // Setando valores do WebService
+                txtcep.setText(cep);
+                txtendereco.setText(logradouro);
+                txtcomplemento.setText(complemento);
+                txtcidade.setText(cidade);
+
+                final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(CadastroEndereco.this, android.R.layout.simple_spinner_item, arrayCep);
+                Spinner spinner = (Spinner) findViewById(R.id.spinnerUF);
+                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                if (!uf.equals(null)) {
+                    if(Arrays.asList(arrayCep).contains(uf)){
+                        int spinnerPosition = spinnerArrayAdapter.getPosition(uf);
+                        spinner.setSelection(spinnerPosition);
+                    } else {
+                        int spinnerPosition = spinnerArrayAdapter.getPosition("ZZ");
+                        spinner.setSelection(spinnerPosition);
+                    }
+                }
+
+                Toast toast = Toast.makeText(getApplicationContext(), "CEP carregado", Toast.LENGTH_SHORT);
+                toast.show();
+
+            } catch (Exception e) {
+                Toast toast = Toast.makeText(getApplicationContext(), "CEP não encontrado", Toast.LENGTH_SHORT);
+                toast.show();
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

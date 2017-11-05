@@ -17,115 +17,137 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/button"
+        android:id="@+id/btnEnviarDados"
         android:layout_alignParentEnd="true"
         android:background="@android:color/holo_blue_bright" />
-
-
-    <EditText
-        android:id="@+id/txtnomeapelido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:ems="10"
-        android:hint="Nome do Endereço"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:id="@+id/txtendereco"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/txtnomeapelido"
-        android:layout_below="@+id/txtnomeapelido"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:hint="Endereço"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/txtcep"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="CEP"
-        android:inputType="number"
-        android:layout_marginTop="14dp"
-        android:layout_below="@+id/txtendereco"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/txtnum" />
-
-    <EditText
-        android:id="@+id/txtcomplemento"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Complemento"
-        android:inputType="textPersonName"
-        android:layout_above="@+id/button"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="48dp"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:text="Preencha os campos abaixo:"
+        android:text="Cadastro de endereço"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/txtcidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Cidade"
-        android:inputType="textPersonName"
-        android:layout_above="@+id/txtpais"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="18dp"
-        android:layout_alignParentEnd="true" />
+        android:textStyle="bold"
+        android:layout_above="@+id/txtcep"
+        android:textColorLink="@android:color/holo_blue_bright" />
 
     <EditText
         android:id="@+id/txtuf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtcidade"
-        android:layout_alignBottom="@+id/txtcidade"
-        android:layout_alignEnd="@+id/txtnum"
-        android:layout_toEndOf="@+id/button"
+        android:layout_alignEnd="@+id/txtnumero"
+        android:layout_toEndOf="@+id/btnEnviarDados"
         android:ems="10"
         android:hint="UF"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtcep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtuf"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="CEP"
+        android:inputType="number"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <Button
+        android:id="@+id/btnbuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:layout_alignBaseline="@+id/txtcep"
+        android:layout_alignBottom="@+id/txtcep"
+        android:layout_alignEnd="@+id/txtuf"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtendereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btnbuscar"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtnomeendereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nome endereço"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/txtendereco"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="9dp"
+        android:layout_alignEnd="@+id/txtuf"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtcomplemento"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Complemento"
+        android:inputType="textPersonName"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/txtnomeendereco"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btnbuscar"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtnumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="N°"
+        android:inputType="textPersonName"
+        android:layout_alignBaseline="@+id/txtcomplemento"
+        android:layout_alignBottom="@+id/txtcomplemento"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView5"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+    <EditText
+        android:id="@+id/txtCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtpais"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Cidade"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
 
     <EditText
         android:id="@+id/txtpais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="País"
-        android:inputType="textPersonName"
-        android:layout_above="@+id/txtcomplemento"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:id="@+id/txtnum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/txtendereco"
+        android:layout_below="@+id/txtcomplemento"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="N°"
-        android:inputType="number"
-        android:layout_alignEnd="@+id/textView5"
-        android:layout_toEndOf="@+id/txtnomeapelido" />
+        android:hint="Páis"
+        android:inputType="textPersonName"
+        android:layout_toStartOf="@+id/spinnerUF"
+        android:textColorLink="@android:color/holo_blue_bright"/>
+
+    <Spinner
+        android:id="@+id/spinnerUF"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtpais"
+        android:layout_toEndOf="@+id/txtcomplemento"
+        android:layout_marginBottom="8dp" />
 
 </RelativeLayout>
