@@ -1,12 +1,17 @@
 package com.app.gandalf.piquatro;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.support.v7.widget.CardView;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -24,7 +29,7 @@ public class ListaProdutos extends AppCompatActivity {
 
         container = (ViewGroup) findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
-        // Temporário
+
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
         // Executa a thread, passando null como parâmetro
 
@@ -36,42 +41,30 @@ public class ListaProdutos extends AppCompatActivity {
         myCall.execute(url+"/1/idProduto?ap=0&desc=1");
     }
 
-    // Implementa o AsynkTask para criar uma thread
     public class NetworkCall extends AsyncTask<String, Void, String> {
 
-        // Esse é o método que executa a tarefa em segundo plano
         @Override
         protected String doInBackground(String... params) {
             try {
-                // Cria o objeto de conexão
                 HttpURLConnection urlConnection = (HttpURLConnection) new URL(params[0]).openConnection();
-
-                // Executa a requisição pegando os dados
                 InputStream in = urlConnection.getInputStream();
-
-                // Cria um leitor para ler a resposta
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 
                 StringBuilder resultado = new StringBuilder();
                 String linha = bufferedReader.readLine();
 
-                // Lê linha a linha a resposta e armazena no StringBuilder
                 while (linha != null) {
                     resultado.append(linha);
                     linha = bufferedReader.readLine();
                 }
 
-                // Transforma o StringBuilder em String, que contém a resposta final
                 String respostaCompleta = resultado.toString();
-
-                // Retorna a string final contendo a resposta retornada
                 return respostaCompleta;
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            // Caso tenha dado algum erro, retorna null
             return null;
         }
 
@@ -81,7 +74,6 @@ public class ListaProdutos extends AppCompatActivity {
             super.onPostExecute(result);
 
             try {
-                // Cria um objeto JSON a partir da resposta
                 JSONObject json = new JSONObject(result);
 
                 //Objeto do layout
@@ -97,10 +89,8 @@ public class ListaProdutos extends AppCompatActivity {
                     precProduto = json.getDouble("precProduto");
                     descontoPromocao = json.getDouble("descontoPromocao");
                     imagem = json.getString("imagem");
-
-
+                    addItem(idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, imagem);
                 }
-
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -118,6 +108,12 @@ public class ListaProdutos extends AppCompatActivity {
         nome.setText(nomeProd);
         prec.setText(String.valueOf(precProd));
         promo.setText(String.valueOf(descPromocao));
+
+        // Imagem
+        ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
+        byte[] image64 = Base64.decode(img, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
+        image.setImageBitmap(bitmap);
 
         container.addView(cardView);
     }
