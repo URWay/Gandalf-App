@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -82,7 +83,10 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
                 String uf = txtuf.getText().toString().trim();
                 String pais = txtpais.getText().toString().trim();
 
-                Endereco end = new Endereco(5, endereco, lograudouro, num, cep, complemento, cidade, pais, uf);
+                SharedPreferences prefs = getSharedPreferences("DadosSuperApp", MODE_PRIVATE);
+                int id = prefs.getInt("id", 0);
+
+                Endereco end = new Endereco(id, endereco, lograudouro, num, cep, complemento, cidade, pais, uf);
                 Gson g = new Gson();
 
                 String json = g.toJson(end);
@@ -139,8 +143,6 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
                 conn.connect();
 
                 int responseCode = conn.getResponseCode();
-
-                JSONObject json = new JSONObject();
 
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
 

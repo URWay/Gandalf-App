@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -44,22 +45,6 @@ public class Login extends AppCompatActivity {
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
 
-        // Quando incluí o cliente, realiza o login
-        // Incluir a senha com codificação
-        Intent intent = getIntent();
-        if(intent != null){
-            try{
-                String email = intent.getStringExtra("Email");
-                String senha = intent.getStringExtra("Senha");
-                txtlogin.setText(email);
-                txtsenha.setText(senha);
-
-                LoginCliente(email, senha);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-
         // Login e senha em branco
         View.OnClickListener listener = new View.OnClickListener(){
             @Override
@@ -85,7 +70,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void LoginCliente(String email, String senha){
-        LoginModel login = new LoginModel(email, senha);
+        LoginModel login = new LoginModel(email, senha, 0);
         Gson g = new Gson();
 
         String json = g.toJson(login);
@@ -149,13 +134,16 @@ public class Login extends AppCompatActivity {
                     Log.d ("tag",sb.toString());
 
                     // Armazena a sessão
+                    JSONObject cliente = new JSONObject(resultado.toString());
                     String login = json.getString("emailCliente");
                     String password = json.getString("senhaCliente");
+                    int id = json.getInt("idCliente");
 
                     SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putString("email", login);
                     editor.putString("senha", password);
+                    editor.putInt("id", id);
                     editor.apply();
 
                     Intent intent = new Intent(Login.this, Home.class);
