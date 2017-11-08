@@ -9,43 +9,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="6dp"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="283dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:text="Nome do Produto"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/imageViewListaProdutos"
-                android:layout_width="72dp"
-                android:layout_height="66dp"
-                android:layout_weight="0.78"
-                app:srcCompat="@drawable/ic_menu_camera" />
-
-            <TextView
-                android:id="@+id/textView31"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/textView18"
-                android:text="precoproduto"
-                android:textAlignment="textEnd"
-                android:textSize="24sp" />
-
-        </RelativeLayout>
+            android:orientation="vertical">
+        </LinearLayout>
     </ScrollView>
 
 
