@@ -14,7 +14,6 @@
         android:label="Gandalf Store"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,17 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".FirstTime">
-
-        </activity>
-
-        <activity android:name=".Login">
-
-        </activity>
-        <activity android:name=".LoginReg">
-
-        </activity>
+        <activity android:name=".FirstTime" />
+        <activity android:name=".Login" />
+        <activity android:name=".LoginReg" />
         <activity android:name=".ListaProdutos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".CadastroCliente">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,16 +38,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name=".CadastroEndereco" />
-
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme">
 
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+
+        <activity android:name=".DadosCadastrais">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Configuracoes">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+
+
 
     </application>
 

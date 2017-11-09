@@ -3,6 +3,7 @@ package com.app.gandalf.piquatro;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabItem;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -10,23 +11,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
-
+import android.content.Intent;
 
 public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
-    /*
+
      private TabItem tabcarrinho;
      private TabItem tabpedidos;
      private TabItem tabhome;
      private TabItem tablogin;
 
-     private MenuItem op_sobre;
- */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -45,6 +46,23 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
             Toast toast = Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT);
             toast.show();
         }
+
+
+       tablogin = (TabItem) findViewById(R.id.tablogin);
+       tablogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (savedInstanceState == null) {
+
+                }
+                    MyFragment fragment = new MyFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frag_container,fragment).commit();
+
+
+
+                }
+        });
 
 /*
        op_sobre = (MenuItem) findViewById(R.id.op_sobre);
@@ -65,10 +83,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
 
 
-    tabcarrinho = (TabItem) findViewById(R.id.tabcarrinho);
-    tabpedidos = (TabItem) findViewById(R.id.tabpedidos);
-    tabhome = (TabItem) findViewById(R.id.tabhome);
-    tablogin = (TabItem) findViewById(R.id.tablogin);
+
 
 
     tabcarrinho.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +141,9 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         public boolean onCreateOptionsMenu (Menu menu){
 
             getMenuInflater().inflate(R.menu.home, menu);
+
+
+
             return false;
         }
 
