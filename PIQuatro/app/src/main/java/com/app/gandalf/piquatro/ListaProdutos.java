@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -21,16 +22,17 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ListaProdutos extends AppCompatActivity {
-    private ViewGroup container;
+    private ViewGroup mensagens;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_produtos);
+        setContentView(R.layout.activity_lista_produtos);
 
-        container = (ViewGroup) findViewById(R.id.container);
+        mensagens = (ViewGroup) findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
 
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
+
         // Executa a thread, passando null como parâmetro
 
         // Luiz, o valor de ap tem que ser o ID inicial dos produtos (Ex: 2 retorna os 15 primeiros produtos acima do ID 2, será utilziado para paginação)
@@ -38,13 +40,14 @@ public class ListaProdutos extends AppCompatActivity {
         //O primeiro parametro no path é o id da categoria (vamos ter q pegar ele do menu)
         //O segundo é a ordem (usado para filtros)
         //Para pesquisa será utilizado o parametro via get = pesq
-        myCall.execute(url+"/1/idProduto?ap=0&desc=1");
+        myCall.execute(url+"/1?ap=0");
     }
 
     public class NetworkCall extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
+            String respostaCompleta = "";
             try {
                 HttpURLConnection urlConnection = (HttpURLConnection) new URL(params[0]).openConnection();
                 InputStream in = urlConnection.getInputStream();
@@ -58,14 +61,13 @@ public class ListaProdutos extends AppCompatActivity {
                     linha = bufferedReader.readLine();
                 }
 
-                String respostaCompleta = resultado.toString();
-                return respostaCompleta;
+                respostaCompleta = resultado.toString();
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            return null;
+            return respostaCompleta;
         }
 
 
@@ -74,21 +76,25 @@ public class ListaProdutos extends AppCompatActivity {
             super.onPostExecute(result);
 
             try {
-                JSONObject json = new JSONObject(result);
-
-                //Objeto do layout
-                container = (ViewGroup) findViewById(R.id.container);
+                JSONArray json = new JSONArray(result);
+                
                 int idProduto;
                 String nomeProduto, descProduto, imagem;
                 double precProduto, descontoPromocao;
+                int to = json.length();
 
-                for (int i = 0; i <= 14; i++) {
-                    idProduto = json.getInt("idProduto");
-                    nomeProduto = json.getString("nomeProduto");
-                    descProduto = json.getString("descProduto");
-                    precProduto = json.getDouble("precProduto");
-                    descontoPromocao = json.getDouble("descontoPromocao");
-                    imagem = json.getString("imagem");
+                //Só pode retornar 14
+                if(to >= 14){
+                    to = 14;
+                }
+
+                for (int i = 0; i <= to; i++) {
+                    idProduto = json.getJSONObject(i).getInt("idProduto");
+                    nomeProduto = json.getJSONObject(i).getString("nomeProduto");
+                    descProduto = json.getJSONObject(i).getString("descProduto");
+                    precProduto = json.getJSONObject(i).getDouble("precProduto");
+                    descontoPromocao = json.getJSONObject(i).getDouble("descontoPromocao");
+                    imagem = json.getJSONObject(i).getString("imagem");
                     addItem(idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, imagem);
                 }
 
@@ -99,22 +105,22 @@ public class ListaProdutos extends AppCompatActivity {
     }
 
     private void addItem(int idProduto, String nomeProd, String descProd, double precProd, double descPromocao, String img) {
-        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.produto_container, container, false);
+        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
-        TextView promo = (TextView) cardView.findViewById(R.id.precProduto);
+        TextView promo = (TextView) cardView.findViewById(R.id.promoProduto);
+
+        ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
+        byte[] image64 = Base64.decode(img, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
 
         nome.setText(nomeProd);
         prec.setText(String.valueOf(precProd));
         promo.setText(String.valueOf(descPromocao));
-
-        // Imagem
-        ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
-        byte[] image64 = Base64.decode(img, Base64.DEFAULT);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
         image.setImageBitmap(bitmap);
 
-        container.addView(cardView);
+
+        mensagens.addView(cardView);
     }
 }

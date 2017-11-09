@@ -1,25 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_produtos"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ListaProdutos">
+    app:cardUseCompatPadding="true"
+    app:cardElevation="5dp">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        </LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="6dp"
+        android:weightSum="1">
 
-    </ScrollView>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/nomeProduto"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageViewListaProdutos"
+            android:hint="Nome do Produto"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageViewListaProdutos"
+            android:layout_width="72dp"
+            android:layout_height="66dp"
+            android:layout_weight="0.78"
+            app:srcCompat="@drawable/ic_menu_camera" />
+
+        <TextView
+            android:id="@+id/precProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageViewListaProdutos"
+            android:layout_alignStart="@+id/nomeProduto"
+            android:hint="preço"
+            android:textAlignment="textEnd"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/promoProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/precProduto"
+            android:layout_below="@+id/precProduto"
+            android:hint="promo"
+            android:textAlignment="textEnd"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
