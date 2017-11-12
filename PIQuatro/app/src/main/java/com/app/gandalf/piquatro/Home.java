@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -123,18 +124,23 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         public boolean onNavigationItemSelected (MenuItem item){
             // Handle navigation view item clicks here.
             int id = item.getItemId();
+            Intent intent = new Intent(this, ListaProdutos.class);
+
 
             if (id == R.id.op_promocoes) {
                 // Handle the camera action
-            } else if (id == R.id.op_camisetas) {
-
+            } else if (id == R.id.op_colecionaveis) {
+                 intent.putExtra("categoria",1 );
             } else if (id == R.id.op_canecas) {
-
-            } else if (id == R.id.op_posteres) {
+                intent.putExtra("categoria",5 );
+            } else if (id == R.id.op_decoracao) {
+                intent.putExtra("categoria",6 );
             }
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
+
+            startActivity(intent);
             return true;
 
 
@@ -145,44 +151,29 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 //Lincoln
 
     public void produtos(View v) {
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
 
 
     public void promocoes(View v) {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
-    }
-
-    public void camisetas(View v) {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
-    }
-
-    public void canecas(View v) {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
-    }
-
-    public void posteres(View v) {
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
 
     public void categorias(View v) {
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
 
 
     public void filtros(View v) {
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
 
     public void sobrenos(View v) {
-        Intent intent = new Intent(this, Home.class);
+        Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
 //Lincoln termina aqui
