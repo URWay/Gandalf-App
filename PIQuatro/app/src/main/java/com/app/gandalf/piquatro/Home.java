@@ -105,6 +105,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
             if (id == R.id.op_promocoes) {
 
+                
             } else if (id == R.id.op_camisetas) {
 
             } else if (id == R.id.op_canecas) {
