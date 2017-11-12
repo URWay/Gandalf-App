@@ -1,14 +1,13 @@
 package com.app.gandalf.piquatro;
 
-import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,6 @@ private ListView lista;
         opcoes.add("Meus endereços");
         opcoes.add("Sobre");
 
-
         adaptador = new ArrayAdapter<String>(Configuracoes.this, android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
 
@@ -53,17 +51,18 @@ private ListView lista;
     }
 
     private void minhaconta() {
-        Intent it = new Intent(Configuracoes.this,CadastroCliente.class);
-        startActivity(it);
+        Intent intent = new Intent(Configuracoes.this, CadastroCliente.class);
+        intent.putExtra("ACAO", "M");
+        startActivity(intent);
     }
 
     private void meusenderecos() {
-        Intent it = new Intent(Configuracoes.this, Home.class);
+        Intent it = new Intent(Configuracoes.this, Enderecos.class);
         startActivity(it);
     }
 
     private void sobre() {
-        Intent it = new Intent(Configuracoes.this, Home.class);
+        Intent it = new Intent(Configuracoes.this, Sobre.class);
         startActivity(it);
     }
 

@@ -1,14 +1,11 @@
 package com.app.gandalf.piquatro;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-import com.app.gandalf.piquatro.models.Endereco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +27,6 @@ public class Enderecos extends AppCompatActivity {
         opcoes.add("Endereço 2");
         opcoes.add("Endereço 3");
 
-
         adaptador = new ArrayAdapter<String>(Enderecos.this, android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
 
@@ -51,21 +47,5 @@ public class Enderecos extends AppCompatActivity {
             }
         });
     }
-
-    private void minhaconta() {
-        Intent it = new Intent(Enderecos.this,Home.class);
-        startActivity(it);
-    }
-
-    private void meusenderecos() {
-        Intent it = new Intent(Enderecos.this, Home.class);
-        startActivity(it);
-    }
-
-    private void sobre() {
-        Intent it = new Intent(Enderecos.this, Home.class);
-        startActivity(it);
-    }
-
 }
 

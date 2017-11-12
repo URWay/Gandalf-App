@@ -52,6 +52,7 @@ public class CadastroCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_cliente);
+        findViewById(R.id.loadingLogin).setVisibility(View.GONE);
 
         //ActionBar ab = getSupportActionBar();
         //ab.setDisplayHomeAsUpEnabled(true);
@@ -166,7 +167,7 @@ public class CadastroCliente extends AppCompatActivity {
         String json = g.toJson(cliente);
         Functions f = new Functions();
 
-        //if(!f.isEmail(cliente)){
+        if(!f.isEmail(cliente)){
             String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + acao;
             String method = null;
 
@@ -178,7 +179,7 @@ public class CadastroCliente extends AppCompatActivity {
 
             NetworkCall myCall = new NetworkCall();
             myCall.execute(url, json, method);
-        //}
+        }
     }
 
     public void LoginCadastro(String email, String senha){

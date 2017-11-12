@@ -42,6 +42,7 @@ public class Login extends AppCompatActivity {
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
+        findViewById(R.id.loadingL).setVisibility(View.GONE);
 
         //ActionBar ab = getSupportActionBar();
         //ab.setDisplayHomeAsUpEnabled(true);
