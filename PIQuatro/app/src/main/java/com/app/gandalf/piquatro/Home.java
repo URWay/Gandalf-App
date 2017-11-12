@@ -42,35 +42,13 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         String email = prefs.getString("email", null);
 
-        if(email != null){
+        if (email != null) {
             Toast toast = Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT);
             toast.show();
         }
 
 
-       tablogin = (TabItem) findViewById(R.id.tablogin);
-  /*     tablogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // if (savedInstanceState == null) {
-
-<<<<<<< HEAD
-                }
-                    MyFragment fragment = new MyFragment();
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frag_container,fragment).commit();
-=======
-                //}
-                    //MyFragment fragment = new MyFragment();
-                    //getSupportFragmentManager().beginTransaction()
-                            //.replace(R.id.frag_container,fragment).commit();
-
-
-
->>>>>>> e03def87bdd8d7ceaa204e08d2497d8be7a30e96
-                }
-        });
-        */
+        tablogin = (TabItem) findViewById(R.id.tablogin);
 
     }
 /*
@@ -127,10 +105,18 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
             Intent intent = new Intent(this, ListaProdutos.class);
 
 
+
             if (id == R.id.op_promocoes) {
+<<<<<<< HEAD
                 // Handle the camera action
             } else if (id == R.id.op_colecionaveis) {
                  intent.putExtra("categoria",1 );
+=======
+
+                
+            } else if (id == R.id.op_camisetas) {
+
+>>>>>>> 9e4f3ced5d492d16779589e7c8943c783edba4ac
             } else if (id == R.id.op_canecas) {
                 intent.putExtra("categoria",5 );
             } else if (id == R.id.op_decoracao) {

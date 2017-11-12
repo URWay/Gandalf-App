@@ -1,15 +1,16 @@
 package com.app.gandalf.piquatro;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.app.gandalf.piquatro.R;
 
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -109,8 +110,26 @@ public class descProduto extends AppCompatActivity {
 
 
 
+                /* Intent para pegar os dados da ListaProdutos e passar para descProduto
+                Intent intent = getIntent();
 
+                if (intent != null){
+                    Bundle bundle = intent.getExtras();
+                    if(bundle != null){
+                       String nome = bundle.getString("nomeproduto");
+                        Double precoprod = bundle.getDouble("precoprod");
+                        Double descprecoprod = bundle.getDouble("descprecoprod");
 
+                        TextView txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
+                        TextView txtprecoprod = (TextView) findViewById(R.id.txtpreco);
+                        TextView txtdescpreco = (TextView) findViewById(R.id.txtprecodesc);
+
+                        txtnomeprod.setText(nome);
+                        txtprecoprod.setText(precoprod.toString());
+                        txtdescpreco.setText(descprecoprod.toString());
+                    }
+                }
+*/
 
             } catch (Exception e) {
                 e.printStackTrace();

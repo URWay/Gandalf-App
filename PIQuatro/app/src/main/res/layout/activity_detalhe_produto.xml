@@ -57,7 +57,7 @@
         android:layout_alignStart="@+id/imgproduto"
         android:layout_below="@+id/imgproduto"
         android:layout_marginTop="15dp"
-        android:text="Nome do Pruduto" />
+        android:text="Nome do Produto" />
 
     <TextView
         android:id="@+id/txtprecodesc"

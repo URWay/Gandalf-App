@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.gandalf.piquatro">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <!-- To auto-complete taaaahe email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -22,16 +22,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".FirstTime" />
-        <activity android:name=".Login" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-        <activity android:name=".LoginReg"
-            android:parentActivityName=".Home"/>
+        <activity
+            android:name=".LoginReg"
+            android:parentActivityName=".Home" />
         <activity android:name=".ListaProdutos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,17 +50,15 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-              android:theme="@style/AppTheme"
-            >
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
-        <activity android:name=".DadosCadastrais"
+        <activity
+            android:name=".DadosCadastrais"
             android:parentActivityName=".Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,20 +66,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Configuracoes"
+        <activity
+            android:name=".Configuracoes"
             android:parentActivityName=".Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Enderecos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
-
-
-
-
     </application>
 
 </manifest>
