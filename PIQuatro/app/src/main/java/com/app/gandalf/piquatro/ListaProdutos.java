@@ -1,7 +1,9 @@
 package com.app.gandalf.piquatro;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -109,7 +112,8 @@ public class ListaProdutos extends AppCompatActivity {
 
         TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
-        TextView promo = (TextView) cardView.findViewById(R.id.promoProduto);
+        TextView precodesconto = (TextView) cardView.findViewById(R.id.precodesconto);
+        TextView rs = (TextView) cardView.findViewById(R.id.rs);
 
         ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
         byte[] image64 = Base64.decode(img, Base64.DEFAULT);
@@ -117,10 +121,25 @@ public class ListaProdutos extends AppCompatActivity {
 
         nome.setText(nomeProd);
         prec.setText(String.valueOf(precProd));
-        promo.setText(String.valueOf(descPromocao));
+
+
+        prec.setPaintFlags(prec.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        rs.setPaintFlags(prec.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        precodesconto.setText(String.valueOf(precProd - descPromocao));
+
         image.setImageBitmap(bitmap);
 
-
         mensagens.addView(cardView);
+
+
     }
+
+  /*  private void CarregarHome(){
+        Intent intent = new Intent(ListaProdutos.this, Home.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("",);
+        intent.putExtra(bundle);
+        startActivity(intent);
+    }
+*/
 }

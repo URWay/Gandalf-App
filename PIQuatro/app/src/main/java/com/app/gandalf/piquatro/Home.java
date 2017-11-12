@@ -49,7 +49,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
 
        tablogin = (TabItem) findViewById(R.id.tablogin);
-       tablogin.setOnClickListener(new View.OnClickListener() {
+  /*     tablogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (savedInstanceState == null) {
@@ -58,72 +58,22 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
                     MyFragment fragment = new MyFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frag_container,fragment).commit();
-
-
-
                 }
         });
+        */
 
-/*
-       op_sobre = (MenuItem) findViewById(R.id.op_sobre);
+    }
 
-      op_sobre.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-          @Override
-          public boolean onMenuItemClick(MenuItem item) {
+        public void CarregaHome(){
+            tabhome = (TabItem) findViewById(R.id.tabhome);
 
-              Intent i = new Intent(Home.this, Sobre.class);
-              startActivity(i);
-
-              return false;
-          }
-      });
+            Intent intent = new Intent(Home.this, ListaProdutos.class);
+            Bundle params = new Bundle();
 
 
 
-
-
-
-
-
-
-    tabcarrinho.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(Home.this, Carrinho.class);
             startActivity(intent);
         }
-    });
-
-    tabpedidos.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Pedidos.class);
-                startActivity(intent);
-            }
-
-    });
-
-
-    tabhome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Home.class);
-                startActivity(intent);
-            }
-    });
-
-
-    tablogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Login.class);
-                startActivity(intent);
-            }
-    });
-
-        */
-    }
 
 
 

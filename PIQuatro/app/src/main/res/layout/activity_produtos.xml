@@ -1,7 +1,8 @@
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardUseCompatPadding="true"
     app:cardElevation="5dp">
@@ -20,35 +21,88 @@
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imageViewListaProdutos"
             android:hint="Nome do Produto"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
-        <ImageView
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/imageViewListaProdutos"
             android:layout_width="72dp"
             android:layout_height="66dp"
-            android:layout_weight="0.78"
-            app:srcCompat="@drawable/ic_menu_camera" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:civ_border_color="#ffffff"
+            app:civ_border_width="1dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="168dp" />
 
         <TextView
+
             android:id="@+id/precProduto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageViewListaProdutos"
-            android:layout_alignStart="@+id/nomeProduto"
+            android:layout_alignBaseline="@+id/de"
+            android:layout_alignBottom="@+id/de"
+            android:layout_toEndOf="@+id/rs"
+            android:elegantTextHeight="false"
+            android:freezesText="false"
             android:hint="preço"
-            android:textAlignment="textEnd"
-            android:textSize="24sp" />
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:typeface="normal" />
 
         <TextView
-            android:id="@+id/promoProduto"
+            android:id="@+id/de"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/precProduto"
-            android:layout_below="@+id/precProduto"
-            android:hint="promo"
-            android:textAlignment="textEnd"
-            android:textSize="24sp" />
+            android:layout_alignBottom="@+id/imageViewListaProdutos"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/imageViewListaProdutos"
+            android:text="De:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/precProduto"
+            android:layout_alignBottom="@+id/precProduto"
+            android:layout_toStartOf="@+id/textView37"
+            android:text="Por:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/precodesconto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView37"
+            android:layout_alignBottom="@+id/textView37"
+            android:layout_alignEnd="@+id/nomeProduto"
+            android:text="precodesc"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/rs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/de"
+            android:layout_toEndOf="@+id/de"
+            android:text="R$" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView31"
+            android:layout_alignBottom="@+id/textView31"
+            android:layout_toStartOf="@+id/precodesconto"
+            android:text="R$"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="22sp" />
 
     </RelativeLayout>
 
