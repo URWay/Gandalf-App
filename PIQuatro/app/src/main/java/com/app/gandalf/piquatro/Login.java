@@ -43,6 +43,9 @@ public class Login extends AppCompatActivity {
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
 
+        //ActionBar ab = getSupportActionBar();
+        //ab.setDisplayHomeAsUpEnabled(true);
+
         // Login e senha em branco
         View.OnClickListener listener = new View.OnClickListener(){
             @Override
@@ -66,7 +69,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this, CadastroCliente.class);
-                intent.putExtra("ACAO", "M");
+                intent.putExtra("ACAO", "A");
                 startActivity(intent);
             }
         });

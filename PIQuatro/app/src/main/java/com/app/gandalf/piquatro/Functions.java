@@ -3,6 +3,17 @@ package com.app.gandalf.piquatro;
 import android.app.Activity;
 import android.support.v7.app.AlertDialog;
 
+import com.app.gandalf.piquatro.models.ClienteModel;
+import com.google.gson.Gson;
+
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -89,6 +100,60 @@ public class Functions {
         } catch (InputMismatchException erro) {
             return(false);
         }
+    }
+
+    public boolean isEmail(ClienteModel cliente){
+        Gson g = new Gson();
+        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/isEmail";
+
+        String json = g.toJson(cliente);
+        int response = sendPost(url, json, "POST");
+
+        if(response == 204){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private int sendPost(String url, String urlParameters, String method) {
+        try {
+            URL obj = new URL(url);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+            con.setRequestMethod(method);
+            con.setRequestProperty("Content-Type", "application/json");
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+
+            con.setDoOutput(true);
+            DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+            wr.writeBytes(urlParameters);
+            wr.flush();
+            wr.close();
+
+            int responseCode = con.getResponseCode();
+
+            BufferedReader in = new BufferedReader( new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            return responseCode;
+
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
 }
