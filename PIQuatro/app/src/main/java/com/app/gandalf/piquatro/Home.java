@@ -41,35 +41,13 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         String email = prefs.getString("email", null);
 
-        if(email != null){
+        if (email != null) {
             Toast toast = Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT);
             toast.show();
         }
 
 
-       tablogin = (TabItem) findViewById(R.id.tablogin);
-  /*     tablogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // if (savedInstanceState == null) {
-
-<<<<<<< HEAD
-                }
-                    MyFragment fragment = new MyFragment();
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frag_container,fragment).commit();
-=======
-                //}
-                    //MyFragment fragment = new MyFragment();
-                    //getSupportFragmentManager().beginTransaction()
-                            //.replace(R.id.frag_container,fragment).commit();
-
-
-
->>>>>>> e03def87bdd8d7ceaa204e08d2497d8be7a30e96
-                }
-        });
-        */
+        tablogin = (TabItem) findViewById(R.id.tablogin);
 
     }
 /*
@@ -124,8 +102,9 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
             // Handle navigation view item clicks here.
             int id = item.getItemId();
 
+
             if (id == R.id.op_promocoes) {
-                // Handle the camera action
+
             } else if (id == R.id.op_camisetas) {
 
             } else if (id == R.id.op_canecas) {

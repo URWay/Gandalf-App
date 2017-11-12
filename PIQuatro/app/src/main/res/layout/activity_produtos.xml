@@ -7,6 +7,7 @@
     app:cardUseCompatPadding="true"
     app:cardElevation="5dp">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,16 +43,16 @@
             android:id="@+id/precProduto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/de"
+            android:layout_alignBottom="@+id/de"
+            android:layout_toEndOf="@+id/de"
             android:elegantTextHeight="false"
             android:freezesText="false"
             android:hint="preço"
             android:textAlignment="viewStart"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:typeface="normal"
-            android:layout_alignBaseline="@+id/de"
-            android:layout_alignBottom="@+id/de"
-            android:layout_toEndOf="@+id/de" />
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/de"
@@ -67,12 +68,12 @@
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Por:"
-            android:textSize="18sp"
-            android:layout_marginEnd="11dp"
             android:layout_alignBaseline="@+id/de"
             android:layout_alignBottom="@+id/de"
-            android:layout_toStartOf="@+id/precodesconto" />
+            android:layout_marginEnd="11dp"
+            android:layout_toStartOf="@+id/precodesconto"
+            android:text="Por:"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/precodesconto"

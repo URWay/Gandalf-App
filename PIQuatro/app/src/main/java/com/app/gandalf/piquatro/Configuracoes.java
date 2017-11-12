@@ -45,6 +45,9 @@ private ListView lista;
                         break;
                     case 2: sobre();
                         break;
+
+                    case 4 :;
+                        break;
                     case 3: finish();
                         break;
                 }

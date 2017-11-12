@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -28,14 +31,16 @@ import java.text.NumberFormat;
 
 public class ListaProdutos extends AppCompatActivity {
     private ViewGroup mensagens;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_produtos);
-
         mensagens = (ViewGroup) findViewById(R.id.container);
-        NetworkCall myCall = new NetworkCall();
 
+        NetworkCall myCall = new NetworkCall();
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
 
         // Executa a thread, passando null como parâmetro
@@ -45,8 +50,9 @@ public class ListaProdutos extends AppCompatActivity {
         //O primeiro parametro no path é o id da categoria (vamos ter q pegar ele do menu)
         //O segundo é a ordem (usado para filtros)
         //Para pesquisa será utilizado o parametro via get = pesq
-        myCall.execute(url+"/1?ap=0");
+        myCall.execute(url + "/1?ap=0");
     }
+
 
     public class NetworkCall extends AsyncTask<String, Void, String> {
 
@@ -82,14 +88,14 @@ public class ListaProdutos extends AppCompatActivity {
 
             try {
                 JSONArray json = new JSONArray(result);
-                
+
                 int idProduto;
                 String nomeProduto, descProduto, imagem;
                 double precProduto, descontoPromocao;
                 int to = json.length();
 
                 //Só pode retornar 14
-                if(to >= 14){
+                if (to >= 14) {
                     to = 14;
                 }
 
@@ -101,27 +107,29 @@ public class ListaProdutos extends AppCompatActivity {
                     descontoPromocao = json.getJSONObject(i).getDouble("descontoPromocao");
                     imagem = json.getJSONObject(i).getString("imagem");
                     addItem(idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, imagem);
+
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }
     }
 
-    private void addItem(int idProduto, String nomeProd, String descProd, double precProd, double descPromocao, String img) {
+    private void addItem(int idProduto, String nomeProd, String descProd, final double precProd, double descPromocao, String img) {
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
 
 
-        TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
+        final TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
 
-        double precodescontado = precProd - descPromocao;
+        final double precodescontado = precProd - descPromocao;
         TextView precodesconto = (TextView) cardView.findViewById(R.id.precodesconto);
 
 
-        ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
-        byte[] image64 = Base64.decode(img, Base64.DEFAULT);
+        final ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
+        final byte[] image64 = Base64.decode(img, Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
 
 
@@ -131,17 +139,25 @@ public class ListaProdutos extends AppCompatActivity {
 
         precodesconto.setText(new DecimalFormat("R$ #,##0.00").format(precodescontado));
         image.setImageBitmap(bitmap);
+
         mensagens.addView(cardView);
 
 
-    }
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-  /*  private void CarregarHome(){
-        Intent intent = new Intent(ListaProdutos.this, Home.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("",);
-        intent.putExtra(bundle);
-        startActivity(intent);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("nomeproduto", nome.getText().toString());
+                bundle.putDouble("precoprod", precProd);
+                bundle.putDouble("descprecoprod", precodescontado);
+
+                Intent i = new Intent(ListaProdutos.this, descProduto.class);
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
+
     }
-*/
 }
