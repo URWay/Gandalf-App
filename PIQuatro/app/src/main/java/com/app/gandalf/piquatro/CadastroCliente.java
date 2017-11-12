@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.app.gandalf.piquatro.models.ClienteModel;
-import com.app.gandalf.piquatro.models.LoginModel;
 import com.google.gson.Gson;
 
 import org.json.JSONObject;
@@ -68,50 +66,12 @@ public class CadastroCliente extends AppCompatActivity {
         // Verificar quando for inclusão / alteração / Exclusão
         Intent intent = getIntent();
         if(intent != null){
-            if(intent.getStringExtra("M").equals("Modificar")){
+            if(intent.getStringExtra("ACAO").equals("M")){
                 // Carrega as informações de cadastro
                 NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
-                SharedPreferences prefs = getSharedPreferences("DadosSuperApp", MODE_PRIVATE);
+                SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
                 int id = prefs.getInt("id", 0);
-                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + id);
-            }
-        }
-
-        class MaskWatcher implements TextWatcher {
-            private boolean isRunning = false;
-            private boolean isDeleting = false;
-            private final String mask;
-
-            public MaskWatcher(String mask) {
-                this.mask = mask;
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
-                isDeleting = count > after;
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (isRunning || isDeleting) {
-                    return;
-                }
-                isRunning = true;
-
-                int editableLength = editable.length();
-                if (editableLength < mask.length()) {
-                    if (mask.charAt(editableLength) != '#') {
-                        editable.append(mask.charAt(editableLength));
-                    } else if (mask.charAt(editableLength-1) != '#') {
-                        editable.insert(editableLength-1, mask, editableLength-1, editableLength);
-                    }
-                }
-
-                isRunning = false;
+                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + 42 );
             }
         }
 
@@ -120,12 +80,6 @@ public class CadastroCliente extends AppCompatActivity {
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));
         txtresidencial.addTextChangedListener(Mask.insert("(##)####-####", txtresidencial));
         txtnasc.addTextChangedListener(Mask.insert("(##)####-####", txtnasc));
-
-        txtcpf.addTextChangedListener(new MaskWatcher("###.###.###-##"));
-        txttelefone.addTextChangedListener(new MaskWatcher("####-####"));
-        txtcomercial.addTextChangedListener(new MaskWatcher("####-####"));
-        txtresidencial.addTextChangedListener(new MaskWatcher("####-####"));
-        txtcelular.addTextChangedListener(new MaskWatcher("(##) # ####-####"));
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -160,25 +114,24 @@ public class CadastroCliente extends AppCompatActivity {
                         RelativeLayout relative = (RelativeLayout) findViewById(R.id.activity_cadastro_cliente);
                         relative.setBackgroundResource(0);
 
-                        ClienteModel cliente = new ClienteModel(0, nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
                         Intent intent = getIntent();
-                        if(intent != null){
-                            // Atualização do cadastro
-                            if(intent.getStringExtra("M").equals("Modificar")){
-                                Cadastro(cliente, "atualizar");
-                            }else {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Erro na aplicação corrija...", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                        }else {
+                        SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
+                        int id = prefs.getInt("id", 0);
+
+                        ClienteModel cliente = new ClienteModel(id, nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
+
+                        if (intent.getStringExtra("ACAO").equals("A")){
                             // Inserir dados de cadastro
-                            if (intent.getStringExtra("A").equals("Inclusao")){
-                                Cadastro(cliente, "inserir");
-                            } else {
-                                Toast toast = Toast.makeText(getApplicationContext(), "Erro na aplicação corrija...", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
+                            Cadastro(cliente, "inserir");
                         }
+                        else if(intent.getStringExtra("ACAO").equals("M")){
+                            // Atualização do cadastro
+                            Cadastro(cliente, "atualizar");
+                        }else {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Erro na aplicação corrija...", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
+
                     } else {
                         if(f.isValidEmail(email) == false){
                             Toast toast = Toast.makeText(getApplicationContext(), "E-mail inválido", Toast.LENGTH_SHORT);
@@ -237,8 +190,6 @@ public class CadastroCliente extends AppCompatActivity {
 
                 int responseCode = conn.getResponseCode();
 
-                JSONObject json = new JSONObject(params[1]);
-
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
 
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -248,7 +199,6 @@ public class CadastroCliente extends AppCompatActivity {
 
                     while((line = bufferedReader.readLine()) != null) {
                         sb.append(line);
-                        line = bufferedReader.readLine();
                     }
 
                     StringBuilder resultado = new StringBuilder();
@@ -322,7 +272,7 @@ public class CadastroCliente extends AppCompatActivity {
                 String nome = json.getString("nomeCompletoCliente");
                 String email = json.getString("emailCliente");
                 String senha = json.getString("senhaCliente");
-                String cpf = json.getString("CPFCliente");
+                String cpf = json.getString("cpfcliente");
                 String celular = json.getString("celularCliente");
                 String telefone = json.getString("telComercialCliente");
                 String residencial = json.getString("telResidencialCliente");

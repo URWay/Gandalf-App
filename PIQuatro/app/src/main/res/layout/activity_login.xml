@@ -7,6 +7,16 @@
     tools:context="com.app.gandalf.piquatro.Login">
 
 
+    <ProgressBar
+        android:id="@+id/loadingL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/btnok"
+        android:layout_below="@+id/imageView4"
+        android:layout_marginStart="13dp"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

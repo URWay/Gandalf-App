@@ -1,6 +1,5 @@
 package com.app.gandalf.piquatro;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -34,7 +33,6 @@ public class Login extends AppCompatActivity {
     private EditText txtsenha;
     private Button btnok;
     private TextView txtreg;
-    private EditText txtfiltro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +47,11 @@ public class Login extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Functions f = new Functions();
-
                 if (txtlogin.getText().toString().isEmpty() || txtsenha.getText().toString().isEmpty()) {
                     Toast toast = Toast.makeText(getApplicationContext(), "Preencha os campos corretamentes", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-
+                    findViewById(R.id.loadingL).setVisibility(View.VISIBLE);
                     // Comunicação com WS e validação de Login
                     String email = txtlogin.getText().toString().trim();
                     String senha = txtsenha.getText().toString().trim();
@@ -65,6 +61,15 @@ public class Login extends AppCompatActivity {
                 }
             }
         };
+
+        txtreg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, CadastroCliente.class);
+                intent.putExtra("ACAO", "M");
+                startActivity(intent);
+            }
+        });
 
         btnok.setOnClickListener(listener);
     }
@@ -119,7 +124,6 @@ public class Login extends AppCompatActivity {
 
                     while((line = bufferedReader.readLine()) != null) {
                         sb.append(line);
-                        line = bufferedReader.readLine();
                     }
 
                     StringBuilder resultado = new StringBuilder();
@@ -134,10 +138,10 @@ public class Login extends AppCompatActivity {
                     Log.d ("tag",sb.toString());
 
                     // Armazena a sessão
-                    JSONObject cliente = new JSONObject(resultado.toString());
-                    String login = json.getString("emailCliente");
-                    String password = json.getString("senhaCliente");
-                    int id = json.getInt("idCliente");
+                    JSONObject cliente = new JSONObject(sb.toString());
+                    String login = cliente.getString("emailCliente");
+                    String password = cliente.getString("senhaCliente");
+                    int id = cliente.getInt("idCliente");
 
                     SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
@@ -149,9 +153,9 @@ public class Login extends AppCompatActivity {
                     Intent intent = new Intent(Login.this, Home.class);
                     startActivity(intent);
 
-                    return new String ("true : " + responseCode);
+                    return String.valueOf(responseCode);
                 } else {
-                    return new String ("false : " + responseCode);
+                    return new String("false :" + responseCode);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -167,11 +171,13 @@ public class Login extends AppCompatActivity {
             Functions f = new Functions();
 
             try {
-                if(!result.equals("true : 200")){
-                    f.showDialog("Erro","Usuário ou senha inválidos", Login.this);
+                if(!result.equals("200")){
+                    findViewById(R.id.loadingL).setVisibility(View.GONE);
+                    f.showDialog("Falha no login!","Usuário ou senha inválidos", Login.this);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                findViewById(R.id.loadingL).setVisibility(View.GONE);
                 f.showDialog("Erro","Erro ao obter o resultado", Login.this);
             }
         }
