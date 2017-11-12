@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -142,11 +143,10 @@ public class ListaProdutos extends AppCompatActivity {
 
         mensagens.addView(cardView);
 
-
+/*
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
                 Bundle bundle = new Bundle();
                 bundle.putString("nomeproduto", nome.getText().toString());
@@ -158,6 +158,8 @@ public class ListaProdutos extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+*/
 
     }
 }

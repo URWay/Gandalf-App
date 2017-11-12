@@ -1,6 +1,7 @@
 package com.app.gandalf.piquatro;
 
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,7 +40,7 @@ public class LoginReg extends AppCompatActivity {
 
                     AlertDialog.Builder alerta = new AlertDialog.Builder(LoginReg.this);
                     alerta.setTitle("You shall not pass!");
-                    //chamaoGandalf();
+                    chamaoGandalf();
                     alerta.setMessage("Preencha as inforamções corretamente!");
                     alerta.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
@@ -68,12 +69,12 @@ public class LoginReg extends AppCompatActivity {
 
     }
 
-    /*private void chamaoGandalf() {
+    private void chamaoGandalf() {
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.errogandalf);
 
         mediaPlayer.start();
     }
-    */
+
 }
 
 

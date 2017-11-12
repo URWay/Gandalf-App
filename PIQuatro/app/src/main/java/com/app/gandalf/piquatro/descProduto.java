@@ -95,7 +95,9 @@ public class descProduto extends AppCompatActivity {
                 imagem = json.getString("imagem");
 
                 //AQUI ATRIBUIR OS VALORES DO PRODUTO
+                /* Intent para pegar os dados da ListaProdutos e passar para descProduto
                 Intent intent = getIntent();
+
                 if (intent != null){
                     Bundle bundle = intent.getExtras();
                     if(bundle != null){
@@ -112,7 +114,7 @@ public class descProduto extends AppCompatActivity {
                         txtdescpreco.setText(descprecoprod.toString());
                     }
                 }
-
+*/
             } catch (Exception e) {
                 e.printStackTrace();
             }

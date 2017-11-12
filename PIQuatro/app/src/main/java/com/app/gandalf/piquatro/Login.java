@@ -51,6 +51,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (txtlogin.getText().toString().isEmpty() || txtsenha.getText().toString().isEmpty()) {
+
                     Toast toast = Toast.makeText(getApplicationContext(), "Preencha os campos corretamentes", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
