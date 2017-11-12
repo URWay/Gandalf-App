@@ -23,6 +23,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class ListaProdutos extends AppCompatActivity {
     private ViewGroup mensagens;
@@ -110,25 +112,25 @@ public class ListaProdutos extends AppCompatActivity {
     private void addItem(int idProduto, String nomeProd, String descProd, double precProd, double descPromocao, String img) {
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
 
+
         TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
+
+        double precodescontado = precProd - descPromocao;
         TextView precodesconto = (TextView) cardView.findViewById(R.id.precodesconto);
-        TextView rs = (TextView) cardView.findViewById(R.id.rs);
+
 
         ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
         byte[] image64 = Base64.decode(img, Base64.DEFAULT);
         Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
 
+
         nome.setText(nomeProd);
-        prec.setText(String.valueOf(precProd));
-
-
+        prec.setText(new DecimalFormat("R$ #,##0.00").format(precProd));
         prec.setPaintFlags(prec.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        rs.setPaintFlags(prec.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        precodesconto.setText(String.valueOf(precProd - descPromocao));
 
+        precodesconto.setText(new DecimalFormat("R$ #,##0.00").format(precodescontado));
         image.setImageBitmap(bitmap);
-
         mensagens.addView(cardView);
 
 

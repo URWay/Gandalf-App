@@ -72,7 +72,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         */
 
     }
-
+/*
         public void CarregaHome(){
             tabhome = (TabItem) findViewById(R.id.tabhome);
 
@@ -84,7 +84,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
             startActivity(intent);
         }
 
-
+*/
 
         @Override
         public void onBackPressed () {
