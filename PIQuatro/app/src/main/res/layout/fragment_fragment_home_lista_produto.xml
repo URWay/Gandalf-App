@@ -1,0 +1,88 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    tools:context="com.app.gandalf.piquatro.FragmentHomeListaProduto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="6dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/nomeProduto"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageViewListaProdutos"
+            android:hint="Nome do Produto"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageViewListaProdutos"
+            android:layout_width="72dp"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:civ_border_color="#ffffff"
+            app:civ_border_width="1dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="168dp" />
+
+        <TextView
+
+            android:id="@+id/precProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/de"
+            android:layout_alignBottom="@+id/de"
+            android:layout_toEndOf="@+id/de"
+            android:elegantTextHeight="false"
+            android:freezesText="false"
+            android:hint="preço"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:typeface="normal" />
+
+        <TextView
+            android:id="@+id/de"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageViewListaProdutos"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/imageViewListaProdutos"
+            android:text="De:"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/de"
+            android:layout_alignBottom="@+id/de"
+            android:layout_marginEnd="11dp"
+            android:layout_toStartOf="@+id/precodesconto"
+            android:text="Por:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/precodesconto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/precProduto"
+            android:layout_alignEnd="@+id/nomeProduto"
+            android:text="precodesc"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
