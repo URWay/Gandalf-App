@@ -34,7 +34,6 @@
         android:layout_alignParentTop="true"
         android:iconifiedByDefault="false"
         android:queryHint="Buscar por canecas, camisetas..."
-
         />
 
 

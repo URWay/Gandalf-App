@@ -46,12 +46,21 @@ public class ListaProdutos extends AppCompatActivity {
 
         // Executa a thread, passando null como parâmetro
 
+
+        //Pega a categoria para busca
+        Intent intent = getIntent();
+        int idCat = intent.getIntExtra("categoria", 0);
+
+        //AP = id inicial do produto
+
+
         // Luiz, o valor de ap tem que ser o ID inicial dos produtos (Ex: 2 retorna os 15 primeiros produtos acima do ID 2, será utilziado para paginação)
         //desc diz qual a ordem é decrescente ou n
         //O primeiro parametro no path é o id da categoria (vamos ter q pegar ele do menu)
         //O segundo é a ordem (usado para filtros)
         //Para pesquisa será utilizado o parametro via get = pesq
-        myCall.execute(url + "/1?ap=0");
+    myCall.execute(url + "/"+idCat+"?ap=0");
+
     }
 
 

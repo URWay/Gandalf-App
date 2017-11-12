@@ -7,17 +7,17 @@
             android:icon="@drawable/cifrao"
             android:title="Promoções" />
         <item
-            android:id="@+id/op_camisetas"
+            android:id="@+id/op_colecionaveis"
             android:icon="@drawable/bbbbbbb"
-            android:title="Camisetas" />
+            android:title="Colecionáveis" />
         <item
             android:id="@+id/op_canecas"
             android:icon="@drawable/coffee"
             android:title="Canecas" />
         <item
-            android:id="@+id/op_posteres"
+            android:id="@+id/op_decoracao"
             android:icon="@drawable/aaaaaaa"
-            android:title="Pôsteres" />
+            android:title="Decoração" />
     </group>
 
     <item

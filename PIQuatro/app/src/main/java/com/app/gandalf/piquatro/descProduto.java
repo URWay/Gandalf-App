@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.app.gandalf.piquatro.R;
 
 import org.json.JSONObject;
@@ -18,19 +19,30 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class descProduto extends AppCompatActivity {
+    private TextView txtnomeprod;
+    private ImageView imgproduto;
+    private TextView txtdescricao;
+    private TextView txtprecodesc;
+    private TextView txtpreco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe_produto);
 
+        txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
+        imgproduto = (ImageView) findViewById(R.id.imgproduto);
+        txtdescricao = (TextView) findViewById(R.id.txtdescricao);
+        txtprecodesc = (TextView) findViewById(R.id.txtprecodesc);
+        txtpreco = (TextView) findViewById(R.id.txtpreco);
+
+
         NetworkCall myCall = new NetworkCall();
         // Temporário
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
         // Executa a thread, passando null como parâmetro
 
-        // Luiz, o desc é algo fixo para acessar 1 produto especifico, o numero "1" é o ID do produto, deve ser passado
-        // pelo botão
+
         myCall.execute(url + "/desc/1");
     }
 
@@ -95,6 +107,9 @@ public class descProduto extends AppCompatActivity {
                 imagem = json.getString("imagem");
 
                 //AQUI ATRIBUIR OS VALORES DO PRODUTO
+
+
+
                 /* Intent para pegar os dados da ListaProdutos e passar para descProduto
                 Intent intent = getIntent();
 
@@ -115,6 +130,7 @@ public class descProduto extends AppCompatActivity {
                     }
                 }
 */
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
