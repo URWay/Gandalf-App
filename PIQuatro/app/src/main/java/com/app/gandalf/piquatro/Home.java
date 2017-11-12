@@ -107,16 +107,12 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
 
             if (id == R.id.op_promocoes) {
-<<<<<<< HEAD
                 // Handle the camera action
             } else if (id == R.id.op_colecionaveis) {
                  intent.putExtra("categoria",1 );
-=======
-
                 
-            } else if (id == R.id.op_camisetas) {
-
->>>>>>> 9e4f3ced5d492d16779589e7c8943c783edba4ac
+            } else if (id == R.id.op_colecionaveis) {
+                intent.putExtra("categoria",5 );
             } else if (id == R.id.op_canecas) {
                 intent.putExtra("categoria",5 );
             } else if (id == R.id.op_decoracao) {
