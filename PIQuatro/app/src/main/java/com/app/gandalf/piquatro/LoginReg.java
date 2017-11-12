@@ -2,6 +2,7 @@ package com.app.gandalf.piquatro;
 
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ public class LoginReg extends AppCompatActivity {
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         txtemail = (EditText) findViewById(R.id.txtemail);
         btnok = (Button) findViewById(R.id.btnok);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
 
         txtfone.addTextChangedListener(Mask.insert("(##)#####-####", txtfone));

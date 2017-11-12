@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:screenOrientation="landscape"
         android:allowBackup="true"
         android:icon="@drawable/logogandalf"
         android:label="Gandalf Store"
@@ -22,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".FirstTime" />
-        <activity android:name=".Login">
+        <activity android:name=".Login"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,7 +52,8 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -75,7 +78,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Enderecos">
+        <activity android:name=".Enderecos"
+            android:parentActivityName=".Configuracoes">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

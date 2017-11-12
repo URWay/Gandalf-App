@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -54,8 +55,8 @@ public class CadastroCliente extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_cliente);
         findViewById(R.id.loadingLogin).setVisibility(View.GONE);
 
-        //ActionBar ab = getSupportActionBar();
-        //ab.setDisplayHomeAsUpEnabled(true);
+       //ActionBar ab = getSupportActionBar();
+       //ab.setDisplayHomeAsUpEnabled(true);
 
         txtnome = (EditText) findViewById(R.id.txtnomeapelido);
         txtemail = (EditText) findViewById(R.id.txtemail);
