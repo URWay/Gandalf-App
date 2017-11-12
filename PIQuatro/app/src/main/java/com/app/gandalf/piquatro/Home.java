@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import android.content.Intent;
 
 public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -39,7 +38,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
         setTitle(null);
 
-        SharedPreferences prefs = getSharedPreferences("DadosSuperApp", MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         String email = prefs.getString("email", null);
 
         if(email != null){
@@ -52,12 +51,22 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
   /*     tablogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (savedInstanceState == null) {
+               // if (savedInstanceState == null) {
 
+<<<<<<< HEAD
                 }
                     MyFragment fragment = new MyFragment();
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.frag_container,fragment).commit();
+=======
+                //}
+                    //MyFragment fragment = new MyFragment();
+                    //getSupportFragmentManager().beginTransaction()
+                            //.replace(R.id.frag_container,fragment).commit();
+
+
+
+>>>>>>> e03def87bdd8d7ceaa204e08d2497d8be7a30e96
                 }
         });
         */
