@@ -26,26 +26,25 @@
 
             <TextView
                 android:id="@+id/textView16"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:text="Cadastre-se"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginEnd="220dp"
                 app:srcCompat="@drawable/user2"
+                android:layout_marginEnd="8dp"
                 android:layout_alignParentTop="true"
-                android:indeterminate="true"
-                android:layout_alignEnd="@+id/textView16" />
+                android:layout_toStartOf="@+id/textView16" />
 
             <EditText
                 android:id="@+id/txtemail"
@@ -62,14 +61,14 @@
                 android:id="@+id/txtsenha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignStart="@+id/txtemail"
+                android:layout_below="@+id/txtemail"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:hint="Senha"
-                android:textSize="16dp"
                 android:inputType="textPassword"
-                android:layout_below="@+id/txtemail"
-                android:layout_alignStart="@+id/txtemail"
-                android:layout_alignParentEnd="true" />
+                android:textSize="16dp" />
 
             <EditText
                 android:id="@+id/txtcpf"
