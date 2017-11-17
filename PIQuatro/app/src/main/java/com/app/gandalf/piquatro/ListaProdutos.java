@@ -53,12 +53,6 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-
-        // Luiz, o valor de ap tem que ser o ID inicial dos produtos (Ex: 2 retorna os 15 primeiros produtos acima do ID 2, será utilziado para paginação)
-        //desc diz qual a ordem é decrescente ou n
-        //O primeiro parametro no path é o id da categoria (vamos ter q pegar ele do menu)
-        //O segundo é a ordem (usado para filtros)
-        //Para pesquisa será utilizado o parametro via get = pesq
     myCall.execute(url + "/"+idCat+"?ap=0");
 
     }
@@ -127,9 +121,10 @@ public class ListaProdutos extends AppCompatActivity {
         }
     }
 
-    private void addItem(int idProduto, String nomeProd, String descProd, final double precProd, double descPromocao, String img) {
+    private void addItem(int idProd, String nomeProd, String descProd, final double precProd, double descPromocao, String img) {
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
 
+        final int produto = idProd;
 
         final TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
@@ -150,25 +145,16 @@ public class ListaProdutos extends AppCompatActivity {
         precodesconto.setText(new DecimalFormat("R$ #,##0.00").format(precodescontado));
         image.setImageBitmap(bitmap);
 
-        mensagens.addView(cardView);
-
-/*
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Bundle bundle = new Bundle();
-                bundle.putString("nomeproduto", nome.getText().toString());
-                bundle.putDouble("precoprod", precProd);
-                bundle.putDouble("descprecoprod", precodescontado);
-
                 Intent i = new Intent(ListaProdutos.this, descProduto.class);
-                i.putExtras(bundle);
+                i.putExtra("id",produto);
                 startActivity(i);
             }
         });
-
-*/
+        mensagens.addView(cardView);
 
     }
 }

@@ -18,10 +18,10 @@ import android.widget.Toast;
 public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
 
-     private TabItem tabcarrinho;
-     private TabItem tabpedidos;
-     private TabItem tabhome;
-     private TabItem tablogin;
+    private TabItem tabcarrinho;
+    private TabItem tabpedidos;
+    private TabItem tabhome;
+    private TabItem tablogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,124 +42,125 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         String email = prefs.getString("email", null);
 
-        if (email != null) {
+        if(email != null){
             Toast toast = Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT);
             toast.show();
         }
 
 
         tablogin = (TabItem) findViewById(R.id.tablogin);
+  /*     tablogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // if (savedInstanceState == null) {
+<<<<<<< HEAD
+                }
+                    MyFragment fragment = new MyFragment();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frag_container,fragment).commit();
+=======
+                //}
+                    //MyFragment fragment = new MyFragment();
+                    //getSupportFragmentManager().beginTransaction()
+                            //.replace(R.id.frag_container,fragment).commit();
+>>>>>>> e03def87bdd8d7ceaa204e08d2497d8be7a30e96
+                }
+        });
+        */
 
     }
 /*
         public void CarregaHome(){
             tabhome = (TabItem) findViewById(R.id.tabhome);
-
             Intent intent = new Intent(Home.this, ListaProdutos.class);
             Bundle params = new Bundle();
-
-
-
             startActivity(intent);
         }
-
 */
 
-        @Override
-        public void onBackPressed () {
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            if (drawer.isDrawerOpen(GravityCompat.START)) {
-                drawer.closeDrawer(GravityCompat.START);
-            } else {
-                super.onBackPressed();
-            }
-        }
-
-        @Override
-        public boolean onCreateOptionsMenu (Menu menu){
-
-            getMenuInflater().inflate(R.menu.home, menu);
-
-
-
-            return false;
-        }
-
-        @Override
-        public boolean onOptionsItemSelected (MenuItem item){
-            int id = item.getItemId();
-
-            //noinspection SimplifiableIfStatement
-            if (id == R.id.action_settings) {
-                return true;
-            }
-
-            return super.onOptionsItemSelected(item);
-        }
-
-        @SuppressWarnings("StatementWithEmptyBody")
-        @Override
-        public boolean onNavigationItemSelected (MenuItem item){
-            // Handle navigation view item clicks here.
-            int id = item.getItemId();
-            Intent intent = new Intent(this, ListaProdutos.class);
-
-
-
-            if (id == R.id.op_promocoes) {
-                // Handle the camera action
-            } else if (id == R.id.op_colecionaveis) {
-                 intent.putExtra("categoria",1 );
-                
-            } else if (id == R.id.op_colecionaveis) {
-                intent.putExtra("categoria",5 );
-            } else if (id == R.id.op_canecas) {
-                intent.putExtra("categoria",5 );
-            } else if (id == R.id.op_decoracao) {
-                intent.putExtra("categoria",6 );
-            }
-
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+    @Override
+    public void onBackPressed () {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-
-            startActivity(intent);
-            return true;
-
-
+        } else {
+            super.onBackPressed();
         }
     }
 
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+
+        getMenuInflater().inflate(R.menu.home, menu);
+
+
+
+        return false;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected (MenuItem item){
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        Intent intent = new Intent(this, ListaProdutos.class);
+
+
+        if (id == R.id.op_promocoes) {
+            // Handle the camera action
+        } else if (id == R.id.op_colecionaveis) {
+            intent.putExtra("categoria",1 );
+        } else if (id == R.id.op_canecas) {
+            intent.putExtra("categoria",5 );
+        } else if (id == R.id.op_decoracao) {
+            intent.putExtra("categoria",6 );
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
+        startActivity(intent);
+        return true;
+
+
+    }
+}
+
 /*
 //Lincoln
-
     public void produtos(View v) {
         Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
-
-
     public void promocoes(View v) {
         Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
-
     public void categorias(View v) {
         Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
-
-
     public void filtros(View v) {
         Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
-
     public void sobrenos(View v) {
         Intent intent = new Intent(this, ListaProdutos.class);
         startActivity(intent);
     }
 //Lincoln termina aqui
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
                                     Intent data) {
@@ -172,5 +173,4 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         }
     }
 }
-
 */
