@@ -12,8 +12,9 @@ public class Endereco {
     private String paisEndereco;
     private String UFEndereco;
 
-    public Endereco(int idCliente, String nomeEndereco, String logradouroEndereco, int numeroEndereco, String CEPEndereco, String complementoEndereco, String cidadeEndereco, String paisEndereo, String UFEndereco) {
+    public Endereco(int idCliente, int idEndereco, String nomeEndereco, String logradouroEndereco, int numeroEndereco, String CEPEndereco, String complementoEndereco, String cidadeEndereco, String paisEndereo, String UFEndereco) {
         this.idCliente = idCliente;
+        this.idEndereco = idEndereco;
         this.nomeEndereco = nomeEndereco;
         this.logradouroEndereco = logradouroEndereco;
         this.numeroEndereco = numeroEndereco;
