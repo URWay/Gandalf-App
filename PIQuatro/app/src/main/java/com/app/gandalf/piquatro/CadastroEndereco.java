@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.gandalf.piquatro.models.Endereco;
@@ -41,6 +43,7 @@ private Button btnbuscar;
 private EditText txtcidade;
 private EditText txtuf;
 private EditText txtpais;
+private TextView textView5;
 private Spinner spinnerUF;
 private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RO", "RS", "RR", "SC", "SE", "SP", "TO", "ZZ" };
 
@@ -59,6 +62,7 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
         txtpais = (EditText) findViewById(R.id.txtpais);
         btnEnviarDados = (Button) findViewById(R.id.btnEnviarDados);
         btnbuscar = (Button) findViewById(R.id.btnbuscar);
+        textView5 = (TextView) findViewById(R.id.textView5);
 
         txtcep.addTextChangedListener(Mask.insert("#####-###", txtcep));
 
@@ -68,6 +72,19 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerArrayAdapter);
 
+        // Verificar quando for inclusão / alteração / Exclusão
+        //Intent intent = getIntent();
+        //if(intent != null){
+            //if(intent.getStringExtra("ACAO").equals("M")){
+                // Carrega as informações de cadastro
+                NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
+
+                //int id = Integer.parseInt(intent.getStringExtra("idEndereco"));
+
+                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/" + 9 );
+                textView5.setText("Atualizar cadastro");
+            //}
+        //}
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -83,17 +100,34 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
                 String uf = txtuf.getText().toString().trim();
                 String pais = txtpais.getText().toString().trim();
 
-                SharedPreferences prefs = getSharedPreferences("DadosSuperApp", MODE_PRIVATE);
+                SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
                 int id = prefs.getInt("id", 0);
 
-                Endereco end = new Endereco(id, endereco, lograudouro, num, cep, complemento, cidade, pais, uf);
+                int idEndereco = 0;
+
+                Intent intent = getIntent();
+                if (intent !=null) {
+                    if (!intent.getStringExtra("idEndereco").equals("0")) {
+
+                        idEndereco = Integer.parseInt(intent.getStringExtra("idEndereco"));
+
+                    }
+                }
+
+                Endereco end = new Endereco(id, idEndereco, endereco, lograudouro, num, cep, complemento, cidade, pais, uf);
                 Gson g = new Gson();
 
                 String json = g.toJson(end);
                 String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/endereco";
 
                 NetworkCall myCall = new NetworkCall();
-                myCall.execute(url, json);
+
+                if (idEndereco == 0){
+                    myCall.execute(url, json, "POST");
+                }else {
+                    myCall.execute(url, json, "PUT");
+                }
+
             }
         };
 
@@ -127,7 +161,7 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(15000);
                 conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
+                conn.setRequestMethod(params[2]);
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
                 conn.setRequestProperty ("Content-Type", "application/json");
@@ -263,6 +297,82 @@ private String[] arrayCep = {"", "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES",
                 e.printStackTrace();
             }
         }
+    }
+
+    public class NetworkCallCarregaDados extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+
+                HttpURLConnection urlConnection = (HttpURLConnection) new URL(params[0]).openConnection();
+                InputStream in = urlConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+
+                StringBuilder resultado = new StringBuilder();
+                String linha = bufferedReader.readLine();
+
+                while (linha != null) {
+                    resultado.append(linha);
+                    linha = bufferedReader.readLine();
+                }
+
+                return resultado.toString();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            try {
+                JSONObject json = new JSONObject(result);
+
+                String nomeEndereco = json.getString("nomeEndereco");
+                String logradouroEndereco = json.getString("logradouroEndereco");
+                String numeroEndereco = json.getString("numeroEndereco");
+                String CEPEndereco = json.getString("CEPEndereco");
+                String complementoEndereco = json.getString("complementoEndereco");
+                String cidadeEndereco = json.getString("cidadeEndereco");
+                String paisEndereco = json.getString("paisEndereco");
+                String UFEndereco = json.getString("UFEndereco");
+
+
+                if (!nomeEndereco.equals("")) {
+                    txtnomeendereco.setText(nomeEndereco);
+                }
+                if (!logradouroEndereco.equals("")) {
+                    txtendereco.setText(logradouroEndereco);
+                }
+                if (!numeroEndereco.equals("")) {
+                    txtnum.setText(numeroEndereco);
+                }
+                if (!CEPEndereco.equals("")) {
+                    txtcep.setText(CEPEndereco);
+                }
+                if (!complementoEndereco.equals("")) {
+                    txtcomplemento.setText(complementoEndereco);
+                }
+                if (!cidadeEndereco.equals("")) {
+                    txtcidade.setText(cidadeEndereco);
+                }
+                if (! paisEndereco.equals("")) {
+                    txtpais.setText( paisEndereco);
+                }
+                if (!UFEndereco.equals("")) {
+                    txtuf.setText(UFEndereco);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }
