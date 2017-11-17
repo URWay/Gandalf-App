@@ -124,7 +124,7 @@ public class ListaProdutos extends AppCompatActivity {
     private void addItem(int idProd, String nomeProd, String descProd, final double precProd, double descPromocao, String img) {
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
 
-        final int produto = idProd;
+        final int produto1 = idProd;
 
         final TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
         TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
@@ -148,9 +148,8 @@ public class ListaProdutos extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(ListaProdutos.this, descProduto.class);
-                i.putExtra("id",produto);
+                //i.putExtra("idProduto",produto1);
                 startActivity(i);
             }
         });

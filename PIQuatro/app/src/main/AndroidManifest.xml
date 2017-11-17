@@ -78,6 +78,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".descProduto"
+            android:parentActivityName=".ListaProdutos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".Enderecos"
             android:parentActivityName=".Configuracoes">
             <intent-filter>

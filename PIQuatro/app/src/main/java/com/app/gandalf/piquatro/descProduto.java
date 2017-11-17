@@ -110,7 +110,7 @@ public class descProduto extends AppCompatActivity {
 
 
 
-                /* Intent para pegar os dados da ListaProdutos e passar para descProduto
+                //Intent para pegar os dados da ListaProdutos e passar para descProduto
                 Intent intent = getIntent();
 
                 if (intent != null){
@@ -129,7 +129,7 @@ public class descProduto extends AppCompatActivity {
                         txtdescpreco.setText(descprecoprod.toString());
                     }
                 }
-*/
+
 
             } catch (Exception e) {
                 e.printStackTrace();
