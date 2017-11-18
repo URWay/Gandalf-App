@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Configuracoes extends AppCompatActivity {
 private ListView lista;
-
+    List<String> opcoes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ private ListView lista;
         opcoes.add("Minha conta");
         opcoes.add("Meus endereços");
         opcoes.add("Sobre");
+
 
         adaptador = new ArrayAdapter<String>(Configuracoes.this, android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
@@ -49,6 +50,7 @@ private ListView lista;
             }
         });
     }
+
 
     private void minhaconta() {
         Intent intent = new Intent(Configuracoes.this, CadastroCliente.class);
