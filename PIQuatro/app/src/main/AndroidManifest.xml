@@ -33,7 +33,9 @@
         </activity>
         <activity
             android:name=".LoginReg"
-            android:parentActivityName=".Home" />
+            android:parentActivityName=".Home"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ListaProdutos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,14 +43,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroCliente">
+        <activity android:name=".CadastroCliente"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroEndereco">
+        <activity android:name=".CadastroEndereco"
+            android:screenOrientation="portrait">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
