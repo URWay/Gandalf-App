@@ -11,11 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.app.gandalf.piquatro.CadastroCliente">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
 
 
         <RelativeLayout
@@ -46,85 +41,108 @@
                 android:layout_alignParentTop="true"
                 android:layout_toStartOf="@+id/textView16" />
 
-            <EditText
-                android:id="@+id/txtemail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textView16"
-                android:layout_marginTop="20dp"
-                android:ems="10"
-                android:hint="E-Mail"
-                android:inputType="textPersonName"
-                android:textSize="16dp" />
 
-            <EditText
-                android:id="@+id/txtsenha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignStart="@+id/txtemail"
-                android:layout_below="@+id/txtemail"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="Senha"
-                android:inputType="textPassword"
-                android:textSize="16dp" />
 
-            <EditText
-                android:id="@+id/txtcpf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="CPF"
-                android:textSize="16dp"
-                android:inputType="number"
-                android:layout_below="@+id/txtsenha" />
 
-            <EditText
-                android:id="@+id/txtnomeapelido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:textSize="16dp"
-                android:hint="Nome Completo"
-                android:inputType="textPersonName"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/txtcpf" />
+
+                <EditText
+                    android:id="@+id/txtemail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="E-Mail"
+                    android:inputType="textPersonName"
+                    android:textSize="16dp"
+                    android:layout_above="@+id/txtsenha"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="15dp" />
+
+
+
+
+
+
+                <EditText
+                    android:id="@+id/txtsenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:ems="10"
+                    android:hint="Senha"
+                    android:inputType="textPassword"
+                    android:textSize="16dp"
+                    android:layout_above="@+id/txtnomeapelido"
+                    android:layout_alignParentStart="true" />
+
+
+
+                <EditText
+                    android:id="@+id/txtnomeapelido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="16dp"
+                    android:hint="Nome Completo"
+                    android:inputType="textPersonName"
+                    android:layout_above="@+id/txtcpf"
+                    android:layout_alignParentStart="true" />
+
+
+
+
+                <EditText
+                    android:id="@+id/txtcpf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="CPF"
+                    android:textSize="16dp"
+                    android:inputType="number"
+                    android:layout_alignTop="@+id/loadingLogin"
+                    android:layout_alignParentStart="true" />
+
+
+
 
             <EditText
                 android:id="@+id/txtnasc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtnomeapelido"
                 android:ems="10"
                 android:hint="Dt. Nascimento"
                 android:textSize="16dp"
-                android:layout_marginTop="10dp"
-                android:inputType="date" />
+                android:inputType="date"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
+
 
             <EditText
                 android:id="@+id/txtcelular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_below="@+id/txtnasc"
-                android:layout_marginTop="10dp"
                 android:textSize="16dp"
                 android:ems="10"
                 android:hint="Celular"
-                android:inputType="number" />
+                android:inputType="number"
 
-            <EditText
-                android:id="@+id/txtres"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Telefone Residencial"
-                android:textSize="16dp"
-                android:inputType="textPersonName"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/txtcelular" />
+                android:layout_above="@+id/txtres"
+                android:layout_alignParentStart="true" />
+
+
+
+                <EditText
+                    android:id="@+id/txtres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Telefone Residencial"
+                    android:inputType="textPersonName"
+                    android:textSize="16dp"
+                    android:layout_above="@+id/txtcomercial"
+                    android:layout_alignParentStart="true" />
+
 
             <EditText
                 android:id="@+id/txtcomercial"
@@ -133,9 +151,10 @@
                 android:ems="10"
                 android:hint="Telefone Comercial"
                 android:textSize="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/txtres"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_above="@+id/checknews"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="16dp" />
 
             <ProgressBar
                 android:id="@+id/loadingLogin"
@@ -150,12 +169,12 @@
                 android:id="@+id/checknews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/txtcomercial"
-                android:layout_marginTop="10dp"
                 android:text="Deseja receber ofertas por e-mail?"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_above="@+id/btnok"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="12dp"
+                android:layout_alignParentEnd="true" />
 
             <Button
                 android:id="@+id/btnok"
@@ -163,13 +182,13 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/holo_blue_bright"
                 android:text="Criar seu cadastro"
-                android:layout_below="@+id/checknews"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:layout_marginTop="20dp"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
-    </ScrollView>
+
 </RelativeLayout>

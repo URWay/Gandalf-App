@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout5"
-        android:layout_below="@+id/textInputLayout3"
+        android:layout_below="@+id/textInputLayout7"
         android:layout_alignParentStart="true">
 
 
@@ -87,24 +87,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout6"
-        android:layout_alignBottom="@+id/textInputLayout7"
+        android:layout_below="@+id/textInputLayout3"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="52dp">
+        android:layout_marginTop="16dp">
 
 
         <EditText
             android:id="@+id/txtendereco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/txtcomplemento"
+            android:layout_alignEnd="@+id/spinnerUF"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="25dp"
             android:ems="10"
             android:hint="Endereço"
             android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright"
-            android:layout_above="@+id/txtcomplemento"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="25dp"
-            android:layout_alignEnd="@+id/spinnerUF" />
-
+            android:textColorLink="@android:color/holo_blue_bright" />
 
 
     </android.support.design.widget.TextInputLayout>
@@ -114,9 +113,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout7"
-        android:layout_marginBottom="13dp"
-        android:layout_above="@+id/textInputLayout8"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/textInputLayout9"
+        android:layout_alignEnd="@+id/spinnerUF"
+        android:layout_marginTop="18dp">
 
 
         <EditText
@@ -142,8 +141,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout8"
-        android:layout_above="@+id/textInputLayout10"
-        android:layout_alignParentStart="true">
+        android:layout_below="@+id/textInputLayout7"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp">
 
         <EditText
             android:id="@+id/txtpais"
@@ -196,7 +196,6 @@
         android:id="@+id/textInputLayout10"
         android:layout_above="@+id/btnEnviarDados"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp"
         android:layout_alignParentEnd="true">
 
         <EditText
@@ -227,7 +226,7 @@
         android:textColorLink="@android:color/holo_blue_bright"
         android:layout_below="@+id/textView5"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="39dp" />
+        android:layout_marginTop="45dp" />
 
     <Button
         android:text="Enviar Dados"
@@ -258,20 +257,9 @@
         android:id="@+id/spinnerUF"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView9"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UF:"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:layout_alignTop="@+id/textInputLayout8"
-        android:layout_toStartOf="@+id/textInputLayout9"
-        android:layout_marginTop="15dp" />
+        android:layout_toEndOf="@+id/textInputLayout5"
+        android:layout_below="@+id/textInputLayout7"
+        android:layout_above="@+id/textInputLayout10" />
 
 
 </RelativeLayout>
