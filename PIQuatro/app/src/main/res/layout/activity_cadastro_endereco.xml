@@ -1,260 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_cadastro_endereco"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/activity_cadastro_endereco"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+android:orientation="vertical"
+tools:context="com.app.gandalf.piquatro.CadastroEndereco">
+
+
+<android.support.design.widget.TextInputLayout
+
+    android:id="@+id/textInputLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.app.gandalf.piquatro.CadastroEndereco">
+    android:layout_below="@+id/textInputLayout3"
+    android:layout_above="@+id/textInputLayout4"
+    android:layout_alignEnd="@+id/textInputLayout5">
 
-
-    <android.support.design.widget.TextInputLayout
-
-        android:id="@+id/textInputLayout6"
+    <EditText
+        android:id="@+id/txtpais"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textInputLayout3"
-        android:layout_above="@+id/textInputLayout4"
-        android:layout_alignEnd="@+id/textInputLayout5">
-
-        <EditText
-            android:id="@+id/txtpais"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_above="@+id/txtCidade"
-            android:layout_alignEnd="@+id/textInputLayout7"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="26dp"
-            android:layout_toStartOf="@+id/txtnumero"
-            android:ems="10"
-            android:hint="País"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright" />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout1"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentStart="true">
-
-        <EditText
-            android:id="@+id/txtcep"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:ems="10"
-            android:hint="CEP"
-            android:inputType="number"
-            android:textColorLink="@android:color/holo_blue_bright" />
-
-    </android.support.design.widget.TextInputLayout>
-
-
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout2"
-        android:layout_below="@+id/textInputLayout1"
-        android:layout_alignEnd="@+id/textInputLayout5">
-
-
-        <EditText
-            android:id="@+id/txtnomeendereco"
-            android:layout_width="354dp"
-            android:layout_height="wrap_content"
-
-            android:layout_above="@+id/txtuf"
-            android:layout_alignEnd="@+id/spinnerUF"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="16dp"
-            android:ems="10"
-            android:hint="Nome endereço"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright" />
-
-    </android.support.design.widget.TextInputLayout>
-
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout3"
-        android:layout_below="@+id/textInputLayout2"
-        android:layout_alignStart="@+id/textInputLayout2">
-
-
-        <EditText
-            android:id="@+id/txtuf"
-            android:layout_width="246dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="27dp"
-            android:ems="10"
-            android:hint="UF"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright"
-            android:layout_above="@+id/txtendereco"
-            android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/spinnerUF" />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout4"
-        android:layout_marginBottom="38dp"
-        android:layout_above="@+id/textInputLayout8"
+        android:layout_height="40dp"
+        android:layout_above="@+id/txtCidade"
+        android:layout_alignEnd="@+id/textInputLayout7"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/spinnerUF">
-
-
-        <EditText
-            android:id="@+id/txtendereco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/txtcomplemento"
-            android:layout_alignEnd="@+id/spinnerUF"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="25dp"
-            android:ems="10"
-            android:hint="Endereço"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright" />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout5"
-
-        android:layout_above="@+id/btnEnviarDados"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="62dp">
-
-
-        <EditText
-            android:id="@+id/txtcomplemento"
-            android:layout_width="349dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Complemento"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright"
-            android:layout_marginBottom="10dp"
-            android:layout_above="@+id/txtpais"
-            android:layout_alignParentStart="true" />
-
-
-
-    </android.support.design.widget.TextInputLayout>
-
-
-    <android.support.design.widget.TextInputLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout7"
-        android:layout_below="@+id/textInputLayout2"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/textInputLayout3">
-
-
-        <EditText
-            android:id="@+id/txtnumero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/textInputLayout7"
-            android:layout_marginTop="13dp"
-            android:ems="10"
-            android:hint="N°"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright" />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textInputLayout8"
-        android:layout_above="@+id/btnEnviarDados"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true">
-
-        <EditText
-            android:id="@+id/txtCidade"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Cidade"
-            android:inputType="textPersonName"
-            android:textColorLink="@android:color/holo_blue_bright"
-            android:layout_marginBottom="22dp"
-
-            android:layout_alignParentStart="true" />
-
-
-        </android.support.design.widget.TextInputLayout>
-
-
-    <Button
-        android:id="@+id/btnbuscar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textInputLayout1"
-        android:layout_alignEnd="@+id/spinnerUF"
-        android:background="@android:color/holo_blue_bright"
-        android:text="Buscar cep"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_toEndOf="@+id/textInputLayout1" />
-
-    <Button
-        android:text="Enviar Dados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/btnEnviarDados"
-        android:layout_alignParentEnd="true"
-        android:background="@android:color/holo_blue_bright" />
-
-
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Cadastro de endereço"
-        android:textColor="@android:color/background_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:layout_marginBottom="26dp"
+        android:layout_toStartOf="@+id/txtnumero"
+        android:ems="10"
+        android:hint="País"
+        android:inputType="textPersonName"
         android:textColorLink="@android:color/holo_blue_bright" />
 
 
+</android.support.design.widget.TextInputLayout>
 
-    <Spinner
-        android:id="@+id/spinnerUF"
-        android:layout_width="100dp"
+<android.support.design.widget.TextInputLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout1"
+    android:layout_below="@+id/textView5"
+    android:layout_alignParentStart="true">
+
+    <EditText
+        android:id="@+id/txtcep"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/textInputLayout7"
-        android:layout_below="@+id/textInputLayout7"
-        android:layout_above="@+id/textInputLayout10" />
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="CEP"
+        android:inputType="number"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+</android.support.design.widget.TextInputLayout>
+
+
+
+<android.support.design.widget.TextInputLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout2"
+    android:layout_below="@+id/textInputLayout1"
+    android:layout_alignEnd="@+id/textInputLayout5">
+
+
+    <EditText
+        android:id="@+id/txtnomeendereco"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/txtuf"
+        android:layout_alignEnd="@+id/spinnerUF"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Nome endereço"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+</android.support.design.widget.TextInputLayout>
+
+
+<android.support.design.widget.TextInputLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout3"
+    android:layout_below="@+id/textInputLayout2"
+    android:layout_alignStart="@+id/textInputLayout2">
+
+
+    <EditText
+        android:id="@+id/txtuf"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+        android:ems="10"
+        android:hint="UF"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright"
+        android:layout_above="@+id/txtendereco"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/spinnerUF" />
+
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout4"
+    android:layout_marginBottom="38dp"
+    android:layout_above="@+id/textInputLayout8"
+    android:layout_alignParentStart="true"
+    android:layout_alignEnd="@+id/spinnerUF">
+
+
+    <EditText
+        android:id="@+id/txtendereco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtcomplemento"
+        android:layout_alignEnd="@+id/spinnerUF"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout5"
+
+    android:layout_above="@+id/btnEnviarDados"
+    android:layout_alignParentStart="true"
+    android:layout_marginBottom="62dp">
+
+
+    <EditText
+        android:id="@+id/txtcomplemento"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Complemento"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/txtpais"
+        android:layout_alignParentStart="true" />
+
+
+
+</android.support.design.widget.TextInputLayout>
+
+
+<android.support.design.widget.TextInputLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout7"
+    android:layout_below="@+id/textInputLayout2"
+    android:layout_alignParentEnd="true"
+    android:layout_toEndOf="@+id/textInputLayout3">
+
+
+    <EditText
+        android:id="@+id/txtnumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textInputLayout7"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="N°"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright" />
+
+
+</android.support.design.widget.TextInputLayout>
+
+<android.support.design.widget.TextInputLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/textInputLayout8"
+    android:layout_above="@+id/btnEnviarDados"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentEnd="true">
+
+    <EditText
+        android:id="@+id/txtCidade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Cidade"
+        android:inputType="textPersonName"
+        android:textColorLink="@android:color/holo_blue_bright"
+        android:layout_marginBottom="22dp"
+
+        android:layout_alignParentStart="true" />
+
+
+</android.support.design.widget.TextInputLayout>
+
+
+<Button
+    android:id="@+id/btnbuscar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/textInputLayout1"
+    android:layout_alignEnd="@+id/spinnerUF"
+    android:background="@android:color/holo_blue_bright"
+    android:text="Buscar cep"
+    android:textColorLink="@android:color/holo_blue_bright"
+    android:layout_toEndOf="@+id/textInputLayout1" />
+
+<Button
+    android:text="Enviar Dados"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentStart="true"
+    android:id="@+id/btnEnviarDados"
+    android:layout_alignParentEnd="true"
+    android:background="@android:color/holo_blue_bright" />
+
+
+
+<TextView
+    android:id="@+id/textView5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="Cadastro de endereço"
+    android:textColor="@android:color/background_dark"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:textColorLink="@android:color/holo_blue_bright" />
+
+
+
+<Spinner
+    android:id="@+id/spinnerUF"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@+id/textInputLayout7"
+    android:layout_below="@+id/textInputLayout7"
+    android:layout_above="@+id/textInputLayout10" />
 
 
 </RelativeLayout>
