@@ -1,4 +1,6 @@
 <resources>
+
+
     <string name="app_name">PIQuatro</string>
     <string name="title_activity_login_usuario">Login</string>
 
