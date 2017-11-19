@@ -13,12 +13,6 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,10 +71,11 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
                     public void onClick(DialogInterface dialog, int whick) {
                         switch (whick) {
                             case DialogInterface.BUTTON_POSITIVE:
-                                String param = String.valueOf(positions.get(position));
-                                String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/deletar/";
+                                int param = positions.get(position);
+                                String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/deletar/" + param;
 
-                                int retorno = sendGet(url, param, "DELETE");
+                                Functions fun = new Functions();
+                                int retorno = fun.sendDelete(url, "DELETE");
                                 if(retorno == 200){
                                     list.remove(positions.get(position));
                                     Toast toast = Toast.makeText(activity.getApplicationContext(), "Endereço deletado com sucesso!", Toast.LENGTH_SHORT);
@@ -101,42 +96,6 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         });
 
         return view;
-    }
-
-    private int sendGet(String url, String param, String method){
-
-        try {
-            URL obj = new URL(url);
-            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
-
-            //conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            conn.setRequestMethod("DELETE");
-            conn.setRequestProperty("Content-Type", "application/json");
-            conn.setRequestProperty("User-Agent", "Mozilla/5.0");
-            conn.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
-
-            conn.setDoOutput(true);
-            DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
-            wr.writeBytes(param);
-            wr.flush();
-            wr.close();
-
-            int responseCode = conn.getResponseCode();
-
-            if(responseCode == HttpURLConnection.HTTP_OK) {
-                return conn.getResponseCode();
-            } else {
-                return 0;
-            }
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return 0;
     }
 
 }

@@ -1,22 +1,24 @@
 package com.app.gandalf.piquatro;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Paint;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.app.gandalf.piquatro.R;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
 
 public class descProduto extends AppCompatActivity {
     private TextView txtnomeprod;
@@ -24,6 +26,7 @@ public class descProduto extends AppCompatActivity {
     private TextView txtdescricao;
     private TextView txtprecodesc;
     private TextView txtpreco;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,51 +39,79 @@ public class descProduto extends AppCompatActivity {
         txtprecodesc = (TextView) findViewById(R.id.txtprecodesc);
         txtpreco = (TextView) findViewById(R.id.txtpreco);
 
+        Intent intent = getIntent();
 
-        NetworkCall myCall = new NetworkCall();
-        // Temporário
-        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
-        // Executa a thread, passando null como parâmetro
+        if(intent != null){
+            try {
 
+                if(!intent.getStringExtra("idProduto").equals("0")){
+                    final int idProduto = Integer.parseInt(intent.getStringExtra("idProduto"));
+                    id = idProduto;
 
-        myCall.execute(url + "/desc/1");
+                    Bundle bundle = intent.getExtras();
+                    if(bundle != null){
+                        String nome = bundle.getString("nomeProduto");
+                        String desc = bundle.getString("descProduto");
+                        String image = bundle.getString("image");
+
+                        Double precoprod = Double.parseDouble(bundle.getString("precProd"));
+                        Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
+
+                        // Sentando os valores passado via Intent
+                        TextView txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
+                        TextView txtprecoprod = (TextView) findViewById(R.id.txtpreco);
+                        TextView txtdescpreco = (TextView) findViewById(R.id.txtprecodesc);
+                        TextView txtdescricao = (TextView) findViewById(R.id.txtdescricao);
+                        ImageView imgproduto = (ImageView) findViewById(R.id.imgproduto);
+
+                        txtnomeprod.setText(nome);
+                        txtdescricao.setText(desc);
+                        txtprecoprod.setText(new DecimalFormat("R$ #,##0.00").format(precoprod));
+                        txtprecoprod.setPaintFlags(txtprecoprod.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+                        txtdescpreco.setText(new DecimalFormat("R$ #,##0.00").format(descprecoprod));
+
+                        final byte[] image64 = Base64.decode(image, Base64.DEFAULT);
+                        Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
+                        imgproduto.setImageBitmap(bitmap);
+                    }
+
+                    //NetworkCall myCall = new NetworkCall();
+                    //String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
+                    //myCall.execute(url + "/desc/" + id);
+                }
+
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public class NetworkCall extends AsyncTask<String, Void, String> {
 
-        // Esse é o método que executa a tarefa em segundo plano
         @Override
         protected String doInBackground(String... params) {
             try {
-                // Cria o objeto de conexão
                 HttpURLConnection urlConnection = (HttpURLConnection) new URL(params[0]).openConnection();
-
-                // Executa a requisição pegando os dados
                 InputStream in = urlConnection.getInputStream();
-
-                // Cria um leitor para ler a resposta
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 
                 StringBuilder resultado = new StringBuilder();
                 String linha = bufferedReader.readLine();
 
-                // Lê linha a linha a resposta e armazena no StringBuilder
                 while (linha != null) {
                     resultado.append(linha);
                     linha = bufferedReader.readLine();
                 }
 
-                // Transforma o StringBuilder em String, que contém a resposta final
                 String respostaCompleta = resultado.toString();
 
-                // Retorna a string final contendo a resposta retornada
                 return respostaCompleta;
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            // Caso tenha dado algum erro, retorna null
             return null;
         }
 
@@ -90,16 +121,15 @@ public class descProduto extends AppCompatActivity {
             super.onPostExecute(result);
 
             try {
-                // Cria um objeto JSON a partir da resposta
                 JSONObject json = new JSONObject(result);
 
                 //Objeto do layout
-                int idProduto;
                 String nomeProduto, descProduto, imagem;
                 double precProduto, descontoPromocao;
 
+                // Armazena o valor do id para passar para o carrinho
+                id = json.getInt("idProduto");
 
-                idProduto = json.getInt("idProduto");
                 nomeProduto = json.getString("nomeProduto");
                 descProduto = json.getString("descProduto");
                 precProduto = json.getDouble("precProduto");
@@ -107,29 +137,22 @@ public class descProduto extends AppCompatActivity {
                 imagem = json.getString("imagem");
 
                 //AQUI ATRIBUIR OS VALORES DO PRODUTO
+                TextView txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
+                TextView txtprecoprod = (TextView) findViewById(R.id.txtpreco);
+                TextView txtdescpreco = (TextView) findViewById(R.id.txtprecodesc);
+                TextView txtdescricao = (TextView) findViewById(R.id.txtdescricao);
+                ImageView imgproduto = (ImageView) findViewById(R.id.imgproduto);
 
+                txtnomeprod.setText(nomeProduto);
+                txtdescricao.setText(descProduto);
+                txtprecoprod.setText(new DecimalFormat("R$ #,##0.00").format(precProduto));
+                txtprecoprod.setPaintFlags(txtprecoprod.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
+                txtdescpreco.setText(new DecimalFormat("R$ #,##0.00").format(descontoPromocao));
 
-                //Intent para pegar os dados da ListaProdutos e passar para descProduto
-                Intent intent = getIntent();
-
-                if (intent != null){
-                    Bundle bundle = intent.getExtras();
-                    if(bundle != null){
-                       String nome = bundle.getString("nomeproduto");
-                        Double precoprod = bundle.getDouble("precoprod");
-                        Double descprecoprod = bundle.getDouble("descprecoprod");
-
-                        TextView txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
-                        TextView txtprecoprod = (TextView) findViewById(R.id.txtpreco);
-                        TextView txtdescpreco = (TextView) findViewById(R.id.txtprecodesc);
-
-                        txtnomeprod.setText(nome);
-                        txtprecoprod.setText(precoprod.toString());
-                        txtdescpreco.setText(descprecoprod.toString());
-                    }
-                }
-
+                final byte[] image64 = Base64.decode(imagem, Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
+                imgproduto.setImageBitmap(bitmap);
 
             } catch (Exception e) {
                 e.printStackTrace();
