@@ -224,7 +224,7 @@
         android:layout_height="wrap_content"
         android:indeterminate="true"
         android:visibility="invisible"
-        android:layout_alignParentTop="true"
+        android:layout_centerInParent= "true"
         android:layout_centerHorizontal="true" />
 
     <CheckBox

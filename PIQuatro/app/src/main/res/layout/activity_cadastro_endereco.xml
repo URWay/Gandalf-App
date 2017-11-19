@@ -30,7 +30,6 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
         android:layout_alignEnd="@+id/textInputLayout7"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="26dp"
-        android:layout_toStartOf="@+id/txtnumero"
         android:ems="10"
         android:hint="País"
         android:inputType="textPersonName"
@@ -54,6 +53,7 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
         android:ems="10"
         android:hint="CEP"
         android:inputType="number"
+        android:layout_toStartOf="@+id/txtcep"
         android:textColorLink="@android:color/holo_blue_bright" />
 
 </android.support.design.widget.TextInputLayout>
@@ -140,9 +140,9 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     android:layout_height="wrap_content"
     android:id="@+id/textInputLayout5"
 
+    android:layout_marginBottom="52dp"
     android:layout_above="@+id/btnEnviarDados"
-    android:layout_alignParentStart="true"
-    android:layout_marginBottom="62dp">
+    android:layout_alignParentStart="true">
 
 
     <EditText
@@ -181,7 +181,7 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
         android:layout_marginTop="13dp"
         android:ems="10"
         android:hint="N°"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textColorLink="@android:color/holo_blue_bright" />
 
 
