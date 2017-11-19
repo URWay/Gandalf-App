@@ -33,8 +33,6 @@ import java.text.NumberFormat;
 public class ListaProdutos extends AppCompatActivity {
     private ViewGroup mensagens;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

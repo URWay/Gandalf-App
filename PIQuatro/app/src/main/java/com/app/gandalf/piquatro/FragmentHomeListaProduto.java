@@ -22,7 +22,7 @@ public class FragmentHomeListaProduto extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_home_lista_produto, container, false);
+        return inflater.inflate(R.layout.activity_produtos, container, false);
     }
 
 }

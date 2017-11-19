@@ -5,14 +5,16 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabItem;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
 import android.widget.Toast;
 
 public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,7 +24,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     private TabItem tabpedidos;
     private TabItem tabhome;
     private TabItem tablogin;
-
+    private ViewPager mViewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,41 +44,14 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         String email = prefs.getString("email", null);
 
-        if(email != null){
+        if (email != null) {
             Toast toast = Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT);
             toast.show();
         }
 
-
-        tablogin = (TabItem) findViewById(R.id.tablogin);
-  /*     tablogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // if (savedInstanceState == null) {
-<<<<<<< HEAD
-                }
-                    MyFragment fragment = new MyFragment();
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frag_container,fragment).commit();
-=======
-                //}
-                    //MyFragment fragment = new MyFragment();
-                    //getSupportFragmentManager().beginTransaction()
-                            //.replace(R.id.frag_container,fragment).commit();
->>>>>>> e03def87bdd8d7ceaa204e08d2497d8be7a30e96
-                }
-        });
-        */
-
     }
-/*
-        public void CarregaHome(){
-            tabhome = (TabItem) findViewById(R.id.tabhome);
-            Intent intent = new Intent(Home.this, ListaProdutos.class);
-            Bundle params = new Bundle();
-            startActivity(intent);
-        }
-*/
+
+
 
     @Override
     public void onBackPressed () {
@@ -138,39 +113,3 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     }
 }
 
-/*
-//Lincoln
-    public void produtos(View v) {
-        Intent intent = new Intent(this, ListaProdutos.class);
-        startActivity(intent);
-    }
-    public void promocoes(View v) {
-        Intent intent = new Intent(this, ListaProdutos.class);
-        startActivity(intent);
-    }
-    public void categorias(View v) {
-        Intent intent = new Intent(this, ListaProdutos.class);
-        startActivity(intent);
-    }
-    public void filtros(View v) {
-        Intent intent = new Intent(this, ListaProdutos.class);
-        startActivity(intent);
-    }
-    public void sobrenos(View v) {
-        Intent intent = new Intent(this, ListaProdutos.class);
-        startActivity(intent);
-    }
-//Lincoln termina aqui
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode,
-                                    Intent data) {
-        // Verifica de quem veio a resposta
-        if (requestCode == 1) {
-            // Se foi resposta de sucesso
-            if (resultCode == RESULT_OK) {
-                // Faz alguma coisa
-            }
-        }
-    }
-}
-*/
