@@ -8,19 +8,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -28,7 +23,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
 public class ListaProdutos extends AppCompatActivity {
     private ViewGroup mensagens;
@@ -143,11 +137,22 @@ public class ListaProdutos extends AppCompatActivity {
         precodesconto.setText(new DecimalFormat("R$ #,##0.00").format(precodescontado));
         image.setImageBitmap(bitmap);
 
+        final String descP = descProd;
+        final String nomeP = nomeProd;
+        final String imageP = img;
+        final double precoP = precProd;
+
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(ListaProdutos.this, descProduto.class);
-                //i.putExtra("idProduto",produto1);
+                i.putExtra("idProduto", String.valueOf((produto1)));
+                i.putExtra("nomeProduto", nomeP);
+                i.putExtra("descProduto", descP);
+                i.putExtra("image", imageP);
+                i.putExtra("precProd", String.valueOf(precoP));
+                i.putExtra("descPromocao", String.valueOf(precodescontado));
+
                 startActivity(i);
             }
         });

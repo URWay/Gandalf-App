@@ -31,7 +31,6 @@ public class Enderecos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enderecos);
-        findViewById(R.id.loadingEndereco).setVisibility(View.VISIBLE);
 
         lista = (ListView) findViewById(R.id.lista);
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
@@ -44,9 +43,7 @@ public class Enderecos extends AppCompatActivity {
             finish();
         } else {
             NetworkCall myCall = new NetworkCall();
-            findViewById(R.id.loadingEndereco).setVisibility(View.VISIBLE);
             myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/all/" + id );
-            findViewById(R.id.loadingEndereco).setVisibility(View.GONE);
         }
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -161,7 +158,6 @@ public class Enderecos extends AppCompatActivity {
     // Retorno
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        findViewById(R.id.loadingEndereco).setVisibility(View.VISIBLE);
         if(requestCode == 1){
             if(resultCode == RESULT_OK){
                 String retorno = data.getStringExtra("Retorno");
@@ -190,7 +186,6 @@ public class Enderecos extends AppCompatActivity {
                 }
             }
         }
-        findViewById(R.id.loadingEndereco).setVisibility(View.GONE);
     }
 }
 

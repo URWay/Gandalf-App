@@ -18,7 +18,11 @@
             android:orientation="vertical">
 
 
+<<<<<<< HEAD
        
+=======
+
+>>>>>>> 3c25de59aea4b2a2ef51820265ca2782ceae2718
         </LinearLayout>
     </ScrollView>
 
