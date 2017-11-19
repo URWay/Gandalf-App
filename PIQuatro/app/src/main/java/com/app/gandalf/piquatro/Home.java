@@ -3,6 +3,7 @@ package com.app.gandalf.piquatro;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.widget.Toast;
+/*
 
 public class Home extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,6 +40,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
         setTitle(null);
 
@@ -66,7 +69,7 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
 
-        getMenuInflater().inflate(R.menu.home, menu);
+    //    getMenuInflater().inflate(R.menu.home, menu);
 
 
 
@@ -112,4 +115,4 @@ public class Home extends AppCompatActivity  implements NavigationView.OnNavigat
 
     }
 }
-
+*/

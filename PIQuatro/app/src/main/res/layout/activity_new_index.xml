@@ -9,8 +9,7 @@
     tools:openDrawer="start">
 
     <include
-        android:id="@+id/aa"
-        layout="@layout/app_bar_home"
+        layout="@layout/app_bar_new_index"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -19,11 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/background_light"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_home"
-        app:menu="@menu/activity_home_drawer" />
-
-
+        app:headerLayout="@layout/nav_header_new_index"
+        app:menu="@menu/activity_new_index_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

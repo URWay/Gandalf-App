@@ -36,7 +36,7 @@ public class ListaProdutos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_produtos);
+        setContentView(R.layout.activity_produtos);
         mensagens = (ViewGroup) findViewById(R.id.container);
 
         NetworkCall myCall = new NetworkCall();

@@ -425,8 +425,8 @@ public class CadastroCliente extends AppCompatActivity {
                     editor.putInt("id", id);
                     editor.apply();
 
-                    Intent intent = new Intent(CadastroCliente.this, Home.class);
-                    startActivity(intent);
+               //     Intent intent = new Intent(CadastroCliente.this, Home.class);
+               //     startActivity(intent);
 
                     return String.valueOf(responseCode);
                 } else {

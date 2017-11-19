@@ -155,8 +155,8 @@ public class Login extends AppCompatActivity {
                     editor.putInt("id", id);
                     editor.apply();
 
-                    Intent intent = new Intent(Login.this, Home.class);
-                    startActivity(intent);
+              //      Intent intent = new Intent(Login.this, Home.class);
+                //    startActivity(intent);
 
                     return String.valueOf(responseCode);
                 } else {

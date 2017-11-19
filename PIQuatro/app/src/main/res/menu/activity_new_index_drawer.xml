@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Página Principal" />
+
+        <item
+            android:id="@+id/nav_promo"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Promoções" />
+        <item
+            android:id="@+id/nav_poster"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Pôsteres" />
+        <item
+            android:id="@+id/nav_caneca"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Canecas" />
+        <item
+            android:id="@+id/nav_camiseta"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Camisetas" />
+    </group>
+
+
+
+
+    <item android:title="Dados pessoais">
+        <menu>
+
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Login" />
+            <item
+                android:id="@+id/nav_conta"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Minha conta" />
+            <item
+                android:id="@+id/nav_config"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Configurações" />
+        </menu>
+    </item>
+
+    <item android:title="Sobre a Gandalf">
+        <menu>
+            <item
+                android:id="@+id/nav_sobre"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Sobre nós" />
+
+        </menu>
+    </item>
+
+</menu>

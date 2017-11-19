@@ -34,7 +34,7 @@
         </activity>
         <activity
             android:name=".LoginReg"
-            android:parentActivityName=".Home"
+            android:parentActivityName=".Index"
             android:screenOrientation="portrait" />
         <activity android:name=".ListaProdutos">
             <intent-filter>
@@ -61,19 +61,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Home"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Carrinho">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity
+
+             <activity
             android:name=".DadosCadastrais"
-            android:parentActivityName=".Home">
+            android:parentActivityName=".Index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -82,7 +76,7 @@
         </activity>
         <activity
             android:name=".Configuracoes"
-            android:parentActivityName=".Home">
+            android:parentActivityName=".Index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -113,6 +107,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+              
+
+        <activity
+            android:name=".NewIndex"
+            android:label="@string/title_activity_new_index"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
     </application>
 
