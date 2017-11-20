@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ public class descProduto extends AppCompatActivity {
     private TextView txtdescricao;
     private TextView txtprecodesc;
     private TextView txtpreco;
-    private int id;
+    private int id, qtd;
     private String nomeProduto, descProduto, imageProduto;
     private double precoProduto, promocaoProduto;
 
@@ -55,6 +57,7 @@ public class descProduto extends AppCompatActivity {
                         String nome = bundle.getString("nomeProduto");
                         String desc = bundle.getString("descProduto");
                         String image = bundle.getString("image");
+                        int qtdEstoque = Integer.parseInt(bundle.getString("qtdMinEstoque"));
 
                         Double precoprod = Double.parseDouble(bundle.getString("precProd"));
                         Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
@@ -77,6 +80,15 @@ public class descProduto extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
                         imgproduto.setImageBitmap(bitmap);
 
+                        // Quantidade mínina no estoque
+                        int qtdMin = qtdEstoque;
+
+                        List<String> collection = new ArrayList<>();
+
+                        for(int i = 1; i <= qtdMin; i++){
+                            collection.add("Quantidade: " + String.valueOf(i));
+                        }
+
                         // Setando valores para adicionar ao carrinho
                         id = idProduto;
                         nomeProduto = nome;
@@ -84,6 +96,14 @@ public class descProduto extends AppCompatActivity {
                         imageProduto = image;
                         precoProduto = precoprod;
                         promocaoProduto = descprecoprod;
+
+                        final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, collection);
+                        Spinner spinner = (Spinner) findViewById(R.id.spnQtd);
+                        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinner.setAdapter(spinnerArrayAdapter);
+
+                        //qtd = Integer.parseInt(spinner.getSelectedItem().toString().replaceAll("^[0-9]", ""));
+                        qtd = 1;
                     }
 
                 }
@@ -97,14 +117,14 @@ public class descProduto extends AppCompatActivity {
         btnconfirma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addOption(id, nomeProduto, descProduto, imageProduto, precoProduto, promocaoProduto);
+                addOption(id, nomeProduto, descProduto, imageProduto, precoProduto, promocaoProduto, qtd);
             }
         });
     }
 
-    public void addOption(int id, String nome, String desc, String image, double preco, double promo){
+    public void addOption(int id, String nome, String desc, String image, double preco, double promo, int qtd){
 
-        Cart_List list = new Cart_List(id, nome, desc, image, preco, promo);
+        Cart_List list = new Cart_List(id, nome, desc, image, preco, promo, qtd);
         List<Cart_List> cart = new ArrayList<>();
         cart.add(list);
 

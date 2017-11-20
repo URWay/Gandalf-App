@@ -29,14 +29,15 @@
             android:layout_alignParentTop="true"
             android:layout_alignEnd="@+id/txtdescricao" />
 
-        <TextView
-            android:id="@+id/txtdescricao"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:text="Descrição Produto"
-            android:layout_below="@+id/txtpreco"
-            android:textSize="16sp"
-            android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/txtdescricao"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:text="Descrição Produto"
+                android:textSize="16sp"
+                android:layout_below="@+id/txtprecodesc"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp" />
 
         <Button
             android:id="@+id/btnconfirma"
@@ -49,7 +50,7 @@
             android:layout_below="@+id/txtdescricao"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/txtdescricao"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="48dp"
             android:layout_alignEnd="@+id/txtdescricao" />
 
         <TextView
@@ -68,13 +69,13 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:text="Preço Produto"
-            android:layout_marginTop="44dp"
-            android:layout_below="@+id/txtnomeprod"
-            android:layout_alignEnd="@+id/txtdescricao"
+            android:layout_marginTop="27dp"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="20sp"
             android:textStyle="bold"
-            />
+            android:layout_marginEnd="9dp"
+            android:layout_below="@+id/txtnomeprod"
+            android:layout_alignEnd="@+id/txtdescricao" />
 
         <TextView
             android:id="@+id/textView32"
@@ -105,11 +106,18 @@
             android:id="@+id/txtpreco"
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_marginStart="16dp"
             android:text="Preço sem desconto"
-            android:layout_alignBaseline="@+id/txtprecodesc"
-            android:layout_alignBottom="@+id/txtprecodesc"
-            android:layout_toEndOf="@+id/textView32" />
+            android:layout_alignTop="@+id/txtprecodesc"
+            android:layout_toStartOf="@+id/textView34"
+            android:layout_marginEnd="7dp" />
+
+            <Spinner
+                android:id="@+id/spnQtd"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/txtdescricao"
+                android:layout_alignStart="@+id/btnconfirma" />
 
         </RelativeLayout>
     </ScrollView>

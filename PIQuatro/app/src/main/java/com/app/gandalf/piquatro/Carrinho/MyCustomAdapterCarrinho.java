@@ -58,10 +58,12 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
             ImageView image = (ImageView) view.findViewById(R.id.icon_image_view_row);
             TextView nome = (TextView) view.findViewById(R.id.name_text_view_row);
             TextView preco = (TextView) view.findViewById(R.id.price_text_view_row);
+            TextView qtd = (TextView) view.findViewById(R.id.qtd_text_view_row);
 
             String imagemP = list.get(position).getImage();
             String nomeP = list.get(position).getNome();
             double precoP = list.get(position).getPromocao();
+            int qtdP = list.get(position).getQtd();
 
             final byte[] image64 = Base64.decode(imagemP, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
@@ -70,6 +72,7 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
             image.setImageBitmap(bitmap);
             nome.setText(nomeP);
             preco.setText(new DecimalFormat("R$ #,##0.00").format(precoP));
+            //qtd.setText(qtdP);
         //}
 
         return view;
