@@ -3,11 +3,28 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:background="@android:color/white"
     android:layout_height="match_parent">
+
     <ImageView
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_weight="1"
         android:id="@+id/icon_image_view_row"/>
+
+    <RelativeLayout
+        android:id="@+id/InnerRelativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <TextView
+            android:id="@+id/qtd_text_view_row"
+            android:layout_width="0dp"
+            android:layout_height="10dp"
+            android:layout_weight="0"
+            android:layout_marginTop="45dp"
+            android:text="TextView" />
+    </RelativeLayout>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="100dp"
@@ -15,10 +32,11 @@
         android:id="@+id/name_text_view_row"
         android:gravity="center"
         android:text="Name"/>
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:id="@+id/price_text_view_row"
         android:gravity="center"
         android:text="Price"/>

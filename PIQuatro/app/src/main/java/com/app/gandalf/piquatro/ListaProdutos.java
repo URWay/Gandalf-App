@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Base64;
@@ -88,7 +87,7 @@ public class ListaProdutos extends AppCompatActivity {
             try {
                 JSONArray json = new JSONArray(result);
 
-                int idProduto;
+                int idProduto, qtd;
                 String nomeProduto, descProduto, imagem;
                 double precProduto, descontoPromocao;
                 int to = json.length();
@@ -105,7 +104,8 @@ public class ListaProdutos extends AppCompatActivity {
                     precProduto = json.getJSONObject(i).getDouble("precProduto");
                     descontoPromocao = json.getJSONObject(i).getDouble("descontoPromocao");
                     imagem = json.getJSONObject(i).getString("imagem");
-                    addItem(idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, imagem);
+                    qtd = json.getJSONObject(i).getInt("qtdMinEstoque");
+                    addItem(idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, imagem, qtd);
 
                 }
 
@@ -117,7 +117,7 @@ public class ListaProdutos extends AppCompatActivity {
         }
     }
 
-    private void addItem(int idProd, String nomeProd, String descProd, final double precProd, double descPromocao, String img) {
+    private void addItem(int idProd, String nomeProd, String descProd, final double precProd, double descPromocao, String img, int qtd) {
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
 
         final int produto1 = idProd;
@@ -145,6 +145,7 @@ public class ListaProdutos extends AppCompatActivity {
         final String nomeP = nomeProd;
         final String imageP = img;
         final double precoP = precProd;
+        final int qtdP = qtd;
 
 // PASSANDO DADOS PARA HOME
 
@@ -174,6 +175,7 @@ public class ListaProdutos extends AppCompatActivity {
                 i.putExtra("image", imageP);
                 i.putExtra("precProd", String.valueOf(precoP));
                 i.putExtra("descPromocao", String.valueOf(precodescontado));
+                i.putExtra("qtdMinEstoque", String.valueOf(qtdP));
 
                 startActivity(i);
             }

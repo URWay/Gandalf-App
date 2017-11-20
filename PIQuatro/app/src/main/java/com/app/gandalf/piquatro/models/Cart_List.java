@@ -7,14 +7,24 @@ public class Cart_List {
     private String image;
     private double preco;
     private double promocao;
+    private int qtd;
 
-    public Cart_List(int id, String nome, String desc, String image, double preco, double promocao) {
+    public Cart_List(int id, String nome, String desc, String image, double preco, double promocao, int qtd) {
         this.id = id;
         this.nome = nome;
         this.desc = desc;
         this.image = image;
         this.preco = preco;
         this.promocao = promocao;
+        this.qtd = qtd;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
 
     public int getId() {
