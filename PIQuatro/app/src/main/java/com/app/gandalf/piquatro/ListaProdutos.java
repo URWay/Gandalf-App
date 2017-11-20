@@ -149,7 +149,7 @@ public class ListaProdutos extends AppCompatActivity {
 
 // PASSANDO DADOS PARA HOME
 
-        FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
+       /* FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
       Intent i = new Intent(ListaProdutos.this, NewIndex.class);
 
         i.putExtra("idProduto", String.valueOf((produto1)));
@@ -161,7 +161,7 @@ public class ListaProdutos extends AppCompatActivity {
 
         startActivity(i);
 
-
+*/
 
 // fim
 
