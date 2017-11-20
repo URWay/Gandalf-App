@@ -3,6 +3,7 @@ package com.app.gandalf.piquatro;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,8 @@ public class FragmentHomeListaProduto extends Fragment {
 
 
     public FragmentHomeListaProduto() {
-        // Required empty public constructor
+
+
     }
 
 
@@ -22,7 +24,20 @@ public class FragmentHomeListaProduto extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_produtos, container, false);
+        View v =  inflater.inflate(R.layout.activity_produtos, container, false);
+
+        Bundle bundle = getArguments();
+        if(bundle != null){
+            String id = bundle.getString("idProduto");
+            String nomeproduto = bundle.getString("nomeProduto");
+            String descproduto = bundle.getString("descProduto");
+            String img = bundle.getString("image");
+            String preco = bundle.getString("precProd");
+            String descpromocao = bundle.getString("descPromocao");
+
+
+        }
+        return v;
     }
 
 }

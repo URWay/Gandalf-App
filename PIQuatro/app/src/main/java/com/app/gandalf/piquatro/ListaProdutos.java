@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Base64;
@@ -45,7 +46,12 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-    myCall.execute(url + "/"+5+"?ap=0");
+        //myCall.execute(url + "/"+5+"?ap=0");
+
+        myCall.execute(url+"/1?ap=0");
+
+
+
 
     }
 
@@ -110,6 +116,7 @@ public class ListaProdutos extends AppCompatActivity {
                 e.printStackTrace();
             }
 
+
         }
     }
 
@@ -142,6 +149,23 @@ public class ListaProdutos extends AppCompatActivity {
         final String imageP = img;
         final double precoP = precProd;
 
+// PASSANDO DADOS PARA HOME
+
+        FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
+        Bundle bundle = new Bundle();
+
+        bundle.putString("idProduto", String.valueOf((produto1)));
+        bundle.putString("nomeProduto", nomeP);
+        bundle.putString("descProduto", descP);
+        bundle.putString("image", imageP);
+        bundle.putString("precProd", String.valueOf(precoP));
+        bundle.putString("descPromocao", String.valueOf(precodescontado));
+        fragment.setArguments(bundle);
+
+
+
+// fim
+
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,4 +183,5 @@ public class ListaProdutos extends AppCompatActivity {
         mensagens.addView(cardView);
 
     }
+
 }

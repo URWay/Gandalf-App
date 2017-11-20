@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.app.gandalf.piquatro.Carrinho.Carrinho;
+
 public class NewIndex extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -29,8 +31,8 @@ public class NewIndex extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(NewIndex.this, Carrinho.class);
-                //startActivity(intent);
+                Intent intent = new Intent(NewIndex.this, Carrinho.class);
+                startActivity(intent);
 
             }
         });
@@ -43,6 +45,17 @@ public class NewIndex extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle("Home");
 
+
+        FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
+
+
+         if (savedInstanceState == null) {
+            FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
+
+
+            }
     }
 
     @Override
@@ -96,8 +109,10 @@ public class NewIndex extends AppCompatActivity
         } else if (id == R.id.nav_login) {
             fragmentClass = FragmentLogin.class;
             //btn voltar
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+            //getSupportActionBar().setDisplayShowHomeEnabled(true);
+            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         } else if (id== R.id.nav_conta){
@@ -130,4 +145,6 @@ public class NewIndex extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
