@@ -65,5 +65,13 @@ public class SharedPreferencesCart {
         return (ArrayList<Cart_List>) list;
     }
 
+    public void removeIten(Context context, Cart_List cart) {
+        ArrayList<Cart_List> favorites = getItens(context);
+        if (favorites != null) {
+            favorites.remove(cart);
+            saveItens(context, favorites);
+        }
+    }
+
 
 }
