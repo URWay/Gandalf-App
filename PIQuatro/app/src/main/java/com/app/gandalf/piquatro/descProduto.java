@@ -7,10 +7,18 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.app.gandalf.piquatro.models.Cart_List;
+import com.app.gandalf.piquatro.models.SharedPreferencesCart;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class descProduto extends AppCompatActivity {
     private TextView txtnomeprod;
@@ -19,6 +27,8 @@ public class descProduto extends AppCompatActivity {
     private TextView txtprecodesc;
     private TextView txtpreco;
     private int id;
+    private String nomeProduto, descProduto, imageProduto;
+    private double precoProduto, promocaoProduto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +40,7 @@ public class descProduto extends AppCompatActivity {
         txtdescricao = (TextView) findViewById(R.id.txtdescricao);
         txtprecodesc = (TextView) findViewById(R.id.txtprecodesc);
         txtpreco = (TextView) findViewById(R.id.txtpreco);
+        Button btnconfirma = (Button) findViewById(R.id.btnconfirma);
 
         Intent intent = getIntent();
 
@@ -38,7 +49,6 @@ public class descProduto extends AppCompatActivity {
 
                 if(!intent.getStringExtra("idProduto").equals("0")){
                     final int idProduto = Integer.parseInt(intent.getStringExtra("idProduto"));
-                    id = idProduto;
 
                     Bundle bundle = intent.getExtras();
                     if(bundle != null){
@@ -66,6 +76,14 @@ public class descProduto extends AppCompatActivity {
                         final byte[] image64 = Base64.decode(image, Base64.DEFAULT);
                         Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
                         imgproduto.setImageBitmap(bitmap);
+
+                        // Setando valores para adicionar ao carrinho
+                        id = idProduto;
+                        nomeProduto = nome;
+                        descProduto = desc;
+                        imageProduto = image;
+                        precoProduto = precoprod;
+                        promocaoProduto = descprecoprod;
                     }
 
                 }
@@ -74,5 +92,31 @@ public class descProduto extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+        // Adicionar o produto no carrinho
+        btnconfirma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addOption(id, nomeProduto, descProduto, imageProduto, precoProduto, promocaoProduto);
+            }
+        });
+    }
+
+    public void addOption(int id, String nome, String desc, String image, double preco, double promo){
+
+        Cart_List list = new Cart_List(id, nome, desc, image, preco, promo);
+        List<Cart_List> cart = new ArrayList<>();
+        cart.add(list);
+
+        SharedPreferencesCart sh = new SharedPreferencesCart();
+        boolean retorno = sh.saveItens(this, cart);
+
+        if(retorno){
+            Toast.makeText(getApplicationContext(), "Produto adicionado no carrinho!", Toast.LENGTH_SHORT).show();
+            // Retornar quantidade de produtos no carrinho
+        } else {
+            Toast.makeText(getApplicationContext(), "Problema ao produto adicionado no carrinho!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

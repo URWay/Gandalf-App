@@ -30,7 +30,7 @@ public class ListaProdutos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_produtos);
+        setContentView(R.layout.activity_lista_produtos);
         mensagens = (ViewGroup) findViewById(R.id.container);
 
         NetworkCall myCall = new NetworkCall();
@@ -45,7 +45,7 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-    myCall.execute(url + "/"+idCat+"?ap=0");
+    myCall.execute(url + "/"+5+"?ap=0");
 
     }
 

@@ -3,13 +3,9 @@ package com.app.gandalf.piquatro;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class NewIndex extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,8 +29,8 @@ public class NewIndex extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewIndex.this, Carrinho.class);
-                startActivity(intent);
+                //Intent intent = new Intent(NewIndex.this, Carrinho.class);
+                //startActivity(intent);
 
             }
         });
@@ -106,7 +103,9 @@ public class NewIndex extends AppCompatActivity
         } else if (id== R.id.nav_conta){
 
         } else if(id== R.id.nav_config){
-            fragmentClass = Configuracoes.class;
+            fragmentClass = FragmentConfiguracoes.class;
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Configurações");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         } else if(id == R.id.nav_sobre){

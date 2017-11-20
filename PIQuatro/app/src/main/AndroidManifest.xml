@@ -32,10 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginReg"
-            android:parentActivityName=".Index"
-            android:screenOrientation="portrait" />
         <activity android:name=".ListaProdutos">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -61,13 +57,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Carrinho">
 
-        </activity>
-
-             <activity
+        <activity
             android:name=".DadosCadastrais"
-            android:parentActivityName=".Index">
+            android:parentActivityName=".NewIndex">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,7 +69,7 @@
         </activity>
         <activity
             android:name=".Configuracoes"
-            android:parentActivityName=".Index">
+            android:parentActivityName=".NewIndex">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -101,14 +94,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Index">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-              
 
         <activity
             android:name=".NewIndex"
@@ -121,6 +106,16 @@
             </intent-filter>
 
         </activity>
+
+        <activity android:name=".Carrinho.Carrinho">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

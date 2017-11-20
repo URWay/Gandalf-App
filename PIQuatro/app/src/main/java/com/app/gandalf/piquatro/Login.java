@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -162,8 +161,11 @@ public class Login extends AppCompatActivity {
                     editor.putInt("id", id);
                     editor.apply();
 
-              //      Intent intent = new Intent(Login.this, Home.class);
-                //    startActivity(intent);
+                    //Fragment fragment = null;
+                    //Class fragmentClass = null;
+
+                    //fragmentClass = FragmentHomeListaProduto.class;
+                    //getSupportActionBar().setTitle("Home");
 
                     return String.valueOf(responseCode);
                 } else {
