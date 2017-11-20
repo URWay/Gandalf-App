@@ -34,7 +34,7 @@ private ListView lista;
         adaptador = new ArrayAdapter<String>(Configuracoes.this, android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
 
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
@@ -67,5 +67,8 @@ private ListView lista;
         Intent it = new Intent(Configuracoes.this, Sobre.class);
         startActivity(it);
     }
+
+
+
 
 }

@@ -49,33 +49,26 @@ public class NewIndex extends AppCompatActivity
         FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
 
 
-         if (savedInstanceState == null) {
-             FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
-             FragmentManager fragmentManager = getSupportFragmentManager();
-             fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
+        if (savedInstanceState == null) {
+            FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
+            Bundle bundle = new Bundle();
 
-         }
-             Intent intent = getIntent();
-             Bundle bundle = intent.getExtras();
+            if (bundle != null) {
+                String nome = bundle.getString("nomeProduto");
+                String desc = bundle.getString("descProduto");
+                String image = bundle.getString("image");
 
-/*
-
-                 final int idProduto = Integer.parseInt(intent.getStringExtra("idProduto"));
-                   if (bundle != null) {
-                     String nome = bundle.getString("nomeProduto");
-                     String desc = bundle.getString("descProduto");
-                     String image = bundle.getString("image");
-
-                     Double precoprod = Double.parseDouble(bundle.getString("precProd"));
-                     Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
-                 }
-
-*/
+                Double precoprod = Double.parseDouble(bundle.getString("precProd"));
+                Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
 
 
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
 
-         }
+            }
 
+        }
+    }
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, NewIndex.class)); //O efeito ao ser pressionado do botão (no caso abre a activity)
@@ -114,6 +107,8 @@ public class NewIndex extends AppCompatActivity
         int id = item.getItemId();
         if(id == R.id.nav_home){
             fragmentClass = FragmentHomeListaProduto.class;
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.show();
             getSupportActionBar().setTitle("Home");
         }
         else if (id == R.id.nav_promo) {
