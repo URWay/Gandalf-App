@@ -26,8 +26,9 @@ public class FragmentHomeListaProduto extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.activity_produtos, container, false);
 
-        Bundle bundle = getArguments();
+        Bundle bundle = new Bundle();
         if(bundle != null){
+
             String id = bundle.getString("idProduto");
             String nomeproduto = bundle.getString("nomeProduto");
             String descproduto = bundle.getString("descProduto");

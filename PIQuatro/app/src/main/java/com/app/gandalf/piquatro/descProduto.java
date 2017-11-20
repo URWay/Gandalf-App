@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -40,6 +41,9 @@ public class descProduto extends AppCompatActivity {
         txtdescricao = (TextView) findViewById(R.id.txtdescricao);
         txtprecodesc = (TextView) findViewById(R.id.txtprecodesc);
         txtpreco = (TextView) findViewById(R.id.txtpreco);
+
+        txtdescricao.setMovementMethod(new ScrollingMovementMethod());
+       
         Button btnconfirma = (Button) findViewById(R.id.btnconfirma);
 
         Intent intent = getIntent();

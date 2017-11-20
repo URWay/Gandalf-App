@@ -50,13 +50,31 @@ public class NewIndex extends AppCompatActivity
 
 
          if (savedInstanceState == null) {
-            FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
+             FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
+             FragmentManager fragmentManager = getSupportFragmentManager();
+             fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
+
+         }
+             Intent intent = getIntent();
+             Bundle bundle = intent.getExtras();
+
+/*
+
+                 final int idProduto = Integer.parseInt(intent.getStringExtra("idProduto"));
+                   if (bundle != null) {
+                     String nome = bundle.getString("nomeProduto");
+                     String desc = bundle.getString("descProduto");
+                     String image = bundle.getString("image");
+
+                     Double precoprod = Double.parseDouble(bundle.getString("precProd"));
+                     Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
+                 }
+
+*/
 
 
-            }
-    }
+
+         }
 
     @Override
     public void onBackPressed() {

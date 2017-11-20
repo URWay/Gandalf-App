@@ -46,12 +46,9 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-        //myCall.execute(url + "/"+5+"?ap=0");
+       myCall.execute(url + "/"+5+"?ap=0");
 
-        myCall.execute(url+"/1?ap=0");
-
-
-
+       // myCall.execute(url+"/1?ap=0");
 
     }
 
@@ -152,15 +149,16 @@ public class ListaProdutos extends AppCompatActivity {
 // PASSANDO DADOS PARA HOME
 
         FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
-        Bundle bundle = new Bundle();
+      Intent i = new Intent(ListaProdutos.this, NewIndex.class);
 
-        bundle.putString("idProduto", String.valueOf((produto1)));
-        bundle.putString("nomeProduto", nomeP);
-        bundle.putString("descProduto", descP);
-        bundle.putString("image", imageP);
-        bundle.putString("precProd", String.valueOf(precoP));
-        bundle.putString("descPromocao", String.valueOf(precodescontado));
-        fragment.setArguments(bundle);
+        i.putExtra("idProduto", String.valueOf((produto1)));
+        i.putExtra("nomeProduto", nomeP);
+        i.putExtra("descProduto", descP);
+        i.putExtra("image", imageP);
+        i.putExtra("precProd", String.valueOf(precoP));
+        i.putExtra("descPromocao", String.valueOf(precodescontado));
+
+        startActivity(i);
 
 
 

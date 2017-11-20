@@ -34,8 +34,8 @@ private Button btnok;
             public void onClick(View view) {
                 if(checktermo.isChecked()){
 
-               //     Intent intent = new Intent(FirstTime.this, Home.class);
-                 //   startActivity(intent);
+                   Intent intent = new Intent(FirstTime.this, NewIndex.class);
+                  startActivity(intent);
                     finish();
 
                 }else{
