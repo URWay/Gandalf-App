@@ -8,11 +8,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Configuracoes extends AppCompatActivity {
+public class Configuracoes extends AppCompatActivity implements Serializable {
 private ListView lista;
     List<String> opcoes;
 
@@ -30,11 +31,14 @@ private ListView lista;
         opcoes.add("Meus endereços");
         opcoes.add("Sobre");
 
+        Intent i = new Intent(Configuracoes.this, FragmentConfiguracoes.class);
+        i.putExtra("opcoes", (Serializable) opcoes);
+        startActivity(i);
+
 
         adaptador = new ArrayAdapter<String>(Configuracoes.this, android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
-
-    lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){

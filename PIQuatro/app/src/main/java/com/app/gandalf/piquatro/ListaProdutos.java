@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Base64;
@@ -45,9 +46,10 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-       myCall.execute(url + "/"+5+"?ap=0");
+        myCall.execute(url + "/"+5+"?ap=0");
 
-       // myCall.execute(url+"/1?ap=0");
+
+
 
     }
 
@@ -83,6 +85,8 @@ public class ListaProdutos extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+
+
 
             try {
                 JSONArray json = new JSONArray(result);
@@ -147,41 +151,12 @@ public class ListaProdutos extends AppCompatActivity {
         final double precoP = precProd;
         final int qtdP = qtd;
 
-// PASSANDO DADOS PARA HOME
-
-       /* FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
-      Intent i = new Intent(ListaProdutos.this, NewIndex.class);
-
-        i.putExtra("idProduto", String.valueOf((produto1)));
-        i.putExtra("nomeProduto", nomeP);
-        i.putExtra("descProduto", descP);
-        i.putExtra("image", imageP);
-        i.putExtra("precProd", String.valueOf(precoP));
-        i.putExtra("descPromocao", String.valueOf(precodescontado));
-
-        startActivity(i);
-
-*/
-
-// fim
-
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(ListaProdutos.this, descProduto.class);
-                i.putExtra("idProduto", String.valueOf((produto1)));
-                i.putExtra("nomeProduto", nomeP);
-                i.putExtra("descProduto", descP);
-                i.putExtra("image", imageP);
-                i.putExtra("precProd", String.valueOf(precoP));
-                i.putExtra("descPromocao", String.valueOf(precodescontado));
-                i.putExtra("qtdMinEstoque", String.valueOf(qtdP));
-
-                startActivity(i);
-            }
-        });
         mensagens.addView(cardView);
 
+
+
     }
+
+
 
 }

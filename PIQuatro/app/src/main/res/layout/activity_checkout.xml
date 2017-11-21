@@ -2,56 +2,306 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_first_time"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.app.gandalf.piquatro.Checkout">
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
-        android:text="Checkout"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+        android:layout_alignParentStart="true">
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="63dp"
-        app:srcCompat="@drawable/carrinho"
-        android:layout_below="@+id/textView17"
-        android:layout_toStartOf="@+id/textView17"
-        android:layout_marginEnd="26dp" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView9"
-        android:layout_toEndOf="@+id/imageView9"
-        android:text="Pedido:"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="24sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView19"
-        android:layout_marginStart="11dp"
-        android:layout_toEndOf="@+id/textView19"
-        android:text="Idpedido"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/background_dark"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+            <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:id="@+id/searchView"
+                android:layout_below="@+id/textLogo"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="376dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="28dp"
+                android:background="#000000"
+                android:text="______________________________________________"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/searchView"
+                android:layout_alignEnd="@+id/textView26" />
+
+            <Button
+                android:id="@+id/comprar"
+                android:layout_width="376dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1200dp"
+                android:text="COMPRAR"
+                android:layout_alignParentBottom="true"
+                android:layout_alignEnd="@+id/textView22" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginRight="15dp"
+                android:text=""
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="59dp"
+                android:text="Qtde Prod"
+                android:textColor="@android:color/black"
+                android:layout_alignTop="@+id/textView5"
+                android:layout_alignStart="@+id/textView20" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignBottom="@+id/textView12"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="12dp"
+                android:background="@android:color/background_light"
+                android:text="Vizualizar Prod"
+                android:textColor="@android:color/black"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:background="#000000"
+                android:text="___________________"
+                android:layout_marginLeft="60dp"
+                android:layout_below="@+id/textView10"
+                android:layout_alignStart="@+id/textView10"
+                android:layout_marginTop="96dp" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="R$ 0,00"
+                android:layout_marginEnd="19dp"
+                android:layout_alignTop="@+id/textView10"
+                android:layout_alignEnd="@+id/textView5" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="300dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="60dp"
+                android:background="#000000"
+                android:text="______"
+                android:layout_alignBottom="@+id/textView5"
+                android:layout_alignEnd="@+id/editText" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Total a pagar"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@+id/editText3"
+                android:layout_alignBottom="@+id/editText3"
+                android:layout_toStartOf="@+id/button" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:text="R$ 0,00"
+                android:layout_alignTop="@+id/textView13"
+                android:layout_alignEnd="@+id/textView13" />
+
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Endereço de entrega"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_below="@+id/textView5"
+                android:layout_alignStart="@+id/textView5"
+                android:layout_marginTop="26dp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:layout_below="@+id/textView21"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text=""
+                />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:text="Casa"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_alignBottom="@+id/imageButton"
+                android:layout_alignStart="@+id/textView13" />
+
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:text="Lincoln Do Espirito Santo Frederico
+Rua Américo Coxa, 16 - casa 5
+04890-000 - Parelheiros
+São Paulo/SP"
+                android:textAlignment="textStart"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:layout_alignStart="@+id/textView23" />
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+
+                android:layout_above="@+id/textView25"
+                android:layout_marginBottom="28dp"
+                android:layout_toStartOf="@+id/imageButton"
+                android:text="Alterar end. de Entrega"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="28dp"
+                android:text="cartão de crédito principal"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:layout_below="@+id/textView22"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
+                android:text=""
+                android:layout_below="@+id/textView25"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="23dp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView10"
+
+                android:layout_below="@+id/textView28"
+                android:layout_marginTop="38dp"
+                android:text="Cartão: Visa"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView20"
+                android:layout_alignTop="@+id/textView26"
+                android:layout_marginTop="56dp"
+                android:text="Titular: Nome"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView27"
+                android:layout_below="@+id/textView27"
+                android:layout_marginTop="39dp"
+                android:text="Validade:"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/textView27"
+                android:layout_toEndOf="@+id/textView20"
+                android:layout_marginTop="27dp" />
+
+            <Button
+                android:id="@+id/editText5"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/spinner"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:inputType="number"
+                android:text="Código do cart]ao"
+                android:textSize="8sp"
+                android:textStyle="bold" />
+
+
+            <Spinner
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="11dp"
+                android:id="@+id/spinner2"
+                android:layout_alignBottom="@+id/textView26"
+                android:layout_alignEnd="@+id/textView25">
+
+            </Spinner>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+
+                android:layout_alignStart="@+id/textView10"
+                android:layout_alignTop="@+id/spinner2"
+                android:layout_marginStart="11dp"
+                android:text="Parcelar em:"
+                android:textColor="@android:color/black" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
 
 
 </RelativeLayout>

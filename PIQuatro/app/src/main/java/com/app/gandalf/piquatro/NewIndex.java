@@ -14,12 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.app.gandalf.piquatro.Carrinho.Carrinho;
 
 public class NewIndex extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private ViewGroup mensagens;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,28 +47,9 @@ public class NewIndex extends AppCompatActivity
         getSupportActionBar().setTitle("Home");
 
 
-        FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
 
 
-        if (savedInstanceState == null) {
-            FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
-            Bundle bundle = new Bundle();
 
-            if (bundle != null) {
-                String nome = bundle.getString("nomeProduto");
-                String desc = bundle.getString("descProduto");
-                String image = bundle.getString("image");
-
-                Double precoprod = Double.parseDouble(bundle.getString("precProd"));
-                Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
-
-
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
-
-            }
-
-        }
     }
     @Override
     public void onBackPressed() {
@@ -113,6 +95,8 @@ public class NewIndex extends AppCompatActivity
         }
         else if (id == R.id.nav_promo) {
             getSupportActionBar().setTitle("Promoções");
+
+
         } else if (id == R.id.nav_poster) {
             getSupportActionBar().setTitle("Pôsteres");
         } else if (id == R.id.nav_caneca) {
@@ -132,8 +116,6 @@ public class NewIndex extends AppCompatActivity
 
         } else if(id== R.id.nav_config){
             fragmentClass = FragmentConfiguracoes.class;
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Configurações");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         } else if(id == R.id.nav_sobre){
