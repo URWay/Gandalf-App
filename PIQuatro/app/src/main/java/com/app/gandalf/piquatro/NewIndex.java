@@ -53,19 +53,6 @@ public class NewIndex extends AppCompatActivity
             FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
             Bundle bundle = new Bundle();
 
-            if (bundle != null) {
-                String nome = bundle.getString("nomeProduto");
-                String desc = bundle.getString("descProduto");
-                String image = bundle.getString("image");
-
-                Double precoprod = Double.parseDouble(bundle.getString("precProd"));
-                Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
-
-
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.corpo, fragmentlista).commit();
-
-            }
 
         }
     }

@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro.Carrinho;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.app.gandalf.piquatro.Checkout.Checkout;
 import com.app.gandalf.piquatro.Functions;
 import com.app.gandalf.piquatro.R;
 import com.app.gandalf.piquatro.models.Cart_List;
@@ -50,7 +52,8 @@ public class Carrinho extends AppCompatActivity {
                 String json = prefs.getString(PRODUCTS, null);
 
                 if (json != null) {
-
+                    Intent intent = new Intent(Carrinho.this, Checkout.class);
+                    startActivity(intent);
                 } else {
                     f.showDialog("Carrinho vazio", "Nenhum produto no carrinho para finalizar a compra", Carrinho.this);
                 }
