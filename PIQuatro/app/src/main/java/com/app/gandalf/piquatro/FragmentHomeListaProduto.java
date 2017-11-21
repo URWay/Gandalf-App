@@ -15,7 +15,7 @@ public class FragmentHomeListaProduto extends Fragment {
     private static final String TAG = "Produtos";
 
     @Override
-<<<<<<< HEAD
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -24,11 +24,6 @@ public class FragmentHomeListaProduto extends Fragment {
 
         return v;
     }
-=======
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_lista_produtos,container,false);
->>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
-
 
 
 }

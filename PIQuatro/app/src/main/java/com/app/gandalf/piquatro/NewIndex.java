@@ -47,11 +47,7 @@ public class NewIndex extends AppCompatActivity
         getSupportActionBar().setTitle("Home");
 
 
-<<<<<<< HEAD
 
-
-
-=======
         FragmentHomeListaProduto fragment = new FragmentHomeListaProduto();
 
 
@@ -61,7 +57,7 @@ public class NewIndex extends AppCompatActivity
 
 
         }
->>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
+
     }
     @Override
     public void onBackPressed() {

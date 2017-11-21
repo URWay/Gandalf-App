@@ -1,52 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:background="@android:color/white"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:id="@+id/icon_image_view_row"/>
 
-    <RelativeLayout
-        android:id="@+id/InnerRelativeLayout"
+    <TextView
+        android:id="@+id/name_text_view_row"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" >
+        android:text="NomeProduto"
+        android:textSize="16sp"
+        android:layout_above="@+id/textView30"
+        android:layout_alignStart="@+id/textView30" />
 
-        <TextView
-            android:id="@+id/qtd_text_view_row"
-            android:layout_width="0dp"
-            android:layout_height="10dp"
-            android:layout_weight="0"
-            android:layout_marginTop="45dp"
-            android:text="TextView" />
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_weight="2"
-        android:id="@+id/name_text_view_row"
-        android:gravity="center"
-        android:text="Name"/>
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_bg_round"
+        android:text="+"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:layout_alignBottom="@+id/icon_image_view_row"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_weight="1"
-        android:id="@+id/price_text_view_row"
-        android:gravity="center"
-        android:text="Price"/>
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:layout_marginStart="93dp"
+        android:layout_alignTop="@+id/button7"
+        android:layout_alignParentStart="true" />
 
-    <ImageView
-        android:id="@+id/menu_view"
+    <TextView
+        android:id="@+id/qtd_text_view_row"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_weight="0"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/carrinho_icone_menu"
-        android:gravity="center" />
-</LinearLayout>
+        android:text="qtde"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/button5"
+        android:layout_toStartOf="@+id/button5" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/button_bg_round"
+        android:text="-"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/qtd_text_view_row"
+        android:layout_toStartOf="@+id/qtd_text_view_row" />
+
+    <ImageView
+        android:id="@+id/icon_image_view_row"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/name_text_view_row"
+        app:srcCompat="@drawable/deleteicon" />
+
+</RelativeLayout>

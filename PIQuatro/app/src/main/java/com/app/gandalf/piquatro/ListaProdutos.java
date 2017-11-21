@@ -46,9 +46,7 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-        myCall.execute(url + "/"+5+"?ap=0");
-
-
+        myCall.execute(url + "/" + 5 + "?ap=0");
 
 
     }
@@ -85,7 +83,6 @@ public class ListaProdutos extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-
 
 
             try {
@@ -151,12 +148,22 @@ public class ListaProdutos extends AppCompatActivity {
         final double precoP = precProd;
         final int qtdP = qtd;
 
+
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ListaProdutos.this, descProduto.class);
+                i.putExtra("idProduto", String.valueOf((produto1)));
+                i.putExtra("nomeProduto", nomeP);
+                i.putExtra("descProduto", descP);
+                i.putExtra("image", imageP);
+                i.putExtra("precProd", String.valueOf(precoP));
+                i.putExtra("descPromocao", String.valueOf(precodescontado));
+                i.putExtra("qtdMinEstoque", String.valueOf(qtdP));
+
+                startActivity(i);
+            }
+        });
         mensagens.addView(cardView);
-
-
-
     }
-
-
-
 }
