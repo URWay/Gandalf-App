@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:background="@android:color/white"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    >
 
 
     <TextView
@@ -12,29 +14,30 @@
         android:layout_height="wrap_content"
         android:text="NomeProduto"
         android:textSize="16sp"
-        android:layout_above="@+id/textView30"
-        android:layout_alignStart="@+id/textView30" />
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/price_text_view_row"
+        android:layout_marginTop="15dp" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_plus"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_alignBottom="@+id/icon_image_view_row"
+        android:layout_alignParentEnd="true"
         android:background="@drawable/button_bg_round"
         android:text="+"
         android:textColor="@android:color/background_light"
-        android:textSize="24sp"
-        android:layout_alignBottom="@+id/icon_image_view_row"
-        android:layout_alignParentEnd="true" />
+        android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/price_text_view_row"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Preço"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="18sp"
-        android:layout_marginStart="93dp"
-        android:layout_alignTop="@+id/button7"
+        android:layout_marginStart="94dp"
+        android:layout_alignBottom="@+id/icon_image_view_row"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -42,22 +45,22 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:text="qtde"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textStyle="bold"
-        android:layout_alignBottom="@+id/button5"
-        android:layout_toStartOf="@+id/button5" />
+        android:layout_alignBottom="@+id/btn_plus"
+        android:layout_toStartOf="@+id/btn_plus" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_minus"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_alignBottom="@+id/qtd_text_view_row"
+        android:layout_toStartOf="@+id/qtd_text_view_row"
         android:background="@drawable/button_bg_round"
         android:text="-"
         android:textColor="@android:color/background_light"
         android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_alignBottom="@+id/qtd_text_view_row"
-        android:layout_toStartOf="@+id/qtd_text_view_row" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/icon_image_view_row"
@@ -65,7 +68,6 @@
         android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/name_text_view_row"
-        app:srcCompat="@drawable/deleteicon" />
+        android:layout_toStartOf="@+id/name_text_view_row" />
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.app.gandalf.piquatro.R;
 import com.app.gandalf.piquatro.models.Cart;
 import com.app.gandalf.piquatro.models.Cart_List;
+import com.app.gandalf.piquatro.models.SharedPreferencesCart;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -54,11 +56,13 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
             view = inflater.inflate(R.layout.produto_list_row, null);
         }
 
+            ViewHolder holder = new ViewHolder();
+
         //for(int i = 0; i <= list.size(); i++){
-            ImageView image = (ImageView) view.findViewById(R.id.icon_image_view_row);
-            TextView nome = (TextView) view.findViewById(R.id.name_text_view_row);
-            TextView preco = (TextView) view.findViewById(R.id.price_text_view_row);
-            TextView qtd = (TextView) view.findViewById(R.id.qtd_text_view_row);
+            holder.image = (ImageView) view.findViewById(R.id.icon_image_view_row);
+            holder.nome = (TextView) view.findViewById(R.id.name_text_view_row);
+            holder.preco = (TextView) view.findViewById(R.id.price_text_view_row);
+            holder.qtd = (TextView) view.findViewById(R.id.qtd_text_view_row);
 
             String imagemP = list.get(position).getImage();
             String nomeP = list.get(position).getNome();
@@ -68,14 +72,40 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
             final byte[] image64 = Base64.decode(imagemP, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
 
+            // Retirando produtos do carrinho
+            holder.btnmenos = (Button) view.findViewById(R.id.btn_minus);
+            holder.btnmenos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Ver depois como pegar o valor da quantidade
+                    ViewHolder holder = new ViewHolder();
+                    holder.qtd = (TextView) view.findViewById(R.id.qtd_text_view_row);
+                    int qtdNew_minus = Integer.parseInt(holder.qtd.getText().toString());
+                    qtdNew_minus--;
+                    holder.qtd.setText(String.valueOf(qtdNew_minus));
+                    SharedPreferencesCart sh = new SharedPreferencesCart();
+                    list.get(position).setQtd(qtdNew_minus);
+                    sh.saveItens(context, list);
+                }
+            });
+
             // Setando valores
-            image.setImageBitmap(bitmap);
-            nome.setText(nomeP);
-            preco.setText(new DecimalFormat("R$ #,##0.00").format(precoP));
-            //qtd.setText(qtdP);
+            holder.image.setImageBitmap(bitmap);
+            holder.nome.setText(nomeP);
+            holder.preco.setText(new DecimalFormat("R$ #,##0.00").format(precoP));
+            holder.qtd.setText(String.valueOf(qtdP));
         //}
 
+        view.setTag(holder);
         return view;
+    }
+
+    public class ViewHolder {
+        ImageView image;
+        TextView nome;
+        TextView preco;
+        TextView qtd;
+        Button btnmenos;
     }
 
 }

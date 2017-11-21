@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,11 +27,49 @@ public class SharedPreferencesCart {
             editor = settings.edit();
 
             Gson gson = new Gson();
-            String json = gson.toJson(list);
 
-            editor.putString(PRODUCTS, json);
+            // Valor já armazenado
+            SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, context.MODE_PRIVATE);
+            String retorno = prefs.getString(PRODUCTS, null);
 
-            editor.commit();
+            if(retorno == null){
+                String json = gson.toJson(list);
+                editor.putString(PRODUCTS, json);
+                editor.commit();
+            } else {
+                JSONArray array = new JSONArray(retorno);
+                Cart_List cartNew = null;
+
+                int id, qtd;
+                double preco, promocao;
+                String nome, desc, image;
+
+                // Adicionando produtos que já estavam no carrinho
+                for(int i = 0; i < array.length(); i++){
+
+                    id = array.getJSONObject(i).getInt("id");
+
+                    if(id != list.get(0).getId()){
+                        qtd = array.getJSONObject(i).getInt("qtd");
+
+                        preco = array.getJSONObject(i).getDouble("preco");
+                        promocao = array.getJSONObject(i).getDouble("promocao");
+
+                        nome = array.getJSONObject(i).getString("nome");
+                        desc = array.getJSONObject(i).getString("desc");
+                        image = array.getJSONObject(i).getString("image");
+
+                        cartNew = new Cart_List(id, nome, desc, image, preco, promocao, qtd);
+                        list.add(cartNew);
+                    }
+                }
+
+                String json = gson.toJson(list);
+                editor.putString(PRODUCTS, json);
+                editor.commit();
+            }
+
+
         } catch (Exception e){
             e.printStackTrace();
             return false;
@@ -66,11 +106,18 @@ public class SharedPreferencesCart {
     }
 
     public void removeIten(Context context, Cart_List cart) {
-        ArrayList<Cart_List> favorites = getItens(context);
-        if (favorites != null) {
-            favorites.remove(cart);
-            saveItens(context, favorites);
+        ArrayList<Cart_List> list = getItens(context);
+        if (list != null) {
+            list.remove(cart);
+            saveItens(context, list );
         }
+    }
+
+    public void removeSharedItens(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(PRODUCTS, null);
+        editor.apply();
     }
 
 

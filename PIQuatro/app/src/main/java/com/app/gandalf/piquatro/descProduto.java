@@ -32,6 +32,7 @@ public class descProduto extends AppCompatActivity {
     private int id, qtd;
     private String nomeProduto, descProduto, imageProduto;
     private double precoProduto, promocaoProduto;
+    private List<String> collection = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +88,6 @@ public class descProduto extends AppCompatActivity {
                         // Quantidade mínina no estoque
                         int qtdMin = qtdEstoque;
 
-                        List<String> collection = new ArrayList<>();
-
                         for(int i = 1; i <= qtdMin; i++){
                             collection.add("Quantidade: " + String.valueOf(i));
                         }
@@ -105,9 +104,8 @@ public class descProduto extends AppCompatActivity {
                         Spinner spinner = (Spinner) findViewById(R.id.spnQtd);
                         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         spinner.setAdapter(spinnerArrayAdapter);
-
-                        //qtd = Integer.parseInt(spinner.getSelectedItem().toString().replaceAll("^[0-9]", ""));
-                        qtd = 1;
+                        String qtdSem = spinner.getSelectedItem().toString().replace("Quantidade: ", "");
+                        qtd = Integer.parseInt(qtdSem);
                     }
 
                 }
@@ -128,6 +126,10 @@ public class descProduto extends AppCompatActivity {
 
     public void addOption(int id, String nome, String desc, String image, double preco, double promo, int qtd){
 
+        Spinner spinner = (Spinner) findViewById(R.id.spnQtd);
+        String qtdSem = spinner.getSelectedItem().toString().replace("Quantidade: ", "");
+        qtd = Integer.parseInt(qtdSem);
+
         Cart_List list = new Cart_List(id, nome, desc, image, preco, promo, qtd);
         List<Cart_List> cart = new ArrayList<>();
         cart.add(list);
@@ -139,7 +141,7 @@ public class descProduto extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Produto adicionado no carrinho!", Toast.LENGTH_SHORT).show();
             // Retornar quantidade de produtos no carrinho
         } else {
-            Toast.makeText(getApplicationContext(), "Problema ao produto adicionado no carrinho!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Problema ao adicionadar produto no carrinho!", Toast.LENGTH_SHORT).show();
         }
 
     }
