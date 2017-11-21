@@ -1,7 +1,6 @@
 package com.app.gandalf.piquatro;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +40,7 @@ private EditText txtcidade;
 private EditText txtpais;
 private TextView textView5;
 private EditText txtuf;
+private Functions f = new Functions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +90,7 @@ private EditText txtuf;
                 String cidade = txtcidade.getText().toString().trim();
                 String pais = txtpais.getText().toString().trim();
                 String uf = txtuf.getText().toString();
-                SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
-                int id = prefs.getInt("id", 0);
+                int id = f.getId(CadastroEndereco.this);
 
                 int idEndereco = 0;
 

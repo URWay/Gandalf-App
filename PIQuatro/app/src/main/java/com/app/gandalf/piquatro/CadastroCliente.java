@@ -1,10 +1,8 @@
 package com.app.gandalf.piquatro;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -46,17 +44,14 @@ public class CadastroCliente extends AppCompatActivity {
     private CheckBox checknews;
     private Button btnok;
     private TextView textView16;
-
     private TextWatcher cpfMask;
+    private Functions f = new Functions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_cliente);
         findViewById(R.id.loadingLogin).setVisibility(View.GONE);
-
-       //ActionBar ab = getSupportActionBar();
-       //ab.setDisplayHomeAsUpEnabled(true);
 
         txtnome = (EditText) findViewById(R.id.txtnomeapelido);
         txtemail = (EditText) findViewById(R.id.txtemail);
@@ -77,9 +72,7 @@ public class CadastroCliente extends AppCompatActivity {
             if(intent.getStringExtra("ACAO").equals("M")){
                 // Carrega as informações de cadastro
                 NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
-                SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
-                int id = prefs.getInt("id", 0);
-                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + id );
+                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + f.getId(this));
                 btnok.setText("Atualizar cadastro");
                 textView16.setText("Atualizar cadastro");
             }
@@ -96,8 +89,6 @@ public class CadastroCliente extends AppCompatActivity {
             public void onClick(View view) {
 
                 // Validações
-                Functions f = new Functions();
-
                 String nome = txtnome.getText().toString().trim();
                 String email = txtemail.getText().toString();
                 String senha = txtsenha.getText().toString();
@@ -125,10 +116,7 @@ public class CadastroCliente extends AppCompatActivity {
                         relative.setBackgroundResource(0);
 
                         Intent intent = getIntent();
-                        SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
-                        int id = prefs.getInt("id", 0);
-
-                        ClienteModel cliente = new ClienteModel(id, nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
+                        ClienteModel cliente = new ClienteModel(f.getId(CadastroCliente.this), nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
 
                         if (intent.getStringExtra("ACAO").equals("A")){
                             // Inserir dados de cadastro
@@ -164,9 +152,7 @@ public class CadastroCliente extends AppCompatActivity {
     public void Cadastro(ClienteModel cliente, String acao){
 
         Gson g = new Gson();
-
         String json = g.toJson(cliente);
-        Functions f = new Functions();
 
         if(!f.isEmail(cliente)){
             String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + acao;
@@ -266,15 +252,14 @@ public class CadastroCliente extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            Functions functions = new Functions();
 
             if(result.equals("PUT")){
                 Toast toast = Toast.makeText(getApplicationContext(), "Dados atualizados com sucesso", Toast.LENGTH_SHORT);
                 toast.show();
             } else if (result.equals("false")) {
-                functions.showDialog("Falha na atualização", "Não foi possível atualizar o cadastro, por favor, verifique as informação de cadastro se estão corretas!", CadastroCliente.this);
+                f.showDialog("Falha na atualização", "Não foi possível atualizar o cadastro, por favor, verifique as informação de cadastro se estão corretas!", CadastroCliente.this);
             } else {
-                functions.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
+                f.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
             }
 
             findViewById(R.id.loadingLogin).setVisibility(View.GONE);
@@ -362,99 +347,26 @@ public class CadastroCliente extends AppCompatActivity {
 
     }
 
+    // Realiza o Login
     public class NetworkCallLogin extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
-            try {
-
-                URL url = new URL(params[0]);
-
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(15000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                conn.setRequestProperty ("Content-Type", "application/json");
-
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-
-                writer.write(params[1]);
-                writer.flush();
-                writer.close();
-                os.close();
-
-                conn.connect();
-
-                int responseCode = conn.getResponseCode();
-
-                if (responseCode == HttpsURLConnection.HTTP_OK) {
-
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                    StringBuffer sb = new StringBuffer("");
-                    String line="";
-
-                    while((line = bufferedReader.readLine()) != null) {
-                        sb.append(line);
-                    }
-
-                    StringBuilder resultado = new StringBuilder();
-                    String linha = bufferedReader.readLine();
-
-                    while (linha != null) {
-                        resultado.append(linha);
-                        linha = bufferedReader.readLine();
-                    }
-
-                    bufferedReader.close();
-                    Log.d ("tag",sb.toString());
-
-                    // Armazena a sessão
-                    JSONObject cliente = new JSONObject(sb.toString());
-                    String login = cliente.getString("emailCliente");
-                    String password = cliente.getString("senhaCliente");
-                    int id = cliente.getInt("idCliente");
-
-                    SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("email", login);
-                    editor.putString("senha", password);
-                    editor.putInt("id", id);
-                    editor.apply();
-
-               //     Intent intent = new Intent(CadastroCliente.this, Home.class);
-               //     startActivity(intent);
-
-                    return String.valueOf(responseCode);
-                } else {
-                    return new String("false :" + responseCode);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return null;
+            return f.Login(CadastroCliente.this, params[0], params[1]);
         }
 
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-
-            Functions f = new Functions();
-
             try {
                 if(!result.equals("200")){
-                    findViewById(R.id.loadingL).setVisibility(View.GONE);
-                    f.showDialog("Falha no login!","Usuário ou senha inválidos", CadastroCliente.this);
+                    // Ir para home, ver depois
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                findViewById(R.id.loadingL).setVisibility(View.GONE);
                 f.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
             }
+            findViewById(R.id.loadingL).setVisibility(View.GONE);
         }
     }
 }

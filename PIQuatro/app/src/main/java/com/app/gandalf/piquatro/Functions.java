@@ -1,15 +1,23 @@
 package com.app.gandalf.piquatro;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 
 import com.app.gandalf.piquatro.models.ClienteModel;
 import com.google.gson.Gson;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -17,6 +25,8 @@ import java.net.URL;
 import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class Functions {
 
@@ -179,4 +189,84 @@ public class Functions {
         }
         return 0;
     }
+
+    // Retorno do ID do cliente
+    public int getId(Context context){
+        SharedPreferences prefs = context.getSharedPreferences("SessionLogin", context.MODE_PRIVATE);
+        return prefs.getInt("id", 0);
+    }
+
+    // Armazenando sessão
+    public void setId(Context context, String login, String password, int id){
+        SharedPreferences prefs = context.getSharedPreferences("SessionLogin", context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("email", login);
+        editor.putString("senha", password);
+        editor.putInt("id", id);
+        editor.apply();
+    }
+
+    // Deleta sessão
+    public void Logoff(Context context){
+        SharedPreferences prefs = context.getSharedPreferences("SessionLogin", context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        prefs.getInt("SessionLogin", 0);
+        editor.apply();
+    }
+
+    // Login
+    public String Login(Activity activity, String url, String param){
+        String retorno = "";
+
+        try {
+            HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+            conn.setReadTimeout(15000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setRequestProperty ("Content-Type", "application/json");
+
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+
+            writer.write(param);
+            writer.flush();
+            writer.close();
+            os.close();
+            conn.connect();
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode == HttpsURLConnection.HTTP_OK) {
+
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuffer sb = new StringBuffer("");
+                String line="";
+
+                while((line = bufferedReader.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                bufferedReader.close();
+                Log.d ("tag",sb.toString());
+
+                // Armazena a sessão
+                JSONObject cliente = new JSONObject(sb.toString());
+                String login = cliente.getString("emailCliente");
+                String password = cliente.getString("senhaCliente");
+                int id = cliente.getInt("idCliente");
+                setId(activity, login, password, id);
+
+                retorno = String.valueOf(responseCode);
+            } else {
+                retorno = "false :" + responseCode;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return retorno;
+    }
+
 }
