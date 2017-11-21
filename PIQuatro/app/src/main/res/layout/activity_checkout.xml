@@ -9,10 +9,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+<<<<<<< HEAD
     tools:context="com.app.gandalf.piquatro.Checkout">
 
 
 
+=======
+    tools:context="com.app.gandalf.piquatro.Checkout.Checkout">
+
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,6 +31,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true">
 
+<<<<<<< HEAD
             <SearchView
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -42,20 +48,44 @@
                 android:id="@+id/textView3"
                 android:layout_below="@+id/searchView"
                 android:layout_alignEnd="@+id/textView26" />
+=======
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Checkout"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <Button
                 android:id="@+id/comprar"
                 android:layout_width="376dp"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_marginTop="1200dp"
                 android:text="COMPRAR"
                 android:layout_alignParentBottom="true"
                 android:layout_alignEnd="@+id/textView22" />
+=======
+                android:layout_alignEnd="@+id/textView22"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="900dp"
+                android:background="@android:color/holo_blue_bright"
+                android:text="Finalizar compra"
+                android:textColorLink="@android:color/holo_green_dark" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="350dp"
                 android:layout_height="300dp"
+<<<<<<< HEAD
                 android:layout_marginTop="31dp"
                 android:layout_marginRight="15dp"
                 android:text=""
@@ -75,13 +105,39 @@
 
             <Button
                 android:id="@+id/button"
+=======
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="15dp"
+                android:text=""
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/textVQtdProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView20"
+                android:layout_alignTop="@+id/textView5"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="70dp"
+                android:text="Qtde Prod"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnVisualizar"
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_alignBottom="@+id/textView12"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="12dp"
                 android:background="@android:color/background_light"
+<<<<<<< HEAD
                 android:text="Vizualizar Prod"
+=======
+                android:text="Vizualizar produtos"
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
                 android:textColor="@android:color/black"
                 android:textSize="8sp" />
 
@@ -92,6 +148,7 @@
                 android:background="#000000"
                 android:text="___________________"
                 android:layout_marginLeft="60dp"
+<<<<<<< HEAD
                 android:layout_below="@+id/textView10"
                 android:layout_alignStart="@+id/textView10"
                 android:layout_marginTop="96dp" />
@@ -106,6 +163,26 @@
                 android:layout_marginEnd="19dp"
                 android:layout_alignTop="@+id/textView10"
                 android:layout_alignEnd="@+id/textView5" />
+=======
+                android:layout_below="@+id/textVQtdProduto"
+                android:layout_alignStart="@+id/textVQtdProduto"
+                android:layout_marginTop="96dp" />
+
+            <EditText
+                android:id="@+id/editPrecoProduto"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btnVisualizar"
+                android:layout_alignEnd="@+id/textView25"
+                android:layout_marginBottom="46dp"
+                android:ems="10"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:text="R$ 0,00" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <TextView
                 android:id="@+id/textView13"
@@ -115,7 +192,11 @@
                 android:background="#000000"
                 android:text="______"
                 android:layout_alignBottom="@+id/textView5"
+<<<<<<< HEAD
                 android:layout_alignEnd="@+id/editText" />
+=======
+                android:layout_alignEnd="@+id/editPrecoProduto" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <TextView
                 android:id="@+id/textView20"
@@ -124,17 +205,33 @@
                 android:text="Total a pagar"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
+<<<<<<< HEAD
                 android:layout_alignBaseline="@+id/editText3"
                 android:layout_alignBottom="@+id/editText3"
                 android:layout_toStartOf="@+id/button" />
 
             <EditText
                 android:id="@+id/editText3"
+=======
+                android:layout_alignBaseline="@+id/editTotal"
+                android:layout_alignBottom="@+id/editTotal"
+                android:layout_toStartOf="@+id/btnVisualizar" />
+
+            <EditText
+                android:id="@+id/editTotal"
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="numberDecimal"
                 android:text="R$ 0,00"
+<<<<<<< HEAD
+=======
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
                 android:layout_alignTop="@+id/textView13"
                 android:layout_alignEnd="@+id/textView13" />
 
@@ -146,13 +243,20 @@
                 android:text="Endereço de entrega"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
+<<<<<<< HEAD
                 android:layout_below="@+id/textView5"
                 android:layout_alignStart="@+id/textView5"
                 android:layout_marginTop="26dp" />
+=======
+                android:layout_marginTop="28dp"
+                android:layout_below="@+id/textView5"
+                android:layout_alignStart="@+id/textEndereco" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="350dp"
+<<<<<<< HEAD
                 android:layout_height="300dp"
                 android:layout_below="@+id/textView21"
                 android:layout_centerHorizontal="true"
@@ -195,6 +299,34 @@ São Paulo/SP"
                 android:layout_above="@+id/textView25"
                 android:layout_marginBottom="28dp"
                 android:layout_toStartOf="@+id/imageButton"
+=======
+                android:layout_height="150dp"
+                android:layout_alignEnd="@+id/spinner"
+                android:layout_below="@+id/textView21"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="8dp"
+                android:text="" />
+
+
+            <TextView
+                android:id="@+id/textEndereco"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView22"
+                android:layout_alignTop="@+id/textView22"
+                android:textAlignment="textStart"
+                android:textSize="18sp" />
+
+
+            <Button
+                android:id="@+id/btnEnderecoTroca"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textEndereco"
+                android:layout_marginTop="25dp"
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
                 android:text="Alterar end. de Entrega"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
@@ -215,16 +347,25 @@ São Paulo/SP"
             <TextView
                 android:id="@+id/textView26"
                 android:layout_width="350dp"
+<<<<<<< HEAD
                 android:layout_height="300dp"
                 android:text=""
                 android:layout_below="@+id/textView25"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="23dp" />
+=======
+                android:layout_height="270dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView25"
+                android:layout_marginTop="11dp"
+                android:text="" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_alignEnd="@+id/textView10"
 
                 android:layout_below="@+id/textView28"
@@ -232,18 +373,36 @@ São Paulo/SP"
                 android:text="Cartão: Visa"
                 android:textSize="14sp"
                 android:textStyle="bold" />
+=======
+
+                android:layout_marginTop="41dp"
+                android:text="Cartão:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/textView28"
+                android:layout_alignStart="@+id/textVQtdProduto" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
 
             <TextView
                 android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
                 android:layout_alignStart="@+id/textView20"
                 android:layout_alignTop="@+id/textView26"
                 android:layout_marginTop="56dp"
                 android:text="Titular: Nome"
                 android:textSize="14sp"
                 android:textStyle="bold" />
+=======
+                android:layout_marginTop="29dp"
+                android:text="Titular:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_alignTop="@+id/textView26"
+                android:layout_alignStart="@+id/textView27" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             <TextView
                 android:id="@+id/textView29"
@@ -280,10 +439,17 @@ São Paulo/SP"
             <Spinner
                 android:layout_width="100dp"
                 android:layout_height="40dp"
+<<<<<<< HEAD
                 android:layout_marginBottom="11dp"
                 android:id="@+id/spinner2"
                 android:layout_alignBottom="@+id/textView26"
                 android:layout_alignEnd="@+id/textView25">
+=======
+                android:id="@+id/spinnerParcela"
+                android:layout_alignBottom="@+id/textView26"
+                android:layout_alignEnd="@+id/spinner"
+                android:layout_marginBottom="7dp">
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
             </Spinner>
 
@@ -291,17 +457,29 @@ São Paulo/SP"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
 
+<<<<<<< HEAD
                 android:layout_alignStart="@+id/textView10"
                 android:layout_alignTop="@+id/spinner2"
                 android:layout_marginStart="11dp"
                 android:text="Parcelar em:"
                 android:textColor="@android:color/black" />
+=======
+                android:text="Parcelar em:"
+                android:textColor="@android:color/black"
+                android:id="@+id/textView9"
+                android:layout_alignTop="@+id/spinnerParcela"
+                android:layout_alignStart="@+id/textView29" />
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
 
 
         </RelativeLayout>
     </ScrollView>
 
 
+<<<<<<< HEAD
 
 
 </RelativeLayout>
+=======
+</RelativeLayout>
+>>>>>>> b00bca4d98117e87e7359620c5a2f21e7ce458ed
