@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.gandalf.piquatro.Functions;
+import com.app.gandalf.piquatro.Mask;
 import com.app.gandalf.piquatro.R;
 import com.app.gandalf.piquatro.models.CartItensPedido;
 import com.app.gandalf.piquatro.models.Cart_List;
@@ -49,11 +50,17 @@ public class Checkout extends AppCompatActivity {
     private int id;
     private int idEndereco;
     private int idPedido;
+    private int idnumcard;
+    private EditText txtnumcod;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+
+        txtnumcod = (EditText) findViewById(R.id.txtnumcod);
+
+        txtnumcod.addTextChangedListener(Mask.insert("#### #### #### ####", txtnumcod));
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String json = prefs.getString(PRODUCTS, null);
