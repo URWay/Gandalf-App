@@ -24,6 +24,11 @@
             android:id="@+id/nav_camiseta"
             android:icon="@drawable/ic_menu_manage"
             android:title="Camisetas" />
+
+        <item
+            android:id="@+id/nav_qrcode"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="QRCode" />
     </group>
 
 
