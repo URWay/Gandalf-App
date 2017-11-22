@@ -47,7 +47,7 @@ public class ListaProdutos extends AppCompatActivity {
 
         //AP = id inicial do produto
 
-        myCall.execute(url + "/" + 5 + "?ap=0");
+        myCall.execute(url + "/" + idCat + "?ap=0");
 
 
     }
