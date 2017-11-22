@@ -49,8 +49,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,13 +67,8 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle("Home");
 
+        executa(0);
 
-
-        NetworkCall myCall = new NetworkCall();
-        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
-
-        //Pega a categoria para busca
-        myCall.execute(url + "/0");
     }
     @Override
     public void onBackPressed() {
@@ -118,17 +111,21 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
             getSupportActionBar().setTitle("Home");
+            executa(0);
         }
         else if (id == R.id.nav_promo) {
             getSupportActionBar().setTitle("Promoções");
-
+            executa(1);
 
         } else if (id == R.id.nav_poster) {
             getSupportActionBar().setTitle("Pôsteres");
+            executa(2);
         } else if (id == R.id.nav_caneca) {
             getSupportActionBar().setTitle("Canecas");
+            executa(3);
         } else if (id == R.id.nav_camiseta) {
             getSupportActionBar().setTitle("Camisetas");
+            executa(4);
         } else if (id == R.id.nav_login) {
             fragmentClass = FragmentLogin.class;
             //btn voltar
@@ -158,7 +155,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         } catch (Exception e) {
             e.printStackTrace();
         }
-       FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
 
 
@@ -278,6 +275,16 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             }
         });
         mensagens.addView(cardView);
+    }
+
+    public void executa(int i){
+        mensagens.removeAllViews();
+
+        NetworkCall myCall = new NetworkCall();
+        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
+
+        //Pega a categoria para busca
+        myCall.execute(url + "/"+String.valueOf(i));
     }
 
 
