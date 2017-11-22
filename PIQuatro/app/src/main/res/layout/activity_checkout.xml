@@ -154,15 +154,15 @@
                 android:text="Endereço de entrega"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="12dp"
                 android:layout_below="@+id/textView5"
-                android:layout_alignStart="@+id/textEndereco" />
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="350dp"
                 android:layout_height="150dp"
-                android:layout_alignEnd="@+id/spinner"
+                android:layout_alignEnd="@+id/spiMes"
                 android:layout_below="@+id/textView21"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="8dp"
@@ -188,8 +188,9 @@
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
-                android:layout_below="@+id/textEndereco"
-                android:layout_alignStart="@+id/textEndereco" />
+                android:layout_above="@+id/textView25"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="18dp" />
 
 
             <TextView
@@ -197,30 +198,30 @@
                 android:layout_width="300dp"
                 android:layout_height="30dp"
                 android:text="cartão de crédito principal"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:layout_alignBottom="@+id/textView22"
-                android:layout_alignParentStart="true" />
+                android:layout_alignStart="@+id/textView20" />
 
             <TextView
                 android:id="@+id/textView26"
-                android:layout_width="350dp"
+                android:layout_width="400dp"
                 android:layout_height="270dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textView25"
-                android:layout_marginTop="11dp"
+                android:layout_below="@+id/textView22"
+                android:layout_centerHorizontal="true"
                 android:text="" />
 
             <TextView
                 android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
 
-                android:layout_marginTop="41dp"
                 android:text="Cartão:"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_below="@+id/textView28"
+                android:layout_marginTop="24dp"
+                android:layout_below="@+id/textView10"
                 android:layout_alignStart="@+id/textVQtdProduto" />
 
 
@@ -228,8 +229,8 @@
                 android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="29dp"
-                android:text="Titular:"
+                android:layout_marginTop="18dp"
+                android:text="Titular do cartão"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:layout_alignTop="@+id/textView26"
@@ -239,51 +240,44 @@
                 android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView27"
-                android:layout_below="@+id/textView27"
-                android:layout_marginTop="39dp"
                 android:text="Validade:"
                 android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/textView27"
-                android:layout_marginTop="27dp"
-                android:layout_toEndOf="@+id/textView20" />
+                android:textStyle="bold"
+                android:layout_below="@+id/editText6"
+                android:layout_alignStart="@+id/editText6"
+                android:layout_marginTop="39dp" />
 
 
             <Spinner
-                android:layout_width="100dp"
-                android:layout_height="40dp"
                 android:id="@+id/spinnerParcela"
-                android:layout_alignBottom="@+id/textView26"
-                android:layout_alignEnd="@+id/spinner"
-                android:layout_marginBottom="7dp">
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/textView29"
+                android:layout_alignEnd="@+id/textView21">
 
             </Spinner>
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-
-                android:text="Parcelar em:"
-                android:textColor="@android:color/black"
                 android:id="@+id/textView9"
-                android:layout_alignTop="@+id/spinnerParcela"
-                android:layout_alignStart="@+id/textView29" />
+                android:layout_width="100dp"
+
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView28"
+                android:layout_below="@+id/textView26"
+                android:layout_marginTop="14dp"
+                android:text="Parcelar em:"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/editText5"
-                android:layout_alignStart="@+id/textView12"
-                android:layout_alignTop="@+id/textView28"
+                android:layout_width="350dp"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/textView28"
+                android:layout_below="@+id/textView28"
+                android:layout_marginTop="13dp"
                 android:hint="escrever igual esta escrito no cartão"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:layout_alignEnd="@+id/spiAno" />
 
 
             <EditText
@@ -297,29 +291,61 @@
                 android:layout_alignTop="@+id/editText"
                 android:layout_alignParentEnd="true" />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Código do cartão"
-                android:textStyle="bold"
-                android:layout_alignBaseline="@+id/editText6"
-                android:layout_alignBottom="@+id/editText6"
-                android:layout_alignEnd="@+id/textView9" />
-
 
             <EditText
                 android:id="@+id/editText6"
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/textView27"
+                android:layout_below="@+id/textView27"
                 android:ems="10"
+                android:hint="digite o código do cartão"
                 android:inputType="number"
-                android:layout_above="@+id/spinnerParcela"
-                android:layout_alignParentEnd="true" />
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:layout_alignEnd="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignStart="@+id/textView29"
+                android:layout_below="@+id/textView29"
+                android:layout_toStartOf="@+id/spinnerParcela"
+                android:text="Mês"
+                android:textAlignment="center" />
+
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/spinnerParcela"
+                android:layout_toEndOf="@+id/btnEnderecoTroca"
+                android:text="Ano" />
+
+            <Spinner
+                android:id="@+id/spiAno"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignTop="@+id/textView18"
+                android:layout_toEndOf="@+id/textView18">
+
+            </Spinner>
+
+            <Spinner
+                android:id="@+id/spinParcelas"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/editTotal"
+                android:layout_alignTop="@+id/textView9" />
+
 
 
         </RelativeLayout>
     </ScrollView>
+
+
 
 
 </RelativeLayout>
