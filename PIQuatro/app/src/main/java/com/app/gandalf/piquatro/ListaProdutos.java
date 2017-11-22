@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 
@@ -39,7 +40,7 @@ public class ListaProdutos extends AppCompatActivity {
 
         // Executa a thread, passando null como parâmetro
 
-
+        Toast.makeText(this, "Teste", Toast.LENGTH_SHORT).show();
         //Pega a categoria para busca
         Intent intent = getIntent();
         int idCat = intent.getIntExtra("categoria", 0);

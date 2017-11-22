@@ -10,6 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+
 import com.app.gandalf.piquatro.models.LoginModel;
 import com.google.gson.Gson;
 
@@ -23,8 +28,6 @@ public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         txtlogin = (EditText) findViewById(R.id.txtlogin);
@@ -68,6 +71,14 @@ public class Login extends AppCompatActivity {
         btnok.setOnClickListener(listener);
 
 
+     /*   Bundle bundle = new Bundle();
+            bundle.putString("login", txtlogin.getText().toString());
+            bundle.putString("senha", txtsenha.getText().toString());
+
+            FragmentLogin fraglogin = new FragmentLogin();
+            fraglogin.setArguments(bundle);
+*/
+
     }
 
 
@@ -105,4 +116,6 @@ public class Login extends AppCompatActivity {
             }
         }
     }
+
+
 }

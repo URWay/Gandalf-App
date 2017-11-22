@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.gandalf.piquatro.Carrinho.Carrinho;
+import com.app.gandalf.piquatro.Carrinho.FragmentCarrinho;
 
 public class NewIndex extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,11 +30,15 @@ public class NewIndex extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NewIndex.this, Carrinho.class);
-                startActivity(intent);
+
+                Intent i = new Intent(NewIndex.this, Login.class);
+                startActivity(i);
 
             }
         });
@@ -54,8 +59,6 @@ public class NewIndex extends AppCompatActivity
         if (savedInstanceState == null) {
             FragmentHomeListaProduto fragmentlista = new FragmentHomeListaProduto();
             Bundle bundle = new Bundle();
-
-
         }
 
     }
@@ -140,7 +143,7 @@ public class NewIndex extends AppCompatActivity
         } catch (Exception e) {
             e.printStackTrace();
         }
-        FragmentManager fragmentManager = getSupportFragmentManager();
+       FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
 
 
