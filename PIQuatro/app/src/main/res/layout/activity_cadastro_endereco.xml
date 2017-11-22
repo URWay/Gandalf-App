@@ -13,32 +13,7 @@ android:orientation="vertical"
 tools:context="com.app.gandalf.piquatro.CadastroEndereco">
 
 
-<android.support.design.widget.TextInputLayout
-
-    android:id="@+id/textInputLayout6"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/textInputLayout3"
-    android:layout_above="@+id/textInputLayout4"
-    android:layout_alignEnd="@+id/textInputLayout5">
-
-    <EditText
-        android:id="@+id/txtpais"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_above="@+id/txtCidade"
-        android:layout_alignEnd="@+id/textInputLayout7"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="26dp"
-        android:ems="10"
-        android:hint="País"
-        android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright" />
-
-
-</android.support.design.widget.TextInputLayout>
-
-<android.support.design.widget.TextInputLayout
+    <android.support.design.widget.TextInputLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/textInputLayout1"
@@ -59,30 +34,29 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
 </android.support.design.widget.TextInputLayout>
 
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/textInputLayout1">
 
-<android.support.design.widget.TextInputLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/textInputLayout2"
-    android:layout_below="@+id/textInputLayout1"
-    android:layout_alignEnd="@+id/textInputLayout5">
 
+        <EditText
+            android:id="@+id/txtnomeendereco"
+            android:layout_width="354dp"
+            android:layout_height="47dp"
 
-    <EditText
-        android:id="@+id/txtnomeendereco"
-        android:layout_width="354dp"
-        android:layout_height="wrap_content"
+            android:layout_above="@+id/txtuf"
+            android:layout_alignEnd="@+id/spinnerUF"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:hint="Nome endereço"
+            android:inputType="textPersonName"
+            android:textColorLink="@android:color/holo_blue_bright" />
 
-        android:layout_above="@+id/txtuf"
-        android:layout_alignEnd="@+id/spinnerUF"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:hint="Nome endereço"
-        android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright" />
-
-</android.support.design.widget.TextInputLayout>
+    </android.support.design.widget.TextInputLayout>
 
 
 <android.support.design.widget.TextInputLayout
@@ -90,49 +64,49 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     android:layout_height="wrap_content"
     android:id="@+id/textInputLayout3"
     android:layout_below="@+id/textInputLayout2"
-    android:layout_alignStart="@+id/textInputLayout2">
+    android:layout_alignParentStart="true"
+    android:layout_alignBottom="@+id/textInputLayout7">
 
 
     <EditText
         android:id="@+id/txtuf"
-        android:layout_width="246dp"
-        android:layout_height="wrap_content"
+        android:layout_width="192dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/txtendereco"
+        android:layout_alignEnd="@+id/spinnerUF"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="27dp"
         android:ems="10"
         android:hint="UF"
         android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_above="@+id/txtendereco"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/spinnerUF" />
-
-</android.support.design.widget.TextInputLayout>
-
-<android.support.design.widget.TextInputLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/textInputLayout4"
-    android:layout_marginBottom="38dp"
-    android:layout_above="@+id/textInputLayout8"
-    android:layout_alignParentStart="true"
-    android:layout_alignEnd="@+id/spinnerUF">
-
-
-    <EditText
-        android:id="@+id/txtendereco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/txtcomplemento"
-        android:layout_alignEnd="@+id/spinnerUF"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="25dp"
-        android:ems="10"
-        android:hint="Endereço"
-        android:inputType="textPersonName"
         android:textColorLink="@android:color/holo_blue_bright" />
 
-
 </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout4"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_above="@+id/textInputLayout5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
+
+
+        <EditText
+            android:id="@+id/txtendereco"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@+id/txtcomplemento"
+            android:layout_alignEnd="@+id/spinnerUF"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="25dp"
+            android:ems="10"
+            android:hint="Endereço"
+            android:inputType="textPersonName"
+            android:textColorLink="@android:color/holo_blue_bright" />
+
+
+    </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
 
@@ -140,8 +114,7 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     android:layout_height="wrap_content"
     android:id="@+id/textInputLayout5"
 
-    android:layout_marginBottom="52dp"
-    android:layout_above="@+id/btnEnviarDados"
+    android:layout_above="@+id/textInputLayout8"
     android:layout_alignParentStart="true">
 
 
@@ -162,51 +135,51 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
 </android.support.design.widget.TextInputLayout>
 
 
-<android.support.design.widget.TextInputLayout
+    <android.support.design.widget.TextInputLayout
 
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/textInputLayout7"
-    android:layout_below="@+id/textInputLayout2"
-    android:layout_alignParentEnd="true"
-    android:layout_toEndOf="@+id/textInputLayout3">
-
-
-    <EditText
-        android:id="@+id/txtnumero"
+        android:id="@+id/textInputLayout7"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/textInputLayout7"
-        android:layout_marginTop="13dp"
-        android:ems="10"
-        android:hint="N°"
-        android:inputType="number"
-        android:textColorLink="@android:color/holo_blue_bright" />
+        android:layout_height="65dp"
+        android:layout_alignEnd="@+id/textInputLayout2"
+        android:layout_below="@+id/textInputLayout2">
 
 
-</android.support.design.widget.TextInputLayout>
+        <EditText
+            android:id="@+id/txtnumero"
+            android:layout_width="138dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/textInputLayout7"
+            android:layout_marginTop="13dp"
+            android:ems="10"
+            android:hint="N°"
+            android:inputType="number"
+            android:textColorLink="@android:color/holo_blue_bright" />
+
+
+    </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
 
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/textInputLayout8"
+    android:layout_marginBottom="11dp"
     android:layout_above="@+id/btnEnviarDados"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentEnd="true">
+    android:layout_alignEnd="@+id/textInputLayout5"
+    android:layout_alignParentStart="true">
 
     <EditText
         android:id="@+id/txtCidade"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="22dp"
         android:ems="10"
         android:hint="Cidade"
         android:inputType="textPersonName"
-        android:textColorLink="@android:color/holo_blue_bright"
-        android:layout_marginBottom="22dp"
 
-        android:layout_alignParentStart="true" />
+        android:textColorLink="@android:color/holo_blue_bright" />
 
 
 </android.support.design.widget.TextInputLayout>
@@ -216,11 +189,11 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     android:id="@+id/btnbuscar"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignBottom="@+id/textInputLayout1"
-    android:layout_alignEnd="@+id/spinnerUF"
     android:background="@android:color/holo_blue_bright"
     android:text="Buscar cep"
     android:textColorLink="@android:color/holo_blue_bright"
+    android:layout_above="@+id/textInputLayout2"
+    android:layout_alignEnd="@+id/textInputLayout2"
     android:layout_toEndOf="@+id/textInputLayout1" />
 
 <Button
@@ -246,15 +219,27 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     android:textStyle="bold"
     android:textColorLink="@android:color/holo_blue_bright" />
 
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_above="@+id/textInputLayout5"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
 
 
-<Spinner
-    android:id="@+id/spinnerUF"
-    android:layout_width="100dp"
-    android:layout_height="wrap_content"
-    android:layout_toEndOf="@+id/textInputLayout7"
-    android:layout_below="@+id/textInputLayout7"
-    android:layout_above="@+id/textInputLayout10" />
+    </android.support.design.widget.TextInputLayout>
 
+    <EditText
+        android:id="@+id/txtpais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textInputLayout4"
+        android:layout_alignParentStart="true"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="País"
+        android:inputType="textPersonName"
+        android:layout_alignEnd="@+id/textInputLayout7" />
 
 </RelativeLayout>
