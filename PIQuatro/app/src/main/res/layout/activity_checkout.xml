@@ -184,24 +184,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
 
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/textEndereco"
-                android:layout_marginTop="25dp"
                 android:text="Alterar end. de Entrega"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:layout_below="@+id/textEndereco"
+                android:layout_alignStart="@+id/textEndereco" />
 
 
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="300dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="28dp"
                 android:text="cartão de crédito principal"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:layout_below="@+id/textView22"
+                android:layout_alignBottom="@+id/textView22"
                 android:layout_alignParentStart="true" />
 
             <TextView
@@ -253,20 +251,8 @@
                 android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_below="@+id/textView27"
-                android:layout_toEndOf="@+id/textView20"
-                android:layout_marginTop="27dp" />
-
-            <Button
-                android:id="@+id/editText5"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/spinner"
-                android:layout_centerHorizontal="true"
-                android:ems="10"
-                android:inputType="number"
-                android:text="Código do cart]ao"
-                android:textSize="8sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="27dp"
+                android:layout_toEndOf="@+id/textView20" />
 
 
             <Spinner
@@ -288,6 +274,48 @@
                 android:id="@+id/textView9"
                 android:layout_alignTop="@+id/spinnerParcela"
                 android:layout_alignStart="@+id/textView29" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/editText5"
+                android:layout_alignStart="@+id/textView12"
+                android:layout_alignTop="@+id/textView28"
+                android:hint="escrever igual esta escrito no cartão"
+                android:textAlignment="center" />
+
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:layout_marginTop="96dp"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_alignTop="@+id/editText"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Código do cartão"
+                android:textStyle="bold"
+                android:layout_alignBaseline="@+id/editText6"
+                android:layout_alignBottom="@+id/editText6"
+                android:layout_alignEnd="@+id/textView9" />
+
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:layout_above="@+id/spinnerParcela"
+                android:layout_alignParentEnd="true" />
 
 
         </RelativeLayout>
