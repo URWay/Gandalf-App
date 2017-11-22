@@ -36,15 +36,15 @@ public class Enderecos extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         int id = prefs.getInt("id", 0);
 
-        if(id == 0){
+        /*if(id == 0){
             Intent iRetorno = new Intent(Enderecos.this, Configuracoes.class);
             iRetorno.putExtra("Retorno", 0);
             startActivity(iRetorno);
             finish();
-        } else {
+        } else {*/
             NetworkCall myCall = new NetworkCall();
             myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/all/" + id );
-        }
+        //}
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -101,6 +101,7 @@ public class Enderecos extends AppCompatActivity {
                 opcoes.add("Adicionar endereço");
                 adaptador = new ArrayAdapter<>(Enderecos.this, android.R.layout.simple_list_item_1, opcoes);
                 lista.setAdapter(adaptador);
+                positions.add(0);
             } else {
                 try {
                     JSONArray json = new JSONArray(result);
