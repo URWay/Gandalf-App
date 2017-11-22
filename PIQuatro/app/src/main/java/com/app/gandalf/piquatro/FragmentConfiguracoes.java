@@ -56,8 +56,7 @@ public class FragmentConfiguracoes extends Fragment {
                     case 2:
                         sobre();
                         break;
-                    case 3:
-                        ;
+                    case 3:;
                         break;
                 }
             }
