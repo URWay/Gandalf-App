@@ -281,18 +281,6 @@
 
 
             <EditText
-                android:id="@+id/editText3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="14dp"
-                android:layout_marginTop="96dp"
-                android:ems="10"
-                android:inputType="number"
-                android:layout_alignTop="@+id/editText"
-                android:layout_alignParentEnd="true" />
-
-
-            <EditText
                 android:id="@+id/editText6"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"

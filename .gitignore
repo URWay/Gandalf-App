@@ -61,3 +61,6 @@ PIQuatro/.idea/misc.xml
 PIQuatro/app/build.gradle
 PIQuatro/gradle/wrapper/gradle-wrapper.properties
 PIQuatro/.idea/misc.xml
+PIQuatro/app/src/main/java/com/app/gandalf/piquatro/NewIndex.java
+PIQuatro/app/src/main/res/menu/activity_new_index_drawer.xml
+PIQuatro/app/src/main/res/menu/activity_new_index_drawer.xml
