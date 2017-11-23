@@ -31,12 +31,7 @@ private ListView lista;
         opcoes.add("Meus endereços");
         opcoes.add("Sobre");
 
-        Intent i = new Intent(Configuracoes.this, FragmentConfiguracoes.class);
-        i.putExtra("opcoes", (Serializable) opcoes);
-        startActivity(i);
-
-
-        adaptador = new ArrayAdapter<String>(Configuracoes.this, android.R.layout.simple_list_item_1, opcoes);
+        adaptador = new ArrayAdapter<>(Configuracoes.this, android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

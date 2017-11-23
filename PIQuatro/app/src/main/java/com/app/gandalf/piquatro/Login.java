@@ -108,6 +108,8 @@ public class Login extends AppCompatActivity {
                 if(!result.equals("200")){
                     findViewById(R.id.loadingL).setVisibility(View.GONE);
                     f.showDialog("Falha no login!","Usuário ou senha inválidos", Login.this);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 e.printStackTrace();

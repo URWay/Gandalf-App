@@ -39,7 +39,6 @@ public class FragmentConfiguracoes extends Fragment {
         opcoes.add("Meus endereços");
         opcoes.add("Sobre");
 
-
         adaptador = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);
 
