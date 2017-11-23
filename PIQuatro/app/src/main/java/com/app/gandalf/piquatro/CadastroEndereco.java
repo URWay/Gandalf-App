@@ -36,6 +36,7 @@ private EditText txtcep;
 private EditText txtcomplemento;
 private Button btnEnviarDados;
 private Button btnbuscar;
+//
 private EditText txtcidade;
 private EditText txtpais;
 private TextView textView5;
