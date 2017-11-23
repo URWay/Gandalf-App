@@ -55,7 +55,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             @Override
             public void onClick(View view) {
 
-                Intent i = new Intent(NewIndex.this, Login.class);
+                Intent i = new Intent(NewIndex.this, Carrinho.class);
                 startActivity(i);
 
             }
