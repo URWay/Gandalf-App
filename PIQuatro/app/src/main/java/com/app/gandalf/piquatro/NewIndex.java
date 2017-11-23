@@ -70,12 +70,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         getSupportActionBar().setTitle("Home");
 
 
-
-        NetworkCall myCall = new NetworkCall();
-        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
-
-        //Pega a categoria para busca
-        myCall.execute(url + "/0");
     }
     @Override
     public void onBackPressed() {
@@ -120,16 +114,24 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             getSupportActionBar().setTitle("Home");
         }
         else if (id == R.id.nav_promo) {
+            fragmentClass = FragmentHomeListaProduto.class;
             getSupportActionBar().setTitle("Promoções");
 
 
         } else if (id == R.id.nav_poster) {
+
+            fragmentClass = FragmentHomeListaProduto.class;
             getSupportActionBar().setTitle("Pôsteres");
         } else if (id == R.id.nav_caneca) {
+
+            fragmentClass = FragmentHomeListaProduto.class;
             getSupportActionBar().setTitle("Canecas");
         } else if (id == R.id.nav_camiseta) {
+
+            fragmentClass = FragmentHomeListaProduto.class;
             getSupportActionBar().setTitle("Camisetas");
         } else if (id == R.id.nav_login) {
+
             fragmentClass = FragmentLogin.class;
             //btn voltar
 
@@ -169,116 +171,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
 
 
-    // SÒ PRODUTO
-    public class NetworkCall extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            String respostaCompleta = "";
-            try {
-                HttpURLConnection urlConnection = (HttpURLConnection) new URL(params[0]).openConnection();
-                InputStream in = urlConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-
-                StringBuilder resultado = new StringBuilder();
-                String linha = bufferedReader.readLine();
-
-                while (linha != null) {
-                    resultado.append(linha);
-                    linha = bufferedReader.readLine();
-                }
-
-                respostaCompleta = resultado.toString();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return respostaCompleta;
-        }
-
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-
-            try {
-                JSONArray json = new JSONArray(result);
-
-                int idProduto, qtd;
-                String nomeProduto, descProduto, imagem;
-                double precProduto, descontoPromocao;
-                int to = json.length();
-
-                //Só pode retornar 14
-                if (to >= 14) {
-                    to = 14;
-                }
-
-                for (int i = 0; i <= to; i++) {
-                    idProduto = json.getJSONObject(i).getInt("idProduto");
-                    nomeProduto = json.getJSONObject(i).getString("nomeProduto");
-                    descProduto = json.getJSONObject(i).getString("descProduto");
-                    precProduto = json.getJSONObject(i).getDouble("precProduto");
-                    descontoPromocao = json.getJSONObject(i).getDouble("descontoPromocao");
-                    imagem = json.getJSONObject(i).getString("imagem");
-                    qtd = json.getJSONObject(i).getInt("qtdMinEstoque");
-                    addItem(idProduto, nomeProduto, descProduto, precProduto, descontoPromocao, imagem, qtd);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void addItem(int idProd, String nomeProd, String descProd, final double precProd, double descPromocao, String img, int qtd) {
-        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_produtos, mensagens, false);
-
-        final int produto1 = idProd;
-
-        final TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
-        TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
-
-        final double precodescontado = precProd - descPromocao;
-        TextView precodesconto = (TextView) cardView.findViewById(R.id.precodesconto);
-
-
-        final ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
-        final byte[] image64 = Base64.decode(img, Base64.DEFAULT);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
-
-
-        nome.setText(nomeProd);
-        prec.setText(new DecimalFormat("R$ #,##0.00").format(precProd));
-        prec.setPaintFlags(prec.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
-        precodesconto.setText(new DecimalFormat("R$ #,##0.00").format(precodescontado));
-        image.setImageBitmap(bitmap);
-
-        final String descP = descProd;
-        final String nomeP = nomeProd;
-        final String imageP = img;
-        final double precoP = precProd;
-        final int qtdP = qtd;
-
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(NewIndex.this, descProduto.class);
-                i.putExtra("idProduto", String.valueOf((produto1)));
-                i.putExtra("nomeProduto", nomeP);
-                i.putExtra("descProduto", descP);
-                i.putExtra("image", imageP);
-                i.putExtra("precProd", String.valueOf(precoP));
-                i.putExtra("descPromocao", String.valueOf(precodescontado));
-                i.putExtra("qtdMinEstoque", String.valueOf(qtdP));
-
-                startActivity(i);
-            }
-        });
-        mensagens.addView(cardView);
-    }
 
 
 }
