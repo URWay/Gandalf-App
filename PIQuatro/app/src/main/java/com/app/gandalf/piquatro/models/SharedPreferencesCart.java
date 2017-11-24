@@ -27,12 +27,13 @@ public class SharedPreferencesCart {
             editor = settings.edit();
 
             Gson gson = new Gson();
+            String retorno = "";
 
             // Valor já armazenado
             SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, context.MODE_PRIVATE);
-            String retorno = prefs.getString(PRODUCTS, null);
+            retorno = prefs.getString(PRODUCTS, null);
 
-            if(retorno == null){
+            if(retorno == null || retorno == ""){
                 String json = gson.toJson(list);
                 editor.putString(PRODUCTS, json);
                 editor.commit();
@@ -45,11 +46,11 @@ public class SharedPreferencesCart {
                 String nome, desc, image;
 
                 // Adicionando produtos que já estavam no carrinho
-                for(int i = 0; i < array.length(); i++){
+                for (int i = 0; i < array.length(); i++) {
 
                     id = array.getJSONObject(i).getInt("id");
 
-                    if(id != list.get(0).getId()){
+                    if (id != list.get(0).getId()) {
                         qtd = array.getJSONObject(i).getInt("qtd");
 
                         preco = array.getJSONObject(i).getDouble("preco");
@@ -82,7 +83,7 @@ public class SharedPreferencesCart {
         List<Cart_List> list = getItens(context);
         if (list == null)
             list = new ArrayList<Cart_List>();
-            list.add(cart);
+        list.add(cart);
     }
 
     public ArrayList<Cart_List> getItens(Context context) {
@@ -105,11 +106,23 @@ public class SharedPreferencesCart {
         return (ArrayList<Cart_List>) list;
     }
 
+    // Passando três parâmetros, remove do carrinho sem comprar os existentes
+    public void saveItens(Context context, Cart_List cart, List<Cart_List> list){
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        editor = settings.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(PRODUCTS, json);
+        editor.commit();
+    }
+
     public void removeIten(Context context, Cart_List cart) {
         ArrayList<Cart_List> list = getItens(context);
         if (list != null) {
             list.remove(cart);
-            saveItens(context, list );
+            saveItens(context, cart, list);
         }
     }
 
@@ -119,6 +132,5 @@ public class SharedPreferencesCart {
         editor.putString(PRODUCTS, null);
         editor.apply();
     }
-
 
 }

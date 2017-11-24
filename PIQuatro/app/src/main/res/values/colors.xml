@@ -6,4 +6,5 @@
     <item name="visible" type="id"/>
     <item name="masked" type="id"/>
     <color name="black_overlay">#66000000</color>
+    <color name="border_color">#ccc</color>
 </resources>
