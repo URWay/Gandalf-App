@@ -5,7 +5,7 @@
 
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Página Principal" />
 
         <item
@@ -13,17 +13,27 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="Promoções" />
         <item
-            android:id="@+id/nav_poster"
+            android:id="@+id/nav_colec"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Pôsteres" />
+            android:title="Colecionáveis" />
         <item
-            android:id="@+id/nav_caneca"
+            android:id="@+id/nav_jogos"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Canecas" />
+            android:title="Jogos" />
         <item
-            android:id="@+id/nav_camiseta"
+            android:id="@+id/nav_quad"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Camisetas" />
+            android:title="Quadrinhos" />
+
+        <item
+            android:id="@+id/nav_canec"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Canecas" />
+
+        <item
+            android:id="@+id/nav_deco"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Decoração" />
     </group>
 
 

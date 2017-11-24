@@ -38,18 +38,17 @@ import java.net.URL;
 import java.text.DecimalFormat;
 
 public class NewIndex extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private ViewGroup mensagens;
+
+    private Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_index);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mensagens = (ViewGroup) findViewById(R.id.container);
-
+        bundle = new Bundle();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
-
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,31 +110,42 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             fragmentClass = FragmentHomeListaProduto.class;
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
+            bundle.putInt("categoria",0);
             getSupportActionBar().setTitle("Home");
         }
         else if (id == R.id.nav_promo) {
             fragmentClass = FragmentHomeListaProduto.class;
             getSupportActionBar().setTitle("Promoções");
 
-
-        } else if (id == R.id.nav_poster) {
-
+        } else if (id == R.id.nav_colec) {
             fragmentClass = FragmentHomeListaProduto.class;
-            getSupportActionBar().setTitle("Pôsteres");
-        } else if (id == R.id.nav_caneca) {
+            bundle.putInt("categoria",1);
+            getSupportActionBar().setTitle("Colecionáveis");
 
+        } else if (id == R.id.nav_jogos) {
             fragmentClass = FragmentHomeListaProduto.class;
+            bundle.putInt("categoria",2);
+            getSupportActionBar().setTitle("Jogos");
+
+        } else if (id == R.id.nav_quad) {
+            fragmentClass = FragmentHomeListaProduto.class;
+            bundle.putInt("categoria",3);
+            getSupportActionBar().setTitle("Quadrinhos");
+
+        } else if (id == R.id.nav_canec) {
+            fragmentClass = FragmentHomeListaProduto.class;
+            bundle.putInt("categoria",5);
             getSupportActionBar().setTitle("Canecas");
-        } else if (id == R.id.nav_camiseta) {
 
+        } else if (id == R.id.nav_deco) {
             fragmentClass = FragmentHomeListaProduto.class;
-            getSupportActionBar().setTitle("Camisetas");
+            bundle.putInt("categoria",6);
+            getSupportActionBar().setTitle("Decoração");
+
         } else if (id == R.id.nav_login) {
 
             fragmentClass = FragmentLogin.class;
             //btn voltar
-
-
             //getSupportActionBar().setDisplayShowHomeEnabled(true);
             //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
@@ -155,12 +165,13 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(bundle);
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.hide();
         } catch (Exception e) {
             e.printStackTrace();
         }
-       FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
 
 

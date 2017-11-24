@@ -33,24 +33,27 @@ public class FragmentHomeListaProduto extends Fragment {
     private static final String TAG = "Produtos";
 
     private ViewGroup hospedeiro;
-    private LayoutInflater inff;
-
-
+    private int cat;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_lista_produtos,container,false);
 
-
-
         hospedeiro = v.findViewById(R.id.container);
-        inff = inflater;
 
         NetworkCall myCall = new NetworkCall();
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/produtos";
 
+        cat = 0;
+
+        Bundle mBundle = new Bundle();
+        if(mBundle != null){
+            mBundle = getArguments();
+            cat = mBundle.getInt("categoria");
+        }
+
         //Pega a categoria para busca
-        myCall.execute(url + "/0");
+        myCall.execute(url + "/"+cat);
 
         return v;
     }
