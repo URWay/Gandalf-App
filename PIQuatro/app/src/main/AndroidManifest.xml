@@ -26,26 +26,26 @@
         <activity android:name=".FirstTime" />
         <activity
             android:name=".Login"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".ListaProdutos"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".ListaProdutos" />
         <activity
             android:name=".CadastroCliente"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CadastroEndereco"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DadosCadastrais"
-            android:parentActivityName=".NewIndex"></activity>
+            android:parentActivityName=".NewIndex" />
         <activity
             android:name=".Configuracoes"
-            android:parentActivityName=".NewIndex"></activity>
+            android:parentActivityName=".NewIndex" />
         <activity
             android:name=".descProduto"
-            android:parentActivityName=".ListaProdutos"></activity>
+            android:parentActivityName=".ListaProdutos" />
         <activity
             android:name=".Enderecos"
-            android:parentActivityName=".Configuracoes"></activity>
+            android:parentActivityName=".Configuracoes" />
         <activity
             android:name=".NewIndex"
             android:label="@string/title_activity_new_index"
@@ -56,9 +56,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QRCode"></activity>
-        <activity android:name=".Carrinho.Carrinho"></activity>
-        <activity android:name=".Checkout.Checkout"></activity>
+        <activity android:name=".QRCode" />
+        <activity android:name=".Carrinho.Carrinho" />
+        <activity android:name=".Checkout.Checkout" />
+        <activity android:name=".descPedido"></activity>
     </application>
 
 </manifest>

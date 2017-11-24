@@ -39,7 +39,7 @@ public class descProduto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe_produto);
 
-        txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
+        txtnomeprod = (TextView) findViewById(R.id.txt1);
         imgproduto = (ImageView) findViewById(R.id.imgproduto);
         txtdescricao = (TextView) findViewById(R.id.txtdescricao);
         txtprecodesc = (TextView) findViewById(R.id.txtprecodesc);
@@ -47,7 +47,7 @@ public class descProduto extends AppCompatActivity {
 
         txtdescricao.setMovementMethod(new ScrollingMovementMethod());
        
-        Button btnconfirma = (Button) findViewById(R.id.btnconfirma);
+        Button btnconfirma = (Button) findViewById(R.id.btnvolta);
 
         Intent intent = getIntent();
 
@@ -68,7 +68,7 @@ public class descProduto extends AppCompatActivity {
                         Double descprecoprod = Double.parseDouble(bundle.getString("descPromocao"));
 
                         // Sentando os valores passado via Intent
-                        TextView txtnomeprod = (TextView) findViewById(R.id.txtnomeprod);
+                        TextView txtnomeprod = (TextView) findViewById(R.id.txt1);
                         TextView txtprecoprod = (TextView) findViewById(R.id.txtpreco);
                         TextView txtdescpreco = (TextView) findViewById(R.id.txtprecodesc);
                         TextView txtdescricao = (TextView) findViewById(R.id.txtdescricao);

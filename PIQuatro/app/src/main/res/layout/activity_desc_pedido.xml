@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.gandalf.piquatro.descProduto">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <Button
+                android:id="@+id/btnvolta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_bright"
+                android:text="Voltar "
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="26dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pedido #"
+                android:textSize="20dp"
+                android:layout_marginTop="27dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignEnd="@+id/btnvolta" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="Produtos Vinculados"
+                android:textColor="@android:color/background_dark"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/txt1"
+                android:layout_alignStart="@+id/txt1" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total:"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:layout_alignBaseline="@+id/btnvolta"
+                android:layout_alignBottom="@+id/btnvolta"
+                android:layout_toEndOf="@+id/textView13"
+                android:layout_marginStart="16dp" />
+
+            <TextView
+                android:id="@+id/txttotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="24sp"
+                android:layout_alignBottom="@+id/textView10"
+                android:layout_toEndOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="129dp"
+                android:text="Endereço Selecionado:"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold"
+                android:layout_above="@+id/txttotal"
+                android:layout_alignStart="@+id/textView8" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:text="Endereço:"
+                android:layout_alignTop="@+id/textView13"
+                android:layout_alignStart="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="UF:"
+                android:layout_below="@+id/textView7"
+                android:layout_toEndOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/txtnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView7"
+                android:layout_alignBottom="@+id/textView7"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="29dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/txtcidade"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView24"
+                android:layout_alignBottom="@+id/textView24"
+                android:layout_toStartOf="@+id/textView24"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/txtuf"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView24"
+                android:layout_alignBottom="@+id/textView24"
+                android:layout_toEndOf="@+id/textView24"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forma de Pgto.:"
+                android:textColor="@android:color/background_dark"
+                android:textStyle="bold"
+                android:layout_above="@+id/btnvolta"
+                android:layout_alignEnd="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/txtpagamento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txttotal"
+                android:layout_alignEnd="@+id/txttotal"
+                android:layout_alignTop="@+id/textView45"
+                android:text="TextView" />
+
+        </RelativeLayout>
+
+    <TextView
+        android:id="@+id/idpedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="ID"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView30" />
+
+    <ListView
+        android:id="@+id/listaitens"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="34dp"
+        android:layout_below="@+id/idpedido"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="Nome:"
+        android:layout_marginStart="35dp"
+        android:layout_below="@+id/listaitens"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cep:"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/textView14"
+        android:layout_alignStart="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView23"
+        android:layout_below="@+id/textView23"
+        android:text="Cidade:" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView12"
+        android:layout_below="@+id/textView12"
+        android:text="Complemento:" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N°"
+        android:layout_below="@+id/textView14"
+        android:layout_toEndOf="@+id/txtendereco" />
+
+    <TextView
+        android:id="@+id/txtnome"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_above="@+id/textView36"
+        android:layout_toEndOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/txtendereco"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/txtnome"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/txtcep"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView12"
+        android:layout_toEndOf="@+id/textView14"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtcomplemento"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView30"
+        android:layout_alignBottom="@+id/textView30"
+        android:layout_alignEnd="@+id/txtendereco"
+        android:text="TextView" />
+
+</RelativeLayout>
