@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -25,45 +26,26 @@
         <activity android:name=".FirstTime" />
         <activity
             android:name=".Login"
-            android:screenOrientation="portrait">
-
-        </activity>
-
-        <activity android:name=".ListaProdutos">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ListaProdutos"></activity>
         <activity
             android:name=".CadastroCliente"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".CadastroEndereco"
-            android:screenOrientation="portrait">
-
-        </activity>
-
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".DadosCadastrais"
-            android:parentActivityName=".NewIndex">
-
-        </activity>
+            android:parentActivityName=".NewIndex"></activity>
         <activity
             android:name=".Configuracoes"
-            android:parentActivityName=".NewIndex">
-
-        </activity>
+            android:parentActivityName=".NewIndex"></activity>
         <activity
             android:name=".descProduto"
-            android:parentActivityName=".ListaProdutos">
-
-        </activity>
+            android:parentActivityName=".ListaProdutos"></activity>
         <activity
             android:name=".Enderecos"
-            android:parentActivityName=".Configuracoes">
-
-        </activity>
-
+            android:parentActivityName=".Configuracoes"></activity>
         <activity
             android:name=".NewIndex"
             android:label="@string/title_activity_new_index"
@@ -73,16 +55,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
-        <activity android:name=".Carrinho.Carrinho">
-
-        </activity>
-
-        <activity android:name=".Checkout.Checkout">
-
-        </activity>
+        <activity android:name=".QRCode"></activity>
+        <activity android:name=".Carrinho.Carrinho"></activity>
+        <activity android:name=".Checkout.Checkout"></activity>
     </application>
 
 </manifest>
