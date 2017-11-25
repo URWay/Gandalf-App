@@ -46,6 +46,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 public class Checkout extends AppCompatActivity {
+/*
 
     public static final String PREFS_NAME = "PRODUCT_APP";
     public static final String PRODUCTS = "Product";
@@ -118,11 +119,13 @@ public class Checkout extends AppCompatActivity {
 
 
             //BTN VOLTAR
-   /*         setTitle("Checkout");
+   */
+/*         setTitle("Checkout");
             // Get a support ActionBar corresponding to this toolbar
             ActionBar ab = getSupportActionBar();
             // Enable the Up button
-            ab.setDisplayHomeAsUpEnabled(true);*/
+            ab.setDisplayHomeAsUpEnabled(true);*//*
+
 
             // CARTÃO
             //----------------------- Parcela -------------------//
@@ -151,13 +154,15 @@ public class Checkout extends AppCompatActivity {
                         // idCliente
                         ckp.setIdCliente(id);
 
-                        /* idStatus
+                        */
+/* idStatus
                             1 = Aberto
                             2 = Aguardando Pagamento
                             3 = Enviado para Transportadora
                             4 = Entregue
                             5 = Cancelado
-                        */
+                        *//*
+
                         ckp.setIdStatus(3);
 
                         // Data pedido
@@ -165,12 +170,14 @@ public class Checkout extends AppCompatActivity {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                         ckp.setDataPedido(dateFormat.format(date));
 
-                        /* idTipoPagto
+                        */
+/* idTipoPagto
                             1 = Cartão de Crédito
                             2 = Boleto
                             3 = pagSeguro
                             4 = PayPal
-                         */
+                         *//*
+
                         ckp.setIdTipoPagto(1);
 
                         // idEndereco
@@ -179,11 +186,13 @@ public class Checkout extends AppCompatActivity {
 
 
 
-                        /* idAplicacao
+                        */
+/* idAplicacao
                             1 = SQL
                             2 = Mobile
                             3 = Web
-                        */
+                        *//*
+
                         ckp.setIdAplicacao(2);
 
                         // Gravando pedido
@@ -441,6 +450,7 @@ public class Checkout extends AppCompatActivity {
             }
         }
     }
+*/
 
 
 }

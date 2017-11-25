@@ -5,36 +5,36 @@
 
         <item
             android:id="@+id/nav_home"
-
+            android:icon="@drawable/home"
             android:title="Página Principal" />
 
         <item android:title="Categorias">
-        <item
-            android:id="@+id/nav_promo"
+            <item
+                android:id="@+id/nav_promo"
+                android:icon="@drawable/promocoes"
+                android:title="Promoções" />
+            <item
+                android:id="@+id/nav_colec"
+                android:icon="@drawable/colecionaveis"
+                android:title="Colecionáveis" />
+            <item
+                android:id="@+id/nav_jogos"
+                android:icon="@drawable/games"
+                android:title="Jogos" />
+            <item
+                android:id="@+id/nav_quad"
+                android:icon="@drawable/quadrinhos"
+                android:title="Quadrinhos" />
 
-            android:title="Promoções" />
-        <item
-            android:id="@+id/nav_colec"
+            <item
+                android:id="@+id/nav_canec"
+                android:icon="@drawable/canecas"
+                android:title="Canecas" />
 
-            android:title="Colecionáveis" />
-        <item
-            android:id="@+id/nav_jogos"
-
-            android:title="Jogos" />
-        <item
-            android:id="@+id/nav_quad"
-
-            android:title="Quadrinhos" />
-
-        <item
-            android:id="@+id/nav_canec"
-
-            android:title="Canecas" />
-
-        <item
-            android:id="@+id/nav_deco"
-
-            android:title="Decoração" />
+            <item
+                android:id="@+id/nav_deco"
+                android:icon="@drawable/games"
+                android:title="Decoração" />
         </item>
 
 
@@ -43,7 +43,7 @@
     <item android:title="Produto">
         <item
             android:id="@+id/nav_qrcode"
-
+            android:icon="@drawable/qrcode"
             android:title="Buscar produto por QRCode" />
     </item>
 
@@ -53,15 +53,15 @@
 
             <item
                 android:id="@+id/nav_login"
-
+                android:icon="@drawable/user"
                 android:title="Login" />
             <item
                 android:id="@+id/nav_pedidos"
-
+                android:icon="@drawable/games"
                 android:title="Meus Pedidos" />
             <item
                 android:id="@+id/nav_config"
-
+                android:icon="@drawable/configuracoes"
                 android:title="Configurações" />
         </menu>
     </item>
@@ -70,7 +70,7 @@
         <menu>
             <item
                 android:id="@+id/nav_sobre"
-
+                android:icon="@drawable/about"
                 android:title="Sobre nós" />
 
         </menu>
