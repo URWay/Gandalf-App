@@ -32,13 +32,6 @@
             android:name=".CadastroEndereco"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DadosCadastrais"
-            android:parentActivityName=".NewIndex"
-            />
-        <activity
-            android:name=".Configuracoes"
-            android:parentActivityName=".NewIndex" />
-        <activity
             android:name=".descProduto"
             android:parentActivityName=".NewIndex" />
         <activity
