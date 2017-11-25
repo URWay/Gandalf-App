@@ -115,7 +115,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             bundle.putInt("categoria",0);
             getSupportActionBar().setTitle("Home");
             fab.show();
-
         }
         else if (id == R.id.nav_promo) {
             fragmentClass = FragmentHomeListaProduto.class;
@@ -164,7 +163,10 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             fab.hide();
 
         } else if (id== R.id.nav_pedidos){
-
+            fragmentClass = FragmentListaPedidos.class;
+            getSupportActionBar().setTitle("Meus Pedidos");     //Titulo para ser exibido na sua Action Bar em frente à seta
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.hide();
 
         } else if(id== R.id.nav_config){
             fragmentClass = FragmentConfiguracoes.class;
@@ -187,8 +189,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             fab.hide();
 
         }
-
-
         try {
             fragment = (Fragment) fragmentClass.newInstance();
             fragment.setArguments(bundle);
