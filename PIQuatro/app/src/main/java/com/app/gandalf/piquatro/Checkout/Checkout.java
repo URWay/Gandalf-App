@@ -46,7 +46,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 
 public class Checkout extends AppCompatActivity {
-/*
+
 
     public static final String PREFS_NAME = "PRODUCT_APP";
     public static final String PRODUCTS = "Product";
@@ -106,11 +106,11 @@ public class Checkout extends AppCompatActivity {
             textVQtdProduto.setText(String.valueOf(qtd) + " produto(s)");
 
             // Preço dos produtos
-             EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
+            EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
             editPrecoProduto.setText(new DecimalFormat("R$ #,##0.00").format(precoProdutos));
 
             // Total
-            EditText editTotal = (EditText)findViewById(R.id.editTotal);
+            TextView editTotal = (TextView) findViewById(R.id.editTotal);
             editTotal.setText(new DecimalFormat("R$ #,##0.00").format(total));
 
             // Carrega sempre o primeiro endereço cadastrado do cliente
@@ -119,12 +119,12 @@ public class Checkout extends AppCompatActivity {
 
 
             //BTN VOLTAR
-   */
-/*         setTitle("Checkout");
+             setTitle("Checkout");
             // Get a support ActionBar corresponding to this toolbar
             ActionBar ab = getSupportActionBar();
             // Enable the Up button
-            ab.setDisplayHomeAsUpEnabled(true);*//*
+            ab.setDisplayHomeAsUpEnabled(true);
+
 
 
             // CARTÃO
@@ -154,7 +154,7 @@ public class Checkout extends AppCompatActivity {
                         // idCliente
                         ckp.setIdCliente(id);
 
-                        */
+
 /* idStatus
                             1 = Aberto
                             2 = Aguardando Pagamento
@@ -450,7 +450,5 @@ public class Checkout extends AppCompatActivity {
             }
         }
     }
-*/
-
 
 }
