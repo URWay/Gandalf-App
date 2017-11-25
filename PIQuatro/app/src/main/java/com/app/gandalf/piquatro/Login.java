@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.media.MediaPlayer;
 
 
 import android.support.v4.app.Fragment;
@@ -114,8 +114,13 @@ public class Login extends AppCompatActivity {
                 if(!result.equals("200")){
                     findViewById(R.id.loading).setVisibility(View.GONE);
                     f.showDialog("Falha no login!","Usuário ou senha inválidos", Login.this);
+                    chamaoGandalf();
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                    MenuItem login = (MenuItem) findViewById(R.id.nav_login);
+                    login.setTitle("Logoff");
 
                 }
             } catch (Exception e) {
@@ -124,6 +129,13 @@ public class Login extends AppCompatActivity {
                 f.showDialog("Erro","Erro ao obter o resultado", Login.this);
             }
         }
+    }
+
+    private void chamaoGandalf() {
+
+        MediaPlayer mPlayer = MediaPlayer.create(Login.this, R.raw.errogandalf);
+        mPlayer.start();
+
     }
 
 
