@@ -26,18 +26,18 @@
             android:layout_height="200dp"
             app:srcCompat="@drawable/logogandalf"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/textView32"
-            android:layout_marginTop="66dp" />
+            android:layout_marginTop="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
 
             <TextView
                 android:id="@+id/txtdescricao"
                 android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:text="Descrição Produto"
-                android:textSize="16sp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/txtprecodesc"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp" />
+                android:text="Descrição Produto"
+                android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnvolta"
@@ -53,29 +53,28 @@
             android:layout_marginBottom="48dp"
             android:layout_alignEnd="@+id/txtdescricao" />
 
-        <TextView
-            android:id="@+id/txt1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/imgproduto"
-            android:layout_alignStart="@+id/imgproduto"
-            android:layout_below="@+id/imgproduto"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:text="Nome do Produto" />
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_alignEnd="@+id/txtprecodesc"
+                android:layout_below="@+id/imgproduto"
+                android:layout_marginTop="15dp"
+                android:text="Nome do Produto"
+                android:textSize="20dp"
+                android:layout_alignStart="@+id/txtdescricao" />
 
-        <TextView
-            android:id="@+id/txtprecodesc"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:text="Preço Produto"
-            android:layout_marginTop="27dp"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginEnd="9dp"
-            android:layout_below="@+id/txt1"
-            android:layout_alignEnd="@+id/txtdescricao" />
+            <TextView
+                android:id="@+id/txtprecodesc"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:text="Preço Produto"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/txt1"
+                android:layout_alignEnd="@+id/txtdescricao" />
 
         <TextView
             android:id="@+id/textView32"
@@ -85,31 +84,32 @@
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_alignTop="@+id/txtpreco"
-            android:layout_alignStart="@+id/txtdescricao" />
+            android:layout_marginBottom="11dp"
+            android:layout_above="@+id/txtdescricao"
+            android:layout_alignStart="@+id/txt1" />
 
         <TextView
             android:id="@+id/textView34"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:text="Por:"
             android:textAlignment="center"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_alignBaseline="@+id/textView32"
-            android:layout_alignBottom="@+id/textView32"
-            android:layout_toStartOf="@+id/txtprecodesc" />
+            android:layout_toStartOf="@+id/txtprecodesc"
+            android:layout_alignBottom="@+id/txtprecodesc"
+            android:layout_alignTop="@+id/textView32" />
 
-        <TextView
-            android:id="@+id/txtpreco"
-            android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:text="Preço sem desconto"
-            android:layout_alignTop="@+id/txtprecodesc"
-            android:layout_toStartOf="@+id/textView34"
-            android:layout_marginEnd="7dp" />
+            <TextView
+                android:id="@+id/txtpreco"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:text="Preço sem desconto"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:layout_below="@+id/txt1"
+                android:layout_toEndOf="@+id/textView32" />
 
             <Spinner
                 android:id="@+id/spnQtd"
