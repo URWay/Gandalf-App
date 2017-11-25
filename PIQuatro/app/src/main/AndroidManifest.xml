@@ -29,9 +29,6 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ListaProdutos" />
         <activity
-            android:name=".CadastroCliente"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".CadastroEndereco"
             android:screenOrientation="portrait" />
         <activity
