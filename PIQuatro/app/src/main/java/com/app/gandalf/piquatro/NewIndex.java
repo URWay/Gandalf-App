@@ -1,11 +1,7 @@
 package com.app.gandalf.piquatro;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Paint;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -15,28 +11,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.app.gandalf.piquatro.Carrinho.Carrinho;
 import com.app.gandalf.piquatro.Carrinho.FragmentCarrinho;
-
-import org.json.JSONArray;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.DecimalFormat;
+import com.app.gandalf.piquatro.Carrinho.empty;
 
 public class NewIndex extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -51,13 +32,32 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         bundle = new Bundle();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
+        //SharedPreferencesCart sh = new SharedPreferencesCart();
+        //sh.removeSharedItens(NewIndex.this);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Fragment fragment = null;
+                Class fragmentClass = null;
 
-                Intent i = new Intent(NewIndex.this, Carrinho.class);
-                startActivity(i);
+                SharedPreferences prefs = NewIndex.this.getSharedPreferences("PRODUCT_APP", MODE_PRIVATE);
+                String product = prefs.getString("Product", null);
+                if(product == null || product.equals("") || product.equals("[]"))
+                    fragmentClass = empty.class;
+                else
+                    fragmentClass = FragmentCarrinho.class;
 
+                getSupportActionBar().setTitle("Carrinho");
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                    fab.hide();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
             }
         });
 

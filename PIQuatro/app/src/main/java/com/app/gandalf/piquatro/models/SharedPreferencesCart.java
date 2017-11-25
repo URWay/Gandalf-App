@@ -45,23 +45,33 @@ public class SharedPreferencesCart {
                 double preco, promocao;
                 String nome, desc, image;
 
-                // Adicionando produtos que já estavam no carrinho
-                for (int i = 0; i < array.length(); i++) {
+                if(!list.contains(array)){
 
-                    id = array.getJSONObject(i).getInt("id");
+                    // Adicionando produtos que já estavam no carrinho
+                    for (int i = 0; i < array.length(); i++) {
 
-                    if (id != list.get(0).getId()) {
-                        qtd = array.getJSONObject(i).getInt("qtd");
+                        // ID dos objetos g
+                        id = array.getJSONObject(i).getInt("id");
 
-                        preco = array.getJSONObject(i).getDouble("preco");
-                        promocao = array.getJSONObject(i).getDouble("promocao");
+                        if (id != list.get(0).getId()) {
+                            qtd = array.getJSONObject(i).getInt("qtd");
 
-                        nome = array.getJSONObject(i).getString("nome");
-                        desc = array.getJSONObject(i).getString("desc");
-                        image = array.getJSONObject(i).getString("image");
+                            preco = array.getJSONObject(i).getDouble("preco");
+                            promocao = array.getJSONObject(i).getDouble("promocao");
 
-                        cartNew = new Cart_List(id, nome, desc, image, preco, promocao, qtd);
-                        list.add(cartNew);
+                            nome = array.getJSONObject(i).getString("nome");
+                            desc = array.getJSONObject(i).getString("desc");
+                            image = array.getJSONObject(i).getString("image");
+
+                            cartNew = new Cart_List(id, nome, desc, image, preco, promocao, qtd);
+                            list.add(cartNew);
+                        } else {
+                            int qtdOld = list.get(0).getQtd();
+                            int qtdJson = array.getJSONObject(i).getInt("qtd");
+                            int QTD_NEW = qtdOld + qtdJson;
+                            list.get(0).setQtd(QTD_NEW);
+                        }
+
                     }
                 }
 
@@ -77,13 +87,6 @@ public class SharedPreferencesCart {
         }
 
         return true;
-    }
-
-    public void addItem(Context context, Cart_List cart) {
-        List<Cart_List> list = getItens(context);
-        if (list == null)
-            list = new ArrayList<Cart_List>();
-        list.add(cart);
     }
 
     public ArrayList<Cart_List> getItens(Context context) {
@@ -106,7 +109,7 @@ public class SharedPreferencesCart {
         return (ArrayList<Cart_List>) list;
     }
 
-    // Passando três parâmetros, remove do carrinho sem comprar os existentes
+    // Passando três parâmetros, remove do carrinho sem comparar os existentes
     public void saveItens(Context context, Cart_List cart, List<Cart_List> list){
         SharedPreferences settings;
         SharedPreferences.Editor editor;
@@ -118,6 +121,7 @@ public class SharedPreferencesCart {
         editor.commit();
     }
 
+    // Função de remover do carrinho
     public void removeIten(Context context, Cart_List cart) {
         ArrayList<Cart_List> list = getItens(context);
         if (list != null) {
@@ -131,6 +135,42 @@ public class SharedPreferencesCart {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(PRODUCTS, null);
         editor.apply();
+    }
+
+    public double getTotal(Context context){
+        SharedPreferences prefs = context.getSharedPreferences(PREFS_NAME, context.MODE_PRIVATE);
+        String retorno = prefs.getString(PRODUCTS, null);
+
+        if(retorno == null || retorno == ""){
+            return 0;
+        }
+
+        List<Cart_List> cart;
+        cart = getItens(context);
+
+        if(retorno != null) {
+            double total = 0;
+            boolean promocao;
+            double preco, promocaoProduto;
+            int qtd;
+
+            for (int i = 0; i < cart.size(); i++) {
+                preco = cart.get(i).getPreco();
+                promocaoProduto = cart.get(i).getPromocao();
+                promocao = preco > promocaoProduto;
+                qtd = cart.get(i).getQtd();
+
+                if (promocao) {
+                    total +=  qtd * preco;
+                } else {
+                    total += qtd * promocaoProduto;
+                }
+            }
+
+            return total;
+        }
+
+        return 0;
     }
 
 }

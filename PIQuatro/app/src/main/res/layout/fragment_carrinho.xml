@@ -5,57 +5,60 @@
     android:id="@+id/rl"
     tools:context="com.app.gandalf.piquatro.Carrinho.Carrinho">
 
+
     <ListView
         android:id="@+id/listaCart"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_height="480dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/relativeLayout">
-    </ListView>
+        android:layout_above="@+id/relativeLayout"></ListView>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/relativeLayout"
         android:background="@layout/my_border">
+
+        <TextView
+            android:id="@+id/txtprecodesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"
+            android:layout_alignBaseline="@+id/txtTotalCarrrinho"
+            android:layout_alignBottom="@+id/txtTotalCarrrinho"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/txtTotalCarrrinho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 0,00"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:id="@+id/btncheckout"
-            android:layout_width="150dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="17dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
             android:background="@android:color/holo_blue_bright"
             android:text="Comprar"
-            android:textSize="12sp"
             android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="12sp"
             android:textStyle="bold"
-            android:layout_alignTop="@+id/btncontinuacompra"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
 
-        <Button
-            android:id="@+id/btncontinuacompra"
-            android:layout_width="160dp"
-            android:layout_height="34dp"
-            android:layout_marginEnd="14dp"
-            android:textSize="12sp"
-            android:background="@android:color/holo_blue_bright"
-            android:text="Continue comprando"
-            android:textStyle="bold"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
-
     </RelativeLayout>
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@android:color/holo_blue_dark"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
 
 </RelativeLayout>

@@ -16,122 +16,156 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            >
+            android:layout_alignParentTop="true">
 
-        <ImageView
-            android:id="@+id/imgproduto"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            app:srcCompat="@drawable/logogandalf"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="66dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
+            <ImageView
+                android:id="@+id/imgproduto"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="35dp"
+                app:srcCompat="@drawable/logogandalf" />
 
             <TextView
                 android:id="@+id/txtdescricao"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtprecodesc"
-                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
                 android:text="Descrição Produto"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_alignTop="@+id/textView37"
+                android:layout_alignEnd="@+id/txtdescPlus" />
 
-        <Button
-            android:id="@+id/btnvolta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_bright"
-            android:text="Adicionar ao carrinho"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:layout_below="@+id/txtdescricao"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/txtdescricao"
-            android:layout_marginBottom="48dp"
-            android:layout_alignEnd="@+id/txtdescricao" />
+            <Button
+                android:id="@+id/btnvolta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_bright"
+                android:text="Adicionar ao carrinho"
+                android:textColor="#fff"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_below="@+id/txtdescricao"
+                android:layout_alignStart="@+id/txtdescricao"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="20dp"
+                android:layout_alignEnd="@+id/txtdescricao" />
 
             <TextView
                 android:id="@+id/txt1"
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_alignEnd="@+id/txtprecodesc"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@+id/txtdescricao"
+                android:layout_alignStart="@+id/txtdescricao"
                 android:layout_below="@+id/imgproduto"
                 android:layout_marginTop="15dp"
                 android:text="Nome do Produto"
-                android:textSize="20dp"
-                android:layout_alignStart="@+id/txtdescricao" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/txtprecodesc"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
                 android:text="Preço Produto"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="22sp"
                 android:textStyle="bold"
+                android:layout_below="@+id/txtpreco"
+                android:layout_toEndOf="@+id/textView34" />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txt1"
                 android:layout_below="@+id/txt1"
-                android:layout_alignEnd="@+id/txtdescricao" />
+                android:layout_marginTop="11dp"
+                android:text="De:"
+                android:textColor="@android:color/background_dark"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="De:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="11dp"
-            android:layout_above="@+id/txtdescricao"
-            android:layout_alignStart="@+id/txt1" />
-
-        <TextView
-            android:id="@+id/textView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Por:"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_toStartOf="@+id/txtprecodesc"
-            android:layout_alignBottom="@+id/txtprecodesc"
-            android:layout_alignTop="@+id/textView32" />
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txtprecodesc"
+                android:layout_alignBottom="@+id/txtprecodesc"
+                android:layout_alignStart="@+id/textView32"
+                android:text="Por:"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtpreco"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignBaseline="@+id/textView32"
+                android:layout_alignBottom="@+id/textView32"
+                android:layout_alignEnd="@+id/txtprecodesc"
                 android:text="Preço sem desconto"
+                android:textAlignment="textEnd"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/edtQtdDesc"
+                android:layout_width="40dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="7dp"
+                android:ems="10"
+                android:inputType="number"
+                android:text="1"
+                android:textColor="#000"
+                android:enabled="false"
                 android:textAlignment="center"
+                android:textSize="14sp"
+                android:focusable="false"
+                android:layout_alignBottom="@+id/textView34"
+                android:layout_toStartOf="@+id/txtdescPlus" />
+
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descrição do produto"
                 android:textSize="18sp"
-                android:layout_below="@+id/txt1"
-                android:layout_toEndOf="@+id/textView32" />
-
-            <Spinner
-                android:id="@+id/spnQtd"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
+                android:layout_below="@+id/txtprecodesc"
                 android:layout_marginTop="10dp"
-                android:layout_below="@+id/txtdescricao"
-                android:layout_alignStart="@+id/btnvolta" />
+                android:layout_alignStart="@+id/txtdescricao" />
 
+            <TextView
+                android:id="@+id/txtdescMinus"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:srcCompat="@drawable/minus"
+                android:layout_alignTop="@+id/edtQtdDesc"
+                android:layout_toStartOf="@+id/edtQtdDesc"
+                android:layout_marginEnd="8dp" />
 
-
+            <TextView
+                android:id="@+id/txtdescPlus"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:text="+"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:layout_alignBaseline="@+id/txtdescMinus"
+                android:layout_alignBottom="@+id/txtdescMinus"
+                android:layout_alignParentEnd="true" />
 
         </RelativeLayout>
     </ScrollView>
-
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorAccent"
-        android:elevation="4dp" />
-
 
 </RelativeLayout>

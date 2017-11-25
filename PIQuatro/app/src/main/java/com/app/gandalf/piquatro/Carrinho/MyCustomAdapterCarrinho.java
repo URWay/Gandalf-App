@@ -4,12 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.Base64;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +13,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.view.ViewGroup.LayoutParams;
+import android.widget.Toast;
 
 import com.app.gandalf.piquatro.R;
 import com.app.gandalf.piquatro.models.Cart_List;
@@ -37,6 +30,7 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
     private Context context;
     private ViewHolder holder = new ViewHolder();
     private Dialog MyDialog;
+    MyCustomAdapterCarrinho thadapter = null;
 
     public MyCustomAdapterCarrinho(List<Cart_List> list, Context context) {
         this.list = list;
@@ -73,7 +67,18 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
 
         String imagemP = list.get(position).getImage();
         String nomeP = list.get(position).getNome();
+        double precoPromocao = list.get(position).getPromocao();
         double precoP = list.get(position).getPromocao();
+        double total = 0;
+        boolean promocao = true;
+
+        if (precoP <= precoPromocao) {
+            promocao = false;
+            total = precoP;
+        } else {
+            total = precoPromocao;
+        }
+
         int qtdP = list.get(position).getQtd();
 
         final byte[] image64 = Base64.decode(imagemP, Base64.DEFAULT);
@@ -111,6 +116,7 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
                     btnRemoverItem.setEnabled(true);
                     closeButton.setEnabled(true);
 
+                    // Botão de fechar
                     closeButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -119,12 +125,16 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
                         }
                     });
 
+                    // Botão de remover do carrinho
                     btnRemoverItem.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             SharedPreferencesCart sh = new SharedPreferencesCart();
                             sh.removeIten(context, list.get(position));
                             MyDialog.cancel();
+
+                            // Verificar o refresh
+                            Toast.makeText(context, "Item removido", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -134,7 +144,7 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
                 } else {
                     holder.qtd.setText(String.valueOf(qtdNew_minus));
                     SharedPreferencesCart sh = new SharedPreferencesCart();
-                    sh.saveItens(context, list);
+                    sh.saveItens(context, null, list);
                 }
             }
         });
@@ -152,14 +162,15 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
 
                 SharedPreferencesCart sh = new SharedPreferencesCart();
                 list.get(position).setQtd(qtdNew_plus);
-                sh.saveItens(context, list);
+                sh.saveItens(context, null, list);
             }
         });
 
         // Setando valores
         holder.image.setImageBitmap(bitmap);
         holder.nome.setText(nomeP);
-        holder.preco.setText(new DecimalFormat("R$ #,##0.00").format(precoP));
+
+        holder.preco.setText(new DecimalFormat("R$ #,##0.00").format(total));
         holder.qtd.setText(String.valueOf(qtdP));
 
         view.setTag(holder);
