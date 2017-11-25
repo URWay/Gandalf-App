@@ -144,9 +144,9 @@
                     android:id="@+id/spinnerParcela"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
+                    android:layout_marginTop="15dp"
                     android:layout_below="@+id/textView29"
-                    android:layout_alignEnd="@+id/textView21"
-                    android:layout_marginTop="17dp">
+                    android:layout_toStartOf="@+id/spinParcelas">
 
                 </Spinner>
 
@@ -227,10 +227,6 @@
                     android:layout_height="50dp"
                     android:layout_below="@+id/spinnerParcela"
                     android:layout_toStartOf="@+id/spiAno" />
-
-
-
-
             </RelativeLayout>
         </ScrollView>
 
