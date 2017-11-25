@@ -82,9 +82,9 @@ public class QRCode extends AppCompatActivity {
                 });
 
                 AlertDialog alert1 = builder.create();
-
                 int a = Integer.parseInt(result.getText().substring(1));
-
+                alert1.setMessage(String.valueOf(a));
+                alert1.show();
                 myMontar(a);
             }
         });
