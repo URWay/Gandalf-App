@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,11 +66,24 @@ public class FragmentConfiguracoes extends Fragment {
 
 
     private void minhaconta() {
-        Intent intent = new Intent(getActivity(), CadastroCliente.class);
-        intent.putExtra("ACAO", "M");
+        Bundle bundle = new Bundle();
+        bundle.putString("ACAO", "M");
 
 
-        startActivity(intent);
+        Fragment fragment = null;
+        Class fragmentClass = null;
+
+        fragmentClass = FragmentCadastroCliente.class;
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(bundle);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
     }
 
     private void meusenderecos() {
