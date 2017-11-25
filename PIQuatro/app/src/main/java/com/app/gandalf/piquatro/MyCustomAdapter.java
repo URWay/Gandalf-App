@@ -59,7 +59,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
         listItemText.setText(list.get(position));
 
         if(positions.get(position) == 0){
-            //view.findViewById(R.id.delete_btn).setVisibility(View.INVISIBLE);
+            view.findViewById(R.id.delete_btn).setVisibility(View.INVISIBLE);
         }
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){
