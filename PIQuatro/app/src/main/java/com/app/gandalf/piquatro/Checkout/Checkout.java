@@ -105,10 +105,6 @@ public class Checkout extends AppCompatActivity {
             TextView textVQtdProduto = (TextView) findViewById(R.id.textVQtdProduto);
             textVQtdProduto.setText(String.valueOf(qtd) + " produto(s)");
 
-            // Preço dos produtos
-            EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
-            editPrecoProduto.setText(new DecimalFormat("R$ #,##0.00").format(precoProdutos));
-
             // Total
             TextView editTotal = (TextView) findViewById(R.id.editTotal);
             editTotal.setText(new DecimalFormat("R$ #,##0.00").format(total));
@@ -135,6 +131,28 @@ public class Checkout extends AppCompatActivity {
             spinnerArrayAdapterParcela.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(spinnerArrayAdapterParcela);
 
+
+            String[] mes = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+            final ArrayAdapter<String> spinnerArrayAdapterMes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mes);
+            Spinner spinnerM = (Spinner) findViewById(R.id.spinParcelas);
+            spinnerArrayAdapterMes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerM.setAdapter(spinnerArrayAdapterMes);
+
+            String[] ano = new String[] {""};
+            List<String> anoS = new ArrayList<>();
+
+            for(int i = 1900; i <= 2017; i++){
+                anoS.add(String.valueOf(i));
+            }
+
+
+
+            final ArrayAdapter<String> spiAno = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, anoS);
+            Spinner spinnerAno = (Spinner) findViewById(R.id.spiAno);
+            spiAno.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinnerAno.setAdapter(spiAno);
+
+
             Button comprar = (Button) findViewById(R.id.comprar);
 
             comprar.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +164,6 @@ public class Checkout extends AppCompatActivity {
                     String json = prefs.getString(PRODUCTS, null);
 
 
-
                     if(json != null){
                         // Pedido
                         CheckoutPedido ckp = new CheckoutPedido();
@@ -154,14 +171,13 @@ public class Checkout extends AppCompatActivity {
                         // idCliente
                         ckp.setIdCliente(id);
 
-
-/* idStatus
+                        /* idStatus
                             1 = Aberto
                             2 = Aguardando Pagamento
                             3 = Enviado para Transportadora
                             4 = Entregue
                             5 = Cancelado
-                        *//*
+                        */
 
                         ckp.setIdStatus(3);
 
@@ -170,28 +186,23 @@ public class Checkout extends AppCompatActivity {
                         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
                         ckp.setDataPedido(dateFormat.format(date));
 
-                        */
-/* idTipoPagto
+                        /* idTipoPagto
                             1 = Cartão de Crédito
                             2 = Boleto
                             3 = pagSeguro
                             4 = PayPal
-                         *//*
+                         */
 
                         ckp.setIdTipoPagto(1);
 
                         // idEndereco
                         ckp.setIdEndereco(idEndereco);
 
-
-
-
-                        */
-/* idAplicacao
+                        /* idAplicacao
                             1 = SQL
                             2 = Mobile
                             3 = Web
-                        *//*
+                        */
 
                         ckp.setIdAplicacao(2);
 
@@ -202,8 +213,6 @@ public class Checkout extends AppCompatActivity {
                         NetworkCallPedido myCallpedido = new NetworkCallPedido();
                         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/checkout";
                         myCallpedido.execute(url, jsonPedido, "POST");
-
-
 
                     }
 
