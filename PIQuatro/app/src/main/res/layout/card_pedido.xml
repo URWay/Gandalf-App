@@ -1,0 +1,97 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="5dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="6dp"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/nomeProduto"
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/imageViewListaProdutos"
+            android:hint="Nome do Produto"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/imageViewListaProdutos"
+            android:layout_width="72dp"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            app:civ_border_color="#ffffff"
+            app:civ_border_width="1dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            tools:layout_editor_absoluteX="142dp"
+            tools:layout_editor_absoluteY="168dp" />
+
+        <TextView
+
+            android:id="@+id/precProduto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nomeProduto"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/imageViewListaProdutos"
+            android:elegantTextHeight="false"
+            android:freezesText="false"
+            android:hint="preço"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:typeface="normal" />
+
+        <TextView
+            android:id="@+id/qtd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/precProduto"
+            android:layout_alignBottom="@+id/precProduto"
+            android:layout_marginStart="19dp"
+            android:layout_toEndOf="@+id/precProduto"
+            android:text="qtd"
+            android:textSize="14sp"
+            android:typeface="normal"
+            android:freezesText="false"/>
+
+        <TextView
+            android:id="@+id/preco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBottom="@+id/qtd"
+            android:layout_alignTop="@+id/qtd"
+            android:layout_marginStart="14dp"
+            android:layout_toEndOf="@+id/qtd"
+            android:text="preco"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/preco"
+            android:layout_alignBottom="@+id/preco"
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@+id/preco"
+            android:text="status" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

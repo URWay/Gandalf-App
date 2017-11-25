@@ -2,19 +2,28 @@ package com.app.gandalf.piquatro;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -22,6 +31,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,21 +40,26 @@ public class FragmentListaPedidos extends Fragment {
 
     private static final String TAG = "Meus Pedidos";
     private int idPed = 0;
+    private ViewGroup hospedeiro;
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_configuracoes, container, false);
+        View v = inflater.inflate(R.layout.activity_configuracoes, container, false);
 
-        pedidoslista = (ListView) view.findViewById(R.id.pedidos);
-
+        hospedeiro = v.findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/pedido/all";
 
-        int idSession = 1; // SharedPreferences.getId();
+        //instanciar para n mudar o código
+        Functions f = new Functions();
+
+        int idSession = f.getId(this.getContext());
 
         myCall.execute(url + "/"+idSession);
 
-        return view;
+        return v;
     }
 
     public class NetworkCall extends AsyncTask<String, Void, String> {
@@ -85,41 +100,58 @@ public class FragmentListaPedidos extends Fragment {
 
                 int to = json.length();
 
-
-
-                List<String> pedidos = new ArrayList<String>();
-                ArrayAdapter<String> adaptador;
-                adaptador = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, pedidos);
-                pedidoslista.setAdapter(adaptador);
-
-                pedidos.add("Pedido1");
-                pedidos.add("Pedido2");
-                pedidos.add("Pedido3");
+                int idProduto,idPedido, qtd;
+                String nomeProduto, imagem, status;
+                double precProduto, preco;
 
                 for (int i = 0; i <= to; i++) {
-                //SÓ FALTA AQUI - SETAR OS PRODUTOS
-                    json.getJSONObject(i).getString("imagem");
-                    idPed = json.getJSONObject(i).getInt("idPedido");
+                    idProduto = json.getJSONObject(i).getInt("idProduto");
+                    idPedido = json.getJSONObject(i).getInt("idPedido");
+                    nomeProduto = json.getJSONObject(i).getString("nomeProduto");
+                    precProduto = json.getJSONObject(i).getDouble("precProduto");
+                    preco = json.getJSONObject(i).getDouble("precoVendaItem");
+                    imagem = json.getJSONObject(i).getString("imagem");
+                    qtd = json.getJSONObject(i).getInt("qtdProduto");
+                    status = json.getJSONObject(i).getString("descStatus");
 
-                    pedidoslista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                            Intent i = new Intent(getActivity(), descPedido.class);
-                            i.putExtra("id",idPed);
-                            startActivity(i);
-                        }
-                    });
+                    addItem(idPedido, idProduto, nomeProduto, preco, precProduto, imagem, qtd, status);
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
 
+        private void addItem(int idPedido,int idProduto, String nomeProduto, double preco, double precProduto, String imagem, int qtd, String status) {
+            CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.activity_produtos, hospedeiro,false);
+
+
+            final int produto1 = idProduto;
+
+            final TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
+            TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
+            TextView vQtd = (TextView) cardView.findViewById(R.id.qtd);
+            TextView vPreco = (TextView) cardView.findViewById(R.id.preco);
+            TextView vStatus = (TextView) cardView.findViewById(R.id.status);
+            final ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
+            final byte[] image64 = Base64.decode(imagem, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image64, 0, image64.length);
+
+
+            nome.setText(nomeProduto);
+            prec.setText(new DecimalFormat("R$ #,##0.00").format(precProduto));
+            vQtd.setText(String.valueOf(qtd));
+            vPreco.setText(new DecimalFormat("R$ #,##0.00").format(preco));
+            vStatus.setText(status);
+            image.setImageBitmap(bitmap);
+
+            ((LinearLayout) hospedeiro).addView(cardView);
+
+        }
 
         }
     }
-}
+
 
 
 

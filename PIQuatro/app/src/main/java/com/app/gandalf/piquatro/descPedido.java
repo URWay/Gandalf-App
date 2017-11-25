@@ -30,11 +30,11 @@ private Button btnvolta;
         setSupportActionBar(myToolbar);
 
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+    /*    getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Pedido" +idpedido.getText());     //Titulo para ser exibido na sua Action Bar em frente à seta
 
-        idpedido = (TextView) findViewById(R.id.idpedido);
+      /*  idpedido = (TextView) findViewById(R.id.idpedido);
         listaitens = (ListView) findViewById(R.id.listaitens);
         txtnome = (TextView) findViewById(R.id.txtnome);
         txtendereco = (TextView) findViewById(R.id.txtendereco);
@@ -45,7 +45,7 @@ private Button btnvolta;
         txtcomplemento = (TextView) findViewById(R.id.txtcomplemento);
         txtpagamento = (TextView) findViewById(R.id.txtpagamento);
         txttotal = (TextView) findViewById(R.id.txttotal);
-        btnvolta = (Button) findViewById(R.id.btnvolta);
+        btnvolta = (Button) findViewById(R.id.btnvolta);*/
 
 
     }
