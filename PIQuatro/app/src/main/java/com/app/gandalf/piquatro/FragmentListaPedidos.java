@@ -47,7 +47,11 @@ public class FragmentListaPedidos extends Fragment {
 
         int idSession = f.getId(this.getContext());
 
-        myCall.execute(url + "/"+64);
+        if(idSession < 1){
+            idSession = 64;
+        }
+
+        myCall.execute(url + "/"+idSession);
 
         return v;
     }
@@ -101,7 +105,7 @@ public class FragmentListaPedidos extends Fragment {
                     preco = json.getJSONObject(i).getDouble("precoVendaItem");
                     imagem = json.getJSONObject(i).getString("imagem");
                     qtd = json.getJSONObject(i).getInt("qtdProduto");
-                    status = "OK";//json.getJSONObject(i).getString("descStatus");
+                    status = json.getJSONObject(i).getString("descStatus");
 
                     addItem(idPedido, idProduto, nomeProduto, preco, imagem, qtd, status);
                 }

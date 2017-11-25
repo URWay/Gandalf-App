@@ -236,12 +236,8 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
 
         } else if(id == R.id.nav_qrcode){
-
-            fragmentClass = QRCode.class;
-
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.hide();
-
+            Intent i = new Intent(NewIndex.this, QRCode.class);
+            startActivity(i);
         }
         try {
             fragment = (Fragment) fragmentClass.newInstance();
@@ -252,12 +248,14 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             e.printStackTrace();
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
+        if(id != R.id.nav_qrcode){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+        }
         return true;
     }
 
