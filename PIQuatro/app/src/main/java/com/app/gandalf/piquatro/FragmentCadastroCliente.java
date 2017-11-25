@@ -94,7 +94,7 @@ public class FragmentCadastroCliente extends Fragment {
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));
         txtresidencial.addTextChangedListener(Mask.insert("(##)####-####", txtresidencial));
-        txtnasc.addTextChangedListener(Mask.insert("##/##/####", txtnasc));
+        txtnasc.addTextChangedListener(Mask.insert("####/##/##", txtnasc));
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
