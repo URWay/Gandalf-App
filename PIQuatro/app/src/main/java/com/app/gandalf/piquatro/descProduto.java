@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,15 @@ public class descProduto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe_produto);
+
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.mytoolbar);
+        setSupportActionBar(myToolbar);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+
 
         edtQtdDesc = (EditText) findViewById(R.id.edtQtdDesc);
         Button btnconfirma = (Button) findViewById(R.id.btnvolta);
@@ -82,7 +92,7 @@ public class descProduto extends AppCompatActivity {
                         imageProduto = image;
                         precoProduto = precoprod;
                         promocaoProduto = descprecoprod;
-
+                        getSupportActionBar().setTitle(nome);     //Titulo para ser exibido na sua Action Bar em frente à seta
                         // Verifica promoção
                         if(precoProduto <= promocaoProduto){
                             findViewById(R.id.textView32).setVisibility(View.INVISIBLE);

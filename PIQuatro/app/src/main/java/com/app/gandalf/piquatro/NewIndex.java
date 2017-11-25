@@ -29,6 +29,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         setContentView(R.layout.activity_new_index);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         bundle = new Bundle();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -46,7 +47,10 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
                 if(product == null || product.equals("") || product.equals("[]"))
                     fragmentClass = empty.class;
                 else
+
+
                     fragmentClass = FragmentCarrinho.class;
+
 
                 getSupportActionBar().setTitle("Carrinho");
                 try {
@@ -68,8 +72,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle("Home");
-
-
 
     }
     @Override
@@ -110,44 +112,59 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
         int id = item.getItemId();
         if(id == R.id.nav_home){
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             bundle.putInt("categoria",0);
             getSupportActionBar().setTitle("Home");
             fab.show();
+
         }
         else if (id == R.id.nav_promo) {
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             getSupportActionBar().setTitle("Promoções");
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
         } else if (id == R.id.nav_colec) {
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             bundle.putInt("categoria",1);
             getSupportActionBar().setTitle("Colecionáveis");
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
         } else if (id == R.id.nav_jogos) {
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             bundle.putInt("categoria",2);
             getSupportActionBar().setTitle("Jogos");
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
         } else if (id == R.id.nav_quad) {
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             bundle.putInt("categoria",3);
             getSupportActionBar().setTitle("Quadrinhos");
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
         } else if (id == R.id.nav_canec) {
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             bundle.putInt("categoria",5);
             getSupportActionBar().setTitle("Canecas");
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.show();
 
         } else if (id == R.id.nav_deco) {
+
             fragmentClass = FragmentHomeListaProduto.class;
+
             bundle.putInt("categoria",6);
             getSupportActionBar().setTitle("Decoração");
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -156,6 +173,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_login) {
 
             fragmentClass = FragmentLogin.class;
+
             getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
 
@@ -163,20 +181,26 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             fab.hide();
 
         } else if (id== R.id.nav_pedidos){
+
             fragmentClass = FragmentListaPedidos.class;
+
             getSupportActionBar().setTitle("Meus Pedidos");     //Titulo para ser exibido na sua Action Bar em frente à seta
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.hide();
 
         } else if(id== R.id.nav_config){
+
             fragmentClass = FragmentConfiguracoes.class;
+
             getSupportActionBar().setTitle("Configurações");     //Titulo para ser exibido na sua Action Bar em frente à seta
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.hide();
 
 
         } else if(id == R.id.nav_sobre){
+
             fragmentClass = FragmentSobre.class;
+
             getSupportActionBar().setTitle("Sobre nós");     //Titulo para ser exibido na sua Action Bar em frente à seta
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.hide();
@@ -185,6 +209,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         } else if(id == R.id.nav_qrcode){
 
             fragmentClass = QRCode.class;
+
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.hide();
 
@@ -193,9 +218,11 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
             fragment = (Fragment) fragmentClass.newInstance();
             fragment.setArguments(bundle);
 
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
 
@@ -204,9 +231,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
 
 
 }

@@ -23,11 +23,11 @@
                 android:id="@+id/imgproduto"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentStart="true"
+                app:srcCompat="@drawable/logogandalf"
+                android:layout_marginTop="62dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="35dp"
-                app:srcCompat="@drawable/logogandalf" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:id="@+id/txtdescricao"
@@ -167,5 +167,15 @@
 
         </RelativeLayout>
     </ScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mytoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorAccent"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
 </RelativeLayout>

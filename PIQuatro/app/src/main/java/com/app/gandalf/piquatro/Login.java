@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
-        findViewById(R.id.loadingL).setVisibility(View.GONE);
+        findViewById(R.id.loading).setVisibility(View.GONE);
 
 
         getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Preencha os campos corretamentes", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    findViewById(R.id.loadingL).setVisibility(View.VISIBLE);
+                    findViewById(R.id.loading).setVisibility(View.VISIBLE);
                     // Comunicação com WS e validação de Login
                     String email = txtlogin.getText().toString().trim();
                     String senha = txtsenha.getText().toString().trim();
@@ -112,7 +112,7 @@ public class Login extends AppCompatActivity {
             super.onPostExecute(result);
             try {
                 if(!result.equals("200")){
-                    findViewById(R.id.loadingL).setVisibility(View.GONE);
+                    findViewById(R.id.loading).setVisibility(View.GONE);
                     f.showDialog("Falha no login!","Usuário ou senha inválidos", Login.this);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
@@ -120,7 +120,7 @@ public class Login extends AppCompatActivity {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                findViewById(R.id.loadingL).setVisibility(View.GONE);
+                findViewById(R.id.loading).setVisibility(View.GONE);
                 f.showDialog("Erro","Erro ao obter o resultado", Login.this);
             }
         }

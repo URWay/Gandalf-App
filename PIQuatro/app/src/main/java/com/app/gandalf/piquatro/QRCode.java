@@ -59,7 +59,7 @@ public class QRCode extends AppCompatActivity {
             @Override
             public void handleResult(Result result) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(QRCode.this);
-                builder.setTitle("Scan Result");
+                builder.setTitle("Resultado");
                 builder.setMessage(result.getText());
 
                 final ZXingScannerView.ResultHandler rh = this;

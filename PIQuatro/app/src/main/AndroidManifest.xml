@@ -46,7 +46,14 @@
             android:parentActivityName=".NewIndex" />
         <activity
             android:name=".Enderecos"
-            android:parentActivityName=".Configuracoes" />
+            android:parentActivityName=".Configuracoes">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".NewIndex"
             android:label="@string/title_activity_new_index"
@@ -58,13 +65,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".QRCode" />
+
+        <activity android:name=".Checkout.Checkout"
+            android:parentActivityName=".NewIndex"  >
+
+        </activity>
+
         <activity android:name=".Carrinho.Carrinho"
             android:parentActivityName=".NewIndex"
             />
 
-        <activity android:name=".Checkout.Checkout"
-            android:parentActivityName=".Carrinho.Carrinho"
-            />
+
 
         <activity android:name=".descPedido"></activity>
     </application>
