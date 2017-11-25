@@ -11,7 +11,7 @@
         <item android:title="Categorias">
             <item
                 android:id="@+id/nav_promo"
-                android:icon="@drawable/promocoes"
+                android:icon="@drawable/categorias"
                 android:title="Promoções" />
             <item
                 android:id="@+id/nav_colec"
@@ -33,7 +33,7 @@
 
             <item
                 android:id="@+id/nav_deco"
-                android:icon="@drawable/games"
+                android:icon="@drawable/decoracao"
                 android:title="Decoração" />
         </item>
 
@@ -57,7 +57,7 @@
                 android:title="Login" />
             <item
                 android:id="@+id/nav_pedidos"
-                android:icon="@drawable/games"
+                android:icon="@drawable/pedidos"
                 android:title="Meus Pedidos" />
             <item
                 android:id="@+id/nav_config"
