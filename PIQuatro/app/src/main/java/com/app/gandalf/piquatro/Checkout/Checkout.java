@@ -3,7 +3,9 @@ package com.app.gandalf.piquatro.Checkout;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -58,12 +60,19 @@ public class Checkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+
         txtnumcod = (EditText) findViewById(R.id.txtnumcod);
 
         txtnumcod.addTextChangedListener(Mask.insert("#### #### #### ####", txtnumcod));
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String json = prefs.getString(PRODUCTS, null);
+
+
+
 
         // Login
         SharedPreferences prefsLogin = getSharedPreferences("SessionLogin", MODE_PRIVATE);
@@ -73,6 +82,7 @@ public class Checkout extends AppCompatActivity {
 
         SharedPreferencesCart sh = new SharedPreferencesCart();
         cart = sh.getItens(this);
+
 
         if(json != null){
             double total = 0;
@@ -107,6 +117,13 @@ public class Checkout extends AppCompatActivity {
             myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/all/" + id );
 
 
+            //BTN VOLTAR
+   /*         setTitle("Checkout");
+            // Get a support ActionBar corresponding to this toolbar
+            ActionBar ab = getSupportActionBar();
+            // Enable the Up button
+            ab.setDisplayHomeAsUpEnabled(true);*/
+
             // CARTÃO
             //----------------------- Parcela -------------------//
             String[] listParcela = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
@@ -120,8 +137,14 @@ public class Checkout extends AppCompatActivity {
             comprar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+
+
+
                     SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
                     String json = prefs.getString(PRODUCTS, null);
+
+
 
                     if(json != null){
                         // Pedido
@@ -155,6 +178,9 @@ public class Checkout extends AppCompatActivity {
                         // idEndereco
                         ckp.setIdEndereco(idEndereco);
 
+
+
+
                         /* idAplicacao
                             1 = SQL
                             2 = Mobile
@@ -169,6 +195,9 @@ public class Checkout extends AppCompatActivity {
                         NetworkCallPedido myCallpedido = new NetworkCallPedido();
                         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/checkout";
                         myCallpedido.execute(url, jsonPedido, "POST");
+
+
+
                     }
 
                 }
@@ -414,4 +443,6 @@ public class Checkout extends AppCompatActivity {
             }
         }
     }
+
+
 }

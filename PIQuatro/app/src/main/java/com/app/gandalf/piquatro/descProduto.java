@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +51,9 @@ public class descProduto extends AppCompatActivity {
 
         txtdescricao.setMovementMethod(new ScrollingMovementMethod());
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
 
         Button btnconfirma = (Button) findViewById(R.id.btnvolta);
 
@@ -57,6 +61,8 @@ public class descProduto extends AppCompatActivity {
 
         if(intent != null){
             try {
+
+
 
                 if(!intent.getStringExtra("idProduto").equals("0")){
                     final int idProduto = Integer.parseInt(intent.getStringExtra("idProduto"));
@@ -110,6 +116,14 @@ public class descProduto extends AppCompatActivity {
                         spinner.setAdapter(spinnerArrayAdapter);
                         String qtdSem = spinner.getSelectedItem().toString().replace("Quantidade: ", "");
                         qtd = Integer.parseInt(qtdSem);
+
+                        //BTN VOLTAR
+                        setTitle(nomeProduto);
+                        // Get a support ActionBar corresponding to this toolbar
+                        ActionBar ab = getSupportActionBar();
+                        // Enable the Up button
+                        ab.setDisplayHomeAsUpEnabled(true);
+
                     }
 
                 }

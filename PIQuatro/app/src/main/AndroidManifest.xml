@@ -15,7 +15,7 @@
         android:label="Gandalf Store"
         android:screenOrientation="landscape"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar"    >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,13 +36,14 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".DadosCadastrais"
-            android:parentActivityName=".NewIndex" />
+            android:parentActivityName=".NewIndex"
+            />
         <activity
             android:name=".Configuracoes"
             android:parentActivityName=".NewIndex" />
         <activity
             android:name=".descProduto"
-            android:parentActivityName=".ListaProdutos" />
+            android:parentActivityName=".NewIndex" />
         <activity
             android:name=".Enderecos"
             android:parentActivityName=".Configuracoes" />
@@ -57,8 +58,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".QRCode" />
-        <activity android:name=".Carrinho.Carrinho" />
-        <activity android:name=".Checkout.Checkout" />
+        <activity android:name=".Carrinho.Carrinho"
+            android:parentActivityName=".NewIndex"
+            />
+
+        <activity android:name=".Checkout.Checkout"
+            android:parentActivityName=".Carrinho.Carrinho"
+            />
+
         <activity android:name=".descPedido"></activity>
     </application>
 

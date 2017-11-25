@@ -172,11 +172,11 @@
         android:id="@+id/textView58"
         android:layout_width="280dp"
         android:layout_height="70dp"
-        android:text="TextView"
-        android:textAlignment="textStart"
-        android:textStyle="italic"
         android:layout_alignBottom="@+id/circleImageView7"
-        android:layout_toEndOf="@+id/circleImageView7" />
+        android:layout_toEndOf="@+id/circleImageView7"
+        android:text="HAHAHAHAHAHAHAHAHAAAAAAAAAAAAAAAAA, BLBLBLBLLBLBLB HAHAHA"
+        android:textAlignment="textStart"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/textView71"

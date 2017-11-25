@@ -35,6 +35,8 @@ public class FragmentCarrinho extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_carrinho,container,false);
 
+
+
         listaCart = (ListView) view.findViewById(R.id.listaCart);
         SharedPreferences prefs = getActivity().getSharedPreferences(PREFS_NAME, getContext().MODE_PRIVATE);
         String json = prefs.getString(PRODUCTS, null);

@@ -27,28 +27,6 @@
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/txt1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pedido #"
-                android:textSize="20dp"
-                android:layout_marginTop="27dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignEnd="@+id/btnvolta" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:text="Produtos Vinculados"
-                android:textColor="@android:color/background_dark"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_below="@+id/txt1"
-                android:layout_alignStart="@+id/txt1" />
-
-            <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,49 +52,31 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="129dp"
+                android:layout_marginBottom="122dp"
                 android:text="Endereço Selecionado:"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold"
-                android:layout_above="@+id/txttotal"
-                android:layout_alignStart="@+id/textView8" />
+                android:layout_above="@+id/textView45"
+                android:layout_alignStart="@+id/btnvolta" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="23dp"
                 android:text="Endereço:"
-                android:layout_alignTop="@+id/textView13"
-                android:layout_alignStart="@+id/textView13" />
+                android:layout_below="@+id/textView39"
+                android:layout_alignStart="@+id/textView13"
+                android:layout_marginStart="11dp" />
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="19dp"
                 android:text="UF:"
                 android:layout_below="@+id/textView7"
-                android:layout_toEndOf="@+id/textView10" />
-
-            <TextView
-                android:id="@+id/txtnum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView7"
-                android:layout_alignBottom="@+id/textView7"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="29dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/txtcidade"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView24"
-                android:layout_alignBottom="@+id/textView24"
-                android:layout_toStartOf="@+id/textView24"
-                android:text="TextView" />
+                android:layout_toEndOf="@+id/textView45" />
 
             <TextView
                 android:id="@+id/txtuf"
@@ -146,60 +106,69 @@
                 android:layout_alignTop="@+id/textView45"
                 android:text="TextView" />
 
+            <TextView
+                android:id="@+id/idpedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView39"
+                android:layout_alignBottom="@+id/textView39"
+                android:layout_toEndOf="@+id/textView39"
+                android:text="ID" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pedido #"
+                android:layout_alignBottom="@+id/textView13"
+                android:layout_alignStart="@+id/textView24"
+                android:layout_alignTop="@+id/textView13" />
+
         </RelativeLayout>
 
-    <TextView
-        android:id="@+id/idpedido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="ID"
-        android:textSize="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView30" />
 
     <ListView
         android:id="@+id/listaitens"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/idpedido"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/my_toolbar"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="46dp"
         android:text="Nome:"
-        android:layout_marginStart="35dp"
         android:layout_below="@+id/listaitens"
-        android:layout_alignParentStart="true" />
+        android:layout_alignStart="@+id/textView8"
+        android:layout_marginStart="23dp" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cep:"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/textView14"
+        android:layout_below="@+id/txtendereco"
         android:layout_alignStart="@+id/textView14" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView23"
+        android:text="Cidade:"
         android:layout_below="@+id/textView23"
-        android:text="Cidade:" />
+        android:layout_alignStart="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView12"
+        android:text="Complemento:"
         android:layout_below="@+id/textView12"
-        android:text="Complemento:" />
+        android:layout_alignStart="@+id/textView12"
+        android:layout_marginTop="12dp" />
 
     <TextView
         android:id="@+id/textView36"
@@ -207,7 +176,8 @@
         android:layout_height="wrap_content"
         android:text="N°"
         android:layout_below="@+id/textView14"
-        android:layout_toEndOf="@+id/txtendereco" />
+        android:layout_toEndOf="@+id/txtnome"
+        android:layout_marginStart="12dp" />
 
     <TextView
         android:id="@+id/txtnome"
@@ -223,14 +193,14 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_below="@+id/txtnome"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/txtnome" />
 
     <TextView
         android:id="@+id/txtcep"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView12"
-        android:layout_toEndOf="@+id/textView14"
+        android:layout_toEndOf="@+id/textView23"
         android:text="TextView" />
 
     <TextView
@@ -240,6 +210,45 @@
         android:layout_alignBaseline="@+id/textView30"
         android:layout_alignBottom="@+id/textView30"
         android:layout_alignEnd="@+id/txtendereco"
+        android:text="TextView" />
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:id="@+id/txtnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_alignBaseline="@+id/textView36"
+        android:layout_alignBottom="@+id/textView36"
+        android:layout_toEndOf="@+id/textView36" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_marginStart="15dp"
+        android:text="Produtos Vinculados"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtcidade"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtcep"
+        android:layout_toEndOf="@+id/textView12"
         android:text="TextView" />
 
 </RelativeLayout>

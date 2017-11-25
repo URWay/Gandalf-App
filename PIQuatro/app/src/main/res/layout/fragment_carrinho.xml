@@ -9,9 +9,9 @@
         android:id="@+id/listaCart"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:layout_above="@+id/relativeLayout"
+        android:layout_below="@+id/my_toolbar"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_above="@+id/relativeLayout">
     </ListView>
 
     <RelativeLayout
@@ -48,6 +48,14 @@
             android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/holo_blue_dark"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
 
 </RelativeLayout>

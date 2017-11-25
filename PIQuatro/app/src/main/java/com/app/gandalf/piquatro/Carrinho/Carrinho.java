@@ -3,7 +3,9 @@ package com.app.gandalf.piquatro.Carrinho;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -29,10 +31,18 @@ public class Carrinho extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_carrinho);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         listaCart = (ListView) findViewById(R.id.listaCart);
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String json = prefs.getString(PRODUCTS, null);
-
+        //BTN VOLTAR
+        setTitle("Carrinho");
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
         if(json != null){
             // Alimenta a lista do carrinho
             SharedPreferencesCart sh = new SharedPreferencesCart();
