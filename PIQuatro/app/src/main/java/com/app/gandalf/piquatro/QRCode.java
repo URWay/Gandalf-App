@@ -62,6 +62,7 @@ public class QRCode extends AppCompatActivity {
                 builder.setTitle("Resultado");
                 builder.setMessage(result.getText());
 
+
                 final ZXingScannerView.ResultHandler rh = this;
 
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){

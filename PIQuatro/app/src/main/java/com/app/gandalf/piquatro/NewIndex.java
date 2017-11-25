@@ -44,7 +44,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
                 SharedPreferences prefs = NewIndex.this.getSharedPreferences("PRODUCT_APP", MODE_PRIVATE);
                 String product = prefs.getString("Product", null);
-                if(product == null || product.equals("") || product.equals("[]"))
+                if (product == null || product.equals("") || product.equals("[]"))
                     fragmentClass = empty.class;
                 else
 
@@ -74,6 +74,8 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         getSupportActionBar().setTitle("Home");
 
     }
+
+
     @Override
     public void onBackPressed() {
         startActivity(new Intent(this, NewIndex.class)); //O efeito ao ser pressionado do botão (no caso abre a activity)

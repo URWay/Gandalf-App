@@ -29,8 +29,6 @@ public class FragmentLogin extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_login,container,false);
 
-
-
         holder.txtlogin = (EditText) view.findViewById(R.id.txtlogin);
         holder.txtsenha = (EditText) view.findViewById(R.id.txtsenha);
         holder.btnok = (Button) view.findViewById(R.id.btnok);

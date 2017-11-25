@@ -51,7 +51,7 @@ public class CadastroCliente extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_cliente);
-        findViewById(R.id.loadingLogin).setVisibility(View.GONE);
+
 
         txtnome = (EditText) findViewById(R.id.txtnomeapelido);
         txtemail = (EditText) findViewById(R.id.txtemail);
