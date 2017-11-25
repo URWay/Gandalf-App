@@ -54,7 +54,7 @@ public class FragmentHomeListaProduto extends Fragment {
         }
 
         //Pega a categoria para busca
-        myCall.execute(url + "/"+cat);
+        myCall.execute(url+"/"+cat);
 
         return v;
     }

@@ -1,9 +1,12 @@
 package com.app.gandalf.piquatro;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +29,7 @@ public class Login extends AppCompatActivity {
     private TextView txtreg;
     private Functions f = new Functions();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +40,13 @@ public class Login extends AppCompatActivity {
         txtreg = (TextView) findViewById(R.id.txtreg);
         findViewById(R.id.loadingL).setVisibility(View.GONE);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         // Login e senha em branco
-        View.OnClickListener listener = new View.OnClickListener(){
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (txtlogin.getText().toString().isEmpty() || txtsenha.getText().toString().isEmpty()) {
@@ -83,7 +88,6 @@ public class Login extends AppCompatActivity {
     }
 
 
-
     public void LoginCliente(String email, String senha){
         LoginModel login = new LoginModel(email, senha, 0);
         Gson g = new Gson();
@@ -102,6 +106,8 @@ public class Login extends AppCompatActivity {
             return f.Login(Login.this, params[0], params[1]);
         }
 
+
+
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
@@ -111,6 +117,7 @@ public class Login extends AppCompatActivity {
                     f.showDialog("Falha no login!","Usuário ou senha inválidos", Login.this);
                 } else {
                     Toast.makeText(getApplicationContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();

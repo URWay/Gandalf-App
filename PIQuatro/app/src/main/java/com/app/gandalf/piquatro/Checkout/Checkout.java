@@ -92,15 +92,15 @@ public class Checkout extends AppCompatActivity {
 
             // Quantidade do carrinho
             TextView textVQtdProduto = (TextView) findViewById(R.id.textVQtdProduto);
-            textVQtdProduto.setText(String.valueOf(qtd) + " produto");
+            textVQtdProduto.setText(String.valueOf(qtd) + " produto(s)");
 
             // Preço dos produtos
-            EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
-            editPrecoProduto.setText(new DecimalFormat("R$ #,##0.00").format(precoProdutos));
+            // EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
+           // editPrecoProduto.setText(new DecimalFormat("R$ #,##0.00").format(precoProdutos));
 
             // Total
-            EditText editTotal = (EditText) findViewById(R.id.editTotal);
-            editTotal.setText(new DecimalFormat("R$ #,##0.00").format(total));
+            //EditText editTotal = (EditText) findViewById(R.id.editTotal);
+            //editTotal.setText(new DecimalFormat("R$ #,##0.00").format(total));
 
             // Carrega sempre o primeiro endereço cadastrado do cliente
             NetworkCallEndereco myCall = new NetworkCallEndereco();

@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -69,6 +70,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         getSupportActionBar().setTitle("Home");
 
 
+
     }
     @Override
     public void onBackPressed() {
@@ -81,6 +83,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.new_index, menu);
+
 
         return true;
     }
@@ -154,26 +157,34 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         } else if (id == R.id.nav_login) {
 
             fragmentClass = FragmentLogin.class;
-            //btn voltar
-            //getSupportActionBar().setDisplayShowHomeEnabled(true);
-            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
-        } else if (id== R.id.nav_conta){
+
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.hide();
+
+        } else if (id== R.id.nav_pedidos){
+
 
         } else if(id== R.id.nav_config){
             fragmentClass = FragmentConfiguracoes.class;
             getSupportActionBar().setTitle("Configurações");     //Titulo para ser exibido na sua Action Bar em frente à seta
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.hide();
+
 
         } else if(id == R.id.nav_sobre){
-
             fragmentClass = FragmentSobre.class;
             getSupportActionBar().setTitle("Sobre nós");     //Titulo para ser exibido na sua Action Bar em frente à seta
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.hide();
+
 
         } else if(id == R.id.nav_qrcode){
 
             fragmentClass = QRCode.class;
-
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.hide();
 
         }
 
@@ -181,8 +192,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         try {
             fragment = (Fragment) fragmentClass.newInstance();
             fragment.setArguments(bundle);
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.hide();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

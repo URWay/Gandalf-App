@@ -3,39 +3,37 @@
 
     <group android:checkableBehavior="single">
 
-
-
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/home"
             android:title="Página Principal" />
 
         <item android:title="Categorias">
         <item
             android:id="@+id/nav_promo"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/promocoes"
             android:title="Promoções" />
         <item
             android:id="@+id/nav_colec"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/colecionaveis"
             android:title="Colecionáveis" />
         <item
             android:id="@+id/nav_jogos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/games"
             android:title="Jogos" />
         <item
             android:id="@+id/nav_quad"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/quadrinhos"
             android:title="Quadrinhos" />
 
         <item
             android:id="@+id/nav_canec"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/canecas"
             android:title="Canecas" />
 
         <item
             android:id="@+id/nav_deco"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/decoracao"
             android:title="Decoração" />
         </item>
 
@@ -45,7 +43,7 @@
     <item android:title="Produto">
         <item
             android:id="@+id/nav_qrcode"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/qrcode"
             android:title="Buscar produto por QRCode" />
     </item>
 
@@ -55,15 +53,15 @@
 
             <item
                 android:id="@+id/nav_login"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/login"
                 android:title="Login" />
             <item
-                android:id="@+id/nav_conta"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Minha conta" />
+                android:id="@+id/nav_pedidos"
+                android:icon="@drawable/pedidos"
+                android:title="Meus Pedidos" />
             <item
                 android:id="@+id/nav_config"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/configuracoes"
                 android:title="Configurações" />
         </menu>
     </item>
@@ -72,7 +70,7 @@
         <menu>
             <item
                 android:id="@+id/nav_sobre"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/about"
                 android:title="Sobre nós" />
 
         </menu>
