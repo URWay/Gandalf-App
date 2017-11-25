@@ -18,6 +18,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true">
 
+
                 <Button
                     android:id="@+id/comprar"
                     android:layout_width="376dp"
@@ -36,6 +37,47 @@
                   android:layout_above="@+id/textView27"
                   android:layout_alignParentEnd="true" />
 
+                <TextView
+                    android:id="@+id/textVQtdProduto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/textView20"
+                    android:layout_marginTop="84dp"
+                    android:text="Itens"
+                    android:textColor="@android:color/background_dark"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/editTotal"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="numberDecimal"
+                    android:text="quantidadeprod"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="18dp"
+                    android:layout_alignBaseline="@+id/textView20"
+                    android:layout_alignBottom="@+id/textView20"
+                    android:layout_alignEnd="@+id/textView22" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total:"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="38dp"
+                    android:layout_below="@+id/textVQtdProduto"
+                    android:layout_alignParentStart="true" />
+
+
 
                 <TextView
                     android:id="@+id/textView21"
@@ -45,32 +87,34 @@
                     android:textColor="@android:color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="150dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/spinParcelas" />
+                    android:layout_marginTop="41dp"
+                    android:layout_below="@+id/editTotal"
+                    android:layout_alignStart="@+id/textView5" />
 
                 <TextView
                     android:id="@+id/textEndereco"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/textView22"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView21"
+                    android:layout_alignEnd="@+id/textView22" />
 
 
                 <TextView
                     android:id="@+id/textView22"
                     android:layout_width="350dp"
                     android:layout_height="150dp"
-                    android:layout_alignEnd="@+id/spiMes"
-                    android:layout_below="@+id/textView21"
+
                     android:layout_marginRight="15dp"
-                    android:layout_marginTop="8dp"
-                         />
+                    android:layout_marginTop="49dp"
+                    android:layout_below="@+id/textView21"
+                    android:layout_alignParentStart="true" />
                 <Button
                     android:id="@+id/btnEnderecoTroca"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-
+                    android:layout_below="@+id/textEndereco"
                     android:background="@android:color/holo_blue_light"
                     android:text="Alterar endereço"
                     android:textAlignment="center"
@@ -146,7 +190,7 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="15dp"
                     android:layout_below="@+id/textView29"
-                    android:layout_toStartOf="@+id/spinParcelas">
+                    android:layout_toEndOf="@+id/textView29">
 
                 </Spinner>
 
@@ -158,9 +202,9 @@
                     android:text="Parcelar em:"
                     android:textColor="@android:color/background_dark"
                     android:textStyle="bold"
+                    android:layout_marginBottom="12dp"
                     android:layout_alignBottom="@+id/spinParcelas"
-                    android:layout_alignEnd="@+id/spinnerParcela"
-                    android:layout_marginBottom="10dp" />
+                    android:layout_alignStart="@+id/textView15" />
 
                 <EditText
                     android:id="@+id/txtnumcod"
@@ -194,30 +238,30 @@
                     android:id="@+id/textView15"
                     android:layout_width="40dp"
                     android:layout_height="30dp"
-                    android:layout_alignTop="@+id/spinnerParcela"
-                    android:layout_toStartOf="@+id/spinnerParcela"
                     android:text="Mês"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_alignTop="@+id/spinnerParcela"
+                    android:layout_alignStart="@+id/textView29" />
 
 
                 <TextView
                     android:id="@+id/textView18"
                     android:layout_width="50dp"
                     android:layout_height="30dp"
-                    android:layout_alignTop="@+id/spiAno"
-                    android:layout_toStartOf="@+id/spiAno"
                     android:text="Ano"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_above="@+id/spinParcelas"
+                    android:layout_alignStart="@+id/spinParcelas" />
 
                 <Spinner
                     android:id="@+id/spiAno"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
-                    android:layout_alignTop="@+id/spinnerParcela"
-                    android:layout_alignEnd="@+id/comprar">
+                    android:layout_above="@+id/spinParcelas"
+                    android:layout_alignEnd="@+id/idcod">
 
                 </Spinner>
 
@@ -226,7 +270,7 @@
                     android:layout_width="80dp"
                     android:layout_height="50dp"
                     android:layout_below="@+id/spinnerParcela"
-                    android:layout_toStartOf="@+id/spiAno" />
+                    android:layout_toEndOf="@+id/spinnerParcela" />
             </RelativeLayout>
         </ScrollView>
 
@@ -240,48 +284,6 @@
         android:background="@color/colorAccent"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" />
-
-    <TextView
-        android:id="@+id/textVQtdProduto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView20"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="44dp"
-        android:text="Itens"
-        android:textColor="@android:color/background_dark"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/editTotal"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="43dp"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="numberDecimal"
-        android:text="quantidadeprod"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="18dp"
-        android:layout_alignBaseline="@+id/textView20"
-        android:layout_alignBottom="@+id/textView20"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Total:"
-        android:textColor="@android:color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginStart="38dp"
-        android:layout_below="@+id/textVQtdProduto"
-        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

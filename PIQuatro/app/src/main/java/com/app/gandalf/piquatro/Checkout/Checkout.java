@@ -3,6 +3,8 @@ package com.app.gandalf.piquatro.Checkout;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.gandalf.piquatro.FragmentCadastroCliente;
 import com.app.gandalf.piquatro.Functions;
 import com.app.gandalf.piquatro.Mask;
 import com.app.gandalf.piquatro.R;
@@ -452,6 +455,20 @@ public class Checkout extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Pedido realizado com sucesso", Toast.LENGTH_SHORT).show();
                     SharedPreferencesCart sh = new SharedPreferencesCart();
                     sh.removeSharedItens(Checkout.this);
+
+                    Fragment fragment = null;
+                    Class fragmentClass = null;
+
+                    fragmentClass = FragmentCadastroCliente.class;
+
+                    try {
+                        fragment = (Fragment) fragmentClass.newInstance();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
                 }
 
             } catch (Exception e) {
