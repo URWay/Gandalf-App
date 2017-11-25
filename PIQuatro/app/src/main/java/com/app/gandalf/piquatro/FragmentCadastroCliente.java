@@ -3,10 +3,13 @@ package com.app.gandalf.piquatro;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -31,7 +34,8 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class CadastroCliente extends AppCompatActivity {
+public class FragmentCadastroCliente extends Fragment {
+
     private EditText txtnome;
     private EditText txtemail;
     private EditText txtsenha;
@@ -46,43 +50,45 @@ public class CadastroCliente extends AppCompatActivity {
     private TextView textView16;
     private TextWatcher cpfMask;
     private Functions f = new Functions();
-    private Bundle bundle;
 
+    private static final String TAG = "Cadastro cliente";
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_cliente);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_cadastro_cliente, container, false);
 
-        txtnome = (EditText) findViewById(R.id.txtnomeapelido);
-        txtemail = (EditText) findViewById(R.id.txtemail);
-        txtsenha = (EditText) findViewById(R.id.txtsenha);
-        txtcpf = (EditText) findViewById(R.id.txtcpf);
-        txtsenha = (EditText) findViewById(R.id.txtsenha);
-        txtcelular = (EditText) findViewById(R.id.txtcelular);
-        txtcomercial = (EditText) findViewById(R.id.txtcomercial);
-        txtresidencial = (EditText) findViewById(R.id.txtres);
-        txtnasc = (EditText) findViewById(R.id.txtnasc);
-        checknews = (CheckBox) findViewById(R.id.checknews);
-        btnok = (Button) findViewById(R.id.btnok);
-        textView16 = (TextView) findViewById(R.id.textView16);
+        txtnome = (EditText) view.findViewById(R.id.txtnomeapelido);
+        txtemail = (EditText) view.findViewById(R.id.txtemail);
+        txtsenha = (EditText) view.findViewById(R.id.txtsenha);
+        txtcpf = (EditText) view.findViewById(R.id.txtcpf);
+        txtsenha = (EditText) view.findViewById(R.id.txtsenha);
+        txtcelular = (EditText) view.findViewById(R.id.txtcelular);
+        txtcomercial = (EditText) view.findViewById(R.id.txtcomercial);
+        txtresidencial = (EditText) view.findViewById(R.id.txtres);
+        txtnasc = (EditText) view.findViewById(R.id.txtnasc);
+        checknews = (CheckBox) view.findViewById(R.id.checknews);
+        btnok = (Button) view.findViewById(R.id.btnok);
+        textView16 = (TextView) view.findViewById(R.id.textView16);
 
         // Verificar quando for inclusão / alteração / Exclusão
-        Intent intent = getIntent();
-        if(intent != null){
-            if(intent.getStringExtra("ACAO").equals("M")){
+        Bundle mBundle = new Bundle();
+        if(mBundle != null){
+            mBundle = getArguments();
+            String acao = mBundle.getString("ACAO");
+
+            if(acao.equals("M")){
                 // Carrega as informações de cadastro
                 NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
-                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + f.getId(this));
+                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + f.getId(getContext()));
                 btnok.setText("Atualizar cadastro");
                 textView16.setText("Atualizar cadastro");
             }
         }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
-        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-        getSupportActionBar().setTitle("Cadastro de Cliente");     //Titulo para ser exibido na sua Action Bar em frente à seta
-
-
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        //getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        //getSupportActionBar().setTitle("Cadastro de Cliente");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         // Mascára
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
@@ -112,38 +118,44 @@ public class CadastroCliente extends AppCompatActivity {
                 }
 
                 if (nome.equals("") || email.equals("") || senha.equals("") || cpf.equals("") || celular.equals("")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Os campos com * são obrigatórios!", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getContext(), "Os campos com * são obrigatórios!", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
 
                     if(f.isCPF(cpf) == true && f.isValidEmail(email) == true){
-                        findViewById(R.id.loadingLogin).setVisibility(View.VISIBLE);
-                        RelativeLayout relative = (RelativeLayout) findViewById(R.id.activity_cadastro_cliente);
+                        view.findViewById(R.id.loadingLogin).setVisibility(View.VISIBLE);
+                        RelativeLayout relative = (RelativeLayout) view.findViewById(R.id.activity_cadastro_cliente);
                         relative.setBackgroundResource(0);
 
-                        Intent intent = getIntent();
-                        ClienteModel cliente = new ClienteModel(f.getId(CadastroCliente.this), nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
+                        Bundle mBundle = new Bundle();
+                        if(mBundle != null) {
+                            mBundle = getArguments();
+                        }
 
-                        if (intent.getStringExtra("ACAO").equals("A")){
+                        String acao = mBundle.getString("ACAO");
+
+                        ClienteModel cliente = new ClienteModel(f.getId(getActivity()), nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
+
+                        if (acao.equals("A")){
                             // Inserir dados de cadastro
                             Cadastro(cliente, "inserir");
                         }
-                        else if(intent.getStringExtra("ACAO").equals("M")){
+                        else if(acao.equals("M")){
                             // Atualização do cadastro
                             Cadastro(cliente, "atualizar");
                         }else {
-                            Toast toast = Toast.makeText(getApplicationContext(), "Não foi possível realizar a operação", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getContext(), "Não foi possível realizar a operação", Toast.LENGTH_SHORT);
                             toast.show();
                         }
 
                     } else {
                         if(f.isValidEmail(email) == false){
-                            Toast toast = Toast.makeText(getApplicationContext(), "E-mail inválido", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getContext(), "E-mail inválido", Toast.LENGTH_SHORT);
                             toast.show();
                         }
 
                         if(f.isCPF(cpf) == false){
-                            Toast toast = Toast.makeText(getApplicationContext(), "CPF inválido", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getContext(), "CPF inválido", Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     }
@@ -153,6 +165,8 @@ public class CadastroCliente extends AppCompatActivity {
         };
 
         btnok.setOnClickListener(listener);
+
+        return view;
     }
 
     public void Cadastro(ClienteModel cliente, String acao){
@@ -260,15 +274,12 @@ public class CadastroCliente extends AppCompatActivity {
             super.onPostExecute(result);
 
             if(result.equals("PUT")){
-                Toast toast = Toast.makeText(getApplicationContext(), "Dados atualizados com sucesso", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getContext(), "Dados atualizados com sucesso", Toast.LENGTH_SHORT).show();
             } else if (result.equals("false")) {
-                f.showDialog("Falha na atualização", "Não foi possível atualizar o cadastro, por favor, verifique as informação de cadastro se estão corretas!", CadastroCliente.this);
+                f.showDialog("Falha na atualização", "Não foi possível atualizar o cadastro, por favor, verifique as informação de cadastro se estão corretas!", getActivity());
             } else {
-                f.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
+                f.showDialog("Erro","Erro ao obter o resultado", getActivity());
             }
-
-            findViewById(R.id.loadingLogin).setVisibility(View.GONE);
         }
     }
 
@@ -358,7 +369,7 @@ public class CadastroCliente extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            return f.Login(CadastroCliente.this, params[0], params[1]);
+            return f.Login(getActivity(), params[0], params[1]);
         }
 
         @Override
@@ -366,15 +377,14 @@ public class CadastroCliente extends AppCompatActivity {
             super.onPostExecute(result);
             try {
                 if(!result.equals("200")){
-                    // Ir para home, ver depois
+                    startActivity(new Intent(getActivity(), NewIndex.class));
+                    Toast.makeText(getContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                f.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
+                f.showDialog("Erro","Erro ao obter o resultado", getActivity());
             }
-            findViewById(R.id.loadingL).setVisibility(View.GONE);
         }
     }
+
 }
-
-

@@ -67,8 +67,6 @@ private Functions f = new Functions();
         getSupportActionBar().setTitle("Cadastro de Endereço");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
 
-
-
         // Verificar quando for inclusão / alteração / Exclusão
         Intent intent = getIntent();
         if(intent != null){

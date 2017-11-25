@@ -1,23 +1,16 @@
 package com.app.gandalf.piquatro;
 
-import android.content.ClipData;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.media.MediaPlayer;
-
-
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
 import com.app.gandalf.piquatro.models.LoginModel;
 import com.google.gson.Gson;
@@ -39,8 +32,6 @@ public class Login extends AppCompatActivity {
         txtsenha = (EditText) findViewById(R.id.txtsenha);
         btnok = (Button) findViewById(R.id.btnok);
         txtreg = (TextView) findViewById(R.id.txtreg);
-
-
 
         getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
 

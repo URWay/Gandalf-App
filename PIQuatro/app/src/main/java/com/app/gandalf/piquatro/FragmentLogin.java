@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +16,6 @@ import android.widget.Toast;
 
 import com.app.gandalf.piquatro.models.LoginModel;
 import com.google.gson.Gson;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 
 public class FragmentLogin extends Fragment{
     private static final String TAG = "Login";
@@ -28,7 +26,7 @@ public class FragmentLogin extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_login,container,false);
-
+        
         holder.txtlogin = (EditText) view.findViewById(R.id.txtlogin);
         holder.txtsenha = (EditText) view.findViewById(R.id.txtsenha);
         holder.btnok = (Button) view.findViewById(R.id.btnok);
@@ -56,9 +54,24 @@ public class FragmentLogin extends Fragment{
         holder.txtreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CadastroCliente.class);
-                intent.putExtra("ACAO", "A");
-                startActivity(intent);
+                Bundle bundle = new Bundle();
+                bundle.putString("ACAO", "A");
+
+
+                Fragment fragment = null;
+                Class fragmentClass = null;
+
+                fragmentClass = FragmentCadastroCliente.class;
+
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                    fragment.setArguments(bundle);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
 
             }
         });
@@ -101,8 +114,8 @@ public class FragmentLogin extends Fragment{
                 if(!result.equals("200")){
                     holder.f.showDialog("Falha no login!","Usuário ou senha inválidos", getActivity());
                 } else {
-
-                    //mata = fragmentTransaction.remove(yourfragment).commit()
+                    startActivity(new Intent(getActivity(), NewIndex.class));
+                    Toast.makeText(getContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
