@@ -1,10 +1,7 @@
 package com.app.gandalf.piquatro;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,26 +11,19 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FragmentListaPedidos extends Fragment {
     private ListView pedidoslista;
@@ -46,18 +36,18 @@ public class FragmentListaPedidos extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_configuracoes, container, false);
+        View v = inflater.inflate(R.layout.activity_desc_pedido, container, false);
 
         hospedeiro = v.findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
-        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/pedido/all";
+        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/pedido/";
 
         //instanciar para n mudar o código
         Functions f = new Functions();
 
         int idSession = f.getId(this.getContext());
 
-        myCall.execute(url + "/"+idSession);
+        myCall.execute(url + "/"+64);
 
         return v;
     }
@@ -105,16 +95,15 @@ public class FragmentListaPedidos extends Fragment {
                 double precProduto, preco;
 
                 for (int i = 0; i <= to; i++) {
-                    idProduto = json.getJSONObject(i).getInt("idProduto");
+                   idProduto = 1;//json.getJSONObject(i).getInt("idProduto");
                     idPedido = json.getJSONObject(i).getInt("idPedido");
                     nomeProduto = json.getJSONObject(i).getString("nomeProduto");
-                    precProduto = json.getJSONObject(i).getDouble("precProduto");
                     preco = json.getJSONObject(i).getDouble("precoVendaItem");
                     imagem = json.getJSONObject(i).getString("imagem");
                     qtd = json.getJSONObject(i).getInt("qtdProduto");
-                    status = json.getJSONObject(i).getString("descStatus");
+                    status = "OK";//json.getJSONObject(i).getString("descStatus");
 
-                    addItem(idPedido, idProduto, nomeProduto, preco, precProduto, imagem, qtd, status);
+                    addItem(idPedido, idProduto, nomeProduto, preco, imagem, qtd, status);
                 }
 
             } catch (Exception e) {
@@ -122,15 +111,15 @@ public class FragmentListaPedidos extends Fragment {
             }
         }
 
-        private void addItem(int idPedido,int idProduto, String nomeProduto, double preco, double precProduto, String imagem, int qtd, String status) {
-            CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.activity_produtos, hospedeiro,false);
+        private void addItem(int idPedido,int idProduto, String nomeProduto, double preco, String imagem, int qtd, String status) {
+            CardView cardView = (CardView) LayoutInflater.from(getActivity()).inflate(R.layout.card_pedido, hospedeiro,false);
 
 
             final int produto1 = idProduto;
 
             final TextView nome = (TextView) cardView.findViewById(R.id.nomeProduto);
             TextView prec = (TextView) cardView.findViewById(R.id.precProduto);
-            TextView vQtd = (TextView) cardView.findViewById(R.id.qtd);
+            TextView vQtd = (TextView) cardView.findViewById(R.id.qtdProd);
             TextView vPreco = (TextView) cardView.findViewById(R.id.preco);
             TextView vStatus = (TextView) cardView.findViewById(R.id.status);
             final ImageView image = (ImageView) cardView.findViewById(R.id.imageViewListaProdutos);
@@ -139,9 +128,9 @@ public class FragmentListaPedidos extends Fragment {
 
 
             nome.setText(nomeProduto);
-            prec.setText(new DecimalFormat("R$ #,##0.00").format(precProduto));
+            prec.setText(new DecimalFormat("R$ #,##0.00").format(preco));
             vQtd.setText(String.valueOf(qtd));
-            vPreco.setText(new DecimalFormat("R$ #,##0.00").format(preco));
+            vPreco.setText(new DecimalFormat("R$ #,##0.00").format(preco*qtd));
             vStatus.setText(status);
             image.setImageBitmap(bitmap);
 

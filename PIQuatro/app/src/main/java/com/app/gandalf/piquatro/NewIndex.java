@@ -73,6 +73,33 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle("Home");
 
+        //CARREGA HOME
+        Fragment fragment = null;
+        Class fragmentClass = null;
+
+        fragmentClass = FragmentHomeListaProduto.class;
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        bundle.putInt("categoria",0);
+        getSupportActionBar().setTitle("Home");
+        fab.show();
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+            fragment.setArguments(bundle);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
+
+
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+
     }
 
 

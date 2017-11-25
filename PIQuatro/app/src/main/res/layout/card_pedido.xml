@@ -55,7 +55,7 @@
             android:typeface="normal" />
 
         <TextView
-            android:id="@+id/qtd"
+            android:id="@+id/qtdProd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/precProduto"
@@ -72,10 +72,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_alignBottom="@+id/qtd"
-            android:layout_alignTop="@+id/qtd"
+            android:layout_alignBottom="@+id/qtdProd"
+            android:layout_alignTop="@+id/qtdProd"
             android:layout_marginStart="14dp"
-            android:layout_toEndOf="@+id/qtd"
+            android:layout_toEndOf="@+id/qtdProd"
             android:text="preco"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="14sp"
