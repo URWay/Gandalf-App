@@ -11,11 +11,10 @@
         android:id="@+id/loadingL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btnok"
-        android:layout_below="@+id/imageView4"
-        android:layout_marginStart="13dp"
         android:indeterminate="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_below="@+id/imageView4"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,7 +30,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/txtsenha"
         android:hint="Senha"
@@ -47,8 +46,9 @@
         android:background="@android:color/holo_blue_bright"
         android:textSize="18sp"
         android:layout_below="@+id/txtsenha"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp" />
+        android:layout_marginTop="26dp"
+        android:layout_alignStart="@+id/imageView5"
+        android:layout_alignEnd="@+id/imageView3" />
 
     <TextView
         android:text="Novo por aqui!?"

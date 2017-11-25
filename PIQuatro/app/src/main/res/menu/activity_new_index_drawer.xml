@@ -3,11 +3,14 @@
 
     <group android:checkableBehavior="single">
 
+
+
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_manage"
             android:title="Página Principal" />
 
+        <item android:title="Categorias">
         <item
             android:id="@+id/nav_promo"
             android:icon="@drawable/ic_menu_camera"
@@ -34,9 +37,17 @@
             android:id="@+id/nav_deco"
             android:icon="@drawable/ic_menu_manage"
             android:title="Decoração" />
+        </item>
+
+
     </group>
 
-
+    <item android:title="Produto">
+        <item
+            android:id="@+id/nav_qrcode"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Buscar produto por QRCode" />
+    </item>
 
 
     <item android:title="Dados pessoais">

@@ -32,6 +32,11 @@ public class Enderecos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enderecos);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Meus Endereços");     //Titulo para ser exibido na sua Action Bar em frente à seta
+
+
         lista = (ListView) findViewById(R.id.lista);
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         int id = prefs.getInt("id", 0);

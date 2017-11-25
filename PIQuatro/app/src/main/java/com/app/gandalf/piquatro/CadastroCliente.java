@@ -78,6 +78,12 @@ public class CadastroCliente extends AppCompatActivity {
             }
         }
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Cadastro de Cliente");     //Titulo para ser exibido na sua Action Bar em frente à seta
+
+
+
         // Mascára
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));

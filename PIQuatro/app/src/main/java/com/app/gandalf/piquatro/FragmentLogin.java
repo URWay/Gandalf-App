@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class FragmentLogin extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.activity_login,container,false);
+
+
 
         holder.txtlogin = (EditText) view.findViewById(R.id.txtlogin);
         holder.txtsenha = (EditText) view.findViewById(R.id.txtsenha);
@@ -58,6 +61,7 @@ public class FragmentLogin extends Fragment{
                 Intent intent = new Intent(getActivity(), CadastroCliente.class);
                 intent.putExtra("ACAO", "A");
                 startActivity(intent);
+
             }
         });
 

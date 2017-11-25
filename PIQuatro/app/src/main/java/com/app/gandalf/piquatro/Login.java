@@ -36,8 +36,9 @@ public class Login extends AppCompatActivity {
         txtreg = (TextView) findViewById(R.id.txtreg);
         findViewById(R.id.loadingL).setVisibility(View.GONE);
 
-        //ActionBar ab = getSupportActionBar();
-        //ab.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         // Login e senha em branco
         View.OnClickListener listener = new View.OnClickListener(){

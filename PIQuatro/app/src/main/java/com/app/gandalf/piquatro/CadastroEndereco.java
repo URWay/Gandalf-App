@@ -62,6 +62,13 @@ private Functions f = new Functions();
 
         txtcep.addTextChangedListener(Mask.insert("#####-###", txtcep));
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Cadastro de Endereço");     //Titulo para ser exibido na sua Action Bar em frente à seta
+
+
+
+
         // Verificar quando for inclusão / alteração / Exclusão
         Intent intent = getIntent();
         if(intent != null){

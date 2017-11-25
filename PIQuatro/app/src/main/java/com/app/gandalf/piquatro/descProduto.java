@@ -5,7 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.view.View;
@@ -46,7 +49,8 @@ public class descProduto extends AppCompatActivity {
         txtpreco = (TextView) findViewById(R.id.txtpreco);
 
         txtdescricao.setMovementMethod(new ScrollingMovementMethod());
-       
+
+
         Button btnconfirma = (Button) findViewById(R.id.btnvolta);
 
         Intent intent = getIntent();
@@ -122,6 +126,10 @@ public class descProduto extends AppCompatActivity {
                 addOption(id, nomeProduto, descProduto, imageProduto, precoProduto, promocaoProduto, qtd);
             }
         });
+
+
+
+
     }
 
     public void addOption(int id, String nome, String desc, String image, double preco, double promo, int qtd){

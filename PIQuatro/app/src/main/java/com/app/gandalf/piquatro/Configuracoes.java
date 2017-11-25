@@ -22,6 +22,11 @@ private ListView lista;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuracoes);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Configurações");     //Titulo para ser exibido na sua Action Bar em frente à seta
+
+
         ArrayAdapter<String> adaptador;
 
         lista = (ListView) findViewById(R.id.lista);
@@ -63,7 +68,7 @@ private ListView lista;
     }
 
     private void sobre() {
-        Intent it = new Intent(Configuracoes.this, Sobre.class);
+        Intent it = new Intent(Configuracoes.this, FragmentSobre.class);
         startActivity(it);
     }
 

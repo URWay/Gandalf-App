@@ -25,9 +25,9 @@
             android:layout_width="300dp"
             android:layout_height="200dp"
             app:srcCompat="@drawable/logogandalf"
-            android:layout_marginTop="22dp"
             android:layout_alignParentTop="true"
-            android:layout_alignEnd="@+id/txtdescricao" />
+            android:layout_alignStart="@+id/textView32"
+            android:layout_marginTop="66dp" />
 
             <TextView
                 android:id="@+id/txtdescricao"
@@ -119,6 +119,12 @@
                 android:layout_below="@+id/txtdescricao"
                 android:layout_alignStart="@+id/btnvolta" />
 
+
+
+
         </RelativeLayout>
     </ScrollView>
+
+
+
 </RelativeLayout>

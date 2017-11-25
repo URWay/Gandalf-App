@@ -20,6 +20,11 @@ private TextView txtstatus3;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status_pedido);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Informações do Pedido");     //Titulo para ser exibido na sua Action Bar em frente à seta
+
+
         imgstatus1 = (ImageView) findViewById(R.id.imgstatus1);
         imgstatus2 = (ImageView) findViewById(R.id.imgstatus2);
         imgstatus3 = (ImageView) findViewById(R.id.imgstatus3);

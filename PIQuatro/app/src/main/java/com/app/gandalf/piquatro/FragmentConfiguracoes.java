@@ -84,7 +84,7 @@ public class FragmentConfiguracoes extends Fragment {
     }
 
     private void sobre() {
-        Intent it = new Intent(getActivity(), Sobre.class);
+        Intent it = new Intent(getActivity(), FragmentSobre.class);
         startActivity(it);
     }
 
