@@ -157,7 +157,7 @@ public class SharedPreferencesCart {
             for (int i = 0; i < cart.size(); i++) {
                 preco = cart.get(i).getPreco();
                 promocaoProduto = cart.get(i).getPromocao();
-                promocao = preco > promocaoProduto;
+                promocao = preco <= promocaoProduto;
                 qtd = cart.get(i).getQtd();
 
                 if (promocao) {

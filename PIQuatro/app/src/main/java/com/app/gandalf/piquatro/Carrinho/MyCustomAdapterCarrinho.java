@@ -133,6 +133,7 @@ public class MyCustomAdapterCarrinho extends BaseAdapter implements ListAdapter 
                             sh.removeIten(context, list.get(position));
                             MyDialog.cancel();
 
+                            notifyDataSetChanged();
                             // Verificar o refresh
                             Toast.makeText(context, "Item removido", Toast.LENGTH_SHORT).show();
                         }
