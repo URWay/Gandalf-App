@@ -105,12 +105,12 @@ public class Checkout extends AppCompatActivity {
             textVQtdProduto.setText(String.valueOf(qtd) + " produto(s)");
 
             // Preço dos produtos
-            // EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
-           // editPrecoProduto.setText(new DecimalFormat("R$ #,##0.00").format(precoProdutos));
+             EditText editPrecoProduto = (EditText) findViewById(R.id.editPrecoProduto);
+            editPrecoProduto.setText(new DecimalFormat("R$ #,##0.00").format(precoProdutos));
 
             // Total
-            //EditText editTotal = (EditText) findViewById(R.id.editTotal);
-            //editTotal.setText(new DecimalFormat("R$ #,##0.00").format(total));
+            EditText editTotal = (EditText)findViewById(R.id.editTotal);
+            editTotal.setText(new DecimalFormat("R$ #,##0.00").format(total));
 
             // Carrega sempre o primeiro endereço cadastrado do cliente
             NetworkCallEndereco myCall = new NetworkCallEndereco();
@@ -137,8 +137,6 @@ public class Checkout extends AppCompatActivity {
             comprar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
 
 
                     SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
