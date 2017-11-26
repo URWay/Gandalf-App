@@ -29,6 +29,9 @@
             android:name=".CadastroEndereco"
                 android:screenOrientation="portrait" />
         <activity
+            android:name=".CadastroCliente"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".descProduto"
             android:parentActivityName=".NewIndex" />
         <activity
