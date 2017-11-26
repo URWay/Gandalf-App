@@ -18,7 +18,7 @@
         <TextView
             android:id="@+id/nomeProduto"
             android:layout_width="283dp"
-            android:layout_height="wrap_content"
+            android:layout_height="27dp"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/imageViewListaProdutos"
             android:hint="Nome do Produto"
@@ -58,13 +58,14 @@
             android:id="@+id/qtdProd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:freezesText="false"
-            android:text="qtd"
-            android:textSize="14sp"
-            android:typeface="normal"
             android:layout_alignBaseline="@+id/textView8"
             android:layout_alignBottom="@+id/textView8"
-            android:layout_toEndOf="@+id/textView8" />
+            android:layout_toEndOf="@+id/textView8"
+            android:freezesText="false"
+            android:text="qtd"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/preco"

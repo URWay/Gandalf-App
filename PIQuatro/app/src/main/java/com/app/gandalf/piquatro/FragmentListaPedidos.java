@@ -36,7 +36,7 @@ public class FragmentListaPedidos extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_detalhe_produto, container, false);
+        View v = inflater.inflate(R.layout.activity_desc_pedido, container, false);
 
         hospedeiro = v.findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
