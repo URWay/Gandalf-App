@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,7 +65,6 @@ public class CadastroCliente extends AppCompatActivity {
         checknews = (CheckBox) findViewById(R.id.checknews);
         btnok = (Button) findViewById(R.id.btnok);
 
-
         Intent mBundle = getIntent();
         if(mBundle != null) {
             String acao = mBundle.getStringExtra("ACAO");
@@ -76,10 +74,8 @@ public class CadastroCliente extends AppCompatActivity {
                 NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
                 myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + f.getId(this));
                 btnok.setText("Atualizar cadastro");
-                textView16.setText("Atualizar cadastro");
             }
         }
-
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.mytoolbar);
         setSupportActionBar(myToolbar);
@@ -119,10 +115,6 @@ public class CadastroCliente extends AppCompatActivity {
                 } else {
 
                     if(f.isCPF(cpf) == true && f.isValidEmail(email) == true){
-                        view.findViewById(R.id.loadingLogin).setVisibility(View.VISIBLE);
-                        RelativeLayout relative = (RelativeLayout) view.findViewById(R.id.activity_cadastro_cliente);
-                        relative.setBackgroundResource(0);
-
                         Intent mBundle = getIntent();
                         String acao = "";
                         if(mBundle != null) {
@@ -164,19 +156,18 @@ public class CadastroCliente extends AppCompatActivity {
         Gson g = new Gson();
         String json = g.toJson(cliente);
 
-        if(!f.isEmail(cliente)){
-            String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + acao;
-            String method = null;
+        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + acao;
+        String method = null;
 
-            if(acao.equals("atualizar")){
-                method = "PUT";
-            } else if (acao.equals("inserir")){
+        if(acao.equals("atualizar")){
+            method = "PUT";
+        } else if (acao.equals("inserir")){
+            if(!f.isEmail(cliente))
                 method = "POST";
-            }
-
-            NetworkCall myCall = new NetworkCall();
-            myCall.execute(url, json, method);
         }
+
+        NetworkCall myCall = new NetworkCall();
+        myCall.execute(url, json, method);
     }
 
     public void LoginCadastro(String email, String senha){

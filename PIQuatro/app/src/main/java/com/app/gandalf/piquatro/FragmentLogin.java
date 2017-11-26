@@ -54,7 +54,6 @@ public class FragmentLogin extends Fragment{
             @Override
             public void onClick(View view) {
             Intent it = new Intent(getActivity(), CadastroCliente.class);
-            it.putExtra("ACAO", "M");
             startActivity(it);
             }
         });
