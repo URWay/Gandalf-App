@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -64,7 +65,7 @@ public class CadastroCliente extends AppCompatActivity {
         txtnasc = (EditText) findViewById(R.id.txtnasc);
         checknews = (CheckBox) findViewById(R.id.checknews);
         btnok = (Button) findViewById(R.id.btnok);
-        textView16 = (TextView) findViewById(R.id.textView16);
+
 
         Intent mBundle = getIntent();
         if(mBundle != null) {
@@ -79,6 +80,13 @@ public class CadastroCliente extends AppCompatActivity {
             }
         }
 
+
+      /*  Toolbar myToolbar = (Toolbar) findViewById(R.id.mytoolbar);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Cadastro de Cliente");
+*/
         // Mascára
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));
