@@ -1,5 +1,6 @@
 package com.app.gandalf.piquatro;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.gandalf.piquatro.Carrinho.FragmentCarrinho;
 import com.app.gandalf.piquatro.Carrinho.empty;
@@ -22,6 +27,8 @@ import com.app.gandalf.piquatro.Carrinho.empty;
 public class NewIndex extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Bundle bundle;
+    private Functions f = new Functions();
+    private Dialog MyDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +39,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
         bundle = new Bundle();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
-        //SharedPreferencesCart sh = new SharedPreferencesCart();
-        //sh.removeSharedItens(NewIndex.this);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,10 +51,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
                 if (product == null || product.equals("") || product.equals("[]"))
                     fragmentClass = empty.class;
                 else
-
-
                     fragmentClass = FragmentCarrinho.class;
-
 
                 getSupportActionBar().setTitle("Carrinho");
                 try {
@@ -201,21 +202,65 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
         } else if (id == R.id.nav_login) {
 
-            fragmentClass = FragmentLogin.class;
+            int idCliente = f.getId(getApplicationContext());
 
-            getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
+            if(idCliente <= 0){
+                fragmentClass = FragmentLogin.class;
+                getSupportActionBar().setTitle("Login");     //Titulo para ser exibido na sua Action Bar em frente à seta
+
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                fab.hide();
+            } else {
 
 
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.hide();
+                MyDialog = new Dialog(this);
+                MyDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                MyDialog.setContentView(R.layout.popup_window_checkout);
+                MyDialog.setTitle("My Custom Dialog");
+
+                Button closeButton = (Button) MyDialog.findViewById(R.id.btnCancelar);
+                Button btnRemoverItem = (Button) MyDialog.findViewById(R.id.btnRemoverItem);
+                TextView textView6 = (TextView) MyDialog.findViewById(R.id.textView6);
+                textView6.setText("Realmente quer fazer o log off ? ");
+                btnRemoverItem.setText("Logo ff");
+
+                btnRemoverItem.setEnabled(true);
+                closeButton.setEnabled(true);
+
+                // Botão de fechar
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view){
+                        MyDialog.cancel();
+                    }
+                });
+
+                // Log off
+                btnRemoverItem.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    f.Logoff(NewIndex.this);
+                    startActivity(new Intent(NewIndex.this, NewIndex.class));
+                    finish();
+                    }
+                });
+
+                MyDialog.show();
+                return false;
+            }
 
         } else if (id== R.id.nav_pedidos){
 
+            int idCliente = f.getId(this);
             fragmentClass = FragmentListaPedidos.class;
 
-            getSupportActionBar().setTitle("Meus Pedidos");     //Titulo para ser exibido na sua Action Bar em frente à seta
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.hide();
+            if(idCliente > 0) {
+                getSupportActionBar().setTitle("Meus Pedidos");     //Titulo para ser exibido na sua Action Bar em frente à seta
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                fab.hide();
+            } else {
+                Toast.makeText(getApplicationContext(), "Faça o login antes de verificar seus pedidos!", Toast.LENGTH_SHORT).show();
+            }
 
         } else if(id== R.id.nav_config){
 

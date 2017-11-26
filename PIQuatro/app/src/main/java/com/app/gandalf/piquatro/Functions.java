@@ -185,9 +185,7 @@ public class Functions {
     // Deleta sessão
     public void Logoff(Context context){
         SharedPreferences prefs = context.getSharedPreferences("SessionLogin", context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        prefs.getInt("SessionLogin", 0);
-        editor.apply();
+        prefs.edit().remove("id").commit();
     }
 
     // Login

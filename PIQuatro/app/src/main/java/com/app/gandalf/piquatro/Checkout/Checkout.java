@@ -164,57 +164,61 @@ public class Checkout extends AppCompatActivity {
                     SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
                     String json = prefs.getString(PRODUCTS, null);
 
+                    if(idEndereco <= 0){
+                        Toast.makeText(getApplicationContext(), "Cadastre um endereço antes de realizar o pedido",Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    if(json != null){
-                        // Pedido
-                        CheckoutPedido ckp = new CheckoutPedido();
+                        if(json != null){
+                            // Pedido
+                            CheckoutPedido ckp = new CheckoutPedido();
 
-                        // idCliente
-                        ckp.setIdCliente(id);
+                            // idCliente
+                            ckp.setIdCliente(id);
 
-                        /* idStatus
-                            1 = Aberto
-                            2 = Aguardando Pagamento
-                            3 = Enviado para Transportadora
-                            4 = Entregue
-                            5 = Cancelado
-                        */
+                            /* idStatus
+                                1 = Aberto
+                                2 = Aguardando Pagamento
+                                3 = Enviado para Transportadora
+                                4 = Entregue
+                                5 = Cancelado
+                            */
 
-                        ckp.setIdStatus(3);
+                            ckp.setIdStatus(3);
 
-                        // Data pedido
-                        Date date = new Date();
-                        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                        ckp.setDataPedido(dateFormat.format(date));
+                            // Data pedido
+                            Date date = new Date();
+                            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+                            ckp.setDataPedido(dateFormat.format(date));
 
-                        /* idTipoPagto
-                            1 = Cartão de Crédito
-                            2 = Boleto
-                            3 = pagSeguro
-                            4 = PayPal
-                         */
+                            /* idTipoPagto
+                                1 = Cartão de Crédito
+                                2 = Boleto
+                                3 = pagSeguro
+                                4 = PayPal
+                             */
 
-                        ckp.setIdTipoPagto(1);
+                            ckp.setIdTipoPagto(1);
 
-                        // idEndereco
-                        ckp.setIdEndereco(idEndereco);
+                            // idEndereco
+                            ckp.setIdEndereco(idEndereco);
 
-                        /* idAplicacao
-                            1 = SQL
-                            2 = Mobile
-                            3 = Web
-                        */
+                            /* idAplicacao
+                                1 = SQL
+                                2 = Mobile
+                                3 = Web
+                            */
 
-                        ckp.setIdAplicacao(2);
+                            ckp.setIdAplicacao(2);
 
-                        // Gravando pedido
-                        Gson g = new Gson();
-                        String jsonPedido = g.toJson(ckp);
+                            // Gravando pedido
+                            Gson g = new Gson();
+                            String jsonPedido = g.toJson(ckp);
 
-                        NetworkCallPedido myCallpedido = new NetworkCallPedido();
-                        String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/checkout";
-                        myCallpedido.execute(url, jsonPedido, "POST");
+                            NetworkCallPedido myCallpedido = new NetworkCallPedido();
+                            String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/checkout";
+                            myCallpedido.execute(url, jsonPedido, "POST");
 
+                        }
                     }
 
                 }

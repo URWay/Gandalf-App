@@ -25,11 +25,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.gandalf.piquatro.Checkout.Checkout;
+import com.app.gandalf.piquatro.FragmentLogin;
 import com.app.gandalf.piquatro.Functions;
 import com.app.gandalf.piquatro.NewIndex;
 import com.app.gandalf.piquatro.R;
 import com.app.gandalf.piquatro.models.Cart_List;
 import com.app.gandalf.piquatro.models.SharedPreferencesCart;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -93,12 +97,36 @@ public class FragmentCarrinho extends Fragment {
                 SharedPreferences prefs = getActivity().getSharedPreferences(PREFS_NAME, getContext().MODE_PRIVATE);
                 String json = prefs.getString(PRODUCTS, null);
 
-                if (json != null) {
-                    Intent intent = new Intent(getActivity(), Checkout.class);
-                    startActivity(intent);
-                } else {
-                    f.showDialog("Carrinho vazio", "Nenhum produto no carrinho para finalizar a compra", getActivity());
+                try {
+                    JSONArray array = new JSONArray(json);
+                    int id = f.getId(getActivity());
+
+                    if(id > 0){
+                        if(array.length() > 0){
+                            if (json != null || !json.equals("[]")) {
+                                Intent intent = new Intent(getActivity(), Checkout.class);
+                                startActivity(intent);
+                            }
+                        }
+                    } else {
+                        Fragment fragment = null;
+                        Class fragmentClass = null;
+
+                        fragmentClass = FragmentLogin.class;
+                        try {
+                            fragment = (Fragment) fragmentClass.newInstance();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
+                        Toast.makeText(getContext(), "Para finalizar o pedido, é ncessário fazer o login", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
             }
         });
 
