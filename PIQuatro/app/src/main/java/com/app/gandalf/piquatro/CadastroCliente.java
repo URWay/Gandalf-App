@@ -3,13 +3,10 @@ package com.app.gandalf.piquatro;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -34,7 +31,7 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class FragmentCadastroCliente extends Fragment {
+public class CadastroCliente extends AppCompatActivity {
 
     private EditText txtnome;
     private EditText txtemail;
@@ -51,44 +48,36 @@ public class FragmentCadastroCliente extends Fragment {
     private TextWatcher cpfMask;
     private Functions f = new Functions();
 
-    private static final String TAG = "Cadastro cliente";
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_cadastro_cliente, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cadastro_cliente);
 
-        txtnome = (EditText) view.findViewById(R.id.txtnomeapelido);
-        txtemail = (EditText) view.findViewById(R.id.txtemail);
-        txtsenha = (EditText) view.findViewById(R.id.txtsenha);
-        txtcpf = (EditText) view.findViewById(R.id.txtcpf);
-        txtsenha = (EditText) view.findViewById(R.id.txtsenha);
-        txtcelular = (EditText) view.findViewById(R.id.txtcelular);
-        txtcomercial = (EditText) view.findViewById(R.id.txtcomercial);
-        txtresidencial = (EditText) view.findViewById(R.id.txtres);
-        txtnasc = (EditText) view.findViewById(R.id.txtnasc);
-        checknews = (CheckBox) view.findViewById(R.id.checknews);
-        btnok = (Button) view.findViewById(R.id.btnok);
-        textView16 = (TextView) view.findViewById(R.id.textView16);
+        txtnome = (EditText) findViewById(R.id.txtnomeapelido);
+        txtemail = (EditText) findViewById(R.id.txtemail);
+        txtsenha = (EditText) findViewById(R.id.txtsenha);
+        txtcpf = (EditText) findViewById(R.id.txtcpf);
+        txtsenha = (EditText) findViewById(R.id.txtsenha);
+        txtcelular = (EditText) findViewById(R.id.txtcelular);
+        txtcomercial = (EditText) findViewById(R.id.txtcomercial);
+        txtresidencial = (EditText) findViewById(R.id.txtres);
+        txtnasc = (EditText) findViewById(R.id.txtnasc);
+        checknews = (CheckBox) findViewById(R.id.checknews);
+        btnok = (Button) findViewById(R.id.btnok);
+        textView16 = (TextView) findViewById(R.id.textView16);
 
-        // Verificar quando for inclusão / alteração / Exclusão
-        Bundle mBundle = new Bundle();
-        if(mBundle != null){
-            mBundle = getArguments();
-            String acao = mBundle.getString("ACAO");
+        Intent mBundle = getIntent();
+        if(mBundle != null) {
+            String acao = mBundle.getStringExtra("ACAO");
 
-            if(acao.equals("M")){
+            if (acao.equals("M")) {
                 // Carrega as informações de cadastro
                 NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
-                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + f.getId(getContext()));
+                myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/cliente/" + f.getId(this));
                 btnok.setText("Atualizar cadastro");
                 textView16.setText("Atualizar cadastro");
             }
         }
-
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
-        //getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
-        //getSupportActionBar().setTitle("Cadastro de Cliente");     //Titulo para ser exibido na sua Action Bar em frente à seta
 
         // Mascára
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
@@ -118,8 +107,7 @@ public class FragmentCadastroCliente extends Fragment {
                 }
 
                 if (nome.equals("") || email.equals("") || senha.equals("") || cpf.equals("") || celular.equals("")) {
-                    Toast toast = Toast.makeText(getContext(), "Os campos com * são obrigatórios!", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(CadastroCliente.this, "Os campos com * são obrigatórios!", Toast.LENGTH_SHORT).show();
                 } else {
 
                     if(f.isCPF(cpf) == true && f.isValidEmail(email) == true){
@@ -127,14 +115,13 @@ public class FragmentCadastroCliente extends Fragment {
                         RelativeLayout relative = (RelativeLayout) view.findViewById(R.id.activity_cadastro_cliente);
                         relative.setBackgroundResource(0);
 
-                        Bundle mBundle = new Bundle();
+                        Intent mBundle = getIntent();
+                        String acao = "";
                         if(mBundle != null) {
-                            mBundle = getArguments();
+                            acao = mBundle.getStringExtra("ACAO");
                         }
 
-                        String acao = mBundle.getString("ACAO");
-
-                        ClienteModel cliente = new ClienteModel(f.getId(getActivity()), nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
+                        ClienteModel cliente = new ClienteModel(f.getId(CadastroCliente.this), nome, email, senha, cpf, celular, comercial, residencial, nasc, knews );
 
                         if (acao.equals("A")){
                             // Inserir dados de cadastro
@@ -144,19 +131,16 @@ public class FragmentCadastroCliente extends Fragment {
                             // Atualização do cadastro
                             Cadastro(cliente, "atualizar");
                         }else {
-                            Toast toast = Toast.makeText(getContext(), "Não foi possível realizar a operação", Toast.LENGTH_SHORT);
-                            toast.show();
+                            Toast.makeText(CadastroCliente.this, "Não foi possível realizar a operação", Toast.LENGTH_SHORT).show();
                         }
 
                     } else {
                         if(f.isValidEmail(email) == false){
-                            Toast toast = Toast.makeText(getContext(), "E-mail inválido", Toast.LENGTH_SHORT);
-                            toast.show();
+                            Toast.makeText(CadastroCliente.this, "E-mail inválido", Toast.LENGTH_SHORT).show();
                         }
 
                         if(f.isCPF(cpf) == false){
-                            Toast toast = Toast.makeText(getContext(), "CPF inválido", Toast.LENGTH_SHORT);
-                            toast.show();
+                            Toast.makeText(CadastroCliente.this, "CPF inválido", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -165,8 +149,6 @@ public class FragmentCadastroCliente extends Fragment {
         };
 
         btnok.setOnClickListener(listener);
-
-        return view;
     }
 
     public void Cadastro(ClienteModel cliente, String acao){
@@ -274,11 +256,11 @@ public class FragmentCadastroCliente extends Fragment {
             super.onPostExecute(result);
 
             if(result.equals("PUT")){
-                Toast.makeText(getContext(), "Dados atualizados com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadastroCliente.this, "Dados atualizados com sucesso", Toast.LENGTH_SHORT).show();
             } else if (result.equals("false")) {
-                f.showDialog("Falha na atualização", "Não foi possível atualizar o cadastro, por favor, verifique as informação de cadastro se estão corretas!", getActivity());
+                f.showDialog("Falha na atualização", "Não foi possível atualizar o cadastro, por favor, verifique as informação de cadastro se estão corretas!", CadastroCliente.this);
             } else {
-                f.showDialog("Erro","Erro ao obter o resultado", getActivity());
+                f.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
             }
         }
     }
@@ -369,7 +351,7 @@ public class FragmentCadastroCliente extends Fragment {
 
         @Override
         protected String doInBackground(String... params) {
-            return f.Login(getActivity(), params[0], params[1]);
+            return f.Login(CadastroCliente.this, params[0], params[1]);
         }
 
         @Override
@@ -377,12 +359,12 @@ public class FragmentCadastroCliente extends Fragment {
             super.onPostExecute(result);
             try {
                 if(!result.equals("200")){
-                    startActivity(new Intent(getActivity(), NewIndex.class));
-                    Toast.makeText(getContext(), "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(CadastroCliente.this, NewIndex.class));
+                    Toast.makeText(CadastroCliente.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                f.showDialog("Erro","Erro ao obter o resultado", getActivity());
+                f.showDialog("Erro","Erro ao obter o resultado", CadastroCliente.this);
             }
         }
     }
