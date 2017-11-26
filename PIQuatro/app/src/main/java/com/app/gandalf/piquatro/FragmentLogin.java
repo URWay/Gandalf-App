@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,25 +53,9 @@ public class FragmentLogin extends Fragment{
         holder.txtreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("ACAO", "A");
-
-
-                Fragment fragment = null;
-                Class fragmentClass = null;
-
-                fragmentClass = FragmentCadastroCliente.class;
-
-                try {
-                    fragment = (Fragment) fragmentClass.newInstance();
-                    fragment.setArguments(bundle);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
-
+            Intent it = new Intent(getActivity(), CadastroCliente.class);
+            it.putExtra("ACAO", "M");
+            startActivity(it);
             }
         });
 

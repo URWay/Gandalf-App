@@ -14,10 +14,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by luiz1 on 19/11/2017.
- */
-
 public class FragmentConfiguracoes extends Fragment {
     private ListView lista;
 
@@ -62,51 +58,19 @@ public class FragmentConfiguracoes extends Fragment {
         return view;
     }
 
-
-
     private void minhaconta() {
-        /*Bundle bundle = new Bundle();
-        bundle.putString("ACAO", "M");
-
-
-        Fragment fragment = null;
-        Class fragmentClass = null;
-
-        fragmentClass = FragmentCadastroCliente.class;
-
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-            fragment.setArguments(bundle);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();*/
-
         Intent it = new Intent(getActivity(), CadastroCliente.class);
-
+        it.putExtra("ACAO", "M");
         startActivity(it);
-        //intent.putExtra("ACAO", "M");
     }
 
     private void meusenderecos() {
-
-
-       Intent it = new Intent(getActivity(), Enderecos.class);
-
+        Intent it = new Intent(getActivity(), Enderecos.class);
         startActivity(it);
-
     }
 
     private void sobre() {
         Intent it = new Intent(getActivity(), FragmentSobre.class);
         startActivity(it);
     }
-
-
-    }
-
-
-
-
+}
