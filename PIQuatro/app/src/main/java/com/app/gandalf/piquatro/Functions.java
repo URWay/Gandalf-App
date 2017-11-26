@@ -140,6 +140,7 @@ public class Functions {
             writer.write(urlParameters);
             writer.flush();
             writer.close();
+            os.close();
             conn.connect();
 
             int responseCode = conn.getResponseCode();
