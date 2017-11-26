@@ -58,7 +58,6 @@ private Functions f = new Functions();
         txtpais = (EditText) findViewById(R.id.txtpais);
         btnEnviarDados = (Button) findViewById(R.id.btnEnviarDados);
         btnbuscar = (Button) findViewById(R.id.btnbuscar);
-        textView5 = (TextView) findViewById(R.id.textView5);
         txtuf = (EditText) findViewById(R.id.txtuf);
 
         txtcep.addTextChangedListener(Mask.insert("#####-###", txtcep));
