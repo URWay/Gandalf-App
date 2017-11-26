@@ -33,7 +33,7 @@
             android:parentActivityName=".NewIndex" />
         <activity
             android:name=".Enderecos"
-            android:parentActivityName=".Configuracoes">
+            android:parentActivityName=".Frag">
 
         </activity>
 
@@ -47,6 +47,7 @@
 
         <activity android:name=".Checkout.Checkout"
             android:parentActivityName=".NewIndex">
+
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
