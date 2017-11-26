@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -84,10 +83,10 @@ private Functions f = new Functions();
             }
         }
 
-        View.OnClickListener listener = new View.OnClickListener() {
+        // Incluí / Atualiza o Cadastro de Endereço
+        btnEnviarDados.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View view) {
                 // Comunicação com WS e de Endereço
                 String endereco = txtnomeendereco.getText().toString().trim();
                 String lograudouro = txtendereco.getText().toString().trim();
@@ -121,11 +120,11 @@ private Functions f = new Functions();
                 }else {
                     myCall.execute(url, json, "PUT");
                 }
-
             }
-        };
+        });
 
-        View.OnClickListener listenerBuscar = new View.OnClickListener() {
+        // Busca o endereço pelo CEP e preenche os campos de acordo com o retorno
+        btnbuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String vcep = txtcep.getText().toString();
@@ -138,10 +137,8 @@ private Functions f = new Functions();
                     myCallEndereco.execute("https://viacep.com.br/ws/"+vcep+"/json/");
                 }
             }
-        };
+        });
 
-        btnbuscar.setOnClickListener(listenerBuscar);
-        btnEnviarDados.setOnClickListener(listener);
     }
 
     // Cadastro / Atualiazação Endereço
@@ -150,10 +147,7 @@ private Functions f = new Functions();
         @Override
         protected String doInBackground(String... params) {
             try {
-
-                URL url = new URL(params[0]);
-
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                HttpURLConnection conn = (HttpURLConnection) new URL(params[0]).openConnection();
                 conn.setReadTimeout(15000);
                 conn.setConnectTimeout(15000);
                 conn.setRequestMethod(params[2]);
@@ -176,25 +170,12 @@ private Functions f = new Functions();
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
 
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
                     StringBuffer sb = new StringBuffer("");
                     String line="";
 
                     while((line = bufferedReader.readLine()) != null) {
                         sb.append(line);
-                        line = bufferedReader.readLine();
                     }
-
-                    StringBuilder resultado = new StringBuilder();
-                    String linha = bufferedReader.readLine();
-
-                    while (linha != null) {
-                        resultado.append(linha);
-                        linha = bufferedReader.readLine();
-                    }
-
-                    bufferedReader.close();
-                    Log.d ("tag",sb.toString());
 
                     return new String ("true : " + responseCode);
                 } else {
@@ -298,26 +279,10 @@ private Functions f = new Functions();
                 txtcidade.setText(cidade);
                 txtuf.setText(uf);
 
-                /*final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(CadastroEndereco.this, android.R.layout.simple_spinner_item, arrayCep);
-                Spinner spinner = (Spinner) findViewById(R.id.spinnerUF);
-                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                if (!uf.equals(null)) {
-                    if(Arrays.asList(arrayCep).contains(uf)){
-                        int spinnerPosition = spinnerArrayAdapter.getPosition(uf);
-                        spinner.setSelection(spinnerPosition);
-                    } else {
-                        int spinnerPosition = spinnerArrayAdapter.getPosition("ZZ");
-                        spinner.setSelection(spinnerPosition);
-                    }
-                }*/
-
-                Toast toast = Toast.makeText(getApplicationContext(), "CEP carregado", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "CEP carregado", Toast.LENGTH_SHORT).show();
 
             } catch (Exception e) {
-                Toast toast = Toast.makeText(getApplicationContext(), "CEP não encontrado", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "CEP não encontrado", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
@@ -392,23 +357,8 @@ private Functions f = new Functions();
                     txtuf.setText( UFEndereco);
                 }
 
-                /*final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(CadastroEndereco.this, android.R.layout.simple_spinner_item, arrayCep);
-                Spinner spinner = (Spinner) findViewById(R.id.spinnerUF);
-                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                if (!UFEndereco.equals(null)) {
-                    if(Arrays.asList(arrayCep).contains(UFEndereco)){
-                        int spinnerPosition = spinnerArrayAdapter.getPosition(UFEndereco);
-                        spinner.setSelection(spinnerPosition);
-                    } else {
-                        int spinnerPosition = spinnerArrayAdapter.getPosition("ZZ");
-                        spinner.setSelection(spinnerPosition);
-                    }
-                }*/
-
             } catch (Exception e) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Erro ao carregar as informações de endereço", Toast.LENGTH_SHORT);
-                toast.show();
+                Toast.makeText(getApplicationContext(), "Erro ao carregar as informações de endereço", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }

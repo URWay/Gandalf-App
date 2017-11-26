@@ -93,10 +93,10 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout4"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_above="@+id/textInputLayout5"
-        android:layout_alignStart="@+id/textInputLayout3"
-        android:layout_alignEnd="@+id/textInputLayout9">
+        android:layout_alignEnd="@+id/textInputLayout9"
+        android:layout_alignStart="@+id/textInputLayout3">
 
 
         <EditText
@@ -219,10 +219,10 @@ tools:context="com.app.gandalf.piquatro.CadastroEndereco">
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout9"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_centerVertical="true"
+        android:layout_height="60dp"
+        android:layout_alignEnd="@+id/textInputLayout7"
         android:layout_alignStart="@+id/textInputLayout3"
-        android:layout_alignEnd="@+id/textInputLayout7">
+        android:layout_centerVertical="true">
 
 
         <EditText

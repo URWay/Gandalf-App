@@ -122,14 +122,15 @@ public class Functions {
         }
     }
 
-    private int sendPost(String url, String urlParameters, String method) {
+    // Comunicação via Post
+    public int sendPost(String url, String urlParameters, String method) {
         int retorno = 0;
 
         try {
             HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
             conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
-            conn.setRequestMethod(method);
+            conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
             conn.setRequestProperty ("Content-Type", "application/json");
@@ -163,30 +164,6 @@ public class Functions {
         }
 
         return retorno;
-    }
-
-    public int sendDelete(String url, String method){
-        try {
-            HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
-            con.setRequestMethod(method);
-            con.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-            int responseCode = con.getResponseCode();
-
-            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            return responseCode;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0;
     }
 
     // Retorno do ID do cliente

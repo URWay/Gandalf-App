@@ -1,15 +1,25 @@
 package com.app.gandalf.piquatro;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -27,6 +37,7 @@ public class Enderecos extends AppCompatActivity {
     private ArrayAdapter<String> adaptador;
     private ArrayList<String> opcoes = new ArrayList<String>();
     private List<Integer> positions = new ArrayList<>();
+    private MyCustomAdapter thadapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +56,8 @@ public class Enderecos extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SessionLogin", MODE_PRIVATE);
         int id = prefs.getInt("id", 0);
 
-        /*if(id == 0){
-            Intent iRetorno = new Intent(Enderecos.this, Configuracoes.class);
-            iRetorno.putExtra("Retorno", 0);
-            startActivity(iRetorno);
-            finish();
-        } else {*/
-            NetworkCall myCall = new NetworkCall();
-            myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/all/" + id );
-        //}
+        NetworkCall myCall = new NetworkCall();
+        myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/all/" + id );
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -144,25 +148,22 @@ public class Enderecos extends AppCompatActivity {
     // Adiciona Opções na lista
     public void addOption(int idEndereco, int numero, String nomeEndereco, String logradouro, String estado, String cidade, String CEPEndereco){
         String endereco = "";
-        if (!nomeEndereco.equals("")) {
-            endereco = nomeEndereco;
-        } else {
+        if (!logradouro.equals("")) {
             endereco = logradouro;
+        } else {
+            endereco = nomeEndereco;
         }
 
         String option = endereco.trim() + " " + numero + "\n" +
                         CEPEndereco.trim() + " - " + estado.trim() + " - " + cidade.trim();
         opcoes.add(option);
 
-        //adaptador = new ArrayAdapter<>(Enderecos.this, android.R.layout.simple_selectable_list_item, opcoes);
-        //lista.setAdapter(adaptador);
-
         // Adiciona para pegar a posição posteriormente
         positions.add(idEndereco);
 
-        MyCustomAdapter adaptador = new MyCustomAdapter(opcoes, positions, this, Enderecos.this);
+        thadapter = new MyCustomAdapter(opcoes, positions, this, Enderecos.this);
         ListView lView = (ListView)findViewById(R.id.lista);
-        lView.setAdapter(adaptador);
+        lView.setAdapter(thadapter);
     }
 
     // Retorno
@@ -173,11 +174,9 @@ public class Enderecos extends AppCompatActivity {
                 String retorno = data.getStringExtra("Retorno");
 
                 if (retorno.equals("A")) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Cadastro adicionado com sucesso!", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(getApplicationContext(), "Cadastro adicionado com sucesso!", Toast.LENGTH_SHORT).show();
                 } else if(retorno.equals("M")){
-                    Toast toast = Toast.makeText(getApplicationContext(), "Cadastro atualizado com sucesso!", Toast.LENGTH_SHORT);
-                    toast.show();
+                    Toast.makeText(getApplicationContext(), "Cadastro atualizado com sucesso!", Toast.LENGTH_SHORT).show();
                 }
 
                 finish();
@@ -188,7 +187,7 @@ public class Enderecos extends AppCompatActivity {
                     String retorno = data.getStringExtra("Retorno");
                     if(retorno.equals("A.F")){
                         f.showDialog("Erro", "Problema ao cadastrar o endereço!", Enderecos.this);
-                    } else if(retorno.equals("A.F")){
+                    } else if(retorno.equals("M.F")){
                         f.showDialog("Erro", "Problema ao atualizar o endereço!", Enderecos.this);
                     }
                 } catch (Exception ex){
@@ -197,5 +196,124 @@ public class Enderecos extends AppCompatActivity {
             }
         }
     }
+
+    public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
+        private ArrayList<String> list;
+        private List<Integer> positions;
+        private Context context;
+        private int id;
+        private Activity activity;
+        private int pos;
+
+        public MyCustomAdapter(ArrayList<String> list, List<Integer> positions, Context context, Activity activity) {
+            this.list = list;
+            this.positions = positions;
+            this.context = context;
+            this.activity = activity;
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int pos) {
+            return list.get(pos);
+        }
+
+        @Override
+        public long getItemId(int pos) {
+            return 0; //list.get(pos).getId();
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            if (view == null) {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                view = inflater.inflate(R.layout.list_item, null);
+            }
+
+            TextView listItemText = (TextView) view.findViewById(R.id.list_item_string);
+            ImageView deleteBtn = (ImageView) view.findViewById(R.id.delete_btn);
+            listItemText.setText(list.get(position));
+
+            int valor = positions.get(position);
+
+            if(valor == 0 && valor <= 0){
+                view.findViewById(R.id.delete_btn).setVisibility(View.INVISIBLE);
+            }
+
+            deleteBtn.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whick) {
+                            switch (whick) {
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    int idEndereco = positions.get(position);
+                                    pos = position;
+
+                                    String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/delete";
+
+                                    Functions fun = new Functions();
+                                    String param = "{\"idEndereco\":"+idEndereco+"}";
+
+                                    NetworkCallDelete myCall = new NetworkCallDelete();;
+                                    myCall.execute(url, param, "POST");
+
+                                    break;
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    break;
+
+                            }
+                        }
+                    };
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setMessage("Corfirma a exclusão do endereço ?").setTitle("Deletar endereço").setPositiveButton("Sim", dialogClickListener).setNegativeButton("Não", dialogClickListener).show();
+                }
+            });
+
+            return view;
+        }
+
+        // Exclusão do endereço
+        public class NetworkCallDelete extends AsyncTask<String, Void, String> {
+
+            @Override
+            protected String doInBackground(String... params) {
+                Functions f = new Functions();
+
+                int retorno = f.sendPost(params[0], params[1], params[2]);
+
+                return String.valueOf(retorno);
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+                super.onPostExecute(result);
+
+                if(result.equals("200")){
+                    list.remove(pos);
+                    Toast.makeText(activity.getApplicationContext(), "Endereço deletado com sucesso!", Toast.LENGTH_SHORT).show();
+                    thadapter.notifyDataSetChanged();
+
+                    String valor = list.get(pos);
+
+                    if(valor.equals("Adicionar endereço")){
+                        findViewById(R.id.delete_btn).setVisibility(View.INVISIBLE);
+                    }
+
+                }else {
+                    Toast.makeText(activity.getApplicationContext(), "Erro ao deletar o endereço.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+    }
+
 }
 
