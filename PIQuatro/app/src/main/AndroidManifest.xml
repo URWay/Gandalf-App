@@ -27,7 +27,7 @@
         <activity android:name=".ListaProdutos" />
         <activity
             android:name=".CadastroEndereco"
-            android:screenOrientation="portrait" />
+                android:screenOrientation="portrait" />
         <activity
             android:name=".descProduto"
             android:parentActivityName=".NewIndex" />
@@ -35,6 +35,7 @@
             android:name=".Enderecos">
 
         </activity>
+
 
         <activity
             android:name=".NewIndex"
@@ -49,7 +50,8 @@
 
         </activity>
 
-            <activity android:name=".descPedido"></activity>
+
+
     </application>
 
 </manifest>
