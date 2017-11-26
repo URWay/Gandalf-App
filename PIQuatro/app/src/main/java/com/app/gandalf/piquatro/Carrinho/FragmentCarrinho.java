@@ -78,7 +78,8 @@ public class FragmentCarrinho extends Fragment {
         TextView txtTotalCarrrinho = (TextView) view.findViewById(R.id.txtTotalCarrrinho);
 
         // Total do carrinho
-        txtTotalCarrrinho.setText("R$: " + String.valueOf(sh.getTotal(getContext())));
+        double totalCArrinho = sh.getTotal(getContext());
+        txtTotalCarrrinho.setText(new DecimalFormat("R$ #,##0.00").format(totalCArrinho));
 
         thadapter = new MyCustomAdapterCarrinhoA(list, getContext());
 

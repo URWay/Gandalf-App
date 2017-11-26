@@ -11,12 +11,12 @@
                 android:id="@+id/comprar"
                 android:layout_width="376dp"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/idcod"
                 android:background="@android:color/holo_blue_bright"
                 android:text="Finalizar compra"
                 android:textColorLink="@android:color/holo_green_dark"
                 android:layout_alignParentBottom="true"
-                android:layout_alignEnd="@+id/btnEnderecoTroca" />
+                android:layout_alignEnd="@+id/btnEnderecoTroca"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:id="@+id/textVQtdProduto"
@@ -33,8 +33,6 @@
                 android:id="@+id/editTotal"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textView20"
-                android:layout_toEndOf="@+id/textView21"
                 android:clickable="false"
                 android:cursorVisible="false"
                 android:ems="10"
@@ -44,7 +42,10 @@
                 android:text="quantidadeprod"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/holo_green_dark"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:layout_alignTop="@+id/textView20"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -63,39 +64,25 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_below="@+id/editTotal"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="26dp"
-        android:layout_toStartOf="@+id/spinParcelas"
+        android:layout_marginTop="22dp"
         android:text="Endereço de entrega:"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/editTotal"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="11dp" />
 
-            <TextView
-                android:id="@+id/textEndereco"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_alignEnd="@+id/editTotal"
-                android:layout_alignStart="@+id/textView21"
-                android:layout_below="@+id/textView21" />
-
-
-            <Button
-                android:id="@+id/btnEnderecoTroca"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_alignEnd="@+id/textEndereco"
-                android:layout_alignStart="@+id/textEndereco"
-                android:layout_below="@+id/textEndereco"
-                android:background="@android:color/holo_blue_light"
-                android:text="Alterar endereço"
-                android:textAlignment="center"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
+    <TextView
+        android:id="@+id/textEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignEnd="@+id/editTotal"
+        android:layout_alignStart="@+id/textView21"
+        android:layout_below="@+id/textView21" />
 
 
-            <TextView
+    <TextView
                 android:id="@+id/textView28"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,9 +90,9 @@
                 android:textColor="@android:color/background_dark"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_below="@+id/txtnumcod"
-                android:layout_alignStart="@+id/btnEnderecoTroca"
-                android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/txtnumcod"
+        android:layout_alignStart="@+id/textView27" />
 
 
             <Spinner
@@ -154,8 +141,8 @@
                 android:textAlignment="center"
                 android:textSize="14sp"
                 android:layout_below="@+id/textView28"
-                android:layout_alignStart="@+id/textView28"
-                android:layout_alignEnd="@+id/spiAno" />
+                android:layout_alignEnd="@+id/spiAno"
+                android:layout_alignStart="@+id/txtnumcod" />
 
 
             <TextView
@@ -200,8 +187,9 @@
                 android:text="Cartão:"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold"
-                android:layout_centerVertical="true"
-                android:layout_alignStart="@+id/btnEnderecoTroca" />
+                android:layout_below="@+id/textEndereco"
+                android:layout_alignStart="@+id/textEndereco"
+                android:layout_marginTop="26dp" />
 
             <Spinner
                 android:id="@+id/spiAno"

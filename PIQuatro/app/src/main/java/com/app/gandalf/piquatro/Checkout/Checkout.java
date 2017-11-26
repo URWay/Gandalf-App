@@ -135,24 +135,23 @@ public class Checkout extends AppCompatActivity {
 
 
             String[] mes = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-            final ArrayAdapter<String> spinnerArrayAdapterMes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mes);
+            final ArrayAdapter<String> spinnerArrayAdapterMes = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mes);
             Spinner spinnerM = (Spinner) findViewById(R.id.spinParcelas);
             spinnerArrayAdapterMes.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerM.setAdapter(spinnerArrayAdapterMes);
 
-            String[] ano = new String[] {""};
+            String[] ano = new String[] {"2017"};
             List<String> anoS = new ArrayList<>();
 
-            for(int i = 1900; i <= 2017; i++){
+            for(int i = 2012; i <= 2099; i++){
                 anoS.add(String.valueOf(i));
             }
 
-
-
-            final ArrayAdapter<String> spiAno = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, anoS);
+            final ArrayAdapter<String> spiAno = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, anoS);
             Spinner spinnerAno = (Spinner) findViewById(R.id.spiAno);
             spiAno.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerAno.setAdapter(spiAno);
+
 
 
             Button comprar = (Button) findViewById(R.id.comprar);
