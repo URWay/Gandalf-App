@@ -32,8 +32,7 @@
             android:name=".descProduto"
             android:parentActivityName=".NewIndex" />
         <activity
-            android:name=".Enderecos"
-            android:parentActivityName=".Frag">
+            android:name=".Enderecos">
 
         </activity>
 
@@ -47,14 +46,6 @@
 
         <activity android:name=".Checkout.Checkout"
             android:parentActivityName=".NewIndex">
-
-
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
 
         </activity>
 
