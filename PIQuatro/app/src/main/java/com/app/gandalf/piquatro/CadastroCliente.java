@@ -81,12 +81,12 @@ public class CadastroCliente extends AppCompatActivity {
         }
 
 
-      /*  Toolbar myToolbar = (Toolbar) findViewById(R.id.mytoolbar);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.mytoolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
         getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
         getSupportActionBar().setTitle("Cadastro de Cliente");
-*/
+
         // Mascára
         txtcpf.addTextChangedListener(Mask.insert("###.###.###-##", txtcpf));
         txtcelular.addTextChangedListener(Mask.insert("(##)#####-####", txtcelular));

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -62,7 +63,11 @@ private Functions f = new Functions();
 
         txtcep.addTextChangedListener(Mask.insert("#####-###", txtcep));
 
-
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.mytool);
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); //Mostrar o botão
+        getSupportActionBar().setHomeButtonEnabled(true);      //Ativar o botão
+        getSupportActionBar().setTitle("Cadastro de Endereço");
 
         // Verificar quando for inclusão / alteração / Exclusão
         Intent intent = getIntent();

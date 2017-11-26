@@ -30,7 +30,7 @@
         <activity
             android:name=".CadastroCliente"
             android:screenOrientation="portrait">
-            
+
         </activity>
 
 
