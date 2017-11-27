@@ -40,13 +40,6 @@
 
     </group>
 
-    <item android:title="Produto">
-        <item
-            android:id="@+id/nav_qrcode"
-            android:icon="@drawable/qrcode"
-            android:title="Buscar produto por QRCode" />
-    </item>
-
 
     <item android:title="Dados pessoais">
         <menu>

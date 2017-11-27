@@ -78,7 +78,7 @@
         android:layout_above="@+id/txtlogin"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/my_toolbar" />
+        />
 
     <ImageView
         android:id="@+id/imageView4"

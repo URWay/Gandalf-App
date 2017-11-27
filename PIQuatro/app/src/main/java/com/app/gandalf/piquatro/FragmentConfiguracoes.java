@@ -46,10 +46,7 @@ public class FragmentConfiguracoes extends Fragment {
                     case 1:
                         meusenderecos();
                         break;
-                    case 2:
-                        sobre();
-                        break;
-                    case 3:;
+                    case 2:;
                         break;
                 }
             }
@@ -69,8 +66,5 @@ public class FragmentConfiguracoes extends Fragment {
         startActivity(it);
     }
 
-    private void sobre() {
-        Intent it = new Intent(getActivity(), FragmentSobre.class);
-        startActivity(it);
-    }
+
 }

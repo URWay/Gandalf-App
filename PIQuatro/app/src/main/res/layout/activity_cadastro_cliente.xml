@@ -162,8 +162,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout7"
 
-        android:layout_alignStart="@+id/textInputLayout8"
         android:layout_above="@+id/checknews"
+        android:layout_alignStart="@+id/textInputLayout8"
+        android:layout_marginBottom="20dp"
         android:layout_alignEnd="@+id/textInputLayout8">
 
 
@@ -184,9 +185,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textInputLayout8"
-        android:layout_above="@+id/checknews"
+        android:layout_below="@+id/textInputLayout6"
         android:layout_alignStart="@+id/textInputLayout6"
-        android:layout_marginBottom="38dp"
         android:layout_alignEnd="@+id/textInputLayout6">
 
 

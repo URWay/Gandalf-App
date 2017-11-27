@@ -30,6 +30,7 @@
                 android:screenOrientation="portrait" />
         <activity
             android:name=".CadastroCliente"
+            android:parentActivityName=".NewIndex"
             android:screenOrientation="portrait">
 
         </activity>
