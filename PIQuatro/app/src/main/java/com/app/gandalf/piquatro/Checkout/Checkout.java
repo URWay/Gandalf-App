@@ -57,6 +57,8 @@ public class Checkout extends AppCompatActivity {
     private int idPedido;
     private int idnumcard;
     private EditText txtnumcod;
+    private Spinner spinnerano;
+    private Spinner spinnermes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +73,12 @@ public class Checkout extends AppCompatActivity {
 
         txtnumcod = (EditText) findViewById(R.id.txtnumcod);
 
-        txtnumcod.addTextChangedListener(Mask.insert("#### #### #### ####", txtnumcod));
+        txtnumcod.addTextChangedListener(Mask.insert("####-####-####-####", txtnumcod));
 
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String json = prefs.getString(PRODUCTS, null);
+
+
 
 
         // Login

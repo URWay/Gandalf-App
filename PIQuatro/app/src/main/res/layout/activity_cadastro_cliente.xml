@@ -23,7 +23,6 @@
         android:id="@+id/textInputLayout1"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
         android:layout_below="@+id/mytoolbar"
         android:layout_centerHorizontal="true">
 
@@ -219,10 +218,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deseja receber ofertas por e-mail?"
+        android:textAlignment="center"
         android:textStyle="bold"
+        android:layout_marginBottom="15dp"
         android:layout_above="@+id/btnok"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnok"

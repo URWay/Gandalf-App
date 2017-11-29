@@ -147,6 +147,7 @@ public class descProduto extends AppCompatActivity {
 
         if(retorno){
             Toast.makeText(getApplicationContext(), "Produto adicionado no carrinho!", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(descProduto.this, NewIndex.class));
         } else {
             Toast.makeText(getApplicationContext(), "Problema ao adicionadar produto no carrinho!", Toast.LENGTH_SHORT).show();
         }

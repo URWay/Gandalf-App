@@ -16,7 +16,8 @@
                 android:textColorLink="@android:color/holo_green_dark"
                 android:layout_alignParentBottom="true"
 
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true" />
 
             <TextView
                 android:id="@+id/textVQtdProduto"
@@ -44,8 +45,7 @@
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="18dp"
                 android:layout_alignTop="@+id/textView20"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="12dp" />
+                android:layout_alignEnd="@+id/textEndereco" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -64,22 +64,21 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="20dp"
         android:text="Endereço de entrega:"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_below="@+id/editTotal"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="11dp" />
+        android:layout_alignStart="@+id/textView27" />
 
     <TextView
         android:id="@+id/textEndereco"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_alignEnd="@+id/editTotal"
         android:layout_alignStart="@+id/textView21"
-        android:layout_below="@+id/textView21" />
+        android:layout_below="@+id/textView21"
+        android:layout_alignEnd="@+id/txtnumcod" />
 
 
     <TextView
@@ -90,9 +89,9 @@
                 android:textColor="@android:color/background_dark"
                 android:textSize="14sp"
                 android:textStyle="bold"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="14dp"
         android:layout_below="@+id/txtnumcod"
-        android:layout_alignStart="@+id/textView27" />
+        android:layout_alignStart="@+id/idcod" />
 
 
             <Spinner
@@ -100,7 +99,7 @@
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:layout_alignTop="@+id/textView18"
-                android:layout_alignStart="@+id/textView9">
+                android:layout_alignEnd="@+id/textView9">
 
             </Spinner>
 
@@ -187,9 +186,9 @@
                 android:text="Cartão:"
                 android:textColor="@android:color/background_dark"
                 android:textStyle="bold"
+                android:layout_marginTop="26dp"
                 android:layout_below="@+id/textEndereco"
-                android:layout_alignStart="@+id/textEndereco"
-                android:layout_marginTop="26dp" />
+                android:layout_alignStart="@+id/txtnumcod" />
 
             <Spinner
                 android:id="@+id/spiAno"
@@ -210,7 +209,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:layout_alignBottom="@+id/spinnerParcela"
-                android:layout_toStartOf="@+id/spinnerParcela" />
+                android:layout_alignEnd="@+id/textView27" />
 
 
 </RelativeLayout>

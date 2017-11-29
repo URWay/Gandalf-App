@@ -163,7 +163,7 @@ public class CadastroCliente extends AppCompatActivity {
         if(acao.equals("atualizar")){
             method = "PUT";
         } else if (acao.equals("inserir")){
-            if(!f.isEmail(cliente))
+
                 method = "POST";
         }
 
@@ -359,8 +359,9 @@ public class CadastroCliente extends AppCompatActivity {
             super.onPostExecute(result);
             try {
                 if(!result.equals("200")){
-                    startActivity(new Intent(CadastroCliente.this, NewIndex.class));
+
                     Toast.makeText(CadastroCliente.this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(CadastroCliente.this, NewIndex.class));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

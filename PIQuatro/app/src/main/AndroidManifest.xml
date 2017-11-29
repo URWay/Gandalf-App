@@ -24,10 +24,9 @@
         </activity>
         <activity android:name=".FirstTime" />
         <activity android:name=".ListaProdutos" />
-        <activity
-                android:name=".CadastroEndereco"
-
-                android:screenOrientation="portrait" />
+        <activity  android:name=".CadastroEndereco"
+                   android:parentActivityName=".NewIndex"
+                    android:screenOrientation="portrait" />
         <activity
             android:name=".CadastroCliente"
             android:parentActivityName=".NewIndex"
@@ -40,7 +39,9 @@
             android:name=".descProduto"
             android:parentActivityName=".NewIndex" />
         <activity
-            android:name=".Enderecos">
+            android:name=".Enderecos"
+            android:parentActivityName=".NewIndex">
+
         </activity>
        <activity
             android:name=".NewIndex"
@@ -51,6 +52,11 @@
         </activity>
         <activity android:name=".Checkout.Checkout"
             android:parentActivityName=".NewIndex">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
         </activity>
     </application>
 </manifest>
