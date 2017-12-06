@@ -75,6 +75,8 @@ private Functions f = new Functions();
                     // Carrega as informações de cadastro
                     NetworkCallCarregaDados myCall = new NetworkCallCarregaDados();
                     int id = Integer.parseInt(intent.getStringExtra("idEndereco"));
+                    Toast toast = Toast.makeText(CadastroEndereco.this,"Consultando...",Toast.LENGTH_LONG);
+                    toast.show();
                     myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/" + id);
                     textView5.setText("Atualizar cadastro");
                 }
@@ -116,8 +118,12 @@ private Functions f = new Functions();
                 NetworkCall myCall = new NetworkCall();
 
                 if (idEndereco == 0){
+                    Toast toast = Toast.makeText(CadastroEndereco.this,"Cadastrando...",Toast.LENGTH_LONG);
+                    toast.show();
                     myCall.execute(url, json, "POST");
                 }else {
+                    Toast toast = Toast.makeText(CadastroEndereco.this,"Atualizando...",Toast.LENGTH_LONG);
+                    toast.show();
                     myCall.execute(url, json, "PUT");
                 }
             }

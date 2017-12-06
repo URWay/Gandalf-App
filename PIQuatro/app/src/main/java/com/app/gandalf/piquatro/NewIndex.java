@@ -116,6 +116,15 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.new_index, menu);
 
+/*        MenuItem bedMenuItem = menu.findItem(R.id.nav_login);
+
+        int id = f.getId(getApplicationContext());
+
+        if(id > 0){
+            bedMenuItem.setTitle("Logoff");
+        } else {
+            bedMenuItem.setTitle("Login");
+        }*/
 
         return true;
     }
@@ -138,7 +147,6 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
 
         Fragment fragment = null;
         Class fragmentClass = null;
-
 
         int id = item.getItemId();
         if(id == R.id.nav_home){
@@ -221,8 +229,8 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
                 Button closeButton = (Button) MyDialog.findViewById(R.id.btnCancelar);
                 Button btnRemoverItem = (Button) MyDialog.findViewById(R.id.btnRemoverItem);
                 TextView textView6 = (TextView) MyDialog.findViewById(R.id.textView6);
-                textView6.setText("Realmente quer fazer o log off ? ");
-                btnRemoverItem.setText("Logo ff");
+                textView6.setText("Realmente quer deslogar? ");
+                btnRemoverItem.setText("Deslogar");
 
                 btnRemoverItem.setEnabled(true);
                 closeButton.setEnabled(true);
@@ -235,7 +243,7 @@ public class NewIndex extends AppCompatActivity implements NavigationView.OnNavi
                     }
                 });
 
-                // Log off
+                // Logoff
                 btnRemoverItem.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

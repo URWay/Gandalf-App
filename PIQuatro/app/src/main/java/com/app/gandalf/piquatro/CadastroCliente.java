@@ -168,6 +168,10 @@ public class CadastroCliente extends AppCompatActivity {
         }
 
         NetworkCall myCall = new NetworkCall();
+
+        Toast toast = Toast.makeText(CadastroCliente.this,"Cadastrando...",Toast.LENGTH_LONG);
+        toast.show();
+
         myCall.execute(url, json, method);
     }
 
@@ -179,6 +183,7 @@ public class CadastroCliente extends AppCompatActivity {
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/login";
 
         NetworkCallLogin myCall = new NetworkCallLogin();
+
         myCall.execute(url, json);
     }
 

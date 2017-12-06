@@ -82,16 +82,16 @@
 
 
     <TextView
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Titular do cartão"
-                android:textColor="@android:color/background_dark"
-                android:textSize="14sp"
-                android:textStyle="bold"
-        android:layout_marginTop="14dp"
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/idcod"
         android:layout_below="@+id/txtnumcod"
-        android:layout_alignStart="@+id/idcod" />
+        android:layout_marginTop="14dp"
+        android:text="Código do cartão"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
 
             <Spinner

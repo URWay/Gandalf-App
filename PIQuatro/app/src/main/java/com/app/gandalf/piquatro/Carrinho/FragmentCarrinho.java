@@ -270,6 +270,20 @@ public class FragmentCarrinho extends Fragment {
                         holder.qtd.setText(String.valueOf(qtdNew_minus));
                         SharedPreferencesCart sh = new SharedPreferencesCart();
                         sh.saveItens(context, null, list);
+
+                        Fragment fragment = null;
+                        Class fragmentClass = null;
+
+                        fragmentClass = FragmentCarrinho.class;
+
+                        try {
+                            fragment = (Fragment) fragmentClass.newInstance();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
+
                     }
                 }
             });

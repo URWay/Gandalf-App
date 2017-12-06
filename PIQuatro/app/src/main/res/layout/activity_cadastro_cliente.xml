@@ -124,12 +124,12 @@
             android:id="@+id/txtnasc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Dt. Nascimento"
-            android:textSize="16dp"
-            android:inputType="date"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+            android:ems="10"
+            android:hint="Dt. Nascimento (AAAA/MM/DD)"
+            android:inputType="date"
+            android:textSize="16dp" />
 
     </android.support.design.widget.TextInputLayout>
 

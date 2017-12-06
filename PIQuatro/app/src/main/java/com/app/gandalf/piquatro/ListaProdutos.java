@@ -46,7 +46,8 @@ public class ListaProdutos extends AppCompatActivity {
         int idCat = intent.getIntExtra("categoria", 0);
 
         //AP = id inicial do produto
-
+        Toast toast = Toast.makeText(ListaProdutos.this,"Carregando...",Toast.LENGTH_LONG);
+        toast.show();
         myCall.execute(url + "/" + idCat + "?ap=0");
 
 

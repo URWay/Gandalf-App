@@ -54,6 +54,8 @@ public class FragmentHomeListaProduto extends Fragment {
         }
 
         //Pega a categoria para busca
+        Toast toast = Toast.makeText(getActivity(),"Carregando...",Toast.LENGTH_LONG);
+        toast.show();
         myCall.execute(url+"/"+cat);
 
         return v;

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,22 @@ public class FragmentConfiguracoes extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_configuracoes, container, false);
+        Functions f = new Functions();
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        int idCliente = f.getId(getActivity());
+
+        if(idCliente <= 0){
+            fragmentClass = FragmentLogin.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
+        }
+
 
         ArrayAdapter<String> adaptador;
 
@@ -31,7 +48,8 @@ public class FragmentConfiguracoes extends Fragment {
         List<String> opcoes = new ArrayList<String>();
         opcoes.add("Minha conta");
         opcoes.add("Meus endereços");
-        opcoes.add("Sobre");
+
+
 
         adaptador = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, opcoes);
         lista.setAdapter(adaptador);

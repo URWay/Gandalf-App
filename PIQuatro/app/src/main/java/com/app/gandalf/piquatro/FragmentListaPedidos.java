@@ -1,11 +1,14 @@
 package com.app.gandalf.piquatro;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -15,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 
@@ -41,17 +45,26 @@ public class FragmentListaPedidos extends Fragment {
         hospedeiro = v.findViewById(R.id.container);
         NetworkCall myCall = new NetworkCall();
         String url = "http://gandalf-ws.azurewebsites.net/pi4/wb/pedido/";
-
+        Fragment fragment = null;
+        Class fragmentClass = null;
         //instanciar para n mudar o código
         Functions f = new Functions();
 
-        int idSession = f.getId(this.getContext());
+        int idCliente = f.getId(getActivity());
 
-        if(idSession < 1){
-            idSession = 64;
+        if(idCliente <= 0){
+            fragmentClass = FragmentLogin.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.corpo, fragment).commit();
         }
-
-        myCall.execute(url + "/"+idSession);
+        Toast toast = Toast.makeText(getActivity(),"Carregando...",Toast.LENGTH_LONG);
+        toast.show();
+        myCall.execute(url + "/"+idCliente);
 
         return v;
     }

@@ -57,6 +57,8 @@ public class Enderecos extends AppCompatActivity {
         int id = prefs.getInt("id", 0);
 
         NetworkCall myCall = new NetworkCall();
+        Toast toast = Toast.makeText(Enderecos.this,"Consultando...",Toast.LENGTH_LONG);
+        toast.show();
         myCall.execute("http://gandalf-ws.azurewebsites.net/pi4/wb/endereco/all/" + id );
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
